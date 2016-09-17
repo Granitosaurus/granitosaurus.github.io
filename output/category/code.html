@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title><span title="sloppy ramblings of Granitosaurus">Echoe</span> - code</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/"><span title="sloppy ramblings of Granitosaurus">Echoe</span> </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/code.html">code</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/installing-pelican.html">First post. Hello Pelican!</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-09-14T00:00:00+02:00">
+                Published: Wed 14 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
+        </address>
+<p>In <a href="/category/code.html">code</a>.</p>
+<p>tags: <a href="/tag/pelican.html">pelican</a> <a href="/tag/python.html">python</a> <a href="/tag/blog.html">blog</a> </p>
+</footer><!-- /.post-info --><p>I've decided to start a blog after Python package called Pelican caught my eye.</p>
+<h3>Installing Pelican</h3>
+<p><img alt="Pelicans are cool" src="/images/pelican-bird.jpg" /><br />
+The setup for <code>Pelican</code> is pretty straightforward just run:</p>
+<div class="highlight"><pre><span></span>~&gt; pip install pelican  <span class="c1"># Installing Pelican package for python</span>
+~&gt; mdir blog <span class="o">&amp;&amp;</span> <span class="nb">cd</span> blog  <span class="c1"># Create and jump into your blog directory!</span>
+~/blog/&gt; pelican-quickstart
+    ... <span class="c1">#answer some simple questions here</span>
+~/blog/&gt; vim content/first-page.md
+    ... <span class="c1">#write your blog here in simple markdown</span>
+~/blog/&gt; pelican content  <span class="c1"># regenerate website</span>
+~/blog/&gt; <span class="nb">cd</span> output
+~/blog/output&gt; python -m pelican.server  <span class="c1"># run pelican server to test locally</span>
+</pre></div>
+
+
+<p>Now connect to <code>http://localhost:8000</code> and there you go!<br />
+You can check <a href="http://docs.getpelican.com/en/latest/content.html#articles-and-pages">here</a> for how to template your message how to format your blog entry.</p>
+<h3>Vim markdown highlight for .md files</h3>
+<p>While going through the installation I've noticed that markdown doesn't have highlighting in vim which was peculiar. I found <a href="http://superuser.com/questions/701496/no-syntax-highlight-on-md-files">this post which describes a simple fix</a>.<br />
+Simply create directories and file: </p>
+<div class="highlight"><pre><span></span>~/.vim/ftdetect/markdown.vim
+</pre></div>
+
+
+<p>with content: </p>
+<div class="highlight"><pre><span></span>au BufNewFile,BufRead *.md  setf markdown
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/scrapy-stackoverflow.html" rel="bookmark"
+                           title="Permalink to Stackoverflow [scrapy] experience.">Stackoverflow [scrapy] experience.</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-14T00:00:00+02:00">
+                Published: Wed 14 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
+        </address>
+<p>In <a href="/category/code.html">code</a>.</p>
+<p>tags: <a href="/tag/scrapy.html">scrapy</a> <a href="/tag/python.html">python</a> <a href="/tag/stackoverflow.html">stackoverflow</a> </p>
+</footer><!-- /.post-info -->                <p>Starting up the blog with Python and Pelican static blog generator!</p>
+                <a class="readmore" href="/scrapy-stackoverflow.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://github.com/granitas">Github</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Stackoverflow [scrapy] experience.</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/"><span title="sloppy ramblings of Granitosaurus">Echoe</span> </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/code.html">code</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/scrapy-stackoverflow.html" rel="bookmark"
+           title="Permalink to Stackoverflow [scrapy] experience.">Stackoverflow [scrapy] experience.</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-09-14T00:00:00+02:00">
+                Published: Wed 14 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
+        </address>
+<p>In <a href="/category/code.html">code</a>.</p>
+<p>tags: <a href="/tag/scrapy.html">scrapy</a> <a href="/tag/python.html">python</a> <a href="/tag/stackoverflow.html">stackoverflow</a> </p>
+</footer><!-- /.post-info -->      <p><em>"People suck at asking questions"</em></p>
+<p>After spending over a month answering <code>scrapy</code>* related questions I've decided to share my experience. I'll point out few things that I've learned from this little experiment and few other related comments.</p>
+<h1>The Good</h1>
+<p>There are surprisingly <strong>a lot of questions</strong> with this scrapy tag on stackoverflow.</p>
+<p><img alt="scrapy stackoverflow stats 2016-09-14" src="/images/scrapy_stackoverflow1.png" /></p>
+<p>First things you notice in this picture is that the percentage of "unanswered" is quite high for recent questions. Even though that seems to be quite normal for stackoverflow it is still slightly higher than other related tags (e.g. python tag has 44% in the last 30 days right now). <br />
+This brings me back to first point: there are a lot of new scrapy users and majority of them are either new or intermediate python programmers. This is to be expected since web-scraping in general is on the rise. Starting up any project when you can generate a bunch of data with script or two is extremely appealing to beginners and veterans alike.<br />
+One thing I've noticed that <strong>people who ask questions are generally pleasant</strong> - willing to learn, change and work to resolve the issue.</p>
+<h1>The Bad</h1>
+<p><img alt="scrapy stackoverflow generic question" src="/images/scrapy_stackoverflow2.png" /><br />
+The question quality is pretty poor, even compared to general stackoverflow quality. A lot of questions don't seem to be focused on general solutions but on individual problems which as far as I know is against the general rules of stackoverflow. However people seems to be giving it a pass since there is no other place to get answers to questions like this (shout out to #scrapy @ freenode).  </p>
+<h3>Common Issues</h3>
+<p><strong>AJAX</strong><br />
+<img style="float: left;" src='/images/scrapy_stackoverflow5.png' height=100>By far the most common issue is dealing with AJAX. What a scary name for something so simple."Asynchronous JavaScript and XML" which in the scope of web-crawling just means <em>make request for some data</em>, in other words it's just a javascript made request that retrieves some data. Usually this is used for product urls in pagination or images urls stored on some other server.<br />
+There's a huge question that <a href="http://stackoverflow.com/questions/8550114/can-scrapy-be-used-to-scrape-dynamic-content-from-websites-that-are-using-ajax?rq=1">covers scrapy and AJAX here</a>. However I find the answers to be pretty bad and do not fully cover the issue or cover a completely different issue(see Selenium in The Ugly part).<br />
+This whole ordeal made me put up "how to ajax with scrapy" on my todo list, that I can hopefully convince someone at scrapy core to add this topic to the official tutorial.</p>
+<p><strong>CrawlSpider</strong><br />
+<a href='/images/scrapy_stackoverflow3.gif'><img alt="Please stop using CrawlSpider" src="/images/scrapy_stackoverflow4.png" /></a><br />
+I'm now sure whom to blame here, but for some magical reason everyone decided to use <a href="http://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.CrawlSpider"><code>CrawlSpider</code></a> scrapy spider instead of base <code>srapy.Spider</code>.<br />
+<code>CrawlSpider</code> automates a lot of crawling logic by using <code>Rule</code> objects which have a lot of bells and whistles to configure how and what a spider should crawl. I personally dislike <code>CrawlSpider</code> but even with it's benefits it hides so much from the user that I would <strong>never recommend it to a new user</strong>. <br />
+I have the <a href="http://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.CrawlSpider">documentation page</a>of it bookmarked myself because of how confusing it can get.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="http://github.com/granitas">Github</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
