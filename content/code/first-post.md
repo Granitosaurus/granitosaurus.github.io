@@ -52,3 +52,5 @@ The above will make source branch, generate blog and push the output to `master`
 ### Wrap Up
 So far Pelican took quite a bit of work to get things going. It looks quite simple but there's a bunch of little quirks that are really hard to debug. It's not as easy as starting up a wordpress blog but it's quite fun and it seems to be really flexible.   
 Let's see if it pays off! 
+
+Checkout the source for more at https://github.com/Granitas/granitas.github.io/tree/source
