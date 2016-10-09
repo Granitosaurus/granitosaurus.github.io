@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Blog of Bernardas Ališauskas</title><link>http://granitas.github.io/</link><description>Python Developer</description><lastBuildDate>Wed, 14 Sep 2016 00:00:00 +0200</lastBuildDate><item><title>First post. Hello Pelican!</title><link>http://granitas.github.io/installing-pelican.html</link><description>&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;/p&gt;
+<rss version="2.0"><channel><title>Blog of Bernardas Ališauskas</title><link>https://granitas.github.io/</link><description>Python Developer</description><lastBuildDate>Wed, 14 Sep 2016 00:00:00 +0200</lastBuildDate><item><title>First post. Hello Pelican!</title><link>https://granitas.github.io/installing-pelican.html</link><description>&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;/p&gt;
 &lt;h3&gt;Installing Pelican&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="Pelicans are cool" src="http://granitas.github.io/images/pelican-bird.jpg" /&gt;&lt;br /&gt;
+&lt;p&gt;&lt;img alt="Pelicans are cool" src="https://granitas.github.io/images/pelican-bird.jpg" /&gt;&lt;br /&gt;
 The setup for &lt;code&gt;Pelican&lt;/code&gt; is pretty straightforward just run:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~&amp;gt; pip install pelican  &lt;span class="c1"&gt;# Installing Pelican package for python&lt;/span&gt;
 ~&amp;gt; mdir blog &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; blog  &lt;span class="c1"&gt;# Create and jump into your blog directory!&lt;/span&gt;
