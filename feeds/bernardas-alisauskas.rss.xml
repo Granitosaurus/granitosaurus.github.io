@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Blog of Bernardas Ališauskas</title><link>http://localhost:8000/</link><description>Python Developer</description><lastBuildDate>Wed, 14 Sep 2016 00:00:00 +0200</lastBuildDate><item><title>First post. Hello Pelican!</title><link>http://localhost:8000/installing-pelican.html</link><description>&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;/p&gt;
+&lt;h3&gt;Installing Pelican&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="Pelicans are cool" src="http://localhost:8000/images/pelican-bird.jpg" /&gt;&lt;br /&gt;
+The setup for &lt;code&gt;Pelican&lt;/code&gt; is pretty straightforward just run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~&amp;gt; pip install pelican  &lt;span class="c1"&gt;# Installing Pelican package for python&lt;/span&gt;
+~&amp;gt; mdir blog &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; blog  &lt;span class="c1"&gt;# Create and jump into your blog directory!&lt;/span&gt;
+~/blog/&amp;gt; pelican-quickstart
+    ... &lt;span class="c1"&gt;#answer some simple questions here&lt;/span&gt;
+~/blog/&amp;gt; vim content/first-page.md
+    ... &lt;span class="c1"&gt;#write your blog here in simple markdown&lt;/span&gt;
+~/blog/&amp;gt; pelican content  &lt;span class="c1"&gt;# regenerate website&lt;/span&gt;
+~/blog/&amp;gt; &lt;span class="nb"&gt;cd&lt;/span&gt; output
+~/blog/output&amp;gt; python -m pelican.server  &lt;span class="c1"&gt;# run pelican server to test locally&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now connect to &lt;code&gt;http://localhost:8000&lt;/code&gt; and there you go!&lt;br /&gt;
+You can check &lt;a href="http://docs.getpelican.com/en/latest/content.html#articles-and-pages"&gt;here&lt;/a&gt; for how to template your message how to format your blog entry.&lt;/p&gt;
+&lt;h3&gt;Vim markdown highlight for .md files&lt;/h3&gt;
+&lt;p&gt;While going through the installation I've noticed that markdown doesn't have highlighting in vim which was peculiar. I found &lt;a href="http://superuser.com/questions/701496/no-syntax-highlight-on-md-files"&gt;this post which describes a simple fix&lt;/a&gt;.&lt;br /&gt;
+Simply create directories and file: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/.vim/ftdetect/markdown.vim
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;with content: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;au BufNewFile,BufRead *.md  setf markdown
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Theming Pelican&lt;/h3&gt;
+&lt;p&gt;The default Pelican theme is pretty great however I stumbled on &lt;a href="https://github.com/alexandrevicenzi/Flex"&gt;flex-theme&lt;/a&gt; on &lt;a href="https://github.com/getpelican/pelican-themes"&gt;pelican theme repo&lt;/a&gt; on github. So that's my choice for now, but I'd like to touch up the color scheme a bit. Check out &lt;a href="http://docs.getpelican.com/en/stable/pelican-themes.html"&gt;&lt;code&gt;pelican-themes&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Configuring Pelican&lt;/h3&gt;
+&lt;p&gt;A lot of bells and whistles come straight out of the box with the pelican and your theme. For example to setup Disqus commnets all I had to do is add &lt;code&gt;DISQUS_SITENAME = "granitosaurus"&lt;/code&gt; where &lt;code&gt;granitosaurus&lt;/code&gt; is my registered name of my disqus account.&lt;/p&gt;
+&lt;h3&gt;Publishing Pelican&lt;/h3&gt;
+&lt;p&gt;Since Pelican generates a static webpage you can use anything to publish it. I decided to use &lt;a href="http://docs.getpelican.com/en/stable/tips.html#user-pages"&gt;github user pages&lt;/a&gt; which pretty much boils down to pushing git code to specific branch of github repo, then the whole blog website can be accessed through &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Bernardas Ališauskas</dc:creator><pubDate>Wed, 14 Sep 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:localhost:8000,2016-09-14:installing-pelican.html</guid><category>pelican</category><category>python</category><category>blog</category></item></channel></rss>
