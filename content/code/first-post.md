@@ -32,3 +32,9 @@ with content:
 au BufNewFile,BufRead *.md  setf markdown
 ```
 
+### Theming Pelican
+The default Pelican theme is pretty great however I stumbled on [flex-theme](https://github.com/alexandrevicenzi/Flex) on [pelican theme repo](https://github.com/getpelican/pelican-themes) on github. So that's my choice for now, but I'd like to touch up the color scheme a bit. Check out [`pelican-themes`](http://docs.getpelican.com/en/stable/pelican-themes.html).
+### Configuring Pelican
+A lot of bells and whistles come straight out of the box with the pelican and your theme. For example to setup Disqus commnets all I had to do is add `DISQUS_SITENAME = "granitosaurus"` where `granitosaurus` is my registered name of my disqus account.
+### Publishing Pelican
+Since Pelican generates a static webpage you can use anything to publish it. I decided to use [github user pages](http://docs.getpelican.com/en/stable/tips.html#user-pages) which pretty much boils down to pushing git code to specific branch of github repo, then the whole blog website can be accessed through 
