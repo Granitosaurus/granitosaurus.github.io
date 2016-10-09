@@ -4,7 +4,9 @@ Tags: pelican, python, blog
 Slug: installing-pelican
 Summary: Starting up the blog with Python and Pelican static blog generator!
 
-I've decided to start a blog after Python package called Pelican caught my eye.
+I've decided to start a blog after Python package called Pelican caught my eye.  
+Pelican is a tool to generate a static blog from reStructuredText or Markdown input files. And most importantly it looks to be really fun, full python with jinja2 templating, which means it's fully extendable, configurable and modifiable as it's under GPL license.
+
 ### Installing Pelican
 ![Pelicans are cool]({filename}/images/pelican-bird.jpg)  
 The setup for `Pelican` is pretty straightforward just run:
