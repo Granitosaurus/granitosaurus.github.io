@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Blog of Bernardas Ališauskas</title><link>https://granitas.github.io/</link><description>Python Developer</description><lastBuildDate>Sun, 09 Oct 2016 00:00:00 +0200</lastBuildDate><item><title>First post. Hello Pelican!</title><link>https://granitas.github.io/installing-pelican.html</link><description>&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;/p&gt;
+<rss version="2.0"><channel><title>Blog of Bernardas Ališauskas</title><link>https://granitas.github.io/</link><description>Python Developer</description><lastBuildDate>Sun, 09 Oct 2016 00:00:00 +0200</lastBuildDate><item><title>First post. Hello Pelican!</title><link>https://granitas.github.io/installing-pelican.html</link><description>&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;br /&gt;
+Pelican is a tool to generate a static blog from reStructuredText or Markdown input files. And most importantly it looks to be really fun, full python with jinja2 templating, which means it's fully extendable, configurable and modifiable as it's under GPL license.&lt;/p&gt;
 &lt;h3&gt;Installing Pelican&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="Pelicans are cool" src="https://granitas.github.io/images/pelican-bird.jpg" /&gt;&lt;br /&gt;
 The setup for &lt;code&gt;Pelican&lt;/code&gt; is pretty straightforward just run:&lt;/p&gt;
