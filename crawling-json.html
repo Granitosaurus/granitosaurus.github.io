@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="https://granitas.github.io/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://granitas.github.io/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://granitas.github.io/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="https://granitas.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom">
+
+
+    <link rel="shortcut icon" href="http://localhost:8000/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="http://localhost:8000/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Bernardas Ališauskas" />
+<meta name="description" content="In web-crawling often you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json." />
+<meta name="keywords" content="python, crawling, json, scrapy, parsel, dicttoxml">
+<meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
+<meta property="og:title" content="How to parse complicated json trees."/>
+<meta property="og:description" content="In web-crawling often you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://granitas.github.io/crawling-json.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2016-10-10 00:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://granitas.github.io/author/bernardas-alisauskas.html">
+<meta property="article:section" content="code"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="crawling"/>
+<meta property="article:tag" content="json"/>
+<meta property="article:tag" content="scrapy"/>
+<meta property="article:tag" content="parsel"/>
+<meta property="article:tag" content="dicttoxml"/>
+<meta property="og:image" content="http://localhost:8000/images/core/me.jpg">
+
+  <title>Blog of Bernardas Ališauskas &ndash; How to parse complicated json trees.</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://granitas.github.io">
+        <img src="http://localhost:8000/images/core/me.jpg" alt="Bernardas Ališauskas" title="Bernardas Ališauskas">
+      </a>
+      <h1><a href="https://granitas.github.io">Bernardas Ališauskas</a></h1>
+
+<p>Python Developer</p>
+      <nav>
+        <ul class="list">
+          <li><a href="https://granitas.github.io/pages/about.html#about">About</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/granitas" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-rss" href="" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="https://granitas.github.io">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="https://granitas.github.io/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="crawling-json">How to parse complicated json trees.</h1>
+    <p>
+          Posted on Mon 10 October 2016 in <a href="https://granitas.github.io/category/code.html">code</a>
+
+
+    </p>
+  </header>
+  <div>
+    <p>In web-crawling, often you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.</p>
+<p>In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.<br />
+<strong>If you don't care about the research you can just skip to the <a href="#right">right tool</a> and <a href="#solving">solving of the real life case</a> sections at the end</strong>.</p>
+<h1>Cause</h1>
+<p>Often websites, especially the ones that sell various products tend to overcomplicate their apis by stacking everything in one huge json tree that is at least 10 layers deep and is impossible to understand for an outsider or maybe even other developers in the company.</p>
+<p>In this case we'll take a look at small examples of <a href="http://ah.nl">http://ah.nl</a> responses and how can we deal with them without spending hours trying to reverse engineer the whole process.</p>
+<p><strong>Example info</strong>:<br />
+Product url: <a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees">http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees</a><br />
+Product api response: <a href="https://ptpb.pw/aZ_S">https://ptpb.pw/aZ_S</a><br />
+If you put this response through some json visual tool like <a href="http://jsonviewer.stack.hu/">http://jsonviewer.stack.hu/</a> you'll notice what a huge mess it is: </p>
+<p><img alt="example json view" src="https://granitas.github.io/images/json-crawling.png" /></p>
+<p>Multiple layers, multiple elements, list in a dict in a list in a dict and to parse that you'd end up doing something like:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;_embedded&#39;</span><span class="p">][</span><span class="s1">&#39;lanes&#39;</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="s1">&#39;_embedded&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>And that's just half-way through the tree. For example to find the sku you'd have to use something like:</p>
+<div class="highlight"><pre><span></span>sku = data[&#39;_embedded&#39;][&#39;lanes&#39;][4][&#39;_embedded&#39;][&#39;items&#39;][0][&#39;_embedded&#39;][&#39;product&#39;][&#39;id&#39;]
+</pre></div>
+
+
+<p>Now that's with hard-coding of list indices which are very likely to change for every product, so on top of that ugly line above you'd have to use multiple list comprehensions to find the correct list item from the <code>lanes</code> or <code>items</code> lists.  This is bad, ugly, unreliable and extremely painful to work with.</p>
+<h1>Tools to Solve This</h1>
+<p>There are several ways this can be approaches and let me spoil it for you, majority of them are bad, so we'll start off with those.</p>
+<p>To demonstrate these tools better we'll be parsing this simple json:</p>
+<div class="highlight"><pre><span></span>data = &quot;&quot;&quot;{
+    &quot;one&quot;: {
+        &quot;two&quot;: [{
+            &quot;four&quot;: {
+                &quot;name&quot;: &quot;four1_name&quot;
+            }
+        }, {
+            &quot;four&quot;: {
+                &quot;name&quot;: &quot;four2_name&quot;
+            }
+        }]
+    }
+}&quot;&quot;&quot;
+</pre></div>
+
+
+<p>All examples below are also available on iPython notebook if you want to mess around with them yourself <a href="https://granitas.github.io/data/crawling-json_examples.ipynb">here</a></p>
+<h2>Wrong: Flattening The Json</h2>
+<p>At first glance this might appear as an obvious solution - just flatten everything to the first level! However this brings out a huge issue with keys. Because every key has to be unique, when flattening the dictionary you need to merge several keys into one to preserve the tree order.
+If we were to flatten our <code>data</code>, it would end up looking like this:</p>
+<div class="highlight"><pre><span></span>data = &quot;&quot;&quot;{
+    &quot;one_two_four1_name&quot;: &quot;four1_name&quot;,
+    &quot;one_two_four2_name&quot;: &quot;four2_name&quot;,
+    }&quot;&quot;&quot;
+</pre></div>
+
+
+<p>In a way you might think it looks nice, but the truth is that it's really unpredictable and hard to parse in a more complex context, since you can only select individual values. This might be useful for some edge cases where you only need 1 field the json tree is only two or tree levels deep, but otherwise it's not worth bothering with.</p>
+<h2>Wrong: Jmespath, JSONPath and JSONiq etc.</h2>
+<p>These few libraries in a way designed specifically to solve this issue. It seems that json is notoriously bad when it comes to this issue, so tools like theses are dime a dozen on github and while they are great, they fall short when in comes to web-crawling or similar use cases.   </p>
+<p>However there are two major issues with these tools:  </p>
+<ul>
+<li>
+<p>First one being that some of them like the very <code>Jmespath</code>'s <strong> expressions root-bound</strong> which means non-rooted expressions like xpath's <code>//product/name</code> are not possible. This means that you need to write this ugly chain which is barely different to our dict key indices one:</p>
+<p>root.foo.bar[].foo2.bar2.product.mynode</p>
+</li>
+</ul>
+<p>The only improvement here is that we can do a bit of recursion by calling <code>[]</code> for every list element, saving us a few list comprehension calls. And it definitely looks nicer, doesn't it?<br />
+It is still bad though since at any point the tree might change and our crawler will break because we are root bound.</p>
+<ul>
+<li>The second issue being is that all of them <strong>are extremely bloated</strong>, to the point where they not only design their own parsing logic but also design their own syntax.   </li>
+</ul>
+<p>When you are crawling a website you already have your own parsing tools to parse the html/xml (like <code>lxml</code> or <code>parsel</code>) and anything other would just introduce obvious redundancy and unnecessary complexity. </p>
+<h2>Almost Right: js2xml</h2>
+<p>First I'd like to start off with and give a shout out to a great tool called <code>js2xml</code> which maintained by Scrapinghub. It pretty much does what it says - converts javascript code to an xml tree and it's <em>almost</em> the right tool for our issue, almost.<br />
+Since json is part of javascript, this means we can use this tool to parse it:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+<span class="c1"># we need to wrap our data json in variable declaration</span>
+<span class="c1"># for js2xml to interpret it</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">js2xml</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">&#39;var foo = &#39;</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+</pre></div>
+
+
+<p>This is the result:</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;program&gt;</span>
+  <span class="nt">&lt;var</span> <span class="na">name=</span><span class="s">&quot;foo&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;object&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;one&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;object&gt;</span>
+          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;two&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;array&gt;</span>
+              <span class="nt">&lt;object&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;four&quot;</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;object&gt;</span>
+                    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;string&gt;</span>four1_name<span class="nt">&lt;/string&gt;</span>
+                    <span class="nt">&lt;/property&gt;</span>
+                  <span class="nt">&lt;/object&gt;</span>
+                <span class="nt">&lt;/property&gt;</span>
+              <span class="nt">&lt;/object&gt;</span>
+              <span class="nt">&lt;object&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;four&quot;</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;object&gt;</span>
+                    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;string&gt;</span>four2_name<span class="nt">&lt;/string&gt;</span>
+                    <span class="nt">&lt;/property&gt;</span>
+                  <span class="nt">&lt;/object&gt;</span>
+                <span class="nt">&lt;/property&gt;</span>
+              <span class="nt">&lt;/object&gt;</span>
+            <span class="nt">&lt;/array&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;/object&gt;</span>
+      <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/object&gt;</span>
+  <span class="nt">&lt;/var&gt;</span>
+<span class="nt">&lt;/program&gt;</span>
+</pre></div>
+
+
+<p>As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! <br />
+If you are already using it to parse javascript somewhere you might just go with it to reduce dependencies if you wish so.</p>
+<h1 id="right">Right: Converting json to xml and Parsing It With xpath</h1>
+<p>I found two tools and either one of them combined with either <a href="http://lxml.de/"><code>lxml</code></a> or <a href="https://github.com/scrapy/parsel"><code>parsel</code></a> selectors create this beautiful, perfect json-crawling combo for your crawler! </p>
+<p>For unaware <code>lxml</code> is a really great tool for parsing xml and html while <code>parsel</code> is built on top of it to make it even greater, so I highly recommend checking it out!
+Fun fact - it's also used by <a href="https://github.com/scrapy/scrapy">scrapy</a> and that's where it originated.</p>
+<p>Getting back to the point, the two tools that are pretty much alternative to each other are <a href="https://github.com/quandyfactory/dicttoxml"><code>dicttoxml</code></a> and <a href="https://github.com/delfick/python-dict2xml"><code>dict2xml</code></a>. They are essentially the same thing but I thought I'd mention both since I'm not sure which one is better and requires the recognition. <br />
+For sake of being brief I'll show off <code>dicttoxml</code> + <code>parsel</code> only:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">dicttoxml</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">attr_type</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c1"># the tree we get:</span>
+<span class="o">&lt;</span><span class="n">root</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">one</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">two</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">item</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">four</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">four1_name</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">four</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">item</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">item</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">four</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">four2_name</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">four</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">item</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">two</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">one</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">root</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>Now we can parse this tree using <code>parsel.Selector</code> and xpath:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">parsel</span> <span class="kn">import</span> <span class="n">Selector</span>
+<span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">root</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+<span class="c1"># and get the names with</span>
+<span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;//name/text()&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+<span class="c1"># [&#39;four1_name&#39;, &#39;four2_name&#39;]</span>
+</pre></div>
+
+
+<p>Pretty mind blowing how we solved this mess with one 300 loc big package from pypi and one short xpath.</p>
+<h1 id="solving">Solving Our Example</h1>
+<p>Now that we have chosen a tool let's see how well it works on a real life example we got ourselves at the beginning of this blog: <a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees">http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees</a>   </p>
+<p>I'm going to spoil you the joy of reverse engineering the products api and tell you the api url in this case is: 
+<code>'http://www.ah.nl/service/rest/delegate?url=/producten/product/wi166580/x'</code></p>
+<p>Lets assume we already have the page source in <code>body</code> variable and dive in:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
+<span class="kn">from</span> <span class="nn">parsel</span> <span class="kn">import</span> <span class="n">Selector</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">dicttoxml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">attr_type</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
+<span class="c1"># now we can find things very easily!</span>
+<span class="c1"># sku:</span>
+<span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;//product/id/text()&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+<span class="c1"># [u&#39;wi166580&#39;]</span>
+<span class="c1"># price:</span>
+<span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;//product//pricelabel/now/text()&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+<span class="c1"># [u&#39;0.82&#39;]</span>
+</pre></div>
+
+
+<h1>Conclusion</h1>
+<p>Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!<br />
+Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. <br />
+Hopefully this write up can save someone few hours and an early balding. :D</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://granitas.github.io/tag/python.html">python</a>
+      <a href="https://granitas.github.io/tag/crawling.html">crawling</a>
+      <a href="https://granitas.github.io/tag/json.html">json</a>
+      <a href="https://granitas.github.io/tag/scrapy.html">scrapy</a>
+      <a href="https://granitas.github.io/tag/parsel.html">parsel</a>
+      <a href="https://granitas.github.io/tag/dicttoxml.html">dicttoxml</a>
+    </p>
+  </div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'granitosaurus';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+</article>
+
+    <footer>
+<p>
+  &copy; Bernardas Ališauskas 2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Blog of Bernardas Ališauskas ",
+  "url" : "https://granitas.github.io",
+  "image": "http://localhost:8000/images/core/me.jpg",
+  "description": "Thoughts and Writings of Granitosaurus"
+}
+</script>
+</body>
+</html>

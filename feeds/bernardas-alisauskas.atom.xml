@@ -1,5 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitas.github.io/" rel="alternate"></link><link href="https://granitas.github.io/feeds/bernardas-alisauskas.atom.xml" rel="self"></link><id>https://granitas.github.io/</id><updated>2016-10-10T00:00:00+02:00</updated><entry><title>Going to Pycon Poland!</title><link href="https://granitas.github.io/pycon-pl.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><author><name>Bernardas Ališauskas</name></author><id>tag:granitas.github.io,2016-10-10:pycon-pl.html</id><summary type="html">&lt;p&gt;Last year in Euro-Python 2015 someone from PyconPL had a lightning talk about PyconPL and since that moment I was sold. However I missed it by few days. This year however, I'm going and I'm taking a short vacation to explore Warsaw too!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitas.github.io/" rel="alternate"></link><link href="https://granitas.github.io/feeds/bernardas-alisauskas.atom.xml" rel="self"></link><id>https://granitas.github.io/</id><updated>2016-10-10T00:00:00+02:00</updated><entry><title>How to parse complicated json trees.</title><link href="https://granitas.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><author><name>Bernardas Ališauskas</name></author><id>tag:granitas.github.io,2016-10-10:crawling-json.html</id><summary type="html">&lt;p&gt;In web-crawling, often you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
+&lt;p&gt;In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.&lt;br /&gt;
+&lt;strong&gt;If you don't care about the research you can just skip to the &lt;a href="#right"&gt;right tool&lt;/a&gt; and &lt;a href="#solving"&gt;solving of the real life case&lt;/a&gt; sections at the end&lt;/strong&gt;.&lt;/p&gt;
+&lt;h1&gt;Cause&lt;/h1&gt;
+&lt;p&gt;Often websites, especially the ones that sell various products tend to overcomplicate their apis by stacking everything in one huge json tree that is at least 10 layers deep and is impossible to understand for an outsider or maybe even other developers in the company.&lt;/p&gt;
+&lt;p&gt;In this case we'll take a look at small examples of &lt;a href="http://ah.nl"&gt;http://ah.nl&lt;/a&gt; responses and how can we deal with them without spending hours trying to reverse engineer the whole process.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example info&lt;/strong&gt;:&lt;br /&gt;
+Product url: &lt;a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees"&gt;http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees&lt;/a&gt;&lt;br /&gt;
+Product api response: &lt;a href="https://ptpb.pw/aZ_S"&gt;https://ptpb.pw/aZ_S&lt;/a&gt;&lt;br /&gt;
+If you put this response through some json visual tool like &lt;a href="http://jsonviewer.stack.hu/"&gt;http://jsonviewer.stack.hu/&lt;/a&gt; you'll notice what a huge mess it is: &lt;/p&gt;
+&lt;p&gt;&lt;img alt="example json view" src="https://granitas.github.io/images/json-crawling.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Multiple layers, multiple elements, list in a dict in a list in a dict and to parse that you'd end up doing something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;items&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;_embedded&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;lanes&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;_embedded&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;items&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And that's just half-way through the tree. For example to find the sku you'd have to use something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sku = data[&amp;#39;_embedded&amp;#39;][&amp;#39;lanes&amp;#39;][4][&amp;#39;_embedded&amp;#39;][&amp;#39;items&amp;#39;][0][&amp;#39;_embedded&amp;#39;][&amp;#39;product&amp;#39;][&amp;#39;id&amp;#39;]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now that's with hard-coding of list indices which are very likely to change for every product, so on top of that ugly line above you'd have to use multiple list comprehensions to find the correct list item from the &lt;code&gt;lanes&lt;/code&gt; or &lt;code&gt;items&lt;/code&gt; lists.  This is bad, ugly, unreliable and extremely painful to work with.&lt;/p&gt;
+&lt;h1&gt;Tools to Solve This&lt;/h1&gt;
+&lt;p&gt;There are several ways this can be approaches and let me spoil it for you, majority of them are bad, so we'll start off with those.&lt;/p&gt;
+&lt;p&gt;To demonstrate these tools better we'll be parsing this simple json:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;data = &amp;quot;&amp;quot;&amp;quot;{
+    &amp;quot;one&amp;quot;: {
+        &amp;quot;two&amp;quot;: [{
+            &amp;quot;four&amp;quot;: {
+                &amp;quot;name&amp;quot;: &amp;quot;four1_name&amp;quot;
+            }
+        }, {
+            &amp;quot;four&amp;quot;: {
+                &amp;quot;name&amp;quot;: &amp;quot;four2_name&amp;quot;
+            }
+        }]
+    }
+}&amp;quot;&amp;quot;&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;All examples below are also available on iPython notebook if you want to mess around with them yourself &lt;a href="https://granitas.github.io/data/crawling-json_examples.ipynb"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Wrong: Flattening The Json&lt;/h2&gt;
+&lt;p&gt;At first glance this might appear as an obvious solution - just flatten everything to the first level! However this brings out a huge issue with keys. Because every key has to be unique, when flattening the dictionary you need to merge several keys into one to preserve the tree order.
+If we were to flatten our &lt;code&gt;data&lt;/code&gt;, it would end up looking like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;data = &amp;quot;&amp;quot;&amp;quot;{
+    &amp;quot;one_two_four1_name&amp;quot;: &amp;quot;four1_name&amp;quot;,
+    &amp;quot;one_two_four2_name&amp;quot;: &amp;quot;four2_name&amp;quot;,
+    }&amp;quot;&amp;quot;&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In a way you might think it looks nice, but the truth is that it's really unpredictable and hard to parse in a more complex context, since you can only select individual values. This might be useful for some edge cases where you only need 1 field the json tree is only two or tree levels deep, but otherwise it's not worth bothering with.&lt;/p&gt;
+&lt;h2&gt;Wrong: Jmespath, JSONPath and JSONiq etc.&lt;/h2&gt;
+&lt;p&gt;These few libraries in a way designed specifically to solve this issue. It seems that json is notoriously bad when it comes to this issue, so tools like theses are dime a dozen on github and while they are great, they fall short when in comes to web-crawling or similar use cases.   &lt;/p&gt;
+&lt;p&gt;However there are two major issues with these tools:  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First one being that some of them like the very &lt;code&gt;Jmespath&lt;/code&gt;'s &lt;strong&gt; expressions root-bound&lt;/strong&gt; which means non-rooted expressions like xpath's &lt;code&gt;//product/name&lt;/code&gt; are not possible. This means that you need to write this ugly chain which is barely different to our dict key indices one:&lt;/p&gt;
+&lt;p&gt;root.foo.bar[].foo2.bar2.product.mynode&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The only improvement here is that we can do a bit of recursion by calling &lt;code&gt;[]&lt;/code&gt; for every list element, saving us a few list comprehension calls. And it definitely looks nicer, doesn't it?&lt;br /&gt;
+It is still bad though since at any point the tree might change and our crawler will break because we are root bound.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The second issue being is that all of them &lt;strong&gt;are extremely bloated&lt;/strong&gt;, to the point where they not only design their own parsing logic but also design their own syntax.   &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When you are crawling a website you already have your own parsing tools to parse the html/xml (like &lt;code&gt;lxml&lt;/code&gt; or &lt;code&gt;parsel&lt;/code&gt;) and anything other would just introduce obvious redundancy and unnecessary complexity. &lt;/p&gt;
+&lt;h2&gt;Almost Right: js2xml&lt;/h2&gt;
+&lt;p&gt;First I'd like to start off with and give a shout out to a great tool called &lt;code&gt;js2xml&lt;/code&gt; which maintained by Scrapinghub. It pretty much does what it says - converts javascript code to an xml tree and it's &lt;em&gt;almost&lt;/em&gt; the right tool for our issue, almost.&lt;br /&gt;
+Since json is part of javascript, this means we can use this tool to parse it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;etree&lt;/span&gt;
+&lt;span class="c1"&gt;# we need to wrap our data json in variable declaration&lt;/span&gt;
+&lt;span class="c1"&gt;# for js2xml to interpret it&lt;/span&gt;
+&lt;span class="n"&gt;parsed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;js2xml&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;var foo = &amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;etree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tostring&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parsed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pretty_print&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is the result:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;program&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;var&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;one&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;two&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;four&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                      &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;four1_name&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;four&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                      &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;four2_name&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/var&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/program&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! &lt;br /&gt;
+If you are already using it to parse javascript somewhere you might just go with it to reduce dependencies if you wish so.&lt;/p&gt;
+&lt;h1 id="right"&gt;Right: Converting json to xml and Parsing It With xpath&lt;/h1&gt;
+&lt;p&gt;I found two tools and either one of them combined with either &lt;a href="http://lxml.de/"&gt;&lt;code&gt;lxml&lt;/code&gt;&lt;/a&gt; or &lt;a href="https://github.com/scrapy/parsel"&gt;&lt;code&gt;parsel&lt;/code&gt;&lt;/a&gt; selectors create this beautiful, perfect json-crawling combo for your crawler! &lt;/p&gt;
+&lt;p&gt;For unaware &lt;code&gt;lxml&lt;/code&gt; is a really great tool for parsing xml and html while &lt;code&gt;parsel&lt;/code&gt; is built on top of it to make it even greater, so I highly recommend checking it out!
+Fun fact - it's also used by &lt;a href="https://github.com/scrapy/scrapy"&gt;scrapy&lt;/a&gt; and that's where it originated.&lt;/p&gt;
+&lt;p&gt;Getting back to the point, the two tools that are pretty much alternative to each other are &lt;a href="https://github.com/quandyfactory/dicttoxml"&gt;&lt;code&gt;dicttoxml&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://github.com/delfick/python-dict2xml"&gt;&lt;code&gt;dict2xml&lt;/code&gt;&lt;/a&gt;. They are essentially the same thing but I thought I'd mention both since I'm not sure which one is better and requires the recognition. &lt;br /&gt;
+For sake of being brief I'll show off &lt;code&gt;dicttoxml&lt;/code&gt; + &lt;code&gt;parsel&lt;/code&gt; only:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dicttoxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;
+&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;attr_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# the tree we get:&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;four1_name&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;four2_name&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we can parse this tree using &lt;code&gt;parsel.Selector&lt;/code&gt; and xpath:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;parsel&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;
+&lt;span class="n"&gt;sel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="c1"&gt;# and get the names with&lt;/span&gt;
+&lt;span class="n"&gt;sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;//name/text()&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# [&amp;#39;four1_name&amp;#39;, &amp;#39;four2_name&amp;#39;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pretty mind blowing how we solved this mess with one 300 loc big package from pypi and one short xpath.&lt;/p&gt;
+&lt;h1 id="solving"&gt;Solving Our Example&lt;/h1&gt;
+&lt;p&gt;Now that we have chosen a tool let's see how well it works on a real life example we got ourselves at the beginning of this blog: &lt;a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees"&gt;http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees&lt;/a&gt;   &lt;/p&gt;
+&lt;p&gt;I'm going to spoil you the joy of reverse engineering the products api and tell you the api url in this case is: 
+&lt;code&gt;'http://www.ah.nl/service/rest/delegate?url=/producten/product/wi166580/x'&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Lets assume we already have the page source in &lt;code&gt;body&lt;/code&gt; variable and dive in:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dicttoxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;parsel&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;dicttoxml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;attr_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="c1"&gt;# now we can find things very easily!&lt;/span&gt;
+&lt;span class="c1"&gt;# sku:&lt;/span&gt;
+&lt;span class="n"&gt;sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;//product/id/text()&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# [u&amp;#39;wi166580&amp;#39;]&lt;/span&gt;
+&lt;span class="c1"&gt;# price:&lt;/span&gt;
+&lt;span class="n"&gt;sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;//product//pricelabel/now/text()&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="c1"&gt;# [u&amp;#39;0.82&amp;#39;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!&lt;br /&gt;
+Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. &lt;br /&gt;
+Hopefully this write up can save someone few hours and an early balding. :D&lt;/p&gt;</summary><category term="python"></category><category term="crawling"></category><category term="json"></category><category term="scrapy"></category><category term="parsel"></category><category term="dicttoxml"></category></entry><entry><title>Going to Pycon Poland!</title><link href="https://granitas.github.io/pycon-pl.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><author><name>Bernardas Ališauskas</name></author><id>tag:granitas.github.io,2016-10-10:pycon-pl.html</id><summary type="html">&lt;p&gt;Last year in Euro-Python 2015 someone from PyconPL had a lightning talk about PyconPL and since that moment I was sold. However I missed it by few days. This year however, I'm going and I'm taking a short vacation to explore Warsaw too!&lt;/p&gt;
 &lt;p&gt;There's a bunch of info about the conference on the &lt;a href="https://pl.pycon.org/2016/about_en.html"&gt;official page&lt;/a&gt; and I don't want to be redundant, but the venue looks awesome and in overall the event looks pretty huge. Primarily I just wanted to share how much money do you need to attend something like this, how do you get there and lastly whether it is worth it.   &lt;/p&gt;
 &lt;h1&gt;The route&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="Trip route from Tartu to Warsaw" src="https://granitas.github.io/images/pycon-pl-travel.png" /&gt;   &lt;/p&gt;
