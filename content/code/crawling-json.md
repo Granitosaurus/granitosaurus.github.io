@@ -2,7 +2,7 @@ Title: How to parse complicated json trees.
 Date: 2016-10-10
 Tags: python, crawling, json, scrapy, parsel, dicttoxml
 Slug: crawling-json
-Summary: In web-crawling often you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.
+Summary: Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.
 
 Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.
 
