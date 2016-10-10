@@ -40,7 +40,7 @@ CC_LICENSE = {
     'slug': 'by-sa'
 }
 COPYRIGHT_YEAR = 2016
-STATIC_PATHS = ['images', 'pages']
+STATIC_PATHS = ['images', 'pages', 'data']
 PLUGIN_PATHS = ['./pelican-plugins']
 # PLUGINS = ['sitemap', 'post_stats']
 SITEMAP = {
