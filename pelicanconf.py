@@ -17,7 +17,7 @@ MENUITEMS = (
     ('Tags', '/tags.html'),
 )
 SOCIAL = (
-    ('github', 'https://github.com/granitas'),
+    ('github', 'https://github.com/granitosaurus'),
     ('rss', ''),
 )
 
