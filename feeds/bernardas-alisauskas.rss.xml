@@ -324,16 +324,4 @@ Simply create directories and file: &lt;/p&gt;
 &lt;h3&gt;Wrap Up&lt;/h3&gt;
 &lt;p&gt;So far Pelican took quite a bit of work to get things going. It looks quite simple but there's a bunch of little quirks that are really hard to debug. It's not as easy as starting up a wordpress blog but it's quite fun and it seems to be really flexible. &lt;br /&gt;
 Let's see if it pays off! &lt;/p&gt;
-&lt;p&gt;Checkout the source for more at https://github.com/Granitas/granitas.github.io/tree/source&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Bernardas Ališauskas</dc:creator><pubDate>Sun, 09 Oct 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:granitosaurus.github.io,2016-10-09:installing-pelican.html</guid><category>pelican</category><category>python</category><category>blog</category></item><item><title>How to get scrapy help.</title><link>https://granitosaurus.github.io/scrapy-help.html</link><description>&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not explicit as they could be in favor of abstraction and development simplicity.
-So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?&lt;/p&gt;
-&lt;p&gt;First thing you should do is read &lt;a href="http://stackoverflow.com/help/how-to-ask"&gt;how to ask a good question on stackoverflow&lt;/a&gt;. &lt;br /&gt;
-The second bit you should do is learn how to produce a &lt;code&gt;log&lt;/code&gt;. Scrapy logs majority of the events that happen in your spider, so to debug your spider the best resources are these logs.&lt;br /&gt;
-To save a log of your spider run you can use UNIX output redirection syntax:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider 2&amp;gt;&amp;amp;1 &amp;gt; mylog.log
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Explanation:
-    &lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br /&gt;
-&lt;code&gt;&amp;gt; mylog.log&lt;/code&gt; - is another UNIX output redirection, but this time we redirect the output to file called &lt;code&gt;mylog.log&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Bernardas Ališauskas</dc:creator><pubDate>Sun, 09 Oct 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:granitosaurus.github.io,2016-10-09:scrapy-help.html</guid><category>scrapy</category><category>python</category></item></channel></rss>
+&lt;p&gt;Checkout the source for more at https://github.com/Granitas/granitas.github.io/tree/source&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Bernardas Ališauskas</dc:creator><pubDate>Sun, 09 Oct 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:granitosaurus.github.io,2016-10-09:installing-pelican.html</guid><category>pelican</category><category>python</category><category>blog</category></item></channel></rss>
