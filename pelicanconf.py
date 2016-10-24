@@ -40,7 +40,9 @@ CC_LICENSE = {
     'slug': 'by-sa'
 }
 COPYRIGHT_YEAR = 2016
-STATIC_PATHS = ['images', 'pages', 'data']
+STATIC_PATHS = ['images', 'pages', 'data', 'extra/CNAME']
+# CNAME fix
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 PLUGIN_PATHS = ['./pelican-plugins']
 # PLUGINS = ['sitemap', 'post_stats']
 SITEMAP = {
