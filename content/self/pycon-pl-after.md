@@ -13,19 +13,19 @@ Before going to Pycon me and my girlfriend took two days to look around Warsaw, 
 So without further ado, here is what I (and in some cases we) think of Warsaw!
 
 ## Food and Prices
-The city is beautiful and there are so **many restaurants and caffes**. The first thing we did was go to [Mango Vegan Street Food](https://www.tripadvisor.com/Restaurant_Review-g274856-d8529497-Reviews-Mango_Vegan_Street_Food-Warsaw_Mazovia_Province_Central_Poland.html) which serves great hummus as well as other vegan dishes at a surprisingly low price, brilliant little place!   
+The city is beautiful and there are so **many restaurants and cafes**. The first thing we did was go to [Mango Vegan Street Food](https://www.tripadvisor.com/Restaurant_Review-g274856-d8529497-Reviews-Mango_Vegan_Street_Food-Warsaw_Mazovia_Province_Central_Poland.html) which serves great hummus as well as other vegan dishes at a surprisingly low price, brilliant little place!   
 
 Low price is definitely a recurring theme in Warsaw - everything is surprisingly cheaper than in Estonia or Lithuania.  
 I've heard of a saying: "Poland is an eastern-european country with western-european prices" which I heavily disagree with, unless western-europe is cheaper than eastern in this context. Everything in general is at least 20% cheaper than in Estonia, sometimes significantly more and quality doesn't suffer because of it. The selection of foods and products in general is huge too - one of the benefits of being in central Europe I guess.
 
-As a vegetarian I was surprised by how **many vegetarian places** and options there are in Warsaw. The vegan trend definitely feels real, which is was both a pleasant surprise and a piece of convenience for myself.  
+As a vegetarian I was surprised by how **many vegetarian places** and options there are in Warsaw. The vegan trend definitely feels real, which was both a pleasant surprise and a piece of convenience for myself.  
 
 > Simple Definition of meat
 >    : the flesh of an animal used as food
 >    : a type of meat
 >    : the part of something (such as a nut) that can be eaten
 
-As a side note for vegetarianism itself - I found that a lot of polish people do not consider fish to be meat in Poland, which is extremely weird and nonsensical. I've noticed that it's quite common misunderstanding across the europe and had a very similar thing happen in Spain during my visit for Europython 2015 when the vegetarian sandwich I ordered contained tuna...
+As a side note for vegetarianism itself - I found that a lot of polish people do not consider fish to be meat, which is extremely weird and nonsensical. I've noticed that it's a quite common misunderstanding across Europe and had a very similar thing happen in Spain during my visit for Europython 2015 when the vegetarian sandwich I ordered contained tuna...
 
 Also worth noting that a **vegetarian person who eats fish is actually called pescatarian**. It's a rather peculiar sounding term but it's there for a reason.
 
@@ -38,7 +38,7 @@ The best rurki we've eat were located in [**Zloty Tarasy**](https://www.tripadvi
 
 ### Few Cool Food Joints
 
-There wasn't that much to do in Warsaw, at least during our trip, so we eat out a lot. Here's a short list of my favourite places, that I highly recommend!
+There wasn't that much to do in Warsaw, at least during our trip, so we ate out a lot. Here's a short list of my favourite places, that I highly recommend!
 
 #### [Mango Vegan Street Food](https://www.tripadvisor.com/Restaurant_Review-g274856-d8529497-Reviews-Mango_Vegan_Street_Food-Warsaw_Mazovia_Province_Central_Poland.html)
 ![mango vegan street food](https://media-cdn.tripadvisor.com/media/photo-s/09/c0/d2/6d/mango-vegan-street-food.jpg)  
