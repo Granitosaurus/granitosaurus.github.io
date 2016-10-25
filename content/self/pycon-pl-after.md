@@ -61,12 +61,19 @@ The onigiri themselves aren't that big, so you most likely want to take several.
 
 Regarding the prices - it's really reasonable. One rice ball + miso soup ended up being 10 PLN (2.3 euros) and 7 without the soup.  
 
+#### [Tel Aviv Food & Wine](https://www.tripadvisor.com/Restaurant_Review-g274856-d2619568-Reviews-Tel_Aviv_Food_Wine-Warsaw_Mazovia_Province_Central_Poland.html)   
+![tel aviv restaurant during summer](https://s3-media4.fl.yelpcdn.com/bphoto/oGNq8N4egk1fMxpk672_TQ/o.jpg)  
+
+Another vegan place, this time though, it's a quite fancy one. The place itself is pretty close to the center and easy to reach, however it's pretty small so you should avoid going there during peak hours.  
+The food is very fancy, but personally I wasn't impressed - it was very pretty but didn't have taste or price value to match it. I think I would reserve this place for more fancy occasions rather than a lunch break or a meet up.
+
 #### [Green Caffe Nero](http://www.greencaffenero.pl/en/)  
 
 There really isn't much to say about this place. It's a rather regular café, but it's really **affordable**, has decent food, tea and coffee, and most importantly it's **quite cozy** - so it's perfect for tourist stop for a tired, cold and worn-out tourist as myself!  
 Sitting down with a cup of hot tea, almost italian sandwich and writing some code or a blog for half an hour is always a pleasant experience, wherever you are.
 
 You can find them pretty much on every corner, sometimes you can even see another one from sitting inside one yourself :D
+
 
 ### Few Cool Places
 
