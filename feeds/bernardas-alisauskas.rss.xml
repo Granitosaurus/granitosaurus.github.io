@@ -18,11 +18,11 @@ Good old IRC has been there for decades and even though it dropped in popularity
 Feel free to join the channel and ask questions about anything scrapy related; you can find me there too!&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;Information&lt;/h1&gt;
+&lt;h1&gt;Providing Information&lt;/h1&gt;
 &lt;p&gt;To debug an issue and get the help you need you need to provide information about your problem:  &lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Source Code of your spider, settings and pipelines file  &lt;/li&gt;
-&lt;li&gt;Website you are crawling - sometimes people refrain from providing the url in fear of legal issues or some judgment. Don't worry about that, scraping is very much legal and no one will judge you, it might very well be the opposite - people might be more keen to help scrape some weird porn website than amazon.  &lt;/li&gt;
+&lt;li&gt;Source Code of your spider, settings.py and pipelines.py files.&lt;/li&gt;
+&lt;li&gt;Website you are crawling - sometimes people refrain from providing the url in fear of legal issues or some judgment. Don't worry about that, scraping is very much legal and no one will judge you, it might very well be the opposite - people might be more keen to help you scrape some weird porn website than amazon.  &lt;/li&gt;
 &lt;li&gt;Crawl Log (see &lt;a href="#log"&gt;Producing Logs&lt;/a&gt;) - Scrapy logs majority of the events that happen in your spider, so to debug your spider the best resources are these logs.  &lt;/li&gt;
 &lt;li&gt;Spider Output (see &lt;a href="#output"&gt;Producing Output&lt;/a&gt;) - This will rarely be useful for anyone else but yourself, but it can be very useful in some cases.  &lt;/li&gt;
 &lt;/ol&gt;
