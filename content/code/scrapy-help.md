@@ -25,12 +25,12 @@ The issue with Stackoverflow is that it has a general rule of questions having t
 Good old IRC has been there for decades and even though it dropped in popularity quite significantly, it's still a great place to get help on any subject and scrapy is not an exception. 
 Feel free to join the channel and ask questions about anything scrapy related; you can find me there too!
 
-# Information
+# Providing Information
 
 To debug an issue and get the help you need you need to provide information about your problem:  
 
-1. Source Code of your spider, settings and pipelines file  
-2. Website you are crawling - sometimes people refrain from providing the url in fear of legal issues or some judgment. Don't worry about that, scraping is very much legal and no one will judge you, it might very well be the opposite - people might be more keen to help scrape some weird porn website than amazon.  
+1. Source Code of your spider, settings.py and pipelines.py files.
+2. Website you are crawling - sometimes people refrain from providing the url in fear of legal issues or some judgment. Don't worry about that, scraping is very much legal and no one will judge you, it might very well be the opposite - people might be more keen to help you scrape some weird porn website than amazon.  
 3. Crawl Log (see [Producing Logs](#log)) - Scrapy logs majority of the events that happen in your spider, so to debug your spider the best resources are these logs.  
 4. Spider Output (see [Producing Output](#output)) - This will rarely be useful for anyone else but yourself, but it can be very useful in some cases.  
 
