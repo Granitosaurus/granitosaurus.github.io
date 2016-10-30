@@ -45,16 +45,17 @@ To save a log of your spider run you can use UNIX output redirection syntax:
     scrapy crawl myspider &> mylog.log
 
 Explanation:  
-    `scrapy crawl myspider` - is a scrapy command that will start crawling spider called `myspider`  
-    `2>&1` - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.  
-    `> mylog.log` - is another UNIX output redirection, but this time we redirect the output to file called `mylog.log`
-    Both of these can be combined to `&>`
+    1. `scrapy crawl myspider` - is a scrapy command that will start crawling spider called `myspider`  
+    2. `2>&1` - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.  
+    3. `> mylog.log` - is another UNIX output redirection, but this time we redirect the output to file called `mylog.log`
+   
+_Tip: points 2 and 3 can be summarized as `&>` in bash version 4 and up_
 
-For logging scrapy uses python's built-in [`logging`][logging] module which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just `import logging` and simply log message to root logger: `logging.warning("this page has no next page")`.
+For logging scrapy uses python's built-in [`logging` module][logging] which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just `import logging` and simply log message to root logger: `logging.warning("this page has no next page")`. To have simple logging in your spider.
 
 ## Producing Output {#output}  
 
-Scrapy can automatically produce output in these formats:  
+Scrapy can automatically produce output in one these formats:  
 
     'xml', 'jsonlines', 'jl', 'json', 'csv', 'pickle', 'marshal'
 
@@ -89,6 +90,13 @@ You can combine this with scrapy spider redirection to have everything in one li
 
     scrapy crawl spider --nolog -t json -o - | pq "//item[contains(@name,'samsung')]/price/text()"
 
+
+
+# Conclusion
+
+Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!
+
+Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)
 
 [jq]: https://stedolan.github.io/jq/
 [pq]: https://github.com/granitosaurus/pq/
