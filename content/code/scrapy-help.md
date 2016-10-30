@@ -25,6 +25,12 @@ The issue with Stackoverflow is that it has a general rule of questions having t
 Good old IRC has been there for decades and even though it dropped in popularity quite significantly, it's still a great place to get help on any subject and scrapy is not an exception. 
 Feel free to join the channel and ask questions about anything scrapy related; you can find me there too!
 
+* [Scrapinghub Forums][shforums]  
+Scrapinghub is the company behind scrapy and they have a user forum, so naturally it's a great place to look for help when it comes to your scrapy issues!  
+
+* Reddit  
+There's an official [scrapy subreddit][scrapyreddit], which isn't very active but I can tell you for a fact that a lot of people that are involved with scrapy keep an eye on it. It's a great place for some discussions that might not fit stackoverflow and irc.
+
 # Providing Information
 
 To debug an issue and get the help you need you need to provide information about your problem:  
@@ -102,3 +108,5 @@ Do you have any places where you go to with your scrapy or web-crawling related 
 [pq]: https://github.com/granitosaurus/pq/
 [soscrapy]: http://stackoverflow.com/questions/tagged/scrapy
 [logging]: https://docs.python.org/3/library/logging.html
+[shforums]: https://support.scrapinghub.com/forums/1-general/
+[scrapyreddit]: https://reddit.com/r/scrapy  
