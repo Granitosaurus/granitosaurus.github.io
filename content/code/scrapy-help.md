@@ -12,7 +12,7 @@ So if you do end up not understanding something or encountering some of the few 
 # Stackoverflow Guidelines
 
 First thing you should do is read is [_how to ask a good question on stackoverflow_](http://stackoverflow.com/help/how-to-ask).   
-It's a brilliant guide by without a doubt the biggest Q&A website on the web on how to ask a good questions regardless of the topic. Following these guidelines not only make it easy for people to help you but also easy for you, yourself to formulate your question and understand the issue you are facing!
+It's a brilliant guide by, without a doubt the biggest Q&A website on the web, and it focuses on how to ask a good questions regardless of the topic. Following these guidelines not only make it easy for people to help you but also easy for you, yourself to formulate your question and understand the issue you are facing!
 
 # Where To Get Help?
 
