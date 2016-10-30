@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2016-10-23T00:00:00+02:00</updated><entry><title>Pycon PL + Warsaw report</title><link href="https://granitosaurus.github.io/pycon-pl-after.html" rel="alternate"></link><published>2016-10-23T00:00:00+02:00</published><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-23:pycon-pl-after.html</id><summary type="html">&lt;p&gt;Last year during Euro-Python 2015 someone from PyconPL had an interesting lightning talk about PyconPL, and since that moment I was sold. However I missed it by few days that year. However this year I made it and as a bonus I checked out Warsaw, Poland too!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2016-10-30T00:00:00+02:00</updated><entry><title>How to get scrapy help.</title><link href="https://granitosaurus.github.io/scrapy-help.html" rel="alternate"></link><published>2016-10-30T00:00:00+02:00</published><updated>2016-10-30T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-30:scrapy-help.html</id><summary type="html">&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.&lt;br /&gt;
+Not to mention millions of websites that provide their own unique scraping challenges.  &lt;/p&gt;
+&lt;p&gt;So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?&lt;/p&gt;
+&lt;h1&gt;Stackoverflow Guidelines&lt;/h1&gt;
+&lt;p&gt;First thing you should do is read is &lt;a href="http://stackoverflow.com/help/how-to-ask"&gt;&lt;em&gt;how to ask a good question on stackoverflow&lt;/em&gt;&lt;/a&gt;. &lt;br /&gt;
+It's a brilliant guide by without a doubt the biggest Q&amp;amp;A website on the web.&lt;/p&gt;
+&lt;h1&gt;Where To Get Help?&lt;/h1&gt;
+&lt;p&gt;There are two places you can go to with your scrapy related questions and issues:  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/tagged/scrapy"&gt;Stackoverflow&lt;/a&gt;. &lt;br /&gt;
+The issue with Stackoverflow is that it has a general rule of questions having to be generic, that means asking how to get price on this item on amazon is not a fit question. However the user base on &lt;code&gt;scrapy&lt;/code&gt; tag seems to be quite understanding of this and tend to be quite lenient with reports and down-votes, but don't be surprised if your post gets down-voted or put on hold. All you can do is to try and make your issue more generic and hope for the best!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IRC! @ irc.freenode.org #scrapy &lt;br /&gt;
+Good old IRC has been there for decades and even though it dropped in popularity quite significantly, it's still a great place to get help on any subject and scrapy is not an exception. 
+Feel free to join the channel and ask questions about anything scrapy related; you can find me there too!&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Information&lt;/h1&gt;
+&lt;p&gt;To debug an issue and get the help you need you need to provide information about your problem:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Source Code of your spider, settings and pipelines file  &lt;/li&gt;
+&lt;li&gt;Website you are crawling - sometimes people refrain from providing the url in fear of legal issues or some judgment. Don't worry about that, scraping is very much legal and no one will judge you, it might very well be the opposite - people might be more keen to help scrape some weird porn website than amazon.  &lt;/li&gt;
+&lt;li&gt;Crawl Log (see &lt;a href="#log"&gt;Producing Logs&lt;/a&gt;) - Scrapy logs majority of the events that happen in your spider, so to debug your spider the best resources are these logs.  &lt;/li&gt;
+&lt;li&gt;Spider Output (see &lt;a href="#output"&gt;Producing Output&lt;/a&gt;) - This will rarely be useful for anyone else but yourself, but it can be very useful in some cases.  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once you have these bits you can easily formulate your question and I'm sure someone will help you out!&lt;/p&gt;
+&lt;h2 id="log"&gt;Producing Logs&lt;/h2&gt;
+&lt;p&gt;To save a log of your spider run you can use UNIX output redirection syntax:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider 2&amp;gt;&amp;amp;1 &amp;gt; mylog.log
+# or
+scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Explanation:&lt;br /&gt;
+&lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br /&gt;
+&lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br /&gt;
+&lt;code&gt;&amp;gt; mylog.log&lt;/code&gt; - is another UNIX output redirection, but this time we redirect the output to file called &lt;code&gt;mylog.log&lt;/code&gt;
+    Both of these can be combined to &lt;code&gt;&amp;amp;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;For logging scrapy uses python's built-in &lt;a href="https://docs.python.org/3/library/logging.html"&gt;&lt;code&gt;logging&lt;/code&gt;&lt;/a&gt; module which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just &lt;code&gt;import logging&lt;/code&gt; and simply log message to root logger: &lt;code&gt;logging.warning("this page has no next page")&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="output"&gt;Producing Output&lt;/h2&gt;
+&lt;p&gt;Scrapy can automatically produce output in these formats:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;#39;xml&amp;#39;, &amp;#39;jsonlines&amp;#39;, &amp;#39;jl&amp;#39;, &amp;#39;json&amp;#39;, &amp;#39;csv&amp;#39;, &amp;#39;pickle&amp;#39;, &amp;#39;marshal&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To do that simply run &lt;code&gt;crawl&lt;/code&gt; command with &lt;code&gt;--output&lt;/code&gt; flag (&lt;code&gt;-o&lt;/code&gt; for short version) and provide a name + file ending of format you want as an argument:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider --output output.json
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;This will output all items your spider spews out to &lt;code&gt;output.json&lt;/code&gt; file.&lt;/em&gt;  &lt;/p&gt;
+&lt;p&gt;To get help for readability purposes you probably want to use either &lt;code&gt;json&lt;/code&gt; or &lt;code&gt;xml&lt;/code&gt; since those are most readable and as described in section below parsing-friendly formats.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tip: You can actually tell scrapy to produce output to stdout directly by setting output argument to &lt;code&gt;-&lt;/code&gt;:&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider -t json -o - output.json
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Inspecting Output&lt;/h2&gt;
+&lt;p&gt;There few tools to parse &lt;code&gt;json&lt;/code&gt; or &lt;code&gt;xml&lt;/code&gt; content, similar like you'd use &lt;code&gt;sed&lt;/code&gt; or &lt;code&gt;grep&lt;/code&gt; in unix. The most popular and widely known is probably &lt;a href="https://stedolan.github.io/jq/"&gt;jq&lt;/a&gt;, which I believe translates to json query.&lt;br /&gt;
+I personally really dislike that jq uses it's own mini-language as opposed to xpath or css selectors we all know, love and use daily.&lt;br /&gt;
+So in response to this I made &lt;a href="https://github.com/granitosaurus/pq/"&gt;&lt;strong&gt;PQ&lt;/strong&gt;&lt;/a&gt;! It uses xpath and css selectors as well as support both json and xml parsing.&lt;/p&gt;
+&lt;p&gt;To put it shortly, using the tools described above you can find specific values of some fields really easily.&lt;br /&gt;
+Lets imagine we have a bunch of products that have these fields: name and price. Now for some reason Samsung items have weird pricing and we want to find out whether that's the case every time we update the code. &lt;/p&gt;
+&lt;p&gt;For example using pq we can navigate the prices of items that have some keywords in their names:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat output.json | pq &amp;quot;//item[contains(@name,&amp;#39;samsung&amp;#39;)]/price/text()&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Will find all items that contain "samsung" in the name and output their price values. If you change up your spider an run this command again you can easily navigate whether the values are changing.&lt;/p&gt;
+&lt;p&gt;You can combine this with scrapy spider redirection to have everything in one line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl spider --nolog -t json -o - | pq &amp;quot;//item[contains(@name,&amp;#39;samsung&amp;#39;)]/price/text()&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="scrapy"></category><category term="python"></category><category term="stackoverflow"></category><category term="web-crawling"></category></entry><entry><title>Pycon PL + Warsaw report</title><link href="https://granitosaurus.github.io/pycon-pl-after.html" rel="alternate"></link><published>2016-10-23T00:00:00+02:00</published><updated>2016-10-23T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-23:pycon-pl-after.html</id><summary type="html">&lt;p&gt;Last year during Euro-Python 2015 someone from PyconPL had an interesting lightning talk about PyconPL, and since that moment I was sold. However I missed it by few days that year. However this year I made it and as a bonus I checked out Warsaw, Poland too!&lt;/p&gt;
 &lt;p&gt;You can check my previous blog post how we got to Warsaw &lt;a href="/pycon-pl.html"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Before going to Pycon me and my girlfriend took two days to look around Warsaw, Poland. Throughout the trip we stayed in 3 airbnb places. The first day we were really surprised how pretty and big Warsaw is. To give a little background, before the trip we did a bunch of research of what to do in Warsaw and we really didn't find much so we didn't have high hopes to begin with, thus the surprise. &lt;/p&gt;
 &lt;p&gt;So without further ado, here is what I (and in some cases we) think of Warsaw!&lt;/p&gt;
@@ -83,7 +157,7 @@ Another cool piece of entertainment was retro computer games, a full room of the
 &lt;p&gt;Initially we didn't find much to do when we did research about Warsaw, however once we got there we got pleasantly surprised by the city and what it offered!  The city is big and beautiful. The center is structured in nice blocks that are easy to traverse and navigate. Every block being full of various small shops, cafés or restaurants. And even though there were indeed only few experience places we enjoyed them greatly!&lt;br /&gt;
 Pycon was a blast too! The educational opportunities weren't that great (the talks, workshops etc.) but the board games and leisure activities were more than enough to compensate!  &lt;/p&gt;
 &lt;p&gt;Will definitely consider going next year! &lt;br /&gt;
-Only regret was not taking more luggage.&lt;/p&gt;</summary><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category><category term="warsaw"></category><category term="poland"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
+Only regret was not taking more luggage.&lt;/p&gt;</summary><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category><category term="warsaw"></category><category term="poland"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
 &lt;p&gt;In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.&lt;br /&gt;
 &lt;strong&gt;If you don't care about the research you can just skip to the &lt;a href="#right"&gt;right tool&lt;/a&gt; and &lt;a href="#solving"&gt;solving of the real life case&lt;/a&gt; sections at the end&lt;/strong&gt;.&lt;/p&gt;
 &lt;h1&gt;Cause&lt;/h1&gt;
@@ -264,7 +338,7 @@ For sake of being brief I'll show off &lt;code&gt;dicttoxml&lt;/code&gt; + &lt;c
 &lt;h1&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!&lt;br /&gt;
 Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. &lt;br /&gt;
-Hopefully this write up can save someone few hours and an early balding. :D&lt;/p&gt;</summary><category term="python"></category><category term="crawling"></category><category term="json"></category><category term="scrapy"></category><category term="parsel"></category><category term="dicttoxml"></category></entry><entry><title>Going to Pycon Poland!</title><link href="https://granitosaurus.github.io/pycon-pl.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:pycon-pl.html</id><summary type="html">&lt;p&gt;Last year in Euro-Python 2015 someone from PyconPL had a lightning talk about PyconPL and since that moment I was sold. However I missed it by few days. This year however, I'm going and I'm taking a short vacation to explore Warsaw too!&lt;/p&gt;
+Hopefully this write up can save someone few hours and an early balding. :D&lt;/p&gt;</summary><category term="python"></category><category term="crawling"></category><category term="json"></category><category term="scrapy"></category><category term="parsel"></category><category term="dicttoxml"></category></entry><entry><title>Going to Pycon Poland!</title><link href="https://granitosaurus.github.io/pycon-pl.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:pycon-pl.html</id><summary type="html">&lt;p&gt;Last year in Euro-Python 2015 someone from PyconPL had a lightning talk about PyconPL and since that moment I was sold. However I missed it by few days. This year however, I'm going and I'm taking a short vacation to explore Warsaw too!&lt;/p&gt;
 &lt;p&gt;There's a bunch of info about the conference on the &lt;a href="https://pl.pycon.org/2016/about_en.html"&gt;official page&lt;/a&gt; and I don't want to be redundant, but the venue looks awesome and in overall the event looks pretty huge. Primarily I just wanted to share how much money do you need to attend something like this, how do you get there and lastly whether it is worth it.   &lt;/p&gt;
 &lt;h1&gt;The route&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="Trip route from Tartu to Warsaw" src="https://granitosaurus.github.io/images/pycon-pl-travel.png" /&gt;   &lt;/p&gt;
@@ -280,7 +354,7 @@ I actually chatted with one of the hosts a bit and he mentioned that pretty much
 The bus to Riga from Tartu ended up being 30€ per person (60€ in total) both ways.&lt;/p&gt;
 &lt;p&gt;So &lt;strong&gt;total ended up being 303€ per person&lt;/strong&gt; which is pretty cheap for a conference 906km away!&lt;br /&gt;
 This doesn't include any traveling expenses which I'll be sure to calculated and include in aftermath blogpost!&lt;/p&gt;
-&lt;p&gt;The last python conference I went to was EuroPython 2015 and it was super fun, mostly because I got to meet a bunch of coworkers from Scrapinghub, I hope PyconPL can live up to the hype and I'll be sure to post about it either way.&lt;/p&gt;</summary><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category></entry><entry><title>First post. Hello Pelican!</title><link href="https://granitosaurus.github.io/installing-pelican.html" rel="alternate"></link><published>2016-10-09T00:00:00+02:00</published><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-09:installing-pelican.html</id><summary type="html">&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;br /&gt;
+&lt;p&gt;The last python conference I went to was EuroPython 2015 and it was super fun, mostly because I got to meet a bunch of coworkers from Scrapinghub, I hope PyconPL can live up to the hype and I'll be sure to post about it either way.&lt;/p&gt;</summary><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category></entry><entry><title>First post. Hello Pelican!</title><link href="https://granitosaurus.github.io/installing-pelican.html" rel="alternate"></link><published>2016-10-09T00:00:00+02:00</published><updated>2016-10-09T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-09:installing-pelican.html</id><summary type="html">&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;br /&gt;
 Pelican is a tool to generate a static blog from reStructuredText or Markdown input files. And most importantly it looks to be really fun, full python with jinja2 templating, which means it's fully extendable, configurable and modifiable as it's under GPL license.&lt;/p&gt;
 &lt;h3&gt;Installing Pelican&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="Pelicans are cool" src="https://granitosaurus.github.io/images/pelican-bird.jpg" /&gt;&lt;br /&gt;

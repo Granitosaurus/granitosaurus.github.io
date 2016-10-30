@@ -24,20 +24,22 @@
 
 
 <meta name="author" content="Bernardas Ališauskas" />
-<meta name="description" content="Few suggestions how to ask questions correctly to get help for using scrapy framework." />
-<meta name="keywords" content="scrapy, python">
+<meta name="description" content="Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework." />
+<meta name="keywords" content="scrapy, python, stackoverflow, web-crawling">
 <meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
 <meta property="og:title" content="How to get scrapy help."/>
-<meta property="og:description" content="Few suggestions how to ask questions correctly to get help for using scrapy framework."/>
+<meta property="og:description" content="Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://granitosaurus.github.io/scrapy-help.html"/>
 <meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2016-10-09 00:00:00+02:00"/>
+<meta property="article:published_time" content="2016-10-30 00:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
 <meta property="article:author" content="https://granitosaurus.github.io/author/bernardas-alisauskas.html">
 <meta property="article:section" content="code"/>
 <meta property="article:tag" content="scrapy"/>
 <meta property="article:tag" content="python"/>
+<meta property="article:tag" content="stackoverflow"/>
+<meta property="article:tag" content="web-crawling"/>
 <meta property="og:image" content="https://granitosaurus.github.io/images/core/me.jpg">
 
   <title>Blog of Bernardas Ališauskas &ndash; How to get scrapy help.</title>
@@ -82,30 +84,94 @@
   <header>
     <h1 id="scrapy-help">How to get scrapy help.</h1>
     <p>
-          Posted on Sun 09 October 2016 in <a href="https://granitosaurus.github.io/category/code.html">code</a>
+          Posted on Sun 30 October 2016 in <a href="https://granitosaurus.github.io/category/code.html">code</a>
 
 
     </p>
   </header>
   <div>
-    <p>Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars <a href="https://github.com/scrapy/scrapy">on github</a>. In terms of codebase scrapy is pretty simple, however there are few things that are not explicit as they could be in favor of abstraction and development simplicity.
-So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?</p>
-<p>First thing you should do is read <a href="http://stackoverflow.com/help/how-to-ask">how to ask a good question on stackoverflow</a>. <br />
-The second bit you should do is learn how to produce a <code>log</code>. Scrapy logs majority of the events that happen in your spider, so to debug your spider the best resources are these logs.<br />
-To save a log of your spider run you can use UNIX output redirection syntax:</p>
+    <p>Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars <a href="https://github.com/scrapy/scrapy">on github</a>. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.<br />
+Not to mention millions of websites that provide their own unique scraping challenges.  </p>
+<p>So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?</p>
+<h1>Stackoverflow Guidelines</h1>
+<p>First thing you should do is read is <a href="http://stackoverflow.com/help/how-to-ask"><em>how to ask a good question on stackoverflow</em></a>. <br />
+It's a brilliant guide by without a doubt the biggest Q&amp;A website on the web.</p>
+<h1>Where To Get Help?</h1>
+<p>There are two places you can go to with your scrapy related questions and issues:  </p>
+<ul>
+<li>
+<p><a href="http://stackoverflow.com/questions/tagged/scrapy">Stackoverflow</a>. <br />
+The issue with Stackoverflow is that it has a general rule of questions having to be generic, that means asking how to get price on this item on amazon is not a fit question. However the user base on <code>scrapy</code> tag seems to be quite understanding of this and tend to be quite lenient with reports and down-votes, but don't be surprised if your post gets down-voted or put on hold. All you can do is to try and make your issue more generic and hope for the best!</p>
+</li>
+<li>
+<p>IRC! @ irc.freenode.org #scrapy <br />
+Good old IRC has been there for decades and even though it dropped in popularity quite significantly, it's still a great place to get help on any subject and scrapy is not an exception. 
+Feel free to join the channel and ask questions about anything scrapy related; you can find me there too!</p>
+</li>
+</ul>
+<h1>Information</h1>
+<p>To debug an issue and get the help you need you need to provide information about your problem:  </p>
+<ol>
+<li>Source Code of your spider, settings and pipelines file  </li>
+<li>Website you are crawling - sometimes people refrain from providing the url in fear of legal issues or some judgment. Don't worry about that, scraping is very much legal and no one will judge you, it might very well be the opposite - people might be more keen to help scrape some weird porn website than amazon.  </li>
+<li>Crawl Log (see <a href="#log">Producing Logs</a>) - Scrapy logs majority of the events that happen in your spider, so to debug your spider the best resources are these logs.  </li>
+<li>Spider Output (see <a href="#output">Producing Output</a>) - This will rarely be useful for anyone else but yourself, but it can be very useful in some cases.  </li>
+</ol>
+<p>Once you have these bits you can easily formulate your question and I'm sure someone will help you out!</p>
+<h2 id="log">Producing Logs</h2>
+<p>To save a log of your spider run you can use UNIX output redirection syntax:</p>
 <div class="highlight"><pre><span></span>scrapy crawl myspider 2&gt;&amp;1 &gt; mylog.log
+# or
+scrapy crawl myspider &amp;&gt; mylog.log
 </pre></div>
 
 
-<p>Explanation:
-    <code>scrapy crawl myspider</code> - is a scrapy command that will start crawling spider called <code>myspider</code><br />
+<p>Explanation:<br />
+<code>scrapy crawl myspider</code> - is a scrapy command that will start crawling spider called <code>myspider</code><br />
 <code>2&gt;&amp;1</code> - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.<br />
-<code>&gt; mylog.log</code> - is another UNIX output redirection, but this time we redirect the output to file called <code>mylog.log</code></p>
+<code>&gt; mylog.log</code> - is another UNIX output redirection, but this time we redirect the output to file called <code>mylog.log</code>
+    Both of these can be combined to <code>&amp;&gt;</code></p>
+<p>For logging scrapy uses python's built-in <a href="https://docs.python.org/3/library/logging.html"><code>logging</code></a> module which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just <code>import logging</code> and simply log message to root logger: <code>logging.warning("this page has no next page")</code>.</p>
+<h2 id="output">Producing Output</h2>
+<p>Scrapy can automatically produce output in these formats:  </p>
+<div class="highlight"><pre><span></span>&#39;xml&#39;, &#39;jsonlines&#39;, &#39;jl&#39;, &#39;json&#39;, &#39;csv&#39;, &#39;pickle&#39;, &#39;marshal&#39;
+</pre></div>
+
+
+<p>To do that simply run <code>crawl</code> command with <code>--output</code> flag (<code>-o</code> for short version) and provide a name + file ending of format you want as an argument:</p>
+<div class="highlight"><pre><span></span>scrapy crawl myspider --output output.json
+</pre></div>
+
+
+<p><em>This will output all items your spider spews out to <code>output.json</code> file.</em>  </p>
+<p>To get help for readability purposes you probably want to use either <code>json</code> or <code>xml</code> since those are most readable and as described in section below parsing-friendly formats.</p>
+<p><em>Tip: You can actually tell scrapy to produce output to stdout directly by setting output argument to <code>-</code>:</em></p>
+<div class="highlight"><pre><span></span>scrapy crawl myspider -t json -o - output.json
+</pre></div>
+
+
+<h2>Inspecting Output</h2>
+<p>There few tools to parse <code>json</code> or <code>xml</code> content, similar like you'd use <code>sed</code> or <code>grep</code> in unix. The most popular and widely known is probably <a href="https://stedolan.github.io/jq/">jq</a>, which I believe translates to json query.<br />
+I personally really dislike that jq uses it's own mini-language as opposed to xpath or css selectors we all know, love and use daily.<br />
+So in response to this I made <a href="https://github.com/granitosaurus/pq/"><strong>PQ</strong></a>! It uses xpath and css selectors as well as support both json and xml parsing.</p>
+<p>To put it shortly, using the tools described above you can find specific values of some fields really easily.<br />
+Lets imagine we have a bunch of products that have these fields: name and price. Now for some reason Samsung items have weird pricing and we want to find out whether that's the case every time we update the code. </p>
+<p>For example using pq we can navigate the prices of items that have some keywords in their names:</p>
+<div class="highlight"><pre><span></span>cat output.json | pq &quot;//item[contains(@name,&#39;samsung&#39;)]/price/text()&quot;
+</pre></div>
+
+
+<p>Will find all items that contain "samsung" in the name and output their price values. If you change up your spider an run this command again you can easily navigate whether the values are changing.</p>
+<p>You can combine this with scrapy spider redirection to have everything in one line:</p>
+<div class="highlight"><pre><span></span>scrapy crawl spider --nolog -t json -o - | pq &quot;//item[contains(@name,&#39;samsung&#39;)]/price/text()&quot;
+</pre></div>
   </div>
   <div class="tag-cloud">
     <p>
       <a href="https://granitosaurus.github.io/tag/scrapy.html">scrapy</a>
       <a href="https://granitosaurus.github.io/tag/python.html">python</a>
+      <a href="https://granitosaurus.github.io/tag/stackoverflow.html">stackoverflow</a>
+      <a href="https://granitosaurus.github.io/tag/web-crawling.html">web-crawling</a>
     </p>
   </div>
 
