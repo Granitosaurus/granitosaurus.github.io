@@ -127,13 +127,13 @@ scrapy crawl myspider &amp;&gt; mylog.log
 
 
 <p>Explanation:<br />
-<code>scrapy crawl myspider</code> - is a scrapy command that will start crawling spider called <code>myspider</code><br />
-<code>2&gt;&amp;1</code> - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.<br />
-<code>&gt; mylog.log</code> - is another UNIX output redirection, but this time we redirect the output to file called <code>mylog.log</code>
-    Both of these can be combined to <code>&amp;&gt;</code></p>
-<p>For logging scrapy uses python's built-in <a href="https://docs.python.org/3/library/logging.html"><code>logging</code></a> module which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just <code>import logging</code> and simply log message to root logger: <code>logging.warning("this page has no next page")</code>.</p>
+    1. <code>scrapy crawl myspider</code> - is a scrapy command that will start crawling spider called <code>myspider</code><br />
+    2. <code>2&gt;&amp;1</code> - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.<br />
+    3. <code>&gt; mylog.log</code> - is another UNIX output redirection, but this time we redirect the output to file called <code>mylog.log</code></p>
+<p><em>Tip: points 2 and 3 can be summarized as <code>&amp;&gt;</code> in bash version 4 and up</em></p>
+<p>For logging scrapy uses python's built-in <a href="https://docs.python.org/3/library/logging.html"><code>logging</code> module</a> which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just <code>import logging</code> and simply log message to root logger: <code>logging.warning("this page has no next page")</code>. To have simple logging in your spider.</p>
 <h2 id="output">Producing Output</h2>
-<p>Scrapy can automatically produce output in these formats:  </p>
+<p>Scrapy can automatically produce output in one these formats:  </p>
 <div class="highlight"><pre><span></span>&#39;xml&#39;, &#39;jsonlines&#39;, &#39;jl&#39;, &#39;json&#39;, &#39;csv&#39;, &#39;pickle&#39;, &#39;marshal&#39;
 </pre></div>
 
@@ -165,6 +165,11 @@ Lets imagine we have a bunch of products that have these fields: name and price.
 <p>You can combine this with scrapy spider redirection to have everything in one line:</p>
 <div class="highlight"><pre><span></span>scrapy crawl spider --nolog -t json -o - | pq &quot;//item[contains(@name,&#39;samsung&#39;)]/price/text()&quot;
 </pre></div>
+
+
+<h1>Conclusion</h1>
+<p>Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!</p>
+<p>Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)</p>
   </div>
   <div class="tag-cloud">
     <p>

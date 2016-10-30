@@ -36,13 +36,13 @@ scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
 
 
 &lt;p&gt;Explanation:&lt;br /&gt;
-&lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br /&gt;
-&lt;code&gt;&amp;gt; mylog.log&lt;/code&gt; - is another UNIX output redirection, but this time we redirect the output to file called &lt;code&gt;mylog.log&lt;/code&gt;
-    Both of these can be combined to &lt;code&gt;&amp;amp;&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;For logging scrapy uses python's built-in &lt;a href="https://docs.python.org/3/library/logging.html"&gt;&lt;code&gt;logging&lt;/code&gt;&lt;/a&gt; module which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just &lt;code&gt;import logging&lt;/code&gt; and simply log message to root logger: &lt;code&gt;logging.warning("this page has no next page")&lt;/code&gt;.&lt;/p&gt;
+    1. &lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br /&gt;
+    2. &lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br /&gt;
+    3. &lt;code&gt;&amp;gt; mylog.log&lt;/code&gt; - is another UNIX output redirection, but this time we redirect the output to file called &lt;code&gt;mylog.log&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tip: points 2 and 3 can be summarized as &lt;code&gt;&amp;amp;&amp;gt;&lt;/code&gt; in bash version 4 and up&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For logging scrapy uses python's built-in &lt;a href="https://docs.python.org/3/library/logging.html"&gt;&lt;code&gt;logging&lt;/code&gt; module&lt;/a&gt; which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just &lt;code&gt;import logging&lt;/code&gt; and simply log message to root logger: &lt;code&gt;logging.warning("this page has no next page")&lt;/code&gt;. To have simple logging in your spider.&lt;/p&gt;
 &lt;h2 id="output"&gt;Producing Output&lt;/h2&gt;
-&lt;p&gt;Scrapy can automatically produce output in these formats:  &lt;/p&gt;
+&lt;p&gt;Scrapy can automatically produce output in one these formats:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;#39;xml&amp;#39;, &amp;#39;jsonlines&amp;#39;, &amp;#39;jl&amp;#39;, &amp;#39;json&amp;#39;, &amp;#39;csv&amp;#39;, &amp;#39;pickle&amp;#39;, &amp;#39;marshal&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -73,7 +73,12 @@ Lets imagine we have a bunch of products that have these fields: name and price.
 &lt;p&gt;Will find all items that contain "samsung" in the name and output their price values. If you change up your spider an run this command again you can easily navigate whether the values are changing.&lt;/p&gt;
 &lt;p&gt;You can combine this with scrapy spider redirection to have everything in one line:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl spider --nolog -t json -o - | pq &amp;quot;//item[contains(@name,&amp;#39;samsung&amp;#39;)]/price/text()&amp;quot;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Bernardas Ališauskas</dc:creator><pubDate>Sun, 30 Oct 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:granitosaurus.github.io,2016-10-30:scrapy-help.html</guid><category>scrapy</category><category>python</category><category>stackoverflow</category><category>web-crawling</category></item><item><title>Pycon PL + Warsaw report</title><link>https://granitosaurus.github.io/pycon-pl-after.html</link><description>&lt;p&gt;Last year during Euro-Python 2015 someone from PyconPL had an interesting lightning talk about PyconPL, and since that moment I was sold. However I missed it by few days that year. However this year I made it and as a bonus I checked out Warsaw, Poland too!&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!&lt;/p&gt;
+&lt;p&gt;Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Bernardas Ališauskas</dc:creator><pubDate>Sun, 30 Oct 2016 00:00:00 +0200</pubDate><guid isPermaLink="false">tag:granitosaurus.github.io,2016-10-30:scrapy-help.html</guid><category>scrapy</category><category>python</category><category>stackoverflow</category><category>web-crawling</category></item><item><title>Pycon PL + Warsaw report</title><link>https://granitosaurus.github.io/pycon-pl-after.html</link><description>&lt;p&gt;Last year during Euro-Python 2015 someone from PyconPL had an interesting lightning talk about PyconPL, and since that moment I was sold. However I missed it by few days that year. However this year I made it and as a bonus I checked out Warsaw, Poland too!&lt;/p&gt;
 &lt;p&gt;You can check my previous blog post how we got to Warsaw &lt;a href="/pycon-pl.html"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Before going to Pycon me and my girlfriend took two days to look around Warsaw, Poland. Throughout the trip we stayed in 3 airbnb places. The first day we were really surprised how pretty and big Warsaw is. To give a little background, before the trip we did a bunch of research of what to do in Warsaw and we really didn't find much so we didn't have high hopes to begin with, thus the surprise. &lt;/p&gt;
 &lt;p&gt;So without further ado, here is what I (and in some cases we) think of Warsaw!&lt;/p&gt;

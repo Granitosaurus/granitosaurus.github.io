@@ -36,13 +36,13 @@ scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
 
 
 &lt;p&gt;Explanation:&lt;br /&gt;
-&lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br /&gt;
-&lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br /&gt;
-&lt;code&gt;&amp;gt; mylog.log&lt;/code&gt; - is another UNIX output redirection, but this time we redirect the output to file called &lt;code&gt;mylog.log&lt;/code&gt;
-    Both of these can be combined to &lt;code&gt;&amp;amp;&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;For logging scrapy uses python's built-in &lt;a href="https://docs.python.org/3/library/logging.html"&gt;&lt;code&gt;logging&lt;/code&gt;&lt;/a&gt; module which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just &lt;code&gt;import logging&lt;/code&gt; and simply log message to root logger: &lt;code&gt;logging.warning("this page has no next page")&lt;/code&gt;.&lt;/p&gt;
+    1. &lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br /&gt;
+    2. &lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br /&gt;
+    3. &lt;code&gt;&amp;gt; mylog.log&lt;/code&gt; - is another UNIX output redirection, but this time we redirect the output to file called &lt;code&gt;mylog.log&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Tip: points 2 and 3 can be summarized as &lt;code&gt;&amp;amp;&amp;gt;&lt;/code&gt; in bash version 4 and up&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For logging scrapy uses python's built-in &lt;a href="https://docs.python.org/3/library/logging.html"&gt;&lt;code&gt;logging&lt;/code&gt; module&lt;/a&gt; which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just &lt;code&gt;import logging&lt;/code&gt; and simply log message to root logger: &lt;code&gt;logging.warning("this page has no next page")&lt;/code&gt;. To have simple logging in your spider.&lt;/p&gt;
 &lt;h2 id="output"&gt;Producing Output&lt;/h2&gt;
-&lt;p&gt;Scrapy can automatically produce output in these formats:  &lt;/p&gt;
+&lt;p&gt;Scrapy can automatically produce output in one these formats:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;#39;xml&amp;#39;, &amp;#39;jsonlines&amp;#39;, &amp;#39;jl&amp;#39;, &amp;#39;json&amp;#39;, &amp;#39;csv&amp;#39;, &amp;#39;pickle&amp;#39;, &amp;#39;marshal&amp;#39;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -73,7 +73,12 @@ Lets imagine we have a bunch of products that have these fields: name and price.
 &lt;p&gt;Will find all items that contain "samsung" in the name and output their price values. If you change up your spider an run this command again you can easily navigate whether the values are changing.&lt;/p&gt;
 &lt;p&gt;You can combine this with scrapy spider redirection to have everything in one line:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl spider --nolog -t json -o - | pq &amp;quot;//item[contains(@name,&amp;#39;samsung&amp;#39;)]/price/text()&amp;quot;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="scrapy"></category><category term="python"></category><category term="stackoverflow"></category><category term="web-crawling"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!&lt;/p&gt;
+&lt;p&gt;Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)&lt;/p&gt;</summary><category term="scrapy"></category><category term="python"></category><category term="stackoverflow"></category><category term="web-crawling"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
 &lt;p&gt;In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.&lt;br /&gt;
 &lt;strong&gt;If you don't care about the research you can just skip to the &lt;a href="#right"&gt;right tool&lt;/a&gt; and &lt;a href="#solving"&gt;solving of the real life case&lt;/a&gt; sections at the end&lt;/strong&gt;.&lt;/p&gt;
 &lt;h1&gt;Cause&lt;/h1&gt;
