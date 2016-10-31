@@ -9,6 +9,7 @@ SITENAME = 'Blog of Bernardas Ališauskas'
 SITESUBTITLE = 'Python programmer and a goof who loves free software'
 SITEDESCRIPTION = 'Thoughts and Writings of Granitosaurus'
 SITELOGO = SITEURL + '/images/core/me.jpg'
+STACKOVERFLOW = '3737009'
 FAVICON = SITEURL + '/images/favicon.ico'
 MAIN_MENU = True
 MENUITEMS = (
