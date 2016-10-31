@@ -88,8 +88,8 @@ Weirdly enough it was probably my favourite place in Warsaw. The main attraction
 There were very few people and the weather wasn't that bad. It's near the river so it can get a bit windy, so pack up a scarf!
 
 #### Technology Museum and Palace of Culture and Science
-![Place of Culture and Science image](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/PKin_warszawa.jpg/1024px-PKin_warszawa.jpg)  
-Palace of Culture and Science which was gifted to Poland by Russia after WW2. It's a really beautiful building that since in the very center of Warsaw.  
+<img alt="Place of Culture and Science image" src="{filename}/images/poland_palace.jpg" height=500>  
+Palace of Culture and Science was gifted to Poland by Russia after WW2. It's a really beautiful building that since in the very center of Warsaw.  
 Aside of being pretty it also hosts a pretty cool Technology museum inside of it.It contains exhibits ranging from old motorcycles to nintendo games and it's really fun!  
 Few of the highlights: Space technology exhibit, video games, old vehicles (from bikes to planes)  
 
