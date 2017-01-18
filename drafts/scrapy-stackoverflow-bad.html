@@ -98,17 +98,17 @@
     <p><em>"People suck at asking questions"</em></p>
 <p>After spending over a month answering <a href="https://github.com/scrapy/scrapy"><code>scrapy</code></a> related questions I've decided to share my experience. I'll point out few things that I've learned from this little experiment and few other related comments. The quote above is a good generalization but there are a lot of good and interesting to add, for that see my previous post.</p>
 <h1>The Bad</h1>
-<p><img alt="scrapy stackoverflow generic question" src="https://granitosaurus.github.io/images/scrapy_stackoverflow2.png" /><br />
+<p><img alt="scrapy stackoverflow generic question" src="https://granitosaurus.github.io/images/scrapy_stackoverflow2.png"><br>
 The question quality is pretty poor, even compared to general stackoverflow quality. A lot of questions don't seem to be focused on general solutions but on individual problems which as far as I know is against the general rules of stackoverflow. However people seems to be giving it a pass since there is no other place to get answers to questions like this (shout out to #scrapy @ freenode).  </p>
 <h2>Common Issues</h2>
 <h3><strong>AJAX</strong></h3>
-<p><img style="float: left;" src='https://granitosaurus.github.io/images/scrapy_stackoverflow5.png' height=100>By far the most common issue is dealing with AJAX. What a scary name for something so simple."Asynchronous JavaScript and XML" which in the scope of web-crawling just means <em>make request for some data</em>, in other words it's just a javascript made request that retrieves some data. Usually this is used for product urls in pagination or images urls stored on some other server.<br />
-There's a huge question that <a href="http://stackoverflow.com/questions/8550114/can-scrapy-be-used-to-scrape-dynamic-content-from-websites-that-are-using-ajax?rq=1">covers scrapy and AJAX here</a>. However I find the answers to be pretty bad and do not fully cover the issue or cover a completely different issue(see Selenium in The Ugly part).<br />
+<p><img style="float: left;" src='https://granitosaurus.github.io/images/scrapy_stackoverflow5.png' height=100>By far the most common issue is dealing with AJAX. What a scary name for something so simple."Asynchronous JavaScript and XML" which in the scope of web-crawling just means <em>make request for some data</em>, in other words it's just a javascript made request that retrieves some data. Usually this is used for product urls in pagination or images urls stored on some other server.<br>
+There's a huge question that <a href="http://stackoverflow.com/questions/8550114/can-scrapy-be-used-to-scrape-dynamic-content-from-websites-that-are-using-ajax?rq=1">covers scrapy and AJAX here</a>. However I find the answers to be pretty bad and do not fully cover the issue or cover a completely different issue(see Selenium in The Ugly part).<br>
 However there is a great blog post by Scrapinghub called <a href="https://blog.scrapinghub.com/2016/06/22/scrapy-tips-from-the-pros-june-2016/">Scraping Infinite Scrolling Pages</a> which is a must read if you're new to this! </p>
 <h3><strong>CrawlSpider</strong></h3>
-<p><a href='https://granitosaurus.github.io/images/scrapy_stackoverflow3.gif'><img alt="Please stop using CrawlSpider" src="https://granitosaurus.github.io/images/scrapy_stackoverflow4.png" /></a><br />
-I'm now sure whom to blame here, but for some magical reason everyone decided to use <a href="http://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.CrawlSpider"><code>CrawlSpider</code></a> scrapy spider instead of base <code>srapy.Spider</code>.<br />
-<code>CrawlSpider</code> automates a lot of crawling logic by using <code>Rule</code> objects which have a lot of bells and whistles to configure how and what a spider should crawl. I personally dislike <code>CrawlSpider</code> but even with it's benefits it hides so much from the user that I would <strong>never recommend it to a new user</strong>. <br />
+<p><a href='https://granitosaurus.github.io/images/scrapy_stackoverflow3.gif'><img alt="Please stop using CrawlSpider" src="https://granitosaurus.github.io/images/scrapy_stackoverflow4.png"></a><br>
+I'm now sure whom to blame here, but for some magical reason everyone decided to use <a href="http://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.CrawlSpider"><code>CrawlSpider</code></a> scrapy spider instead of base <code>srapy.Spider</code>.<br>
+<code>CrawlSpider</code> automates a lot of crawling logic by using <code>Rule</code> objects which have a lot of bells and whistles to configure how and what a spider should crawl. I personally dislike <code>CrawlSpider</code> but even with it's benefits it hides so much from the user that I would <strong>never recommend it to a new user</strong>. <br>
 I have the <a href="http://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.CrawlSpider">documentation page</a>of it bookmarked myself because of how confusing it can get.</p>
 <p>Here's a little CrawlSpider versus Spider comparison and why I think CrawlSpider is confusing for beginners:</p>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">CrawlSpider</span><span class="p">):</span>
@@ -129,7 +129,7 @@ I have the <a href="http://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.s
 </pre></div>
 
 
-<p>First thing rules are confusing, here you have a list of objects that constructs another object with in it's parameters. Both of these objects can have multiple parameters which makes the whole thing super hectic and implicit.<br />
+<p>First thing rules are confusing, here you have a list of objects that constructs another object with in it's parameters. Both of these objects can have multiple parameters which makes the whole thing super hectic and implicit.<br>
 This is how using base Spider this would look:</p>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">Spider</span><span class="p">):</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;myspider&#39;</span>

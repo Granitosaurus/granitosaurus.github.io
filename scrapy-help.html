@@ -95,30 +95,30 @@
     </p>
   </header>
   <div>
-    <p>Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars <a href="https://github.com/scrapy/scrapy">on github</a>. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.<br />
+    <p>Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars <a href="https://github.com/scrapy/scrapy">on github</a>. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.<br>
 Not to mention millions of websites that provide their own unique scraping challenges.  </p>
 <p>So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?</p>
 <h1>Stackoverflow Guidelines</h1>
-<p>First thing you should do is read is <a href="http://stackoverflow.com/help/how-to-ask"><em>how to ask a good question on stackoverflow</em></a>. <br />
+<p>First thing you should do is read is <a href="http://stackoverflow.com/help/how-to-ask"><em>how to ask a good question on stackoverflow</em></a>. <br>
 It's a brilliant guide by, without a doubt the biggest Q&amp;A website on the web, and it focuses on how to ask a good questions regardless of the topic. Following these guidelines not only make it easy for people to help you but also easy for you, yourself to formulate your question and understand the issue you are facing!</p>
 <h1>Where To Get Help?</h1>
 <p>There are two places you can go to with your scrapy related questions and issues:  </p>
 <ul>
 <li>
-<p><a href="http://stackoverflow.com/questions/tagged/scrapy">Stackoverflow</a>. <br />
+<p><a href="http://stackoverflow.com/questions/tagged/scrapy">Stackoverflow</a>. <br>
 The issue with Stackoverflow is that it has a general rule of questions having to be generic, that means asking how to get price on this item on amazon is not a fit question. However the user base on <code>scrapy</code> tag seems to be quite understanding of this and tend to be quite lenient with reports and down-votes, but don't be surprised if your post gets down-voted or put on hold. All you can do is to try and make your issue more generic and hope for the best!</p>
 </li>
 <li>
-<p>IRC! @ irc.freenode.org #scrapy <br />
+<p>IRC! @ irc.freenode.org #scrapy <br>
 Good old IRC has been there for decades and even though it dropped in popularity quite significantly, it's still a great place to get help on any subject and scrapy is not an exception. 
 Feel free to join the channel and ask questions about anything scrapy related; you can find me there too!</p>
 </li>
 <li>
-<p><a href="https://support.scrapinghub.com/forums/1-general/">Scrapinghub Forums</a><br />
+<p><a href="https://support.scrapinghub.com/forums/1-general/">Scrapinghub Forums</a><br>
 Scrapinghub is the company behind scrapy and they have a user forum, so naturally it's a great place to look for help when it comes to your scrapy issues!  </p>
 </li>
 <li>
-<p>Reddit<br />
+<p>Reddit<br>
 There's an official <a href="https://reddit.com/r/scrapy">scrapy subreddit</a>, which isn't very active but I can tell you for a fact that a lot of people that are involved with scrapy keep an eye on it. It's a great place for some discussions that might not fit stackoverflow and irc.</p>
 </li>
 </ul>
@@ -139,9 +139,9 @@ scrapy crawl myspider &amp;&gt; mylog.log
 </pre></div>
 
 
-<p>Explanation:<br />
-    1. <code>scrapy crawl myspider</code> - is a scrapy command that will start crawling spider called <code>myspider</code><br />
-    2. <code>2&gt;&amp;1</code> - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.<br />
+<p>Explanation:<br>
+    1. <code>scrapy crawl myspider</code> - is a scrapy command that will start crawling spider called <code>myspider</code><br>
+    2. <code>2&gt;&amp;1</code> - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.<br>
     3. <code>&gt; mylog.log</code> - is another UNIX output redirection, but this time we redirect the output to file called <code>mylog.log</code></p>
 <p><em>Tip: points 2 and 3 can be summarized as <code>&amp;&gt;</code> in bash version 4 and up</em></p>
 <p>For logging scrapy uses python's built-in <a href="https://docs.python.org/3/library/logging.html"><code>logging</code> module</a> which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just <code>import logging</code> and simply log message to root logger: <code>logging.warning("this page has no next page")</code>. To have simple logging in your spider.</p>
@@ -164,10 +164,10 @@ scrapy crawl myspider &amp;&gt; mylog.log
 
 
 <h2>Inspecting Output</h2>
-<p>There few tools to parse <code>json</code> or <code>xml</code> content, similar like you'd use <code>sed</code> or <code>grep</code> in unix. The most popular and widely known is probably <a href="https://stedolan.github.io/jq/">jq</a>, which I believe translates to json query.<br />
-I personally really dislike that jq uses it's own mini-language as opposed to xpath or css selectors we all know, love and use daily.<br />
+<p>There few tools to parse <code>json</code> or <code>xml</code> content, similar like you'd use <code>sed</code> or <code>grep</code> in unix. The most popular and widely known is probably <a href="https://stedolan.github.io/jq/">jq</a>, which I believe translates to json query.<br>
+I personally really dislike that jq uses it's own mini-language as opposed to xpath or css selectors we all know, love and use daily.<br>
 So in response to this I made <a href="https://github.com/granitosaurus/pq/"><strong>PQ</strong></a>! It uses xpath and css selectors as well as support both json and xml parsing.</p>
-<p>To put it shortly, using the tools described above you can find specific values of some fields really easily.<br />
+<p>To put it shortly, using the tools described above you can find specific values of some fields really easily.<br>
 Lets imagine we have a bunch of products that have these fields: name and price. Now for some reason Samsung items have weird pricing and we want to find out whether that's the case every time we update the code. </p>
 <p>For example using pq we can navigate the prices of items that have some keywords in their names:</p>
 <div class="highlight"><pre><span></span>cat output.json | pq &quot;//item[contains(@name,&#39;samsung&#39;)]/price/text()&quot;

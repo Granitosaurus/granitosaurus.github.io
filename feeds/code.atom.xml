@@ -1,28 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2016-10-30T00:00:00+02:00</updated><entry><title>How to get scrapy help.</title><link href="https://granitosaurus.github.io/scrapy-help.html" rel="alternate"></link><published>2016-10-30T00:00:00+02:00</published><updated>2016-10-30T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-30:scrapy-help.html</id><summary type="html">&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-18T00:00:00+01:00</updated><entry><title>My bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;Some of the useful things I have in my ~/bin&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that way.  &lt;/p&gt;
+&lt;p&gt;Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show of how awesome and powerful python command line tools can be!&lt;br&gt;
+It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running &lt;a href="http://i3wm.org/"&gt;i3wm&lt;/a&gt; - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.&lt;/p&gt;
+&lt;p&gt;In other words it turns something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Once upon a midnight dreary, while I pondered, weak and weary,
+Over many a quaint and curious volume of forgotten lore,
+While I nodded, nearly napping, suddenly there came a tapping,
+As of some one gently rapping, rapping at my chamber door.
+&amp;#39;Tis some visitor,&amp;#39; I muttered, &amp;#39;tapping at my chamber door-
+Only this, and nothing more.&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Into:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;             Once upon a midnight dreary, while I pondered, weak and weary,              
+                Over many a quaint and curious volume of forgotten lore,                 
+             While I nodded, nearly napping, suddenly there came a tapping,              
+               As of some one gently rapping, rapping at my chamber door.                
+              &amp;#39;Tis some visitor,&amp;#39; I muttered, &amp;#39;tapping at my chamber door-               
+                              Only this, and nothing more.&amp;#39;   
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;While taking your current terminal size into account, so no matter what you're doing or where you are the text will nice and pretty.   &lt;/p&gt;
+&lt;h3&gt;Source&lt;/h3&gt;
+&lt;p&gt;Now lets take a look at the source code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="c1"&gt;#!/usr/bin/env python3&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;click&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+
+
+    &lt;span class="nd"&gt;@click.command&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;input&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;output&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nd"&gt;@click.option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;-l&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;--length&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;maximum line length [default:current terminal size]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Simple, pipeable tool for centering text&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;#1&lt;/span&gt;
+        &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;  &lt;span class="c1"&gt;#2&lt;/span&gt;
+        &lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{{:^{}}}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;#3&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;#4&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_format&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Explanation&lt;/h3&gt;
+&lt;p&gt;I love &lt;code&gt;click&lt;/code&gt; library, which is a tool for creating command line interface. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for pipe logic we need but is a nice addition if there's a need for standalone function.&lt;br&gt;
+Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
+Finally there's the program itself:&lt;br&gt;
+&lt;code&gt;#1&lt;/code&gt; - We retrieve dimensions of the current terminal window. This returns a tuple of &lt;code&gt;(columns, rows)&lt;/code&gt; since we only care about columns we take the first member. 
+&lt;code&gt;#2&lt;/code&gt; - We decide on which source to use for input, if first position argument is supplied to script, we'll use that as a source, otherwise use standard input.
+&lt;code&gt;#3&lt;/code&gt; - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to &lt;code&gt;{:^&amp;lt;terminal_size&amp;gt;}\n&lt;/code&gt; now if we call &lt;code&gt;.format()&lt;/code&gt; on that we can insert text and it will be centered. For more check out &lt;a href="https://docs.python.org/3.1/library/string.html#string-formatting"&gt;python's string formatting&lt;/a&gt;, it's awesome!
+&lt;code&gt;#4&lt;/code&gt; - And lastly we have the loop itself. Here we loop through every line, center it and either write it to file if the second positional argument is supplied or put it straight to standard output.&lt;/p&gt;
+&lt;h3&gt;Improvements&lt;/h3&gt;
+&lt;p&gt;You could probably go wild with bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) &lt;/p&gt;
+&lt;h3&gt;Pitfalls&lt;/h3&gt;
+&lt;p&gt;One of the pitfalls I've experience with piping in python scripts is when piping to &lt;code&gt;less&lt;/code&gt; or similar tools. &lt;br&gt;
+Because of how &lt;code&gt;shutils.get_terminal_size()&lt;/code&gt; works, if a parameter &lt;code&gt;fallback&lt;/code&gt; is set, like: &lt;code&gt;shutils.get_terminal_size(fallback=(80,30))&lt;/code&gt; the set fallback will actually be used instead of your terminal size if piped to &lt;code&gt;less&lt;/code&gt; or similar tool.&lt;br&gt;
+I'm not certain why it behaves like that, my guess being is that &lt;code&gt;less&lt;/code&gt; breaks the terminal size function, but opposed to general recommendations of setting a fallback it's best to not set it in this case.&lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;I'd like to encourage anyone who use ugly awk scripts and aliases just write a short command line application with click, it takes no longer than 10 minutes, is beautiful, usable, readable and easily shareable. Let me know if you have any questions and stay tuned for more scripts and explanations!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>Using python to setup desktop notifications.</title><link href="https://granitosaurus.github.io/notify-send.html" rel="alternate"></link><published>2016-11-03T10:20:00+01:00</published><updated>2016-11-03T10:20:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-11-03:/notify-send.html</id><summary type="html">&lt;p&gt;Notify-send is great, you should use it!&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Notifications On Linux&lt;/h1&gt;
+&lt;p&gt;Most gnu/linux systems use &lt;code&gt;libnotify&lt;/code&gt; package for notifications - this package provides simple &lt;code&gt;notify-send&lt;/code&gt; command line interface for sending notifications to your desktop environment or directly to your xorg display.&lt;br&gt;
+To use it however, you need a running daemon program that handles all this; my personal recommendation is &lt;code&gt;dunst&lt;/code&gt;. You can find more info about this and alternatives to &lt;code&gt;dunst&lt;/code&gt; in this arch-wiki &lt;a href="https://wiki.archlinux.org/index.php/Desktop_notifications#Standalone"&gt;article&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Python and notifications.&lt;/h1&gt;
+&lt;p&gt;Python is a perfect language for making notifications like this!&lt;br&gt;
+By default python comes with everything we need to set this up, however to make things nicer lets use &lt;code&gt;click&lt;/code&gt; command line interface package. It will greatly simplify the cli part of the program. You can get it from pip via &lt;code&gt;pip install click&lt;/code&gt; and skim through the &lt;a href="http://click.pocoo.org/"&gt;tutorial here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All you need to send the notification with python:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;subprocess.call([&amp;#39;notify-send&amp;#39;, &amp;#39;title&amp;#39;, &amp;#39;body&amp;#39;])
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we can use this to make a real application!&lt;/p&gt;
+&lt;h3&gt;Bonus: Setup Notifications&lt;/h3&gt;
+&lt;p&gt;By default majority of gnu/linux distributions already have everything covered for you! &lt;code&gt;libnotify&lt;/code&gt; should be installed and some sort of notification daemon should be running in the background.&lt;br&gt;
+Try writing this in your terminal:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;notify-send &amp;quot;test title&amp;quot; &amp;quot;test body&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you see something, then great - you're done with this step!  &lt;/p&gt;
+&lt;p&gt;Otherwise you're probably missing a notification daemon. To fix that you need to install one, let's go with &lt;a href="http://knopwob.org/dunst/index.html"&gt;dunst&lt;/a&gt;.&lt;br&gt;
+You can simply pull it from you package manager, e.g.:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo pacman -S dunst  # for arch
+sudo apt install dunst  # for ubuntu
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Usually &lt;code&gt;dunst&lt;/code&gt; autostarts on majority of system on boot up as DBus autostarts it by default, but some systems might require explicit autostart, so in your init file just call &lt;code&gt;dunst&lt;/code&gt;, e.g. for i3wm you'd add &lt;code&gt;exec dunst&lt;/code&gt;.  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="dunst solarized" src="{filename}/images/dunst.png"&gt;
+You can also customize your dunst quite extensively as well. All you need to do is pass the location of the config file as &lt;code&gt;--conf&lt;/code&gt; parameter, i.e. &lt;code&gt;dunst --config ~/.dunstrc&lt;/code&gt;.&lt;br&gt;
+I'm running solarized look and you can find my config &lt;a href="https://github.com/Granitosaurus/.dotfiles/.dunstrc"&gt;on my dotfiles repo here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dunst is also keyboard driven which means you can:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Close notifactions
+close = ctrl+space
+close_all = ctrl+shift+space
+# Show history of notifications
+history = ctrl+grave
+# Open context of the notification
+# e.g. if notification has an url - open it in default browser
+context = ctrl+shift+period
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It's really lovely and I highly recommend choosing dunst as your notification-daemon!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>How to get scrapy help.</title><link href="https://granitosaurus.github.io/scrapy-help.html" rel="alternate"></link><published>2016-10-30T00:00:00+02:00</published><updated>2016-10-30T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-30:/scrapy-help.html</id><summary type="html">&lt;p&gt;Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.&lt;br&gt;
 Not to mention millions of websites that provide their own unique scraping challenges.  &lt;/p&gt;
 &lt;p&gt;So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?&lt;/p&gt;
 &lt;h1&gt;Stackoverflow Guidelines&lt;/h1&gt;
-&lt;p&gt;First thing you should do is read is &lt;a href="http://stackoverflow.com/help/how-to-ask"&gt;&lt;em&gt;how to ask a good question on stackoverflow&lt;/em&gt;&lt;/a&gt;. &lt;br /&gt;
+&lt;p&gt;First thing you should do is read is &lt;a href="http://stackoverflow.com/help/how-to-ask"&gt;&lt;em&gt;how to ask a good question on stackoverflow&lt;/em&gt;&lt;/a&gt;. &lt;br&gt;
 It's a brilliant guide by, without a doubt the biggest Q&amp;amp;A website on the web, and it focuses on how to ask a good questions regardless of the topic. Following these guidelines not only make it easy for people to help you but also easy for you, yourself to formulate your question and understand the issue you are facing!&lt;/p&gt;
 &lt;h1&gt;Where To Get Help?&lt;/h1&gt;
 &lt;p&gt;There are two places you can go to with your scrapy related questions and issues:  &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/tagged/scrapy"&gt;Stackoverflow&lt;/a&gt;. &lt;br /&gt;
+&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/tagged/scrapy"&gt;Stackoverflow&lt;/a&gt;. &lt;br&gt;
 The issue with Stackoverflow is that it has a general rule of questions having to be generic, that means asking how to get price on this item on amazon is not a fit question. However the user base on &lt;code&gt;scrapy&lt;/code&gt; tag seems to be quite understanding of this and tend to be quite lenient with reports and down-votes, but don't be surprised if your post gets down-voted or put on hold. All you can do is to try and make your issue more generic and hope for the best!&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;IRC! @ irc.freenode.org #scrapy &lt;br /&gt;
+&lt;p&gt;IRC! @ irc.freenode.org #scrapy &lt;br&gt;
 Good old IRC has been there for decades and even though it dropped in popularity quite significantly, it's still a great place to get help on any subject and scrapy is not an exception. 
 Feel free to join the channel and ask questions about anything scrapy related; you can find me there too!&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href="https://support.scrapinghub.com/forums/1-general/"&gt;Scrapinghub Forums&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;&lt;a href="https://support.scrapinghub.com/forums/1-general/"&gt;Scrapinghub Forums&lt;/a&gt;&lt;br&gt;
 Scrapinghub is the company behind scrapy and they have a user forum, so naturally it's a great place to look for help when it comes to your scrapy issues!  &lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Reddit&lt;br /&gt;
+&lt;p&gt;Reddit&lt;br&gt;
 There's an official &lt;a href="https://reddit.com/r/scrapy"&gt;scrapy subreddit&lt;/a&gt;, which isn't very active but I can tell you for a fact that a lot of people that are involved with scrapy keep an eye on it. It's a great place for some discussions that might not fit stackoverflow and irc.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -43,9 +154,9 @@ scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Explanation:&lt;br /&gt;
-    1. &lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br /&gt;
-    2. &lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br /&gt;
+&lt;p&gt;Explanation:&lt;br&gt;
+    1. &lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br&gt;
+    2. &lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt; - is UNIX syntax for redirecting error output to standard output. In UNIX there are types of outputs and in your log you want to have both of them in one file.&lt;br&gt;
     3. &lt;code&gt;&amp;gt; mylog.log&lt;/code&gt; - is another UNIX output redirection, but this time we redirect the output to file called &lt;code&gt;mylog.log&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Tip: points 2 and 3 can be summarized as &lt;code&gt;&amp;amp;&amp;gt;&lt;/code&gt; in bash version 4 and up&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;For logging scrapy uses python's built-in &lt;a href="https://docs.python.org/3/library/logging.html"&gt;&lt;code&gt;logging&lt;/code&gt; module&lt;/a&gt; which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just &lt;code&gt;import logging&lt;/code&gt; and simply log message to root logger: &lt;code&gt;logging.warning("this page has no next page")&lt;/code&gt;. To have simple logging in your spider.&lt;/p&gt;
@@ -68,10 +179,10 @@ scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
 
 
 &lt;h2&gt;Inspecting Output&lt;/h2&gt;
-&lt;p&gt;There few tools to parse &lt;code&gt;json&lt;/code&gt; or &lt;code&gt;xml&lt;/code&gt; content, similar like you'd use &lt;code&gt;sed&lt;/code&gt; or &lt;code&gt;grep&lt;/code&gt; in unix. The most popular and widely known is probably &lt;a href="https://stedolan.github.io/jq/"&gt;jq&lt;/a&gt;, which I believe translates to json query.&lt;br /&gt;
-I personally really dislike that jq uses it's own mini-language as opposed to xpath or css selectors we all know, love and use daily.&lt;br /&gt;
+&lt;p&gt;There few tools to parse &lt;code&gt;json&lt;/code&gt; or &lt;code&gt;xml&lt;/code&gt; content, similar like you'd use &lt;code&gt;sed&lt;/code&gt; or &lt;code&gt;grep&lt;/code&gt; in unix. The most popular and widely known is probably &lt;a href="https://stedolan.github.io/jq/"&gt;jq&lt;/a&gt;, which I believe translates to json query.&lt;br&gt;
+I personally really dislike that jq uses it's own mini-language as opposed to xpath or css selectors we all know, love and use daily.&lt;br&gt;
 So in response to this I made &lt;a href="https://github.com/granitosaurus/pq/"&gt;&lt;strong&gt;PQ&lt;/strong&gt;&lt;/a&gt;! It uses xpath and css selectors as well as support both json and xml parsing.&lt;/p&gt;
-&lt;p&gt;To put it shortly, using the tools described above you can find specific values of some fields really easily.&lt;br /&gt;
+&lt;p&gt;To put it shortly, using the tools described above you can find specific values of some fields really easily.&lt;br&gt;
 Lets imagine we have a bunch of products that have these fields: name and price. Now for some reason Samsung items have weird pricing and we want to find out whether that's the case every time we update the code. &lt;/p&gt;
 &lt;p&gt;For example using pq we can navigate the prices of items that have some keywords in their names:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat output.json | pq &amp;quot;//item[contains(@name,&amp;#39;samsung&amp;#39;)]/price/text()&amp;quot;
@@ -86,17 +197,17 @@ Lets imagine we have a bunch of products that have these fields: name and price.
 
 &lt;h1&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!&lt;/p&gt;
-&lt;p&gt;Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)&lt;/p&gt;</summary><category term="scrapy"></category><category term="python"></category><category term="stackoverflow"></category><category term="web-crawling"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
-&lt;p&gt;In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.&lt;br /&gt;
+&lt;p&gt;Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)&lt;/p&gt;</content><category term="scrapy"></category><category term="python"></category><category term="stackoverflow"></category><category term="web-crawling"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:/crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
+&lt;p&gt;In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.&lt;br&gt;
 &lt;strong&gt;If you don't care about the research you can just skip to the &lt;a href="#right"&gt;right tool&lt;/a&gt; and &lt;a href="#solving"&gt;solving of the real life case&lt;/a&gt; sections at the end&lt;/strong&gt;.&lt;/p&gt;
 &lt;h1&gt;Cause&lt;/h1&gt;
 &lt;p&gt;Often websites, especially the ones that sell various products tend to overcomplicate their apis by stacking everything in one huge json tree that is at least 10 layers deep and is impossible to understand for an outsider or maybe even other developers in the company.&lt;/p&gt;
 &lt;p&gt;In this case we'll take a look at small examples of &lt;a href="http://ah.nl"&gt;http://ah.nl&lt;/a&gt; responses and how can we deal with them without spending hours trying to reverse engineer the whole process.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Example info&lt;/strong&gt;:&lt;br /&gt;
-Product url: &lt;a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees"&gt;http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees&lt;/a&gt;&lt;br /&gt;
-Product api response: &lt;a href="https://ptpb.pw/aZ_S"&gt;https://ptpb.pw/aZ_S&lt;/a&gt;&lt;br /&gt;
+&lt;p&gt;&lt;strong&gt;Example info&lt;/strong&gt;:&lt;br&gt;
+Product url: &lt;a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees"&gt;http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees&lt;/a&gt;&lt;br&gt;
+Product api response: &lt;a href="https://ptpb.pw/aZ_S"&gt;https://ptpb.pw/aZ_S&lt;/a&gt;&lt;br&gt;
 If you put this response through some json visual tool like &lt;a href="http://jsonviewer.stack.hu/"&gt;http://jsonviewer.stack.hu/&lt;/a&gt; you'll notice what a huge mess it is: &lt;/p&gt;
-&lt;p&gt;&lt;img alt="example json view" src="https://granitosaurus.github.io/images/json-crawling.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="example json view" src="https://granitosaurus.github.io/images/json-crawling.png"&gt;&lt;/p&gt;
 &lt;p&gt;Multiple layers, multiple elements, list in a dict in a list in a dict and to parse that you'd end up doing something like:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
 &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;body&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -150,14 +261,14 @@ If we were to flatten our &lt;code&gt;data&lt;/code&gt;, it would end up looking
 &lt;p&gt;root.foo.bar[].foo2.bar2.product.mynode&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The only improvement here is that we can do a bit of recursion by calling &lt;code&gt;[]&lt;/code&gt; for every list element, saving us a few list comprehension calls. And it definitely looks nicer, doesn't it?&lt;br /&gt;
+&lt;p&gt;The only improvement here is that we can do a bit of recursion by calling &lt;code&gt;[]&lt;/code&gt; for every list element, saving us a few list comprehension calls. And it definitely looks nicer, doesn't it?&lt;br&gt;
 It is still bad though since at any point the tree might change and our crawler will break because we are root bound.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The second issue being is that all of them &lt;strong&gt;are extremely bloated&lt;/strong&gt;, to the point where they not only design their own parsing logic but also design their own syntax.   &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;When you are crawling a website you already have your own parsing tools to parse the html/xml (like &lt;code&gt;lxml&lt;/code&gt; or &lt;code&gt;parsel&lt;/code&gt;) and anything other would just introduce obvious redundancy and unnecessary complexity. &lt;/p&gt;
 &lt;h2&gt;Almost Right: js2xml&lt;/h2&gt;
-&lt;p&gt;First I'd like to start off with and give a shout out to a great tool called &lt;code&gt;js2xml&lt;/code&gt; which maintained by Scrapinghub. It pretty much does what it says - converts javascript code to an xml tree and it's &lt;em&gt;almost&lt;/em&gt; the right tool for our issue, almost.&lt;br /&gt;
+&lt;p&gt;First I'd like to start off with and give a shout out to a great tool called &lt;code&gt;js2xml&lt;/code&gt; which maintained by Scrapinghub. It pretty much does what it says - converts javascript code to an xml tree and it's &lt;em&gt;almost&lt;/em&gt; the right tool for our issue, almost.&lt;br&gt;
 Since json is part of javascript, this means we can use this tool to parse it:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;lxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;etree&lt;/span&gt;
 &lt;span class="c1"&gt;# we need to wrap our data json in variable declaration&lt;/span&gt;
@@ -203,13 +314,13 @@ Since json is part of javascript, this means we can use this tool to parse it:&l
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! &lt;br /&gt;
+&lt;p&gt;As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! &lt;br&gt;
 If you are already using it to parse javascript somewhere you might just go with it to reduce dependencies if you wish so.&lt;/p&gt;
 &lt;h1 id="right"&gt;Right: Converting json to xml and Parsing It With xpath&lt;/h1&gt;
 &lt;p&gt;I found two tools and either one of them combined with either &lt;a href="http://lxml.de/"&gt;&lt;code&gt;lxml&lt;/code&gt;&lt;/a&gt; or &lt;a href="https://github.com/scrapy/parsel"&gt;&lt;code&gt;parsel&lt;/code&gt;&lt;/a&gt; selectors create this beautiful, perfect json-crawling combo for your crawler! &lt;/p&gt;
 &lt;p&gt;For unaware &lt;code&gt;lxml&lt;/code&gt; is a really great tool for parsing xml and html while &lt;code&gt;parsel&lt;/code&gt; is built on top of it to make it even greater, so I highly recommend checking it out!
 Fun fact - it's also used by &lt;a href="https://github.com/scrapy/scrapy"&gt;scrapy&lt;/a&gt; and that's where it originated.&lt;/p&gt;
-&lt;p&gt;Getting back to the point, the two tools that are pretty much alternative to each other are &lt;a href="https://github.com/quandyfactory/dicttoxml"&gt;&lt;code&gt;dicttoxml&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://github.com/delfick/python-dict2xml"&gt;&lt;code&gt;dict2xml&lt;/code&gt;&lt;/a&gt;. They are essentially the same thing but I thought I'd mention both since I'm not sure which one is better and requires the recognition. &lt;br /&gt;
+&lt;p&gt;Getting back to the point, the two tools that are pretty much alternative to each other are &lt;a href="https://github.com/quandyfactory/dicttoxml"&gt;&lt;code&gt;dicttoxml&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://github.com/delfick/python-dict2xml"&gt;&lt;code&gt;dict2xml&lt;/code&gt;&lt;/a&gt;. They are essentially the same thing but I thought I'd mention both since I'm not sure which one is better and requires the recognition. &lt;br&gt;
 For sake of being brief I'll show off &lt;code&gt;dicttoxml&lt;/code&gt; + &lt;code&gt;parsel&lt;/code&gt; only:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dicttoxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;
 &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;attr_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -265,12 +376,12 @@ For sake of being brief I'll show off &lt;code&gt;dicttoxml&lt;/code&gt; + &lt;c
 
 
 &lt;h1&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!&lt;br /&gt;
-Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. &lt;br /&gt;
-Hopefully this write up can save someone few hours and an early balding. :D&lt;/p&gt;</summary><category term="python"></category><category term="crawling"></category><category term="json"></category><category term="scrapy"></category><category term="parsel"></category><category term="dicttoxml"></category></entry><entry><title>First post. Hello Pelican!</title><link href="https://granitosaurus.github.io/installing-pelican.html" rel="alternate"></link><published>2016-10-09T00:00:00+02:00</published><updated>2016-10-09T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-09:installing-pelican.html</id><summary type="html">&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;br /&gt;
+&lt;p&gt;Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!&lt;br&gt;
+Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. &lt;br&gt;
+Hopefully this write up can save someone few hours and an early balding. :D&lt;/p&gt;</content><category term="python"></category><category term="crawling"></category><category term="json"></category><category term="scrapy"></category><category term="parsel"></category><category term="dicttoxml"></category></entry><entry><title>First post. Hello Pelican!</title><link href="https://granitosaurus.github.io/installing-pelican.html" rel="alternate"></link><published>2016-10-09T00:00:00+02:00</published><updated>2016-10-09T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-09:/installing-pelican.html</id><summary type="html">&lt;p&gt;Starting up the blog with Python and Pelican static blog generator!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;br&gt;
 Pelican is a tool to generate a static blog from reStructuredText or Markdown input files. And most importantly it looks to be really fun, full python with jinja2 templating, which means it's fully extendable, configurable and modifiable as it's under GPL license.&lt;/p&gt;
 &lt;h3&gt;Installing Pelican&lt;/h3&gt;
-&lt;p&gt;&lt;img alt="Pelicans are cool" src="https://granitosaurus.github.io/images/pelican-bird.jpg" /&gt;&lt;br /&gt;
+&lt;p&gt;&lt;img alt="Pelicans are cool" src="https://granitosaurus.github.io/images/pelican-bird.jpg"&gt;&lt;br&gt;
 The setup for &lt;code&gt;Pelican&lt;/code&gt; is pretty straightforward just run:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~&amp;gt; pip install pelican  &lt;span class="c1"&gt;# Installing Pelican package for python&lt;/span&gt;
 ~&amp;gt; mdir blog &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; blog  &lt;span class="c1"&gt;# Create and jump into your blog directory!&lt;/span&gt;
@@ -284,10 +395,10 @@ The setup for &lt;code&gt;Pelican&lt;/code&gt; is pretty straightforward just ru
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now connect to &lt;code&gt;http://localhost:8000&lt;/code&gt; and there you go!&lt;br /&gt;
+&lt;p&gt;Now connect to &lt;code&gt;http://localhost:8000&lt;/code&gt; and there you go!&lt;br&gt;
 You can check &lt;a href="http://docs.getpelican.com/en/latest/content.html#articles-and-pages"&gt;here&lt;/a&gt; for how to template your message how to format your blog entry.&lt;/p&gt;
 &lt;h3&gt;Vim markdown highlight for .md files&lt;/h3&gt;
-&lt;p&gt;While going through the installation I've noticed that markdown doesn't have highlighting in vim which was peculiar. I found &lt;a href="http://superuser.com/questions/701496/no-syntax-highlight-on-md-files"&gt;this post which describes a simple fix&lt;/a&gt;.&lt;br /&gt;
+&lt;p&gt;While going through the installation I've noticed that markdown doesn't have highlighting in vim which was peculiar. I found &lt;a href="http://superuser.com/questions/701496/no-syntax-highlight-on-md-files"&gt;this post which describes a simple fix&lt;/a&gt;.&lt;br&gt;
 Simply create directories and file: &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/.vim/ftdetect/markdown.vim
 &lt;/pre&gt;&lt;/div&gt;
@@ -313,6 +424,6 @@ Simply create directories and file: &lt;/p&gt;
 &lt;p&gt;The above will make source branch, generate blog and push the output to &lt;code&gt;master&lt;/code&gt; so it's viewable at https://username.github.io &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; The most important bit is to set &lt;code&gt;SITEURL&lt;/code&gt; in your &lt;code&gt;publishconf.py&lt;/code&gt; to &lt;code&gt;https://username.github.io&lt;/code&gt; make sure it's &lt;strong&gt;HTTPS&lt;/strong&gt; since default SITEURL generated by pelican is http and github pages requires https. This took me an hour of messing around to finally figure out.&lt;/p&gt;
 &lt;h3&gt;Wrap Up&lt;/h3&gt;
-&lt;p&gt;So far Pelican took quite a bit of work to get things going. It looks quite simple but there's a bunch of little quirks that are really hard to debug. It's not as easy as starting up a wordpress blog but it's quite fun and it seems to be really flexible. &lt;br /&gt;
+&lt;p&gt;So far Pelican took quite a bit of work to get things going. It looks quite simple but there's a bunch of little quirks that are really hard to debug. It's not as easy as starting up a wordpress blog but it's quite fun and it seems to be really flexible. &lt;br&gt;
 Let's see if it pays off! &lt;/p&gt;
-&lt;p&gt;Checkout the source for more at https://github.com/Granitas/granitas.github.io/tree/source&lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category><category term="blog"></category></entry></feed>
+&lt;p&gt;Checkout the source for more at https://github.com/Granitas/granitas.github.io/tree/source&lt;/p&gt;</content><category term="pelican"></category><category term="python"></category><category term="blog"></category></entry></feed>

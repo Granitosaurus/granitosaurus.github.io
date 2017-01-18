@@ -98,16 +98,16 @@
   </header>
   <div>
     <p>Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.</p>
-<p>In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.<br />
+<p>In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.<br>
 <strong>If you don't care about the research you can just skip to the <a href="#right">right tool</a> and <a href="#solving">solving of the real life case</a> sections at the end</strong>.</p>
 <h1>Cause</h1>
 <p>Often websites, especially the ones that sell various products tend to overcomplicate their apis by stacking everything in one huge json tree that is at least 10 layers deep and is impossible to understand for an outsider or maybe even other developers in the company.</p>
 <p>In this case we'll take a look at small examples of <a href="http://ah.nl">http://ah.nl</a> responses and how can we deal with them without spending hours trying to reverse engineer the whole process.</p>
-<p><strong>Example info</strong>:<br />
-Product url: <a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees">http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees</a><br />
-Product api response: <a href="https://ptpb.pw/aZ_S">https://ptpb.pw/aZ_S</a><br />
+<p><strong>Example info</strong>:<br>
+Product url: <a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees">http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees</a><br>
+Product api response: <a href="https://ptpb.pw/aZ_S">https://ptpb.pw/aZ_S</a><br>
 If you put this response through some json visual tool like <a href="http://jsonviewer.stack.hu/">http://jsonviewer.stack.hu/</a> you'll notice what a huge mess it is: </p>
-<p><img alt="example json view" src="https://granitosaurus.github.io/images/json-crawling.png" /></p>
+<p><img alt="example json view" src="https://granitosaurus.github.io/images/json-crawling.png"></p>
 <p>Multiple layers, multiple elements, list in a dict in a list in a dict and to parse that you'd end up doing something like:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
@@ -161,14 +161,14 @@ If we were to flatten our <code>data</code>, it would end up looking like this:<
 <p>root.foo.bar[].foo2.bar2.product.mynode</p>
 </li>
 </ul>
-<p>The only improvement here is that we can do a bit of recursion by calling <code>[]</code> for every list element, saving us a few list comprehension calls. And it definitely looks nicer, doesn't it?<br />
+<p>The only improvement here is that we can do a bit of recursion by calling <code>[]</code> for every list element, saving us a few list comprehension calls. And it definitely looks nicer, doesn't it?<br>
 It is still bad though since at any point the tree might change and our crawler will break because we are root bound.</p>
 <ul>
 <li>The second issue being is that all of them <strong>are extremely bloated</strong>, to the point where they not only design their own parsing logic but also design their own syntax.   </li>
 </ul>
 <p>When you are crawling a website you already have your own parsing tools to parse the html/xml (like <code>lxml</code> or <code>parsel</code>) and anything other would just introduce obvious redundancy and unnecessary complexity. </p>
 <h2>Almost Right: js2xml</h2>
-<p>First I'd like to start off with and give a shout out to a great tool called <code>js2xml</code> which maintained by Scrapinghub. It pretty much does what it says - converts javascript code to an xml tree and it's <em>almost</em> the right tool for our issue, almost.<br />
+<p>First I'd like to start off with and give a shout out to a great tool called <code>js2xml</code> which maintained by Scrapinghub. It pretty much does what it says - converts javascript code to an xml tree and it's <em>almost</em> the right tool for our issue, almost.<br>
 Since json is part of javascript, this means we can use this tool to parse it:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
 <span class="c1"># we need to wrap our data json in variable declaration</span>
@@ -214,13 +214,13 @@ Since json is part of javascript, this means we can use this tool to parse it:</
 </pre></div>
 
 
-<p>As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! <br />
+<p>As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! <br>
 If you are already using it to parse javascript somewhere you might just go with it to reduce dependencies if you wish so.</p>
 <h1 id="right">Right: Converting json to xml and Parsing It With xpath</h1>
 <p>I found two tools and either one of them combined with either <a href="http://lxml.de/"><code>lxml</code></a> or <a href="https://github.com/scrapy/parsel"><code>parsel</code></a> selectors create this beautiful, perfect json-crawling combo for your crawler! </p>
 <p>For unaware <code>lxml</code> is a really great tool for parsing xml and html while <code>parsel</code> is built on top of it to make it even greater, so I highly recommend checking it out!
 Fun fact - it's also used by <a href="https://github.com/scrapy/scrapy">scrapy</a> and that's where it originated.</p>
-<p>Getting back to the point, the two tools that are pretty much alternative to each other are <a href="https://github.com/quandyfactory/dicttoxml"><code>dicttoxml</code></a> and <a href="https://github.com/delfick/python-dict2xml"><code>dict2xml</code></a>. They are essentially the same thing but I thought I'd mention both since I'm not sure which one is better and requires the recognition. <br />
+<p>Getting back to the point, the two tools that are pretty much alternative to each other are <a href="https://github.com/quandyfactory/dicttoxml"><code>dicttoxml</code></a> and <a href="https://github.com/delfick/python-dict2xml"><code>dict2xml</code></a>. They are essentially the same thing but I thought I'd mention both since I'm not sure which one is better and requires the recognition. <br>
 For sake of being brief I'll show off <code>dicttoxml</code> + <code>parsel</code> only:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
 <span class="n">root</span> <span class="o">=</span> <span class="n">dicttoxml</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">attr_type</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
@@ -276,8 +276,8 @@ For sake of being brief I'll show off <code>dicttoxml</code> + <code>parsel</cod
 
 
 <h1>Conclusion</h1>
-<p>Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!<br />
-Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. <br />
+<p>Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!<br>
+Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. <br>
 Hopefully this write up can save someone few hours and an early balding. :D</p>
   </div>
   <div class="tag-cloud">
