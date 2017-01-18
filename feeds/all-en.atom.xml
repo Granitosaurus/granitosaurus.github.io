@@ -536,7 +536,7 @@ Pelican is a tool to generate a static blog from reStructuredText or Markdown in
 &lt;p&gt;&lt;img alt="Pelicans are cool" src="https://granitosaurus.github.io/images/pelican-bird.jpg"&gt;&lt;br&gt;
 The setup for &lt;code&gt;Pelican&lt;/code&gt; is pretty straightforward just run:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~&amp;gt; pip install pelican  &lt;span class="c1"&gt;# Installing Pelican package for python&lt;/span&gt;
-~&amp;gt; mdir blog &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; blog  &lt;span class="c1"&gt;# Create and jump into your blog directory!&lt;/span&gt;
+~&amp;gt; mkdir blog &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; blog  &lt;span class="c1"&gt;# Create and jump into your blog directory!&lt;/span&gt;
 ~/blog/&amp;gt; pelican-quickstart
     ... &lt;span class="c1"&gt;#answer some simple questions here&lt;/span&gt;
 ~/blog/&amp;gt; vim content/first-page.md
