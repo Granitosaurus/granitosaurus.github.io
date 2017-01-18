@@ -3,22 +3,24 @@
 &lt;p&gt;Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show of how awesome and powerful python command line tools can be!&lt;br&gt;
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running &lt;a href="http://i3wm.org/"&gt;i3wm&lt;/a&gt; - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.&lt;/p&gt;
 &lt;p&gt;In other words it turns something like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Once upon a midnight dreary, while I pondered, weak and weary,
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat raven.md
+Once upon a midnight dreary, &lt;span class="k"&gt;while&lt;/span&gt; I pondered, weak and weary,
 Over many a quaint and curious volume of forgotten lore,
 While I nodded, nearly napping, suddenly there came a tapping,
 As of some one gently rapping, rapping at my chamber door.
-&amp;#39;Tis some visitor,&amp;#39; I muttered, &amp;#39;tapping at my chamber door-
-Only this, and nothing more.&amp;#39;
+&lt;span class="s1"&gt;&amp;#39;Tis some visitor,&amp;#39;&lt;/span&gt; I muttered, &lt;span class="s1"&gt;&amp;#39;tapping at my chamber door-&lt;/span&gt;
+&lt;span class="s1"&gt;Only this, and nothing more.&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Into:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;             Once upon a midnight dreary, while I pondered, weak and weary,              
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat raven.md &lt;span class="p"&gt;|&lt;/span&gt; center
+             Once upon a midnight dreary, &lt;span class="k"&gt;while&lt;/span&gt; I pondered, weak and weary,              
                 Over many a quaint and curious volume of forgotten lore,                 
              While I nodded, nearly napping, suddenly there came a tapping,              
                As of some one gently rapping, rapping at my chamber door.                
-              &amp;#39;Tis some visitor,&amp;#39; I muttered, &amp;#39;tapping at my chamber door-               
-                              Only this, and nothing more.&amp;#39;   
+              &lt;span class="s1"&gt;&amp;#39;Tis some visitor,&amp;#39;&lt;/span&gt; I muttered, &lt;span class="s1"&gt;&amp;#39;tapping at my chamber door-               &lt;/span&gt;
+&lt;span class="s1"&gt;                              Only this, and nothing more.&amp;#39;&lt;/span&gt;   
 &lt;/pre&gt;&lt;/div&gt;
 
 

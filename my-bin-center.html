@@ -98,22 +98,24 @@
 <p>Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show of how awesome and powerful python command line tools can be!<br>
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running <a href="http://i3wm.org/">i3wm</a> - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.</p>
 <p>In other words it turns something like:</p>
-<div class="highlight"><pre><span></span>Once upon a midnight dreary, while I pondered, weak and weary,
+<div class="highlight"><pre><span></span>$ cat raven.md
+Once upon a midnight dreary, <span class="k">while</span> I pondered, weak and weary,
 Over many a quaint and curious volume of forgotten lore,
 While I nodded, nearly napping, suddenly there came a tapping,
 As of some one gently rapping, rapping at my chamber door.
-&#39;Tis some visitor,&#39; I muttered, &#39;tapping at my chamber door-
-Only this, and nothing more.&#39;
+<span class="s1">&#39;Tis some visitor,&#39;</span> I muttered, <span class="s1">&#39;tapping at my chamber door-</span>
+<span class="s1">Only this, and nothing more.&#39;</span>
 </pre></div>
 
 
 <p>Into:</p>
-<div class="highlight"><pre><span></span>             Once upon a midnight dreary, while I pondered, weak and weary,              
+<div class="highlight"><pre><span></span>$ cat raven.md <span class="p">|</span> center
+             Once upon a midnight dreary, <span class="k">while</span> I pondered, weak and weary,              
                 Over many a quaint and curious volume of forgotten lore,                 
              While I nodded, nearly napping, suddenly there came a tapping,              
                As of some one gently rapping, rapping at my chamber door.                
-              &#39;Tis some visitor,&#39; I muttered, &#39;tapping at my chamber door-               
-                              Only this, and nothing more.&#39;   
+              <span class="s1">&#39;Tis some visitor,&#39;</span> I muttered, <span class="s1">&#39;tapping at my chamber door-               </span>
+<span class="s1">                              Only this, and nothing more.&#39;</span>   
 </pre></div>
 
 
