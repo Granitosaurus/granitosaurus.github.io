@@ -151,10 +151,10 @@ Only this, and nothing more.&#39;
 <p>I love <code>click</code> library, which is a tool for creating command line interface. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for pipe logic we need but is a nice addition if there's a need for standalone function.<br>
 Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
 Finally there's the program itself:<br>
-<code>#1</code> - We retrieve dimensions of the current terminal window. This returns a tuple of <code>(columns, rows)</code> since we only care about columns we take the first member. 
-<code>#2</code> - We decide on which source to use for input, if first position argument is supplied to script, we'll use that as a source, otherwise use standard input.
-<code>#3</code> - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to <code>{:^&lt;terminal_size&gt;}\n</code> now if we call <code>.format()</code> on that we can insert text and it will be centered. For more check out <a href="https://docs.python.org/3.1/library/string.html#string-formatting">python's string formatting</a>, it's awesome!
-<code>#4</code> - And lastly we have the loop itself. Here we loop through every line, center it and either write it to file if the second positional argument is supplied or put it straight to standard output.</p>
+<code>#1</code> - We retrieve dimensions of the current terminal window. This returns a tuple of <code>(columns, rows)</code> since we only care about columns we take the first member.<br>
+<code>#2</code> - We decide on which source to use for input, if first position argument is supplied to script, we'll use that as a source, otherwise use standard input.<br>
+<code>#3</code> - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to <code>{:^&lt;terminal_size&gt;}\n</code> now if we call <code>.format()</code> on that we can insert text and it will be centered. For more check out <a href="https://docs.python.org/3.1/library/string.html#string-formatting">python's string formatting</a>, it's awesome!<br>
+<code>#4</code> - And lastly we have the loop itself. Here we loop through every line, center it and either write it to file if the second positional argument is supplied or put it straight to standard output.  </p>
 <h3>Improvements</h3>
 <p>You could probably go wild with bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) </p>
 <h3>Pitfalls</h3>
