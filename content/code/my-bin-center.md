@@ -1,6 +1,6 @@
 Title: My bin: center
 Date: 2017-01-18
-Tags: python, linux, guide
+Tags: python, linux, guide, my-bin
 Slug: my-bin-center
 Summary: Some of the useful things I have in my ~/bin
 
