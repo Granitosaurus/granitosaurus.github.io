@@ -4,9 +4,9 @@ Tags: python, linux, guide, my-bin
 Slug: my-bin-center
 Summary: Some of the useful things I have in my ~/bin
 
-People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory `~/bin` is full of scripts that make my life easier or at least makes me feel that way.  
+People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory `~/bin` is full of scripts that make my life easier or at least makes me feel that is.  
 
-Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show of how awesome and powerful python command line tools can be!  
+Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!  
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running [i3wm](http://i3wm.org/) - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.
 
 In other words it turns something like:
@@ -68,7 +68,7 @@ Now lets take a look at the source code:
 
 ### Explanation
 
-I love `click` library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!    
+I love `click` library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for the pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!    
 Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
 Finally there's the program itself:  
 `#1` - We retrieve dimensions of the current terminal window. This returns a tuple of `(columns, rows)` since we only care about columns we take the first member.  
@@ -78,7 +78,7 @@ Finally there's the program itself:
 
 ### Improvements
 
-You could probably go wild with bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) 
+You could probably go wild with a bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) 
 
 ### Pitfalls
 
@@ -89,4 +89,5 @@ I'm not certain why it behaves like that, my guess being is that `less` breaks t
 
 ### Conclusion 
 
-I'd like to encourage anyone who use ugly awk scripts and aliases just write a short command line application with click, it takes no longer than 10 minutes, is beautiful, usable, readable and easily shareable. Let me know if you have any questions and stay tuned for more scripts and explanations!
+I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and `click`. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!  
+Let me know if you have any questions and stay tuned for more scripts and explanations!
