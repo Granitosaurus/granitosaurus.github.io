@@ -12,7 +12,7 @@ Pelican is a tool to generate a static blog from reStructuredText or Markdown in
 The setup for `Pelican` is pretty straightforward just run:
 ```bash
 ~> pip install pelican  # Installing Pelican package for python
-~> mdir blog && cd blog  # Create and jump into your blog directory!
+~> mkdir blog && cd blog  # Create and jump into your blog directory!
 ~/blog/> pelican-quickstart
 	... #answer some simple questions here
 ~/blog/> vim content/first-page.md
