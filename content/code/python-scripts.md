@@ -1,4 +1,4 @@
-Title: Guide: setup python scripting
+Title: Guide: setup for python scripting
 Date: 2017-01-17
 Tags: python, linux, guide
 Slug: python-scripts 

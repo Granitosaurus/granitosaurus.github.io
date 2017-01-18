@@ -4,7 +4,8 @@ Tags: python, linux, guide, my-bin
 Slug: my-bin-center
 Summary: Some of the useful things I have in my ~/bin
 
-People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory `~/bin` is full of scripts that make my life easier or at least makes me feel that is.  
+People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory `~/bin` is full of scripts that make my life easier or at least makes me feel that is.   
+On how to setup your environment for easily accessible scripting see my [Guide: setup for python scripting](/python-scripts.html)  
 
 Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!  
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running [i3wm](http://i3wm.org/) - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.
