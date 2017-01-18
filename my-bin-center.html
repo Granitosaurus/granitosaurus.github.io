@@ -95,8 +95,8 @@
     </p>
   </header>
   <div>
-    <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that way.  </p>
-<p>Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show of how awesome and powerful python command line tools can be!<br>
+    <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that is.  </p>
+<p>Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!<br>
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running <a href="http://i3wm.org/">i3wm</a> - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.</p>
 <p>In other words it turns something like:</p>
 <div class="highlight"><pre><span></span>$ cat raven.md
@@ -151,7 +151,7 @@ As of some one gently rapping, rapping at my chamber door.
 
 
 <h3>Explanation</h3>
-<p>I love <code>click</code> library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!  <br>
+<p>I love <code>click</code> library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for the pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!  <br>
 Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
 Finally there's the program itself:<br>
 <code>#1</code> - We retrieve dimensions of the current terminal window. This returns a tuple of <code>(columns, rows)</code> since we only care about columns we take the first member.<br>
@@ -159,13 +159,14 @@ Finally there's the program itself:<br>
 <code>#3</code> - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to <code>{:^&lt;terminal_size&gt;}\n</code> now if we call <code>.format()</code> on that we can insert text and it will be centered. For more check out <a href="https://docs.python.org/3.1/library/string.html#string-formatting">python's string formatting</a>, it's awesome!<br>
 <code>#4</code> - And lastly we have the loop itself. Here we loop through every line, center it and either write it to file if the second positional argument is supplied or put it straight to standard output.  </p>
 <h3>Improvements</h3>
-<p>You could probably go wild with bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) </p>
+<p>You could probably go wild with a bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) </p>
 <h3>Pitfalls</h3>
 <p>One of the pitfalls I've experience with piping in python scripts is when piping to <code>less</code> or similar tools. <br>
 Because of how <code>shutils.get_terminal_size()</code> works, if a parameter <code>fallback</code> is set, like: <code>shutils.get_terminal_size(fallback=(80,30))</code> the set fallback will actually be used instead of your terminal size if piped to <code>less</code> or similar tool.<br>
 I'm not certain why it behaves like that, my guess being is that <code>less</code> breaks the terminal size function, but opposed to general recommendations of setting a fallback it's best to not set it in this case.</p>
 <h3>Conclusion</h3>
-<p>I'd like to encourage anyone who use ugly awk scripts and aliases just write a short command line application with click, it takes no longer than 10 minutes, is beautiful, usable, readable and easily shareable. Let me know if you have any questions and stay tuned for more scripts and explanations!</p>
+<p>I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and <code>click</code>. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!<br>
+Let me know if you have any questions and stay tuned for more scripts and explanations!</p>
   </div>
   <div class="tag-cloud">
     <p>
