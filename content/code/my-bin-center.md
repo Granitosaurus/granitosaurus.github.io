@@ -68,7 +68,7 @@ Now lets take a look at the source code:
 
 ### Explanation
 
-I love `click` library, which is a tool for creating command line interface. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for pipe logic we need but is a nice addition if there's a need for standalone function.  
+I love `click` library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!    
 Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
 Finally there's the program itself:  
 `#1` - We retrieve dimensions of the current terminal window. This returns a tuple of `(columns, rows)` since we only care about columns we take the first member.  
