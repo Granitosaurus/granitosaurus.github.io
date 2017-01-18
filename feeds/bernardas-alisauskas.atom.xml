@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/bernardas-alisauskas.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-18T00:00:00+01:00</updated><entry><title>My bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;Some of the useful things I have in my ~/bin&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is.  &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/bernardas-alisauskas.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-18T00:00:00+01:00</updated><entry><title>My bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;Some of the useful things I have in my ~/bin&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br&gt;
+On how to setup your environment for easily accessible scripting see my &lt;a href="/python-scripts.html"&gt;Guide: setup for python scripting&lt;/a&gt;  &lt;/p&gt;
 &lt;p&gt;Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!&lt;br&gt;
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running &lt;a href="http://i3wm.org/"&gt;i3wm&lt;/a&gt; - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.&lt;/p&gt;
 &lt;p&gt;In other words it turns something like:&lt;/p&gt;
@@ -70,7 +71,55 @@ Because of how &lt;code&gt;shutils.get_terminal_size()&lt;/code&gt; works, if a 
 I'm not certain why it behaves like that, my guess being is that &lt;code&gt;less&lt;/code&gt; breaks the terminal size function, but opposed to general recommendations of setting a fallback it's best to not set it in this case.&lt;/p&gt;
 &lt;h3&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and &lt;code&gt;click&lt;/code&gt;. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!&lt;br&gt;
-Let me know if you have any questions and stay tuned for more scripts and explanations!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category><category term="my-bin"></category></entry><entry><title>Using python to setup desktop notifications.</title><link href="https://granitosaurus.github.io/notify-send.html" rel="alternate"></link><published>2016-11-03T10:20:00+01:00</published><updated>2016-11-03T10:20:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-11-03:/notify-send.html</id><summary type="html">&lt;p&gt;Notify-send is great, you should use it!&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Notifications On Linux&lt;/h1&gt;
+Let me know if you have any questions and stay tuned for more scripts and explanations!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category><category term="my-bin"></category></entry><entry><title>Guide: setup for python scripting</title><link href="https://granitosaurus.github.io/python-scripts.html" rel="alternate"></link><published>2017-01-17T00:00:00+01:00</published><updated>2017-01-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-17:/python-scripts.html</id><summary type="html">&lt;p&gt;Short guide on how to setup an environment for executable python scripts&lt;/p&gt;</summary><content type="html">&lt;p&gt;Few python scripts can make your daily routines significantly easier and enjoyable. In this post I'll cover how to set up your linux environment to have your scripts always easily accessible.&lt;br&gt;
+In other words, how to make this reality:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ amicool 
+Yes you are, keep it up!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To start off we need to create a directory where your scripts be located. A de facto standard is &lt;code&gt;~/bin&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir bin
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Handling the PATH&lt;/h2&gt;
+&lt;p&gt;Now depending on your system and the shell you use, this directory might already be created or might not be in your &lt;code&gt;PATH&lt;/code&gt; environment at all.&lt;br&gt;
+&lt;code&gt;PATH&lt;/code&gt; environment variable is a list of locations your shell will look for executable files - programs in other words. So if you're using good ol' bash simply adding this line to your &lt;code&gt;~/.bashrc&lt;/code&gt; file will do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export PATH=&amp;quot;~/bin:&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Creating the script&lt;/h2&gt;
+&lt;p&gt;Now we can create the script itself:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ touch ~/bin/amicool 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Notice that we do not use &lt;code&gt;.py&lt;/code&gt; extension, because linux takes executables in path literally and we don't want to type the extension whenever we call the script.&lt;br&gt;
+We should populate this script with some actual code:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Yes you are, keep it up!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Notice that we start of the file with &lt;code&gt;#!/usr/bin/env python3&lt;/code&gt;. This is called shebang, it's basically a header that tells your operating system what to use to execute the file, in this case we want to use &lt;code&gt;python3&lt;/code&gt;.&lt;br&gt;
+Afterwards we have most simple of python code that just prints "hello world!" when called directly (that's what &lt;code&gt;__name__ == '__main__'&lt;/code&gt; part stands for).&lt;/p&gt;
+&lt;h2&gt;Making it executable&lt;/h2&gt;
+&lt;p&gt;Lastly we want to mark our file "executable" so the operating system know it can actually call this file as a script or a program:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod +x ~/bin/amicool
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And there we go! Your script is good to go and whenever you feel inadequate regarding your coolness just type:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ amicool
+Yes you are, keep it up!
+&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>Using python to setup desktop notifications.</title><link href="https://granitosaurus.github.io/notify-send.html" rel="alternate"></link><published>2016-11-03T10:20:00+01:00</published><updated>2016-11-03T10:20:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-11-03:/notify-send.html</id><summary type="html">&lt;p&gt;Notify-send is great, you should use it!&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Notifications On Linux&lt;/h1&gt;
 &lt;p&gt;Most gnu/linux systems use &lt;code&gt;libnotify&lt;/code&gt; package for notifications - this package provides simple &lt;code&gt;notify-send&lt;/code&gt; command line interface for sending notifications to your desktop environment or directly to your xorg display.&lt;br&gt;
 To use it however, you need a running daemon program that handles all this; my personal recommendation is &lt;code&gt;dunst&lt;/code&gt;. You can find more info about this and alternatives to &lt;code&gt;dunst&lt;/code&gt; in this arch-wiki &lt;a href="https://wiki.archlinux.org/index.php/Desktop_notifications#Standalone"&gt;article&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Python and notifications.&lt;/h1&gt;
