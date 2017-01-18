@@ -12,6 +12,7 @@ It's a simple pipeable script that takes in some text, centers it according to y
 In other words it turns something like:
 
 ```
+$ cat raven.md
 Once upon a midnight dreary, while I pondered, weak and weary,
 Over many a quaint and curious volume of forgotten lore,
 While I nodded, nearly napping, suddenly there came a tapping,
@@ -23,6 +24,7 @@ Only this, and nothing more.'
 Into:
 
 ```
+$ cat raven.md | center
              Once upon a midnight dreary, while I pondered, weak and weary,              
                 Over many a quaint and curious volume of forgotten lore,                 
              While I nodded, nearly napping, suddenly there came a tapping,              
