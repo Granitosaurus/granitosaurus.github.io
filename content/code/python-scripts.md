@@ -35,7 +35,7 @@ Now we can create the script itself:
 $ touch ~/bin/amicool 
 ```
 
-Notice that we do not use `.py` extension, because linux takes executables in path literally and we don't want to type the extension whenever we call the script.  
+Notice that we do not use `.py` extension, because linux takes executables in PATH literally and we don't want to type the extension whenever we call the script.  
 We should populate this script with some actual code:
 
 ```
@@ -46,7 +46,7 @@ if __name__ == '__main__':
 ```
 
 Notice that we start of the file with `#!/usr/bin/env python3`. This is called shebang, it's basically a header that tells your operating system what to use to execute the file, in this case we want to use `python3`.  
-Afterwards we have most simple of python code that just prints "hello world!" when called directly (that's what `__name__ == '__main__'` part stands for).
+Afterwards we have the most simple of python code that just prints some text when call it directly, you see when you call a python module directly the magic variable `__name__` is being set to `'__main__'` so you can gate some code in your script behind it so it would only be executed if it's called directly as opposed by being imported by some other module.  
 
 ## Making it executable
 
