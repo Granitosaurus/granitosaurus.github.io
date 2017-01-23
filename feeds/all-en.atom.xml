@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-18T00:00:00+01:00</updated><entry><title>My bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;Some of the useful things I have in my ~/bin&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-18T00:00:00+01:00</updated><entry><title>My Bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;"My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br&gt;
 On how to setup your environment for easily accessible scripting see my &lt;a href="/python-scripts.html"&gt;Guide: setup for python scripting&lt;/a&gt;  &lt;/p&gt;
 &lt;p&gt;Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!&lt;br&gt;
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running &lt;a href="http://i3wm.org/"&gt;i3wm&lt;/a&gt; - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.&lt;/p&gt;
@@ -96,7 +96,7 @@ Yes you are, keep it up!
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Notice that we do not use &lt;code&gt;.py&lt;/code&gt; extension, because linux takes executables in path literally and we don't want to type the extension whenever we call the script.&lt;br&gt;
+&lt;p&gt;Notice that we do not use &lt;code&gt;.py&lt;/code&gt; extension, because linux takes executables in PATH literally and we don't want to type the extension whenever we call the script.&lt;br&gt;
 We should populate this script with some actual code:&lt;/p&gt;
 &lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2
@@ -109,7 +109,7 @@ We should populate this script with some actual code:&lt;/p&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;Notice that we start of the file with &lt;code&gt;#!/usr/bin/env python3&lt;/code&gt;. This is called shebang, it's basically a header that tells your operating system what to use to execute the file, in this case we want to use &lt;code&gt;python3&lt;/code&gt;.&lt;br&gt;
-Afterwards we have most simple of python code that just prints "hello world!" when called directly (that's what &lt;code&gt;__name__ == '__main__'&lt;/code&gt; part stands for).&lt;/p&gt;
+Afterwards we have the most simple of python code that just prints some text when call it directly, you see when you call a python module directly the magic variable &lt;code&gt;__name__&lt;/code&gt; is being set to &lt;code&gt;'__main__'&lt;/code&gt; so you can gate some code in your script behind it so it would only be executed if it's called directly as opposed by being imported by some other module.  &lt;/p&gt;
 &lt;h2&gt;Making it executable&lt;/h2&gt;
 &lt;p&gt;Lastly we want to mark our file "executable" so the operating system know it can actually call this file as a script or a program:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod +x ~/bin/amicool
@@ -119,18 +119,32 @@ Afterwards we have most simple of python code that just prints "hello world!" wh
 &lt;p&gt;And there we go! Your script is good to go and whenever you feel inadequate regarding your coolness just type:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ amicool
 Yes you are, keep it up!
-&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>Using python to setup desktop notifications.</title><link href="https://granitosaurus.github.io/notify-send.html" rel="alternate"></link><published>2016-11-03T10:20:00+01:00</published><updated>2016-11-03T10:20:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-11-03:/notify-send.html</id><summary type="html">&lt;p&gt;Notify-send is great, you should use it!&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Notifications On Linux&lt;/h1&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>Using python to setup desktop notifications.</title><link href="https://granitosaurus.github.io/notify-send.html" rel="alternate"></link><published>2016-11-03T10:20:00+01:00</published><updated>2016-11-03T10:20:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-11-03:/notify-send.html</id><summary type="html">&lt;p&gt;Notify-send is great, you should use it!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Have you ever wondered how could you incorporate notification pop ups you might see thrown by your operating system in your application? Well worry no more, because this is the subject of this blog. &lt;br&gt;
+Linux has some very powerful notification tools that if incorporated into your daily workflow can make things so much more convenient, easy and fun!  &lt;/p&gt;
+&lt;p&gt;In this blog I'll tell you more about some inner workings of notifications and how to set up a small app in python that can send such notifications.&lt;/p&gt;
+&lt;h1&gt;Notifications On Linux&lt;/h1&gt;
 &lt;p&gt;Most gnu/linux systems use &lt;code&gt;libnotify&lt;/code&gt; package for notifications - this package provides simple &lt;code&gt;notify-send&lt;/code&gt; command line interface for sending notifications to your desktop environment or directly to your xorg display.&lt;br&gt;
-To use it however, you need a running daemon program that handles all this; my personal recommendation is &lt;code&gt;dunst&lt;/code&gt;. You can find more info about this and alternatives to &lt;code&gt;dunst&lt;/code&gt; in this arch-wiki &lt;a href="https://wiki.archlinux.org/index.php/Desktop_notifications#Standalone"&gt;article&lt;/a&gt;&lt;/p&gt;
-&lt;h1&gt;Python and notifications.&lt;/h1&gt;
-&lt;p&gt;Python is a perfect language for making notifications like this!&lt;br&gt;
-By default python comes with everything we need to set this up, however to make things nicer lets use &lt;code&gt;click&lt;/code&gt; command line interface package. It will greatly simplify the cli part of the program. You can get it from pip via &lt;code&gt;pip install click&lt;/code&gt; and skim through the &lt;a href="http://click.pocoo.org/"&gt;tutorial here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;All you need to send the notification with python:&lt;/p&gt;
+To use it however, you need a running daemon program that would handle all of this; my personal recommendation is a great, robust daemon called &lt;code&gt;dunst&lt;/code&gt;. You can find more info about this and alternatives to &lt;code&gt;dunst&lt;/code&gt; in this arch-wiki &lt;a href="https://wiki.archlinux.org/index.php/Desktop_notifications#Standalone"&gt;article&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See [Bonus: Set Up Notification] section of the blog for more info how to set it up.&lt;/p&gt;
+&lt;h1&gt;Python and Notifications.&lt;/h1&gt;
+&lt;p&gt;Python is a perfect language for making such notification applications!&lt;br&gt;
+By default python comes with everything we need to set this up, however to make things nicer lets use &lt;code&gt;click&lt;/code&gt; command line interface package. It will greatly simplify the CLI part of the program. &lt;br&gt;
+You can get it from pip via &lt;code&gt;pip install click&lt;/code&gt; and skim through the &lt;a href="http://click.pocoo.org/"&gt;tutorial here&lt;/a&gt; to get a quick gist of what it does.&lt;/p&gt;
+&lt;p&gt;To display a notification on your desktop using python all you need is to call &lt;code&gt;notify-send&lt;/code&gt; via &lt;code&gt;subprocess&lt;/code&gt; module like so:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;subprocess.call([&amp;#39;notify-send&amp;#39;, &amp;#39;title&amp;#39;, &amp;#39;body&amp;#39;])
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now we can use this to make a real application!&lt;/p&gt;
+&lt;p&gt;This will start a process in your terminal that will tell notification daemon to show a notification with supplied title and a body.&lt;/p&gt;
+&lt;h1&gt;Simple Notification App&lt;/h1&gt;
+&lt;p&gt;Now that we know how to send notification, we can use this to make a real application.&lt;/p&gt;
+&lt;p&gt;Combined that with a bit of web-scraping we can create cool little apps that will send this notification when something happens on the web.&lt;br&gt;
+For this example let's do hackernews - notification when a new post containing some keywords is being posted.&lt;/p&gt;
+&lt;p&gt;For this we'll need few python dependencies:&lt;br&gt;
+&lt;code&gt;click&lt;/code&gt; - an easier way to generate command line interface.&lt;br&gt;
+&lt;code&gt;requests&lt;/code&gt; - an easier way to get data via http.&lt;br&gt;
+&lt;code&gt;parsel&lt;/code&gt; - a way to parse the html for the data we need.&lt;br&gt;
+All of these are somewhat optional and could be replaced with python's inbuilt tools but these packages are just plain better.&lt;/p&gt;
 &lt;h3&gt;Bonus: Setup Notifications&lt;/h3&gt;
 &lt;p&gt;By default majority of gnu/linux distributions already have everything covered for you! &lt;code&gt;libnotify&lt;/code&gt; should be installed and some sort of notification daemon should be running in the background.&lt;br&gt;
 Try writing this in your terminal:&lt;/p&gt;
@@ -139,7 +153,7 @@ Try writing this in your terminal:&lt;/p&gt;
 
 
 &lt;p&gt;If you see something, then great - you're done with this step!  &lt;/p&gt;
-&lt;p&gt;Otherwise you're probably missing a notification daemon. To fix that you need to install one, let's go with &lt;a href="http://knopwob.org/dunst/index.html"&gt;dunst&lt;/a&gt;.&lt;br&gt;
+&lt;p&gt;Otherwise you're probably missing a notification daemon. To fix that you need to install one. I recommend and will use &lt;a href="http://knopwob.org/dunst/index.html"&gt;dunst&lt;/a&gt; in this example.&lt;br&gt;
 You can simply pull it from you package manager, e.g.:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo pacman -S dunst  # for arch
 sudo apt install dunst  # for ubuntu
@@ -150,7 +164,7 @@ sudo apt install dunst  # for ubuntu
 &lt;p&gt;&lt;img alt="dunst solarized" src="{filename}/images/dunst.png"&gt;
 You can also customize your dunst quite extensively as well. All you need to do is pass the location of the config file as &lt;code&gt;--conf&lt;/code&gt; parameter, i.e. &lt;code&gt;dunst --config ~/.dunstrc&lt;/code&gt;.&lt;br&gt;
 I'm running solarized look and you can find my config &lt;a href="https://github.com/Granitosaurus/.dotfiles/.dunstrc"&gt;on my dotfiles repo here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Dunst is also keyboard driven which means you can:&lt;/p&gt;
+&lt;p&gt;My favorite thing about this particular notification daemon is the fact it's keyboard driven which means you can do cool stuff like:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Close notifactions
 close = ctrl+space
 close_all = ctrl+shift+space
@@ -162,7 +176,7 @@ context = ctrl+shift+period
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;It's really lovely and I highly recommend choosing dunst as your notification-daemon!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>How to get scrapy help.</title><link href="https://granitosaurus.github.io/scrapy-help.html" rel="alternate"></link><published>2016-10-30T00:00:00+02:00</published><updated>2016-10-30T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-30:/scrapy-help.html</id><summary type="html">&lt;p&gt;Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.&lt;br&gt;
+&lt;p&gt;It's really lovely, convenient, customizable and robust, so give it a shot.&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>How to get scrapy help.</title><link href="https://granitosaurus.github.io/scrapy-help.html" rel="alternate"></link><published>2016-10-30T00:00:00+02:00</published><updated>2016-10-30T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-30:/scrapy-help.html</id><summary type="html">&lt;p&gt;Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.&lt;br&gt;
 Not to mention millions of websites that provide their own unique scraping challenges.  &lt;/p&gt;
 &lt;p&gt;So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?&lt;/p&gt;
 &lt;h1&gt;Stackoverflow Guidelines&lt;/h1&gt;

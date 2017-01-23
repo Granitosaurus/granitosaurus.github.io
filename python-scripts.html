@@ -119,7 +119,7 @@ Yes you are, keep it up!
 </pre></div>
 
 
-<p>Notice that we do not use <code>.py</code> extension, because linux takes executables in path literally and we don't want to type the extension whenever we call the script.<br>
+<p>Notice that we do not use <code>.py</code> extension, because linux takes executables in PATH literally and we don't want to type the extension whenever we call the script.<br>
 We should populate this script with some actual code:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -132,7 +132,7 @@ We should populate this script with some actual code:</p>
 </td></tr></table>
 
 <p>Notice that we start of the file with <code>#!/usr/bin/env python3</code>. This is called shebang, it's basically a header that tells your operating system what to use to execute the file, in this case we want to use <code>python3</code>.<br>
-Afterwards we have most simple of python code that just prints "hello world!" when called directly (that's what <code>__name__ == '__main__'</code> part stands for).</p>
+Afterwards we have the most simple of python code that just prints some text when call it directly, you see when you call a python module directly the magic variable <code>__name__</code> is being set to <code>'__main__'</code> so you can gate some code in your script behind it so it would only be executed if it's called directly as opposed by being imported by some other module.  </p>
 <h2>Making it executable</h2>
 <p>Lastly we want to mark our file "executable" so the operating system know it can actually call this file as a script or a program:</p>
 <div class="highlight"><pre><span></span>chmod +x ~/bin/amicool

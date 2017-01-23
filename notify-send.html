@@ -94,18 +94,32 @@
     </p>
   </header>
   <div>
-    <h1>Notifications On Linux</h1>
+    <p>Have you ever wondered how could you incorporate notification pop ups you might see thrown by your operating system in your application? Well worry no more, because this is the subject of this blog. <br>
+Linux has some very powerful notification tools that if incorporated into your daily workflow can make things so much more convenient, easy and fun!  </p>
+<p>In this blog I'll tell you more about some inner workings of notifications and how to set up a small app in python that can send such notifications.</p>
+<h1>Notifications On Linux</h1>
 <p>Most gnu/linux systems use <code>libnotify</code> package for notifications - this package provides simple <code>notify-send</code> command line interface for sending notifications to your desktop environment or directly to your xorg display.<br>
-To use it however, you need a running daemon program that handles all this; my personal recommendation is <code>dunst</code>. You can find more info about this and alternatives to <code>dunst</code> in this arch-wiki <a href="https://wiki.archlinux.org/index.php/Desktop_notifications#Standalone">article</a></p>
-<h1>Python and notifications.</h1>
-<p>Python is a perfect language for making notifications like this!<br>
-By default python comes with everything we need to set this up, however to make things nicer lets use <code>click</code> command line interface package. It will greatly simplify the cli part of the program. You can get it from pip via <code>pip install click</code> and skim through the <a href="http://click.pocoo.org/">tutorial here</a>.</p>
-<p>All you need to send the notification with python:</p>
+To use it however, you need a running daemon program that would handle all of this; my personal recommendation is a great, robust daemon called <code>dunst</code>. You can find more info about this and alternatives to <code>dunst</code> in this arch-wiki <a href="https://wiki.archlinux.org/index.php/Desktop_notifications#Standalone">article</a>.</p>
+<p>See [Bonus: Set Up Notification] section of the blog for more info how to set it up.</p>
+<h1>Python and Notifications.</h1>
+<p>Python is a perfect language for making such notification applications!<br>
+By default python comes with everything we need to set this up, however to make things nicer lets use <code>click</code> command line interface package. It will greatly simplify the CLI part of the program. <br>
+You can get it from pip via <code>pip install click</code> and skim through the <a href="http://click.pocoo.org/">tutorial here</a> to get a quick gist of what it does.</p>
+<p>To display a notification on your desktop using python all you need is to call <code>notify-send</code> via <code>subprocess</code> module like so:</p>
 <div class="highlight"><pre><span></span>subprocess.call([&#39;notify-send&#39;, &#39;title&#39;, &#39;body&#39;])
 </pre></div>
 
 
-<p>Now we can use this to make a real application!</p>
+<p>This will start a process in your terminal that will tell notification daemon to show a notification with supplied title and a body.</p>
+<h1>Simple Notification App</h1>
+<p>Now that we know how to send notification, we can use this to make a real application.</p>
+<p>Combined that with a bit of web-scraping we can create cool little apps that will send this notification when something happens on the web.<br>
+For this example let's do hackernews - notification when a new post containing some keywords is being posted.</p>
+<p>For this we'll need few python dependencies:<br>
+<code>click</code> - an easier way to generate command line interface.<br>
+<code>requests</code> - an easier way to get data via http.<br>
+<code>parsel</code> - a way to parse the html for the data we need.<br>
+All of these are somewhat optional and could be replaced with python's inbuilt tools but these packages are just plain better.</p>
 <h3>Bonus: Setup Notifications</h3>
 <p>By default majority of gnu/linux distributions already have everything covered for you! <code>libnotify</code> should be installed and some sort of notification daemon should be running in the background.<br>
 Try writing this in your terminal:</p>
@@ -114,7 +128,7 @@ Try writing this in your terminal:</p>
 
 
 <p>If you see something, then great - you're done with this step!  </p>
-<p>Otherwise you're probably missing a notification daemon. To fix that you need to install one, let's go with <a href="http://knopwob.org/dunst/index.html">dunst</a>.<br>
+<p>Otherwise you're probably missing a notification daemon. To fix that you need to install one. I recommend and will use <a href="http://knopwob.org/dunst/index.html">dunst</a> in this example.<br>
 You can simply pull it from you package manager, e.g.:</p>
 <div class="highlight"><pre><span></span>sudo pacman -S dunst  # for arch
 sudo apt install dunst  # for ubuntu
@@ -125,7 +139,7 @@ sudo apt install dunst  # for ubuntu
 <p><img alt="dunst solarized" src="{filename}/images/dunst.png">
 You can also customize your dunst quite extensively as well. All you need to do is pass the location of the config file as <code>--conf</code> parameter, i.e. <code>dunst --config ~/.dunstrc</code>.<br>
 I'm running solarized look and you can find my config <a href="https://github.com/Granitosaurus/.dotfiles/.dunstrc">on my dotfiles repo here</a></p>
-<p>Dunst is also keyboard driven which means you can:</p>
+<p>My favorite thing about this particular notification daemon is the fact it's keyboard driven which means you can do cool stuff like:</p>
 <div class="highlight"><pre><span></span># Close notifactions
 close = ctrl+space
 close_all = ctrl+shift+space
@@ -137,7 +151,7 @@ context = ctrl+shift+period
 </pre></div>
 
 
-<p>It's really lovely and I highly recommend choosing dunst as your notification-daemon!</p>
+<p>It's really lovely, convenient, customizable and robust, so give it a shot.</p>
   </div>
   <div class="tag-cloud">
     <p>
