@@ -1,8 +1,8 @@
-Title: My bin: center
+Title: My Bin: center
 Date: 2017-01-18
 Tags: python, linux, guide, my-bin
 Slug: my-bin-center
-Summary: Some of the useful things I have in my ~/bin
+Summary: "My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size.
 
 People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory `~/bin` is full of scripts that make my life easier or at least makes me feel that is.   
 On how to setup your environment for easily accessible scripting see my [Guide: setup for python scripting](/python-scripts.html)  
