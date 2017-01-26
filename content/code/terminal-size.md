@@ -69,9 +69,9 @@ By default both `os` and `shutil` functions use `1`, which stands for Standard O
 OSError: [Errno 25] Inappropriate ioctl for device
 ```
 
-This default somewhat make sense if the size of your terminal changes when the output is displayed, but I'm having trouble even imagining an example where that would be the case.
+This default somewhat makes sense if the size of your terminal changes when the output is displayed, but I'm having trouble even imagining an example where that would be the case.
 
-If we were to run our script now, we'd get the results we are looking for
+So if we were to run our script now, we'd get the results we are looking for:
 
 ```bash
 $ python size.py
