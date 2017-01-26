@@ -1,5 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-18T00:00:00+01:00</updated><entry><title>My Bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;"My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-26T00:00:00+01:00</updated><entry><title>Getting Terminal Size In Python</title><link href="https://granitosaurus.github.io/getting-terminal-size.html" rel="alternate"></link><published>2017-01-26T00:00:00+01:00</published><updated>2017-01-26T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-26:/getting-terminal-size.html</id><summary type="html">&lt;p&gt;Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I'd like to share.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I'd like to share.&lt;/p&gt;
+&lt;p&gt;The recommended way of retrieving terminal size for python3 is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fallback&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;24&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And it works, for the most part.  &lt;/p&gt;
+&lt;h2&gt;The Issue&lt;/h2&gt;
+&lt;p&gt;This particular function is just a high level wrapper around low level cpython function &lt;code&gt;os.get_terminal_size&lt;/code&gt;. The only real thing it does is handle an exception and returns &lt;code&gt;fallback&lt;/code&gt; values if that's the case.&lt;/p&gt;
+&lt;p&gt;However there's a huge pitfall with this function and it's that &lt;strong&gt;it doesn't work with terminal pipes!&lt;/strong&gt;  &lt;br&gt;
+We can confirm that with this simple script:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+
+&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fallback&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;456&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python size.py
+cols:89
+rows:22
+$ python size.py &lt;span class="p"&gt;|&lt;/span&gt; cat
+cols:123
+rows:456
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;89 to 22 is my actual size however when piping to anything, including python itself the size seems to fallback to the fallback values, which in most cases defeats the whole purpose of retrieving the terminal size.&lt;/p&gt;
+&lt;h3&gt;Making It Work!&lt;/h3&gt;
+&lt;p&gt;If we use &lt;code&gt;os.get_terminal_size(0)&lt;/code&gt; function, we'll get it to work!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+
+&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;cols:{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;rows:{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The thing to note here is the positional argument &lt;code&gt;0&lt;/code&gt; in &lt;code&gt;os.get_terminal_size()&lt;/code&gt; function, which tells which &lt;a href="https://en.wikipedia.org/wiki/File_descriptor"&gt;file descriptor&lt;/a&gt; to use: &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;0 - Standard Input&lt;br&gt;
+1 - Standard Output&lt;br&gt;
+2 - Standard Error  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;By default both &lt;code&gt;os&lt;/code&gt; and &lt;code&gt;shutil&lt;/code&gt; functions use &lt;code&gt;1&lt;/code&gt;, which stands for Standard Output. This means that if we pipe and this output detaches itself we get an OsError:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ne"&gt;OSError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Errno&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;Inappropriate&lt;/span&gt; &lt;span class="n"&gt;ioctl&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;device&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This default somewhat make sense if the size of your terminal changes when the output is displayed, but I'm having trouble even imagining an example where that would be the case.&lt;/p&gt;
+&lt;p&gt;If we were to run our script now, we'd get the results we are looking for&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python size.py
+cols:89
+rows:22
+$ python size.py &lt;span class="p"&gt;|&lt;/span&gt; cat
+cols:89
+rows:22
+&lt;span class="c1"&gt;# Even if we pipe multiple times!&lt;/span&gt;
+$ python size.py &lt;span class="p"&gt;|&lt;/span&gt; grep . &lt;span class="p"&gt;|&lt;/span&gt; cat
+cols:89
+rows:22
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I've spent more time than I'd like to admit trying to figure this out and the &lt;a href="http://stackoverflow.com/a/41864359/3737009"&gt;stackoverflow thread&lt;/a&gt; for this subject only left me more confused.&lt;br&gt;
+As always if you have any questions, critique or notices feel free to leave a comment!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>My Bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;"My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br&gt;
+On how to setup your environment for easily accessible scripting see my &lt;a href="/python-scripts.html"&gt;Guide: setup for python scripting&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!&lt;br&gt;
+It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running &lt;a href="http://i3wm.org/"&gt;i3wm&lt;/a&gt; - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.&lt;/p&gt;
+&lt;p&gt;In other words it turns something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat raven.md
+Once upon a midnight dreary, &lt;span class="k"&gt;while&lt;/span&gt; I pondered, weak and weary,
+Over many a quaint and curious volume of forgotten lore,
+While I nodded, nearly napping, suddenly there came a tapping,
+As of some one gently rapping, rapping at my chamber door.
+&lt;span class="s1"&gt;&amp;#39;Tis some visitor,&amp;#39;&lt;/span&gt; I muttered, &lt;span class="s1"&gt;&amp;#39;tapping at my chamber door-&lt;/span&gt;
+&lt;span class="s1"&gt;Only this, and nothing more.&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Into:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat raven.md &lt;span class="p"&gt;|&lt;/span&gt; center
+             Once upon a midnight dreary, &lt;span class="k"&gt;while&lt;/span&gt; I pondered, weak and weary,              
+                Over many a quaint and curious volume of forgotten lore,                 
+             While I nodded, nearly napping, suddenly there came a tapping,              
+               As of some one gently rapping, rapping at my chamber door.                
+              &lt;span class="s1"&gt;&amp;#39;Tis some visitor,&amp;#39;&lt;/span&gt; I muttered, &lt;span class="s1"&gt;&amp;#39;tapping at my chamber door-               &lt;/span&gt;
+&lt;span class="s1"&gt;                              Only this, and nothing more.&amp;#39;&lt;/span&gt;   
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;While taking your current terminal size into account, so no matter what you're doing or where you are the text will nice and pretty.   &lt;/p&gt;
+&lt;h3&gt;Source&lt;/h3&gt;
+&lt;p&gt;Now lets take a look at the source code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="c1"&gt;#!/usr/bin/env python3&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;click&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+    &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
+
+
+    &lt;span class="nd"&gt;@click.command&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;input&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;r&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;output&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nd"&gt;@click.option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;-l&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;--length&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;maximum line length [default:current terminal size]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Simple, pipeable tool for centering text&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;#1&lt;/span&gt;
+        &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;  &lt;span class="c1"&gt;#2&lt;/span&gt;
+        &lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{{:^{}}}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;#3&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;#4&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_format&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Explanation&lt;/h3&gt;
+&lt;p&gt;I love &lt;code&gt;click&lt;/code&gt; library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for the pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!  &lt;br&gt;
+Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
+Finally there's the program itself:&lt;br&gt;
+&lt;code&gt;#1&lt;/code&gt; - We retrieve dimensions of the current terminal window. This returns a tuple of &lt;code&gt;(columns, rows)&lt;/code&gt; since we only care about columns we take the first member.&lt;br&gt;
+&lt;code&gt;#2&lt;/code&gt; - We decide on which source to use for input, if first position argument is supplied to script, we'll use that as a source, otherwise use standard input.&lt;br&gt;
+&lt;code&gt;#3&lt;/code&gt; - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to &lt;code&gt;{:^&amp;lt;terminal_size&amp;gt;}\n&lt;/code&gt; now if we call &lt;code&gt;.format()&lt;/code&gt; on that we can insert text and it will be centered. For more check out &lt;a href="https://docs.python.org/3.1/library/string.html#string-formatting"&gt;python's string formatting&lt;/a&gt;, it's awesome!&lt;br&gt;
+&lt;code&gt;#4&lt;/code&gt; - And lastly we have the loop itself. Here we loop through every line, center it and either write it to file if the second positional argument is supplied or put it straight to standard output.  &lt;/p&gt;
+&lt;h3&gt;Improvements&lt;/h3&gt;
+&lt;p&gt;You could probably go wild with a bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) &lt;/p&gt;
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and &lt;code&gt;click&lt;/code&gt;. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!&lt;br&gt;
+Let me know if you have any questions and stay tuned for more scripts and explanations!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category><category term="my-bin"></category></entry><entry><title>My Bin: center</title><link href="https://granitosaurus.github.io/my-bin-indent.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-indent.html</id><summary type="html">&lt;p&gt;"My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br&gt;
 On how to setup your environment for easily accessible scripting see my &lt;a href="/python-scripts.html"&gt;Guide: setup for python scripting&lt;/a&gt;  &lt;/p&gt;
 &lt;p&gt;Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!&lt;br&gt;
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running &lt;a href="http://i3wm.org/"&gt;i3wm&lt;/a&gt; - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.&lt;/p&gt;
