@@ -52,8 +52,8 @@ If we use &lt;code&gt;os.get_terminal_size(0)&lt;/code&gt; function, we'll get i
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;This default somewhat make sense if the size of your terminal changes when the output is displayed, but I'm having trouble even imagining an example where that would be the case.&lt;/p&gt;
-&lt;p&gt;If we were to run our script now, we'd get the results we are looking for&lt;/p&gt;
+&lt;p&gt;This default somewhat makes sense if the size of your terminal changes when the output is displayed, but I'm having trouble even imagining an example where that would be the case.&lt;/p&gt;
+&lt;p&gt;So if we were to run our script now, we'd get the results we are looking for:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python size.py
 cols:89
 rows:22
