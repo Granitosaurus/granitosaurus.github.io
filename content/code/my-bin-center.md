@@ -44,7 +44,7 @@ Now lets take a look at the source code:
     #!/usr/bin/env python3
     import click
     import sys
-    import shutil
+    import os
 
 
     @click.command()
@@ -53,7 +53,7 @@ Now lets take a look at the source code:
     @click.option('-l', '--length', help='maximum line length [default:current terminal size]', type=click.INT)
     def cli(input, output, length):
         """Simple, pipeable tool for centering text"""
-        columns = shutil.get_terminal_size()[0]  #1
+        columns = os.get_terminal_size(0)[0]  #1
         source = input.readlines() if input else sys.stdin  #2
         _format = '{{:^{}}}\n'.format(length or int(columns))  #3
         for line in source:  #4
@@ -72,7 +72,8 @@ Now lets take a look at the source code:
 I love `click` library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for the pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!    
 Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
 Finally there's the program itself:  
-`#1` - We retrieve dimensions of the current terminal window. This returns a tuple of `(columns, rows)` since we only care about columns we take the first member.  
+`#1` - We retrieve dimensions of the current terminal window. This returns a tuple of `(columns, rows)` since we only care about columns we take the first member.   
+Check out a related blog entry why we are using this function instead of alternatives [here](/getting-terminal-size.html)  
 `#2` - We decide on which source to use for input, if first position argument is supplied to script, we'll use that as a source, otherwise use standard input.  
 `#3` - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to `{:^<terminal_size>}\n` now if we call `.format()` on that we can insert text and it will be centered. For more check out [python's string formatting](https://docs.python.org/3.1/library/string.html#string-formatting), it's awesome!  
 `#4` - And lastly we have the loop itself. Here we loop through every line, center it and either write it to file if the second positional argument is supplied or put it straight to standard output.  
