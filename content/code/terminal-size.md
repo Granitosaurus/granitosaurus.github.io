@@ -28,6 +28,7 @@ import sys
 import shutil
 
 columns, rows = shutil.get_terminal_size(fallback=(123, 456))
+sys.stdout.write('cols:{}\nrows:{}\n'.format(columns, rows))
 ```
 
 ```bash
