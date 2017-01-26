@@ -81,13 +81,6 @@ Finally there's the program itself:
 
 You could probably go wild with a bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) 
 
-### Pitfalls
-
-One of the pitfalls I've experience with piping in python scripts is when piping to `less` or similar tools.   
-Because of how `shutils.get_terminal_size()` works, if a parameter `fallback` is set, like: `shutils.get_terminal_size(fallback=(80,30))` the set fallback will actually be used instead of your terminal size if piped to `less` or similar tool.  
-I'm not certain why it behaves like that, my guess being is that `less` breaks the terminal size function, but opposed to general recommendations of setting a fallback it's best to not set it in this case.
-
-
 ### Conclusion 
 
 I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and `click`. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!  
