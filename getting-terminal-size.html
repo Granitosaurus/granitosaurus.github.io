@@ -98,6 +98,7 @@
 <p>First of all the recommended way or the "pythonic" way of retrieving terminal size for python3 is:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;cols:{}</span><span class="se">\n</span><span class="s1">rows:{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="p">))</span>
 </pre></div>
 
 
