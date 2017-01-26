@@ -5,23 +5,23 @@ Slug: getting-terminal-size
 Summary: Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I'd like to share.
 
 
-Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I'd like to share.
+Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. However there are some few tricks worth noting that I'd like to share in this blog post.
 
-The recommended way of retrieving terminal size for python3 is:
+First of all the recommended way or the "pythonic" way of retrieving terminal size for python3 is:
 
 ```python
 import shutil
 columns, rows = shutil.get_terminal_size(fallback=(80, 24))
 ```
 
-And it works, for the most part.  
+And it works pretty great, well for the most part that is.  
 
 ## The Issue
 
-This particular function is just a high level wrapper around low level cpython function `os.get_terminal_size`. The only real thing it does is handle an exception and returns `fallback` values if that's the case.
+This particular function is just a high level wrapper around low level cpython function `os.get_terminal_size` and the only real thing it does is handle an exception and returns `fallback` values if that's the case.
 
 However there's a huge pitfall with this function and it's that __it doesn't work with terminal pipes!__    
-We can confirm that with this simple script:
+To confirm and test that with we can try this simple script `size.py`:
 
 ```python
 import sys
@@ -39,12 +39,14 @@ cols:123
 rows:456
 ```
 
-89 to 22 is my actual size however when piping to anything, including python itself the size seems to fallback to the fallback values, which in most cases defeats the whole purpose of retrieving the terminal size.
+89 to 22 is my actual size however when piping to anything, including python itself, the size seems to fallback to the fallback values, which in most cases defeats the whole purpose of retrieving the terminal size.
 
 ### Making It Work!
 
-If we use `os.get_terminal_size(0)` function, we'll get it to work!
+The solution is pretty simple - use the other function instead!  
+If we use `os.get_terminal_size(0)` function, we'll get it working with piping too!
 
+To test that lets change our script:  
 
 ```python
 import sys
