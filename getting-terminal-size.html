@@ -96,7 +96,8 @@
   <div>
     <p>Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. However there are some few tricks worth noting that I'd like to share in this blog post.</p>
 <p>First of all the recommended way or the "pythonic" way of retrieving terminal size for python3 is:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
 </pre></div>
 
@@ -128,7 +129,8 @@ rows:456
 <p>The solution is pretty simple - use the other function instead!<br>
 If we use <code>os.get_terminal_size(0)</code> function, we'll get it working with piping too!</p>
 <p>To test that lets change our script:  </p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -162,6 +164,33 @@ rows:22
 </pre></div>
 
 
+<h2>Edit</h2>
+<p>As user bearded_unix_guy pointed out on <a href="https://www.reddit.com/r/Python/comments/5q7b36/getting_terminal_size_in_python/dcxil66/">reddit</a>, using stdin(argument 0) might not always work, in particular it wont work when we pipe to our app: </p>
+<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">-</span> <span class="o">|</span> <span class="n">size</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+
+
+<p>In case like above we actually want to use stdout(default argument) since it's not detached. However what about if your app is in the middle: </p>
+<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">-</span> <span class="o">|</span> <span class="n">size</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">cat</span>
+</pre></div>
+
+
+<p>In this case neither stdout nor stdin will work, but sterr(2) will!<br>
+So to combine all of these to cover all of the cases we can simply wrap it in a for loop with exception catching:</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># set default if the loop completes which means all failed</span>
+        <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">fallback</span>
+    <span class="k">return</span> <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span>
+</pre></div>
+
+
+<p>And there you go, you can use that instead of <code>os.get_terminal_size()</code> and have a pipe-foolproof terminal size getter! </p>
 <h2>Conclusion</h2>
 <p>I've spent more time than I'd like to admit trying to figure this out and the <a href="http://stackoverflow.com/a/41864359/3737009">stackoverflow thread</a> for this subject only left me more confused.<br>
 As always if you have any questions, critique or notices feel free to leave a comment!</p>
