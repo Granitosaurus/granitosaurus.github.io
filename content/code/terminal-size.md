@@ -10,6 +10,7 @@ Getting terminal size can be vital for your application, especially if you are d
 First of all the recommended way or the "pythonic" way of retrieving terminal size for python3 is:
 
 ```python
+#!/usr/bin/env python3
 import shutil
 columns, rows = shutil.get_terminal_size(fallback=(80, 24))
 ```
@@ -50,6 +51,7 @@ If we use `os.get_terminal_size(0)` function, we'll get it working with piping t
 To test that lets change our script:  
 
 ```python
+#!/usr/bin/env python3
 import sys
 import os
 
@@ -85,6 +87,38 @@ $ python size.py | grep . | cat
 cols:89
 rows:22
 ```
+
+## Edit
+
+As user bearded_unix_guy pointed out on [reddit](https://www.reddit.com/r/Python/comments/5q7b36/getting_terminal_size_in_python/dcxil66/), using stdin(argument 0) might not always work, in particular it wont work when we pipe to our app: 
+
+```python
+cat - | size.py
+```
+
+In case like above we actually want to use stdout(default argument) since it's not detached. However what about if your app is in the middle: 
+
+```python
+cat - | size.py | cat
+```
+
+In this case neither stdout nor stdin will work, but sterr(2) will!  
+So to combine all of these to cover all of the cases we can simply wrap it in a for loop with exception catching:
+
+```python
+def get_terminal_size(fallback=(80, 24):
+    for i in range(0,3):
+        try:
+            columns, rows = os.get_terminal_size(i)
+        except OSError:
+            continue
+        break
+    else:  # set default if the loop completes which means all failed
+        columns, rows = fallback
+    return columns, rows
+```
+
+And there you go, you can use that instead of `os.get_terminal_size()` and have a pipe-foolproof terminal size getter! 
 
 
 ## Conclusion  
