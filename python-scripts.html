@@ -109,7 +109,7 @@ Yes you are, keep it up!
 <h2>Handling the PATH</h2>
 <p>Now depending on your system and the shell you use, this directory might already be created or might not be in your <code>PATH</code> environment at all.<br>
 <code>PATH</code> environment variable is a list of locations your shell will look for executable files - programs in other words. So if you're using good ol' bash simply adding this line to your <code>~/.bashrc</code> file will do:</p>
-<div class="highlight"><pre><span></span><span class="x">export PATH=&quot;~/bin:</span><span class="p">$</span><span class="nv">PATH</span><span class="x">&quot;</span>
+<div class="highlight"><pre><span></span>export PATH=&quot;~/bin:$PATH&quot;
 </pre></div>
 
 
@@ -126,7 +126,7 @@ We should populate this script with some actual code:</p>
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes you are, keep it up!&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>

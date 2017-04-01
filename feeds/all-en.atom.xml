@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-01-31T00:00:00+01:00</updated><entry><title>Doom and Stone in Tallinn</title><link href="https://granitosaurus.github.io/doom-tallinn-2017.html" rel="alternate"></link><published>2017-01-31T00:00:00+01:00</published><updated>2017-01-31T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-31:/doom-tallinn-2017.html</id><summary type="html">&lt;p&gt;I went to a brilliant doom and stone metal concert in Tallinn, Estonia. Spearheaded by Stoned Jesus itself and back by two brilliant bands from Poland!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm a big fan of doom metal and to my surprise a brilliant rock club "Woodstock" was holding a concert featuring 3 brilliant bands: &lt;a href="https://dopelord.bandcamp.com/"&gt;Dopelord[PL]&lt;/a&gt;, &lt;a href="https://sunnataofficial.bandcamp.com/"&gt;Sunnata[PL]&lt;/a&gt; and &lt;a href="https://stonedjesus.bandcamp.com/"&gt;Stoned Jesus[UA]&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-04-01T00:00:00+02:00</updated><entry><title>wisdom.cat</title><link href="https://granitosaurus.github.io/wisdom-cat.html" rel="alternate"></link><published>2017-04-01T00:00:00+02:00</published><updated>2017-04-01T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-04-01:/wisdom-cat.html</id><summary type="html">&lt;p&gt;Recently I made small website in flask for aggregating educational youtube videos and I'd like to share my experience.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've always wanted to make a webapp and flask always looked appealing but deployment and production hassle really turned me off. A week ago I tried to force myself through it and I have to say, it's really not that bad!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This is not a guide and you most likely won't learn anything - it's more of a condense story of how wisdom.cat was developed and doesn't really serve any other purpose&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="wisdom.cat" src="https://i.imgur.com/JppvDUZ.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Wisdom.cat&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$ cat wisdom&lt;br&gt;
+=( ^ &amp;gt;w&amp;lt; ^ )= &lt;br&gt;
+wisdom.cat - is a video aggregator website that aggregates bite size videos &lt;br&gt;
+which are in some way educational. The intention of this website is&lt;br&gt;
+to have something beneficial to watch during short down-time periods; &lt;br&gt;
+https://github.com/Granitosaurus/wisdom.cat  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I work remotely and I tend to eat at home so I usually watch a video or two during my lunch break. However I wanted to make sure I don't completely waste this time and don't let my brain fall a sleep or lose track so I've been watching education videos to compensate.&lt;br&gt;
+So the goal of &lt;a href="http://wisdom.cat"&gt;wisdom.cat&lt;/a&gt; is to solve this issue and provide me and others who are stuck in a similar position something to watch.  &lt;/p&gt;
+&lt;h3&gt;Alternatives and Inspirations&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="looking around" src="https://i.redd.it/1h2rkgvxzv6y.gif"&gt;  &lt;/p&gt;
+&lt;p&gt;For quite a while a brilliant website (that wisdom.cat is more or less a clone of) performed this function - it's called http://unplugthetv.com. However as time went on the feed slowed down to the point where it has been completely dead since October of 2016.&lt;br&gt;
+I didn't like few things on that website; first that the feed was fairly slow and the second, much more important one, that there was no way to customize it. So a lot of unwanted things ended up in the feed, my personal example being the  TED channel, it used to be brilliant - 4 years ago, now it's utter garbage that if anything makes people more dumb instead of educating them.&lt;/p&gt;
+&lt;p&gt;So in hindsight you could say wisdom cat was born from a dead cool website and my hatred for TED (TED-ED is really lovely though!).&lt;/p&gt;
+&lt;p&gt;Some alternatives I came across while doing my research that are worth mentioning:&lt;br&gt;
+http://reddit.com/r/mealtimevideos - similar purpose, however it's not focused on education.&lt;br&gt;
+Curiousity app - I've never used it but heard one person on irc.#flask say that wisdom.cat is similar.  &lt;/p&gt;
+&lt;h2&gt;Databases&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="wisdomcat database story" src="https://granitosaurus.github.io/images/wisdomcat-db.png"&gt;  &lt;/p&gt;
+&lt;p&gt;I didn't know much about designing webapp data storage at the time and just went with sqlite3, which didn't play well with pythonanywhere hosting that I was trying to use at the time. So I made a switch to mysql, which was a miserable  mistake. Mysql is dreadful to work with and I've spent more time working on the database and such than on the web app itself. &lt;br&gt;
+Frankly it was extremely unenjoyable experience and since this project was my spare time thing I came to a brilliant conclusion to try something different.   &lt;/p&gt;
+&lt;p&gt;I got Redis! And honestly, it's been a complete pleasure starting the very moment I ran &lt;code&gt;pacman -S redis&lt;/code&gt;.&lt;br&gt;
+So what's so great about it? Well it might sound clichè but It Just Works™, no really after I installed it via pacman, started the daemon via systemctl and got a python api (python-redis or flask-redis) I had to add pretty much 2 lines to my youtube scraper to store the data and 4 lines to my flask views to display it - it was liberating!  &lt;/p&gt;
+&lt;p&gt;One important thing I learned when it comes to Redis is to "store data the same way you will query it". Since redis doesn't really have a full query mechanism behind it, you might end up stuck without being able to get your data without a bunch of python code to help you out.&lt;br&gt;
+My first attempt was to write every video to &lt;code&gt;video_&amp;lt;id&amp;gt;&lt;/code&gt; but since I wanted wisdom.cat to have filters for channels that didn't end up being as efficient. Nowhere near of being a huge performance hit but in short time it might become noticeable.&lt;br&gt;
+Then I just wrote video data to Redis lists named after channels, i.e. "channel_CGP Grey" will contain a list of videos, that can be updated and modified - which solved this non-issue completely!  &lt;/p&gt;
+&lt;h2&gt;Flask&lt;/h2&gt;
+&lt;p&gt;Flask was an easy choice for wisdom.cat; it was popular(read a lot of learning resources), light-weight and in python!&lt;br&gt;
+I'm not sure if I have much to add other than few struggles I had as a newb.&lt;br&gt;
+The circular imports got me a time or two, because for some reason I decided to keep &lt;code&gt;app&lt;/code&gt; object in &lt;code&gt;__init__.py&lt;/code&gt; and ended up kinda liking it.  &lt;/p&gt;
+&lt;p&gt;The biggest issue I had was the sessions. Initially wisdom cat would generate video queue and channel subscriptions and put them to flask session, aka secure cookie. Now this brought an impossible to debug issue that made be dippy few times. Turns out the cookie/session ended up being so big it would not update anymore appropriately since cookie has 4k byte limit and the wisdom cat setup, at the time with 30 videos, was already reaching that!&lt;br&gt;
+So needless to say it was a bad idea from the very get go, fortunately with redis up and running it was no longer an issue that would be difficult to solve.&lt;/p&gt;
+&lt;p&gt;All in all it's hard to say something original about Flask since it has such a huge community and so many opinions, research and information already that anything I'd say would be awfully redundant so I'll just say that Flask was a real pleasure to work with and honestly, I can't wait to start a new project already!  &lt;/p&gt;
+&lt;h2&gt;Deploying&lt;/h2&gt;
+&lt;p&gt;This was my most dreaded bit. I've been playing with servers to run crawlers and some notification tools for some time but I've never exposed them to public or made them accessible.&lt;br&gt;
+Fortunately it all sounds more complicated than it actually is. All you need is an application, &lt;a href="https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface"&gt;wsgi&lt;/a&gt; tool, some daemons and an afternoon!  &lt;/p&gt;
+&lt;p&gt;I ended up renting a &lt;a href="https://www.linode.com/?r=37112fcbb52a0f3c556a91b37d215d72e4ef5702"&gt;linode&lt;/a&gt; (which is really lovely!) and using arch node with systemd, nginx and gunicorn. &lt;br&gt;
+I've been using arch and systemd for few years now so this part was a breeze, however nginx gave me a bit of trouble. Mostly because most of the tutorials, guides and documentation assumed that it's running on Ubuntu which for some reason uses unusual structure and stores servers in &lt;code&gt;sites-enabled&lt;/code&gt; and &lt;code&gt;sites-available&lt;/code&gt; which were not present in arch(or most of the other distros). Apparently this was to replicated some apache server structure so I decided to join the cool kid's club and replicate the same structure with &lt;code&gt;inludes&lt;/code&gt; and system links - it worked out perfectly fine and I with few lines of configs it was working.&lt;/p&gt;
+&lt;p&gt;Finally I wrote up two daemon services: &lt;code&gt;gunicorn&lt;/code&gt; wsgi service to launch and expose the app, and a timer service - to run video crawler every half an hour, to update the video feed.&lt;/p&gt;
+&lt;p&gt;And with that wisdom.cat was finally drawing it's first breaths! &lt;/p&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This was a really fun little project and I highly recommend investing some time into learning how to make a simple web app like this - it opens up so many gates for so many opportunities!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="flask"></category><category term="website"></category></entry><entry><title>Why do we like birds?</title><link href="https://granitosaurus.github.io/birds.html" rel="alternate"></link><published>2017-02-03T00:00:00+01:00</published><updated>2017-02-03T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-02-03:/birds.html</id><summary type="html"></summary><content type="html">&lt;h2&gt;Birds are Plentiful&lt;/h2&gt;
+&lt;p&gt;No matter where you are you most likely have some birds around you. Even the most urban environments &lt;/p&gt;</content><category term="photography"></category><category term="birds"></category></entry><entry><title>Doom and Stone in Tallinn</title><link href="https://granitosaurus.github.io/doom-tallinn-2017.html" rel="alternate"></link><published>2017-01-31T00:00:00+01:00</published><updated>2017-01-31T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-31:/doom-tallinn-2017.html</id><summary type="html">&lt;p&gt;I went to a brilliant doom and stone metal concert in Tallinn, Estonia. Spearheaded by Stoned Jesus itself and back by two brilliant bands from Poland!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm a big fan of doom metal and to my surprise a brilliant rock club "Woodstock" was holding a concert featuring 3 brilliant bands: &lt;a href="https://dopelord.bandcamp.com/"&gt;Dopelord[PL]&lt;/a&gt;, &lt;a href="https://sunnataofficial.bandcamp.com/"&gt;Sunnata[PL]&lt;/a&gt; and &lt;a href="https://stonedjesus.bandcamp.com/"&gt;Stoned Jesus[UA]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="The Procession II" src="https://granitosaurus.github.io/images/doom-tallinn.png"&gt;&lt;/p&gt;
 &lt;p&gt;I've attended Stoned Jesus concert last year at the same place and it was a blast, so even though I wasn't familiar with the other two bands, Stoned Jesus was more than enough to convince me this time.&lt;br&gt;
 I tried to keep the other two bands a surprise and only caved during the long and tedious bus ride to the concert itself. I've listened to the top 3 songs on spotify and was completely stoked! &lt;/p&gt;
@@ -170,7 +217,7 @@ As of some one gently rapping, rapping at my chamber door.
             &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
                 &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
         &lt;span class="n"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -203,7 +250,7 @@ Yes you are, keep it up!
 &lt;h2&gt;Handling the PATH&lt;/h2&gt;
 &lt;p&gt;Now depending on your system and the shell you use, this directory might already be created or might not be in your &lt;code&gt;PATH&lt;/code&gt; environment at all.&lt;br&gt;
 &lt;code&gt;PATH&lt;/code&gt; environment variable is a list of locations your shell will look for executable files - programs in other words. So if you're using good ol' bash simply adding this line to your &lt;code&gt;~/.bashrc&lt;/code&gt; file will do:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="x"&gt;export PATH=&amp;quot;~/bin:&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export PATH=&amp;quot;~/bin:$PATH&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -220,7 +267,7 @@ We should populate this script with some actual code:&lt;/p&gt;
 3
 4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Yes you are, keep it up!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
