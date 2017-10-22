@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="https://granitosaurus.github.io/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://granitosaurus.github.io/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="https://granitosaurus.github.io/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom">
+
+
+    <link rel="shortcut icon" href="https://granitosaurus.github.io/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://granitosaurus.github.io/images/favicon.ico" type="image/x-icon">
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+
+<meta name="author" content="Bernardas Ališauskas" />
+<meta name="description" content="protect your sensitive data like crypto wallets with eCrypt overlay filesystem!" />
+<meta name="keywords" content="linux, guide, crypto, security">
+<meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
+<meta property="og:title" content="Securing Data With eCryptfs"/>
+<meta property="og:description" content="protect your sensitive data like crypto wallets with eCrypt overlay filesystem!"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://granitosaurus.github.io/ecrypt-yourself.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-10-22 00:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://granitosaurus.github.io/author/bernardas-alisauskas.html">
+<meta property="article:section" content="code"/>
+<meta property="article:tag" content="linux"/>
+<meta property="article:tag" content="guide"/>
+<meta property="article:tag" content="crypto"/>
+<meta property="article:tag" content="security"/>
+<meta property="og:image" content="https://granitosaurus.github.io/images/core/me.jpg">
+
+  <title>Blog of Bernardas Ališauskas &ndash; Securing Data With eCryptfs</title>
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://granitosaurus.github.io">
+        <img class="circle" src="https://granitosaurus.github.io/images/core/me.jpg" alt="Bernardas Ališauskas" title="Bernardas Ališauskas">
+      </a>
+      <h1><a href="https://granitosaurus.github.io">Bernardas Ališauskas</a></h1>
+
+<p>Python programmer and a goof who loves free software, video-games and heavy metal</p>
+      <nav>
+        <ul class="list">
+          <li><a href="https://granitosaurus.github.io/pages/about.html#about">About</a></li>
+          <li><a href="https://granitosaurus.github.io/pages/contact.html#contact">Contact</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-github" href="https://github.com/granitosaurus" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-rss" href="" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+
+      <a href="http://stackoverflow.com/users/3737009">
+        <img src="http://stackoverflow.com/users/flair/3737009.png" width="208" height="58" alt="Stack Overflow Profile">
+      </a>
+    </div>
+  </aside>
+  <main>
+    <nav>
+      <a href="https://granitosaurus.github.io">    Home
+</a>
+
+      <a href="/archives.html">Archives</a>
+      <a href="/categories.html">Categories</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="https://granitosaurus.github.io/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+    <h1 id="ecrypt-yourself">Securing Data With eCryptfs</h1>
+    <p>
+          Posted on Sun 22 October 2017 in <a href="https://granitosaurus.github.io/category/code.html">code</a>
+
+
+    </p>
+  </header>
+  <div>
+    <p>Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. <br>
+The standard tool for linux is called eCryptfs and let me tell you how awesome and convenient it is!</p>
+<h1>eCryptfs</h1>
+<p>eCryptfs is a cryptographic overlay filesystem for Linux. It's a great tool to encrypt some private data like cryptocurrency wallet keys, private pictures — anything really.<br>
+It allows you to mount a password protected, encrypted filesystem on your usual unencrypted filesystem:</p>
+<div class="highlight"><pre><span></span>dex@~/.private $ ls
+Access-Your-Private-Data.desktop  README.txt
+$ ecryptfs-mount-private 
+    Enter your login passphrase:
+    Inserted auth tok with sig [xxxxxx] into the user session keyring
+    INFO: Your private directory has been mounted.
+    INFO: To see this change in your current shell:
+      cd /home/dex/.private
+dex@~/.private $ cd .
+dex@~/.private $ ls 
+myetherwallet  btc
+</pre></div>
+
+
+<p>Pretty damn cool - simple and secure!  </p>
+<h2>Setup</h2>
+<p>eCryptfs setup is dead easy!<br>
+Since linux version 3.18 eCrypt overlay filesystem is included with core kernel. 
+Simply enable it with:</p>
+<div class="highlight"><pre><span></span>modprobe ecryptfs
+</pre></div>
+
+
+<p>Then we need some tools to easily mount, unmount and generate our filesystem: <code>ecryptfs-utils</code> has everything we would need and is available on every linux package manager:  </p>
+<div class="highlight"><pre><span></span>sudo apt install ecryptfs-utils  # Ubuntu
+sudo pacman -S ecryptfs-utils  # Arch
+etc. etc.
+</pre></div>
+
+
+<p>Once you have it installed you'll find your user-space path populated with a bunch of ecryptfs utils, just type in your terminal <code>ecryptfs-</code> and press tab to see the goodies:</p>
+<div class="highlight"><pre><span></span>[dex@nanosaurus ~]$ ecryptfs-&lt;tab&gt;
+ecryptfs-add-passphrase
+ecryptfs-find
+ecryptfs-insert-wrapped-passphrase-into-keyring
+ecryptfs-manager
+...
+</pre></div>
+
+
+<p>Finally to initiate an ecryptfs system we need to run:</p>
+<div class="highlight"><pre><span></span>$ ecryptfs-setup-private --nopwcheck --noautomount
+</pre></div>
+
+
+<p>We use <code>--nopwcheck</code> and <code>--noautomount</code> flags here for extra security.   </p>
+<ul>
+<li><code>nopwcheck</code> allows us to use different password from our user's password   </li>
+<li><code>noautomount</code> disables automatic encrypted system mounting, since it's also not a very great idea and wouldn't work if our encryption password is different from our user's one.</li>
+</ul>
+<p>This command will ask you for <code>login</code> and <code>mount</code> passwords. For login password use your own password and for mount password leave it empty as encryptfs will create it for you using your login password as a seed.   </p>
+<p>Afterwards the system will be initiated and  <code>~/Private</code> and <code>~/.ecryptfs</code> directories will be created.  </p>
+<p><em>Note: you want to backup your encrypted mount password which is located in <code>~/.ecryptfs/wrapped-passphrase</code>. Remember that mount password is generated from your login password, so the passphrase is completely useless without your login password - put a copy of this file somewhere where you will never lose it!</em></p>
+<h2>Usage</h2>
+<p><code>~/Private</code> is your ecryptfs encrypted directory from now on. To use it you must mount it with <code>ecryptfs-mount-private</code> command and once you're done using it use <code>ecryptfs-umount-private</code> command to make it inaccessible once again:  </p>
+<div class="highlight"><pre><span></span>dex@~/Private $ ls
+Access-Your-Private-Data.desktop  README.txt
+$ ecryptfs-mount-private 
+dex@~/Private $ cd .
+dex@~/Private $ ls 
+myetherwallet  btc diary emberassing_hobbies
+</pre></div>
+
+
+<p>That's it! Now you have a safe directory on your computer where you can store sensitive data! Even if someone gets access to your user's homespace they'll still need your ecryptfs password to get anything out of it.  </p>
+<h2>Customizing</h2>
+<p><code>~/Private</code> is a pretty terrible name. It's Camelcase and I'd very much prefer it to be hidden.<br>
+We can change it to <code>~/.private</code> very easily though:</p>
+<div class="highlight"><pre><span></span>mv ~/Private ~/.private
+echo /home/dex/.private &gt; ~/.ecryptfs/Private.mnt
+</pre></div>
+
+
+<h1>General Security tips</h1>
+<h2>The Three Rule</h2>
+<p><em>If it doesn't exist in <strong>three</strong> places it doesn't exist at all.</em></p>
+<p>Fortunately ecryptfs directory acts like a normal directory so you can easily back it up to usb-stick, cloud storage or even email. Really just put that shit everywhere as longs as you have your login and mount passwords safe no one will be able to access your stuff.</p>
+<p>We've all heard magical stories about people losing usb sticks with their bitcoin wallets. Well if you had your wallet encrypted and in three different places that would have never happened!</p>
+<h2>Long Passwords Triumph</h2>
+<p>I don't think I can top the explanation by this <a href="https://xkcd.com/936/">xkcd comic</a> so I'll just leave you with it and say that just have a simple a-z password which is at least 13 characters long.  </p>
+<h1>Further Reading</h1>
+<p>If you want to dig deeper I suggest arch-wiki <a href="https://wiki.archlinux.org/index.php/ECryptfs">article</a> or symply <code>man ecryptfs</code>!
+Additionally <a href="https://stackoverflow.com/questions/tagged/ecryptfs?sort=votes&amp;pageSize=15">top questions on stackoverflow</a> also offer some interesting read.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://granitosaurus.github.io/tag/linux.html">linux</a>
+      <a href="https://granitosaurus.github.io/tag/guide.html">guide</a>
+      <a href="https://granitosaurus.github.io/tag/crypto.html">crypto</a>
+      <a href="https://granitosaurus.github.io/tag/security.html">security</a>
+    </p>
+  </div>
+
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'granitosaurus';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+</article>
+
+    <footer>
+<p>
+  &copy; Bernardas Ališauskas 2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+</p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p><p>
+  <a rel="license"
+     href="http://creativecommons.org/licenses/by-sa/4.0/"
+     target="_blank">
+    <img alt="Creative Commons License"
+         title="Creative Commons License"
+         style="border-width:0"
+         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
+         width="80"
+         height="15"/>
+  </a>
+</p>    </footer>
+  </main>
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Blog of Bernardas Ališauskas ",
+  "url" : "https://granitosaurus.github.io",
+  "image": "https://granitosaurus.github.io/images/core/me.jpg",
+  "description": "Thoughts and Writings of Granitosaurus"
+}
+</script>
+</body>
+</html>

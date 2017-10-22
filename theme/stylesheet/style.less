@@ -11,12 +11,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.1;
+  margin: 0;
 }
 
 h1{
-  font-size: 2.4em
+  font-size: 3em
 }
 
 h2 {
@@ -24,15 +25,15 @@ h2 {
 }
 
 h3 {
-  font-size: 1.6em
+  font-size: 1.5em
 }
 
 h4 {
-  font-size: 1.36em
+  font-size: 1.2em
 }
 
 h5 {
-  font-size: 1.2em
+  font-size: 1.15em
 }
 
 h6 {
@@ -76,6 +77,10 @@ aside {
   color: @sidebar-text-color;
   text-align: center;
 
+  h1 {
+    font-size: 2em
+  }
+
   a {
     color: @sidebar-link-color;
   }
@@ -87,7 +92,7 @@ aside {
   div {
     padding: 20px;
     margin: 0;
-    
+
     img {
       margin-top: 10px;
     }
@@ -150,10 +155,14 @@ main {
 
   article {
     margin: 0 8% 2% 8%;
+    max-width: 79ch;
+    overflow: hidden;
 
     header {
       h1, h2 {
+        font-weight: 700;
         margin-bottom: 0;
+        font-size: 3em;
       }
 
       p {
@@ -167,7 +176,8 @@ main {
     }
 
     blockquote, pre {
-      background-color: rgba(128,128,128,0.05);
+      background-color: rgba(253,246,227, 1);
+      color: #657b83;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       border-left: 8px solid rgba(128,128,128,0.075);
@@ -208,10 +218,8 @@ main {
     code {
       font-size: .8em;
       white-space: nowrap;
-      color: #c25;
       padding: 1px 3px;
       background-color: #f7f7f9;
-      border: 1px solid #e1e1e8;
       border-radius: 3px;
     }
 
@@ -298,11 +306,11 @@ article img {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  max-width: 70%; 
+  max-width: 70%;
 }
 
 .standard-size {
-    max-width: 70%; 
+    max-width: 70%;
 }
 
 .float-right {

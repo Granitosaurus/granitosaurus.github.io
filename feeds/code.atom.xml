@@ -1,5 +1,455 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-04-01T00:00:00+02:00</updated><entry><title>wisdom.cat</title><link href="https://granitosaurus.github.io/wisdom-cat.html" rel="alternate"></link><published>2017-04-01T00:00:00+02:00</published><updated>2017-04-01T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-04-01:/wisdom-cat.html</id><summary type="html">&lt;p&gt;Recently I made small website in flask for aggregating educational youtube videos and I'd like to share my experience.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've always wanted to make a webapp and flask always looked appealing but deployment and production hassle really turned me off. A week ago I tried to force myself through it and I have to say, it's really not that bad!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-10-22T00:00:00+02:00</updated><entry><title>Securing Data With eCryptfs</title><link href="https://granitosaurus.github.io/ecrypt-yourself.html" rel="alternate"></link><published>2017-10-22T00:00:00+02:00</published><updated>2017-10-22T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-22:/ecrypt-yourself.html</id><summary type="html">&lt;p&gt;protect your sensitive data like crypto wallets with eCrypt overlay filesystem!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. &lt;br&gt;
+The standard tool for linux is called eCryptfs and let me tell you how awesome and convenient it is!&lt;/p&gt;
+&lt;h1&gt;eCryptfs&lt;/h1&gt;
+&lt;p&gt;eCryptfs is a cryptographic overlay filesystem for Linux. It's a great tool to encrypt some private data like cryptocurrency wallet keys, private pictures — anything really.&lt;br&gt;
+It allows you to mount a password protected, encrypted filesystem on your usual unencrypted filesystem:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dex@~/.private $ ls
+Access-Your-Private-Data.desktop  README.txt
+$ ecryptfs-mount-private 
+    Enter your login passphrase:
+    Inserted auth tok with sig [xxxxxx] into the user session keyring
+    INFO: Your private directory has been mounted.
+    INFO: To see this change in your current shell:
+      cd /home/dex/.private
+dex@~/.private $ cd .
+dex@~/.private $ ls 
+myetherwallet  btc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Pretty damn cool - simple and secure!  &lt;/p&gt;
+&lt;h2&gt;Setup&lt;/h2&gt;
+&lt;p&gt;eCryptfs setup is dead easy!&lt;br&gt;
+Since linux version 3.18 eCrypt overlay filesystem is included with core kernel. 
+Simply enable it with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;modprobe ecryptfs
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then we need some tools to easily mount, unmount and generate our filesystem: &lt;code&gt;ecryptfs-utils&lt;/code&gt; has everything we would need and is available on every linux package manager:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt install ecryptfs-utils  # Ubuntu
+sudo pacman -S ecryptfs-utils  # Arch
+etc. etc.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once you have it installed you'll find your user-space path populated with a bunch of ecryptfs utils, just type in your terminal &lt;code&gt;ecryptfs-&lt;/code&gt; and press tab to see the goodies:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[dex@nanosaurus ~]$ ecryptfs-&amp;lt;tab&amp;gt;
+ecryptfs-add-passphrase
+ecryptfs-find
+ecryptfs-insert-wrapped-passphrase-into-keyring
+ecryptfs-manager
+...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Finally to initiate an ecryptfs system we need to run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ecryptfs-setup-private --nopwcheck --noautomount
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We use &lt;code&gt;--nopwcheck&lt;/code&gt; and &lt;code&gt;--noautomount&lt;/code&gt; flags here for extra security.   &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nopwcheck&lt;/code&gt; allows us to use different password from our user's password   &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;noautomount&lt;/code&gt; disables automatic encrypted system mounting, since it's also not a very great idea and wouldn't work if our encryption password is different from our user's one.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This command will ask you for &lt;code&gt;login&lt;/code&gt; and &lt;code&gt;mount&lt;/code&gt; passwords. For login password use your own password and for mount password leave it empty as encryptfs will create it for you using your login password as a seed.   &lt;/p&gt;
+&lt;p&gt;Afterwards the system will be initiated and  &lt;code&gt;~/Private&lt;/code&gt; and &lt;code&gt;~/.ecryptfs&lt;/code&gt; directories will be created.  &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: you want to backup your encrypted mount password which is located in &lt;code&gt;~/.ecryptfs/wrapped-passphrase&lt;/code&gt;. Remember that mount password is generated from your login password, so the passphrase is completely useless without your login password - put a copy of this file somewhere where you will never lose it!&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Usage&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;~/Private&lt;/code&gt; is your ecryptfs encrypted directory from now on. To use it you must mount it with &lt;code&gt;ecryptfs-mount-private&lt;/code&gt; command and once you're done using it use &lt;code&gt;ecryptfs-umount-private&lt;/code&gt; command to make it inaccessible once again:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dex@~/Private $ ls
+Access-Your-Private-Data.desktop  README.txt
+$ ecryptfs-mount-private 
+dex@~/Private $ cd .
+dex@~/Private $ ls 
+myetherwallet  btc diary emberassing_hobbies
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That's it! Now you have a safe directory on your computer where you can store sensitive data! Even if someone gets access to your user's homespace they'll still need your ecryptfs password to get anything out of it.  &lt;/p&gt;
+&lt;h2&gt;Customizing&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;~/Private&lt;/code&gt; is a pretty terrible name. It's Camelcase and I'd very much prefer it to be hidden.&lt;br&gt;
+We can change it to &lt;code&gt;~/.private&lt;/code&gt; very easily though:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mv ~/Private ~/.private
+echo /home/dex/.private &amp;gt; ~/.ecryptfs/Private.mnt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;General Security tips&lt;/h1&gt;
+&lt;h2&gt;The Three Rule&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;If it doesn't exist in &lt;strong&gt;three&lt;/strong&gt; places it doesn't exist at all.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Fortunately ecryptfs directory acts like a normal directory so you can easily back it up to usb-stick, cloud storage or even email. Really just put that shit everywhere as longs as you have your login and mount passwords safe no one will be able to access your stuff.&lt;/p&gt;
+&lt;p&gt;We've all heard magical stories about people losing usb sticks with their bitcoin wallets. Well if you had your wallet encrypted and in three different places that would have never happened!&lt;/p&gt;
+&lt;h2&gt;Long Passwords Triumph&lt;/h2&gt;
+&lt;p&gt;I don't think I can top the explanation by this &lt;a href="https://xkcd.com/936/"&gt;xkcd comic&lt;/a&gt; so I'll just leave you with it and say that just have a simple a-z password which is at least 13 characters long.  &lt;/p&gt;
+&lt;h1&gt;Further Reading&lt;/h1&gt;
+&lt;p&gt;If you want to dig deeper I suggest arch-wiki &lt;a href="https://wiki.archlinux.org/index.php/ECryptfs"&gt;article&lt;/a&gt; or symply &lt;code&gt;man ecryptfs&lt;/code&gt;!
+Additionally &lt;a href="https://stackoverflow.com/questions/tagged/ecryptfs?sort=votes&amp;amp;pageSize=15"&gt;top questions on stackoverflow&lt;/a&gt; also offer some interesting read.&lt;/p&gt;</content><category term="linux"></category><category term="guide"></category><category term="crypto"></category><category term="security"></category></entry><entry><title>Tutorial: Design, produce and publish a cli app on linux using python</title><link href="https://granitosaurus.github.io/python-cli.html" rel="alternate"></link><published>2017-10-07T00:00:00+02:00</published><updated>2017-10-07T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-07:/python-cli.html</id><summary type="html">&lt;p&gt;A lengthy guide that on how to design, make and publish a command line interface appliction for *nix.&lt;/p&gt;</summary><content type="html">&lt;h1&gt;Intro&lt;/h1&gt;
+&lt;p&gt;In this guide we'll design, create and finally publish a command line
+interface application for linux!
+We'll replicate a tiny app I made recently that converts one amount of currency to another.
+In other words it does this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ curr 100usd eur
+&lt;span class="m"&gt;85&lt;/span&gt;.42
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;you can find the app and it's source code here:
+https://github.com/Granitosaurus/curr&lt;/p&gt;
+&lt;h1&gt;Design&lt;/h1&gt;
+&lt;p&gt;Before we head on to code we should have a quick run-through of how
+should we do this, what resources we should use and what we want from our application.&lt;/p&gt;
+&lt;p&gt;In this guide our goal is:
+&lt;strong&gt;An application that converts one currency value to another&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Understanding Command Line Interface (CLI)&lt;/h2&gt;
+&lt;p&gt;First we should understand how cli application functions. Here's how standard
+cli application might look like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;person run start finish --speed 100 -v
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Breaking down the components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;person&lt;/code&gt; - name of program; this is how you call the program&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;run&lt;/code&gt; - command of a program; usually programs have multiple commands that perform different functions.
+In this case our &lt;code&gt;person&lt;/code&gt; program could have multiple commands like &lt;code&gt;run&lt;/code&gt;, &lt;code&gt;walk&lt;/code&gt;, &lt;code&gt;dance&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;start&lt;/code&gt; and &lt;code&gt;finish&lt;/code&gt; - are arguments of a command &lt;code&gt;run&lt;/code&gt;;
+every command has their own arguments and they can be either mandatory or optional&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--speed&lt;/code&gt; and &lt;code&gt;-v&lt;/code&gt; - are called options, they are always optional, belong to commands and come in two forms:
+short (like our &lt;code&gt;-v&lt;/code&gt;) and long (like our &lt;code&gt;--speed&lt;/code&gt;). The difference is pretty self explanatory:
+short options are easier to type but long ones are more explicit and self documenting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;CLI in python&lt;/h2&gt;
+&lt;p&gt;Python modules (the &lt;code&gt;.py&lt;/code&gt;) files can receive command arguments
+very easily without much of additional code.
+Python has &lt;code&gt;sys&lt;/code&gt; module which contains operating system functions.
+In this case we can use it to get program arguments:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# foo.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If we run it, we can see that sys.argv gets populated with our input:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python foo.py one two --three
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;foo.py&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;one&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;two&amp;#39;&lt;/span&gt;, &lt;span class="s1"&gt;&amp;#39;--three&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;However we still need to parse this to find out which of these are
+commands, options or arguments; as well as add appropriate errors and help texts.
+Fortunately for us there are already plenty of packages that manage that for you.
+We'll be using one of the most popular ones called &lt;a href="https://github.com/pallets/click"&gt;click&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;click&lt;/code&gt; allows you to put decorators on your functions that parse the command arguments and pass them to your function:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# pi.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;click&lt;/span&gt;
+&lt;span class="nd"&gt;@click.command&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;number&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;myapp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;This app multiples number by 3.14&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;number&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mf"&gt;3.14&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;myapp&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If we run it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python pi.py --help
+Usage: pi.py &lt;span class="o"&gt;[&lt;/span&gt;OPTIONS&lt;span class="o"&gt;]&lt;/span&gt; NUMBER
+
+  This app multiples number by &lt;span class="m"&gt;3&lt;/span&gt;.14
+
+Options:
+  --help  Show this message and exit.
+$ python pi.py &lt;span class="m"&gt;11&lt;/span&gt;
+&lt;span class="m"&gt;34&lt;/span&gt;.54
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can get &lt;code&gt;click&lt;/code&gt; from &lt;code&gt;pypi&lt;/code&gt; by &lt;code&gt;pip install click&lt;/code&gt; command.&lt;/p&gt;
+&lt;h2&gt;Finding a Data Source&lt;/h2&gt;
+&lt;p&gt;Our goal is to get &lt;em&gt;up to date&lt;/em&gt; currency conversions.
+So we need to find some internet resource that can provide this data we need.&lt;/p&gt;
+&lt;p&gt;If you google "currency data json" (json is a file format that is very similar to python dictionaries) you'll get quite a bit of results.
+We'll use http://fixer.io/ in this example since it doesn't require any authentication and is very straight-forward.&lt;/p&gt;
+&lt;h2&gt;Choosing Config Format&lt;/h2&gt;
+&lt;p&gt;Just like every great program ours should have a config file!
+There are lot of different config file types. There are &lt;code&gt;.ini&lt;/code&gt;,&lt;code&gt;json&lt;/code&gt;,&lt;code&gt;xml&lt;/code&gt; or even &lt;code&gt;.py&lt;/code&gt; files can be used!
+Since we're developing app for *nix systems we should stick to something that is similar to good ol' &lt;code&gt;rc&lt;/code&gt; files.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/TOML"&gt;TOML&lt;/a&gt; is a popular and easy configuration format and we'll stick to it.
+For that we'll use &lt;code&gt;toml&lt;/code&gt; package from &lt;code&gt;pypi&lt;/code&gt;, you can install it via &lt;code&gt;pip install toml&lt;/code&gt; command&lt;/p&gt;
+&lt;h1&gt;Production&lt;/h1&gt;
+&lt;p&gt;This is the part where we write actual code!
+We're already familiar with tools that we'll use: &lt;code&gt;python3.6&lt;/code&gt; with &lt;code&gt;click&lt;/code&gt; for interface and &lt;code&gt;toml&lt;/code&gt; for configuration.&lt;/p&gt;
+&lt;h2&gt;Interface&lt;/h2&gt;
+&lt;p&gt;First lets design the interface:
+We want a user to be able to provide three arguments to our application - &lt;code&gt;amount&lt;/code&gt;, &lt;code&gt;currency&lt;/code&gt; and &lt;code&gt;result_currency&lt;/code&gt;.
+Since amount and currency go together we can have them as one argument &lt;code&gt;amount_and_currency&lt;/code&gt; and later separate it in our program.&lt;/p&gt;
+&lt;p&gt;We end up with this pattern:  &lt;code&gt;program amount_and_currency result_currency&lt;/code&gt;
+In python and click this would look like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# curr.py&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;click&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+&lt;span class="nd"&gt;@click.command&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;amount_and_currency&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;result_currency&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;amount_and_currency&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;result_currency&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c1"&gt;# separate amount and currency&lt;/span&gt;
+    &lt;span class="n"&gt;amount&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;currency&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(\d+\.*\d*)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;amount_and_currency&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;amount: {amount}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;currency: {currency}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;result_currency: {result_currency}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can already test it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python curr.py 100USD EUR
+amount: &lt;span class="m"&gt;100&lt;/span&gt;
+currency: USD
+result_currency: EUR
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Believe it or not that's almost all of the interface code we need!&lt;/p&gt;
+&lt;h2&gt;Brains!&lt;/h2&gt;
+&lt;p&gt;The brains of our program have to do three things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download currency data and store it as a file somewhere.&lt;/li&gt;
+&lt;li&gt;Handle user configuration.&lt;/li&gt;
+&lt;li&gt;Make sure currency data stays up to date.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Since all of these things are closely related we'll consider them as one and create a class called &lt;code&gt;Manager&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;Manager&lt;/span&gt;:
+    &lt;span class="kt"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;load_config&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;return config dictionary and initiate default directories and files if they don&amp;#39;t exist&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;get_currency_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;currency&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;return up-to-date currency data from hard drive&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Handling Config&lt;/h3&gt;
+&lt;p&gt;There are standard locations where your app configs and data should reside.
+For linux based OS that is defined in &lt;a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-0.6.html"&gt;XDG base directory specification&lt;/a&gt;
+For config files that directory is either user set directory in
+&lt;code&gt;$XDG_CONFIG_HOME&lt;/code&gt; environment variable or it defaults to &lt;code&gt;/home/user/.config/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In other words to get config directory we have to use:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Path(os.path.expanduser(os.environ.get(&amp;#39;XDG_CONFIG_HOME&amp;#39;) or &amp;#39;~/.config&amp;#39;)) / &amp;#39;curr&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Serving Data&lt;/h3&gt;
+&lt;p&gt;We want to cache data to reduce amount of requests we need.
+Why download the same file every time we want to use the app?
+This is where config directory comes in -
+we can store data of every currency there! Once user makes conversion
+we check the local data, see how dated it is and depending on
+that we either update the data or not before we make our calculations.&lt;/p&gt;
+&lt;h3&gt;Action&lt;/h3&gt;
+&lt;p&gt;We can put this whole logic into one class:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nx"&gt;CONFIG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;expanduser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;XDG_CONFIG_HOME&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nx"&gt;or&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;~/.config&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;curr&amp;#39;&lt;/span&gt;
+
+&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ConfigManager&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+    &lt;span class="nx"&gt;default_conf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;update_days&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;output_format&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{result:.2f}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;basedir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;CONFIG&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;basedir&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;currrc&amp;#39;&lt;/span&gt;
+        &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;conf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;load_config&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;load_config&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;return config dictionary and initiate default directories and files if they don&amp;#39;t exist&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+        &lt;span class="nx"&gt;conf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;default_conf&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;not&lt;/span&gt; &lt;span class="nx"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="nx"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;makedirs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="nx"&gt;conf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;toml&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()))&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="kd"&gt;with&lt;/span&gt; &lt;span class="nx"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;as&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt;:
+                &lt;span class="kt"&gt;toml.dump&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;conf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;conf&lt;/span&gt;
+
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;get_currency_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;currency&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;update currency data files if outdated&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+        &lt;span class="nx"&gt;currency&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;currency&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;upper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="nx"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;{currency}.json&amp;#39;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="nx"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;now&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;datetime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;strptime&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;date&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;%Y-%m-%d&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)).&lt;/span&gt;&lt;span class="nx"&gt;days&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;conf&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;update_days&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="nx"&gt;source&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;urlopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://api.fixer.io/latest?base={currency.upper()}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="nx"&gt;except&lt;/span&gt; &lt;span class="nx"&gt;HTTPError&lt;/span&gt; &lt;span class="kr"&gt;as&lt;/span&gt; &lt;span class="nx"&gt;err&lt;/span&gt;:
+            &lt;span class="kt"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;code&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nx"&gt;422&lt;/span&gt;:
+                &lt;span class="kt"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ERROR: unknown currency {currency}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="nx"&gt;except&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;ConnectionError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;URLError&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;todo&lt;/span&gt; &lt;span class="nx"&gt;figure&lt;/span&gt; &lt;span class="nx"&gt;out&lt;/span&gt; &lt;span class="nx"&gt;which&lt;/span&gt; &lt;span class="nx"&gt;errors&lt;/span&gt; &lt;span class="nx"&gt;are&lt;/span&gt; &lt;span class="nx"&gt;no&lt;/span&gt; &lt;span class="nx"&gt;internet&lt;/span&gt; &lt;span class="nx"&gt;errors&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nx"&gt;os&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;path&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;filename&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;warning&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;No internet connection: outdated currency for {currency}: {data[&amp;quot;date&amp;quot;]}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;
+            &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                &lt;span class="nx"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Error: No internet connect and cached data doesn&amp;#39;t exist&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+            &lt;span class="nx"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;json&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;source&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;updated {currency} @ {data[&amp;quot;date&amp;quot;]}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="kd"&gt;with&lt;/span&gt; &lt;span class="nx"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;dir&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;{currency}.json&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;wb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;as&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt;:
+                &lt;span class="kt"&gt;f.write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;source&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;
+
+    &lt;span class="nx"&gt;def&lt;/span&gt; &lt;span class="nx"&gt;__getitem__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+        &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;conf&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;item&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This might look like a lot but bear with me - it's surprisingly simple.
+Let's dig through 7 comments and see what each bit of code does here:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Establishing default config location - one that will be used if not specified by the user.&lt;/li&gt;
+&lt;li&gt;We set up default configuration with default values for user configuration.
+We start with &lt;code&gt;update_days&lt;/code&gt; set to 5, to update every 5 days unless user changes this in the &lt;code&gt;rc&lt;/code&gt; file.
+We also specify &lt;code&gt;output_format&lt;/code&gt; for how to output the message - this is great idea if our program will be used by some other program to perform some automation.&lt;/li&gt;
+&lt;li&gt;We want the manager to be modular in case the user wants to have
+multiple configs - this is a bit of a stretch but nevertheless is a
+good practice since it allows much more flexibility and multiple
+use-cases for a single application.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;load_config&lt;/code&gt; method reads existing rc config file or create
+if it doesn't exist.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_currency_data&lt;/code&gt; returns currency data and updates it before hand
+if necessary to make sure that used that is up to date.&lt;/li&gt;
+&lt;li&gt;When updating data we want to handle couple of different failure scenarios:
+What if user provides unsupported currency? We want to quit the program with an error message - nothing else we can do.
+What if user has no internet connect? Then we want to serve local currency info and warn the user if it's outdated.&lt;/li&gt;
+&lt;li&gt;Magic methods are fun. In this particular case magic method
+&lt;code&gt;__getitem__&lt;/code&gt; allows you to have a nice shortcut of accessing config details straight through our &lt;code&gt;Manager&lt;/code&gt; object:&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;print(Manager()[&amp;#39;update_days&amp;#39;])
+5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Wrap It Up&lt;/h2&gt;
+&lt;p&gt;Finally we wrap the brains with interface:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@click.command()
+#1
+@click.argument(&amp;#39;from_what&amp;#39;)
+@click.argument(&amp;#39;to_what&amp;#39;)
+#2
+@click.option(&amp;#39;--basedir&amp;#39;, help=&amp;#39;directory where configuration and cached data is stored, default:&amp;#39;)
+@click.option(&amp;#39;-v&amp;#39;, &amp;#39;--verbose&amp;#39;, help=&amp;#39;show info messages&amp;#39;, is_flag=True)
+def cli(from_what, to_what, verbose, basedir):
+    &amp;quot;&amp;quot;&amp;quot;
+    #3
+    Simple currency converter.
+    e.g. &amp;quot;curr 100usd eur&amp;quot; -&amp;gt; 85.164
+    &amp;quot;&amp;quot;&amp;quot;
+    #4
+    if not verbose:
+        log.setLevel(logging.ERROR)
+    #5
+    from_num, from_cur = re.split(&amp;#39;(\d+)&amp;#39;, from_what)[1:]
+    from_cur = from_cur.strip().upper()
+    #6
+    conf = ConfigManager(basedir=basedir or CONFIG)
+    data = conf.get_currency_data(from_cur)
+    #7
+    output_format = conf[&amp;#39;output_format&amp;#39;]
+    click.echo(output_format.format(result=data[&amp;#39;rates&amp;#39;][to_what.upper()] * int(from_num)))
+    log.info(f&amp;#39;{from_cur} last updated: {data[&amp;quot;date&amp;quot;]}&amp;#39;)
+#8
+if __name__ == &amp;#39;__main__&amp;#39;:
+    cli()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Again lets dig through the comments to clarify what's going on here:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Define two mandatory arguments for our app: &lt;code&gt;from_what&lt;/code&gt;
+ which contains some numbers and currency while &lt;code&gt;to_what&lt;/code&gt; only contains currency.&lt;/li&gt;
+&lt;li&gt;Define some optional flags: &lt;code&gt;--basedir&lt;/code&gt; to allow user to provide their own config directory
+and &lt;code&gt;--verbose&lt;/code&gt; in case user wants to see logging info for debugging.&lt;/li&gt;
+&lt;li&gt;Define docstring - which will also be caught by click and used as &lt;code&gt;--help&lt;/code&gt; text.&lt;/li&gt;
+&lt;li&gt;If user doesn't specify &lt;code&gt;--verbose&lt;/code&gt; flag - we want to mute logging by default - people shouldn't be spammed with non-critical information.&lt;/li&gt;
+&lt;li&gt;Convert user supplied arguments to computer parsable data.&lt;/li&gt;
+&lt;li&gt;Load up configure file and retrieve currency information.&lt;/li&gt;
+&lt;li&gt;Do the math and print results!&lt;/li&gt;
+&lt;li&gt;Make it so if the &lt;code&gt;.py&lt;/code&gt; is being ran directly it starts with our cli function.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Combining both parts we now have an a full working application.
+See this github file for easy access:&lt;/p&gt;
+&lt;p&gt;And try running it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python curr.py --help
+Usage: curr &lt;span class="o"&gt;[&lt;/span&gt;OPTIONS&lt;span class="o"&gt;]&lt;/span&gt; FROM_WHAT TO_WHAT
+
+  Simple currency converter. e.g. &lt;span class="s2"&gt;&amp;quot;curr 100usd eur&amp;quot;&lt;/span&gt; -&amp;gt; &lt;span class="m"&gt;85&lt;/span&gt;.164
+
+Options:
+  -v, --verbose  show info messages
+  --help         Show this message and exit.
+$ curr 100usd eur
+&lt;span class="m"&gt;85&lt;/span&gt;.42
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Packaging&lt;/h1&gt;
+&lt;p&gt;In this case there are two ways we can deliver our program to the userbase:&lt;/p&gt;
+&lt;h2&gt;As a script&lt;/h2&gt;
+&lt;p&gt;Since our program is contained in a single &lt;code&gt;.py&lt;/code&gt; file... #todo&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;First we add this &lt;a href="https://en.wikipedia.org/wiki/Shebang_(Unix)"&gt;shebang&lt;/a&gt;
+    to our file so the user's system would know explicitly what to use to run our program&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now we can get rid of &lt;code&gt;.py&lt;/code&gt; extensions since we already have an indicator inside of the file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mv curr.py curr
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally we can add our program to our system's &lt;code&gt;PATH&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ chmod +x curr
+$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$PATH&lt;/span&gt;
+/usr/lib/jvm/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/youruser/bin:/home/youruser/.local/bin:/home/youruser/bin
+$ cp curr ~/.local/bin  &lt;span class="c1"&gt;# one of the locations from the above&lt;/span&gt;
+$ curr --help
+Usage: curr &lt;span class="o"&gt;[&lt;/span&gt;OPTIONS&lt;span class="o"&gt;]&lt;/span&gt; FROM_WHAT TO_WHAT
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is great for small programs that you &lt;strong&gt;don't intend to publish&lt;/strong&gt;. As you can see this
+approach expects the user to get his hands dirty and handle dependencies
+and installation manually.&lt;/p&gt;
+&lt;h2&gt;As a package&lt;/h2&gt;
+&lt;p&gt;The proper way to share programs is to turn them into packages, so various package managers
+can install them without any input required by user.
+Python has it's own packaging manager called &lt;code&gt;pip&lt;/code&gt;, it's allows complex setup scenarios
+that require minimal user interaction.&lt;/p&gt;
+&lt;p&gt;For that we need to add few more files to our project directory&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ tree
+.
+├── curr.py
+├── readme.md
+├── requirements.txt
+└── setup.py
+&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category><category term="cli"></category></entry><entry><title>wisdom.cat</title><link href="https://granitosaurus.github.io/wisdom-cat.html" rel="alternate"></link><published>2017-04-01T00:00:00+02:00</published><updated>2017-04-01T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-04-01:/wisdom-cat.html</id><summary type="html">&lt;p&gt;Recently I made small website in flask for aggregating educational youtube videos and I'd like to share my experience.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've always wanted to make a webapp and flask always looked appealing but deployment and production hassle really turned me off. A week ago I tried to force myself through it and I have to say, it's really not that bad!&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This is not a guide and you most likely won't learn anything - it's more of a condense story of how wisdom.cat was developed and doesn't really serve any other purpose&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="wisdom.cat" src="https://i.imgur.com/JppvDUZ.png"&gt;&lt;/p&gt;
 &lt;h2&gt;Wisdom.cat&lt;/h2&gt;
