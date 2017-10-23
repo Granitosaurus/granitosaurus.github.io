@@ -150,7 +150,7 @@ ecryptfs-manager
 <li><code>nopwcheck</code> allows us to use different password from our user's password   </li>
 <li><code>noautomount</code> disables automatic encrypted system mounting, since it's also not a very great idea and wouldn't work if our encryption password is different from our user's one.</li>
 </ul>
-<p>This command will ask you for <code>login</code> and <code>mount</code> passwords. For login password use your own password and for mount password leave it empty as encryptfs will create it for you using your login password as a seed.   </p>
+<p>This command will ask you for <code>login</code> and <code>mount</code> passwords. For login password use your own password and for mount password leave it empty as ecryptfs will create it for you using your login password as a seed.</p>
 <p>Afterwards the system will be initiated and  <code>~/Private</code> and <code>~/.ecryptfs</code> directories will be created.  </p>
 <p><em>Note: you want to backup your encrypted mount password which is located in <code>~/.ecryptfs/wrapped-passphrase</code>. Remember that mount password is generated from your login password, so the passphrase is completely useless without your login password - put a copy of this file somewhere where you will never lose it!</em></p>
 <h2>Usage</h2>
