@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-10-22T00:00:00+02:00</updated><entry><title>Securing Data With eCryptfs</title><link href="https://granitosaurus.github.io/ecrypt-yourself.html" rel="alternate"></link><published>2017-10-22T00:00:00+02:00</published><updated>2017-10-22T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-22:/ecrypt-yourself.html</id><summary type="html">&lt;p&gt;protect your sensitive data like crypto wallets with eCrypt overlay filesystem!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. &lt;br&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-10-28T00:00:00+02:00</updated><entry><title>Fuck reCaptcha and everyone who uses it blindly</title><link href="https://granitosaurus.github.io/fuck-recaptcha.html" rel="alternate"></link><published>2017-10-28T00:00:00+02:00</published><updated>2017-10-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-28:/fuck-recaptcha.html</id><summary type="html">&lt;p&gt;and fuck you bandcamp&lt;/p&gt;</summary><content type="html">&lt;p&gt;reCaptcha is a joke, it doesn't work and it only fucks with your userbase - stop using this cancer.&lt;/p&gt;
+&lt;p&gt;Recently I bought a collection of 160 albums on Bandcamp. Turns out I need to download all of them individually,
+so I thought I'll write up short script to pull it via api or something. Well api is not a thing on bandcamp,
+which is hardly a surprise really for today's standards.&lt;/p&gt;
+&lt;p&gt;Being a web crawler junkie that I am I thought I can put up a simple web-crawler to get my music that is being kept
+hostage by technological illiteracy.
+I open up web inspector and everything seems to be pretty easy. There's an api under the hood that uses log in
+cookies to serve your data with album download links - easy!&lt;/p&gt;
+&lt;p&gt;Well login page is under reCaptcha protection, from what?
+Brute force password cracking? That's not how the shit works. Web Crawling? That's not how any of this works.
+You think by putting reCaptcha (which is an abomination on it's own right) will protect your users or you from real bots?
+People who do web-crawling in scale you want to protect from have all the necessary tools to get around the captcha,
+I know, because I've been working in this field for half-a-decade now - captcha doesn't do shit.&lt;/p&gt;
+&lt;p&gt;What suffers from this blanket policies is &lt;strong&gt;your userbase&lt;/strong&gt;. I could put up simple cli app and github so people
+and pull their songs easily. Everyone would be happy with extra features that you don't need to implement
+but your userbase can take care of. Everyone wins right?&lt;/p&gt;
+&lt;p&gt;Will I be able to save my songs from retardedCaptcha captors? Yes, I'll just use the resources from my work.
+Can I publish it as an app on github? Kinda, but it will suck. I'd need to prompt the user to solve the captcha
+or input cookies from browser - all of which makes the whole ordeal inconvenient and hell to maintain and implement.
+Something that would be an evening project ends up being a week-long one.
+How does one motivate itself to produce free code and build a community around your project at this point?&lt;/p&gt;
+&lt;p&gt;Captcha is DRM and just like any sort of DRM it hurts the userbase more than anything else.&lt;/p&gt;
+&lt;p&gt;I'll make the fucking app, I'll jump through hoops, I'll find something because
+&lt;strong&gt;Fuck DRM, fuck Google and fuck Bandcamp.&lt;/strong&gt;&lt;/p&gt;</content><category term="security"></category><category term="captcha"></category><category term="web-crawling"></category><category term="api"></category></entry><entry><title>Securing Data With eCryptfs</title><link href="https://granitosaurus.github.io/ecrypt-yourself.html" rel="alternate"></link><published>2017-10-22T00:00:00+02:00</published><updated>2017-10-22T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-22:/ecrypt-yourself.html</id><summary type="html">&lt;p&gt;protect your sensitive data like crypto wallets with eCrypt overlay filesystem!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. &lt;br&gt;
 The standard tool for linux is called eCryptfs and let me tell you how awesome and convenient it is!&lt;/p&gt;
 &lt;h1&gt;eCryptfs&lt;/h1&gt;
 &lt;p&gt;eCryptfs is a cryptographic overlay filesystem for Linux. It's a great tool to encrypt some private data like cryptocurrency wallet keys, private pictures — anything really.&lt;br&gt;
