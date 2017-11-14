@@ -2,8 +2,7 @@ Title: Going to Vietnam!
 Date: 2017-11-14
 Tags: travel, vietnam
 Slug: vietnam
-Summary: Preparing to spend 3 months in Vietnam, working remotely and
-experiencing a distance culture - an exciting proposition!
+Summary: Preparing to spend 3 months in Vietnam, working remotely and experiencing a distance culture - an exciting proposition!
 
 Me and my girlfriend have been planning to spend this year somewhere abroad.
 My first choice was Lisbon, Portugal as we have visited Porto last year and
