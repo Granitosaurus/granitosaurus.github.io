@@ -75,6 +75,7 @@ various middleman websites but it certainly is safer and easier just to go throu
 For a one way trip we ended up shelling out:
 
 `Tartu-Helsinki-Bangkok` - 284€
+
 `Bangkok-Hcmc` - 66€
 
 This is with seat selection near the window.
