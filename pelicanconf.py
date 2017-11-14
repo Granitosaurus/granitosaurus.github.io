@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
-from __future__ import unicode_literals
-
 AUTHOR = 'Bernardas Ališauskas'
 SITETITLE = AUTHOR
 SITEURL = 'http://localhost:8000'
@@ -26,7 +24,7 @@ PATH = 'content'
 TIMEZONE = 'Europe/Paris'
 DEFAULT_LANG = 'en'
 # Feed generation is usually not desired when developing
-THEME = 'flex-theme'
+THEME = 'medius'
 DISQUS_SITENAME = "granitosaurus"
 
 # Social widget
@@ -43,7 +41,7 @@ CC_LICENSE = {
 COPYRIGHT_YEAR = 2016
 STATIC_PATHS = ['images', 'pages', 'data', 'extra/CNAME']
 # CNAME fix
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
 PLUGIN_PATHS = ['./pelican-plugins']
 # PLUGINS = ['sitemap', 'post_stats']
 SITEMAP = {
