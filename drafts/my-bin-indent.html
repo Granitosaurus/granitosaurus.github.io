@@ -1,101 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" type="text/css" href="https://granitosaurus.github.io/theme/stylesheet/style.min.css">
-
-  <link rel="stylesheet" type="text/css" href="https://granitosaurus.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://granitosaurus.github.io/theme/font-awesome/css/font-awesome.min.css">
-
-
-    <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom">
-
-
-    <link rel="shortcut icon" href="https://granitosaurus.github.io/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://granitosaurus.github.io/images/favicon.ico" type="image/x-icon">
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="" />
-
-
-<meta name="author" content="Bernardas Ališauskas" />
-<meta name="description" content=""My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size." />
-<meta name="keywords" content="python, linux, guide, my-bin">
-<meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
-<meta property="og:title" content="My Bin: center"/>
-<meta property="og:description" content=""My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size."/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://granitosaurus.github.io/drafts/my-bin-indent.html"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2017-01-18 00:00:00+01:00"/>
-<meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://granitosaurus.github.io/author/bernardas-alisauskas.html">
-<meta property="article:section" content="code"/>
-<meta property="article:tag" content="python"/>
-<meta property="article:tag" content="linux"/>
-<meta property="article:tag" content="guide"/>
-<meta property="article:tag" content="my-bin"/>
-<meta property="og:image" content="https://granitosaurus.github.io/images/core/me.jpg">
-
-  <title>Blog of Bernardas Ališauskas &ndash; My Bin: center</title>
+        <title>My Bin: center</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
+        <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 </head>
 <body>
-  <aside>
-    <div>
-      <a href="https://granitosaurus.github.io">
-        <img class="circle" src="https://granitosaurus.github.io/images/core/me.jpg" alt="Bernardas Ališauskas" title="Bernardas Ališauskas">
-      </a>
-      <h1><a href="https://granitosaurus.github.io">Bernardas Ališauskas</a></h1>
 
-<p>Python programmer and a goof who loves free software, video-games and heavy metal</p>
-      <nav>
-        <ul class="list">
-          <li><a href="https://granitosaurus.github.io/pages/about.html#about">About</a></li>
-          <li><a href="https://granitosaurus.github.io/pages/contact.html#contact">Contact</a></li>
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
+            <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
+            <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
 
+            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
+            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
+            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
+            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
-      </nav>
-
-      <ul class="social">
-        <li><a class="sc-github" href="https://github.com/granitosaurus" target="_blank"><i class="fa fa-github"></i></a></li>
-        <li><a class="sc-rss" href="" target="_blank"><i class="fa fa-rss"></i></a></li>
-      </ul>
-
-      <a href="http://stackoverflow.com/users/3737009">
-        <img src="http://stackoverflow.com/users/flair/3737009.png" width="208" height="58" alt="Stack Overflow Profile">
-      </a>
     </div>
-  </aside>
-  <main>
-    <nav>
-      <a href="https://granitosaurus.github.io">    Home
-</a>
-
-      <a href="/archives.html">Archives</a>
-      <a href="/categories.html">Categories</a>
-      <a href="/tags.html">Tags</a>
-
-      <a href="https://granitosaurus.github.io/feeds/all.atom.xml">    Atom
-</a>
-
-    </nav>
-
-<article class="single">
-  <header>
-    <h1 id="my-bin-indent">My Bin: center</h1>
-    <p>
-          Posted on Wed 18 January 2017 in <a href="https://granitosaurus.github.io/category/code.html">code</a>
 
 
-    </p>
-  </header>
-  <div>
-    <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that is. <br>
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+
+<div class="pure-u-3-4 meta-data">
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
+    <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
+    <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
+    <a href="https://granitosaurus.github.io/tag/my-bin" class="tag">my-bin</a>
+    </br>
+    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
+    &mdash; <abbr title="2017-01-18T00:00:00+01:00">Wed 18 January 2017</abbr>
+</div>        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>My Bin: center</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that is. <br>
 On how to setup your environment for easily accessible scripting see my <a href="/python-scripts.html">Guide: setup for python scripting</a>  </p>
 <p>Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!<br>
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running <a href="http://i3wm.org/">i3wm</a> - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.</p>
@@ -168,65 +130,60 @@ I'm not certain why it behaves like that, my guess being is that <code>less</cod
 <h3>Conclusion</h3>
 <p>I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and <code>click</code>. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!<br>
 Let me know if you have any questions and stay tuned for more scripts and explanations!</p>
-  </div>
-  <div class="tag-cloud">
-    <p>
-      <a href="https://granitosaurus.github.io/tag/python.html">python</a>
-      <a href="https://granitosaurus.github.io/tag/linux.html">linux</a>
-      <a href="https://granitosaurus.github.io/tag/guide.html">guide</a>
-      <a href="https://granitosaurus.github.io/tag/my-bin.html">my-bin</a>
-    </p>
-  </div>
-
-
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'granitosaurus';
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>
-        Please enable JavaScript to view comments.
-
-</noscript>
-</article>
+    </div>
 
     <footer>
-<p>
-  &copy; Bernardas Ališauskas 2016 - This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
-</p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
-</p><p>
-  <a rel="license"
-     href="http://creativecommons.org/licenses/by-sa/4.0/"
-     target="_blank">
-    <img alt="Creative Commons License"
-         title="Creative Commons License"
-         style="border-width:0"
-         src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"
-         width="80"
-         height="15"/>
-  </a>
-</p>    </footer>
-  </main>
+        <div class="tags">
+            <a href="https://granitosaurus.github.io/tag/python.html">python</a>
+            <a href="https://granitosaurus.github.io/tag/linux.html">linux</a>
+            <a href="https://granitosaurus.github.io/tag/guide.html">guide</a>
+            <a href="https://granitosaurus.github.io/tag/my-bin.html">my-bin</a>
+        </div>
+        <div class="pure-g post-footer">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="pure-g poster-info">
+                    <div class="pure-u-3-4">
+                        <h3 class="author-name"><a href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a></h3>
+                        <p class="author-description">
+                        </p>
+                    </div>
+                </div>
+            </div>
 
 
 
+        </div>
 
 
-<script type="application/ld+json">
-{
-  "@context" : "http://schema.org",
-  "@type" : "Blog",
-  "name": " Blog of Bernardas Ališauskas ",
-  "url" : "https://granitosaurus.github.io",
-  "image": "https://granitosaurus.github.io/images/core/me.jpg",
-  "description": "Thoughts and Writings of Granitosaurus"
-}
-</script>
+    </footer>
+
+    <div class="entry-content">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'granitosaurus';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="https://granitosaurus.github.io/" title="Blog of Bernardas Ališauskas">Blog of Bernardas Ališauskas</a>
+        <a href="/archives.html">Archives</a></li>
+        <a href="/categories.html">Categories</a></li>
+        <a href="/tags.html">Tags</a></li>
+        <a href="https://granitosaurus.github.io/category/code.html">code</a>
+        <a href="https://granitosaurus.github.io/category/self.html">self</a>
+
+    </footer>
+
 </body>
 </html>
