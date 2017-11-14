@@ -60,52 +60,6 @@
             {% endfor %}
         </div>
         {% endif %}
-        <div class="pure-g post-footer">
-            {% if article.authors %}
-            <div class="pure-u-1 pure-u-md-1-2">
-                {% for author in article.authors %}
-                <div class="pure-g poster-info">
-                    {% if author|string in MEDIUS_AUTHORS %}
-                    <div class="pure-u">
-                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{ MEDIUS_AUTHORS.get(author|string).image }}" alt=""></a>
-                    </div>
-                    {% endif %}
-                    <div class="pure-u-3-4">
-                        <h3 class="author-name"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
-                        <p class="author-description">
-                          {% if MEDIUS_AUTHORS %}
-                          {{ MEDIUS_AUTHORS.get(author|string).description }}
-                          {% endif %}
-                        </p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-
-            {% if article.category|string in MEDIUS_CATEGORIES %}
-            <div class="pure-u-1 pure-u-md-1-2">
-
-                <div class="pure-g post-category-info">
-                    <div class="pure-u">
-                        <a href="{{ SITEURL }}/{{ article.category.url }}"><img src="{{ MEDIUS_CATEGORIES.get(article.category|string).thumbnail }}" alt=""></a>
-                    </div>
-                    <div class="pure-u-3-4">
-                        <h3 class="author-name"><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></h3>
-
-                        <p class="author-description">
-                          {{ MEDIUS_CATEGORIES.get(article.category|string).description }}
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-            {% endif %}
-
-        </div>
-
-
     </footer>
 
     {% if DISQUS_SITENAME %}
