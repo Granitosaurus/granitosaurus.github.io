@@ -12,4 +12,4 @@ Checkout the [category](/category.html) and [tags](/tags.html) page for a genera
 
 If you care about any of the above and end up being in Tartu, Estonia feel free to hit me up for some drinks and board games!
 
-And lastly if you want to hire me to work for you check out [contacts][/contacts.html] page!
+And lastly if you want to hire me to work for you check out [contacts](/contacts.html) page!
