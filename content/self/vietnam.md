@@ -65,6 +65,9 @@ get a photo of your mug and a scan of your passport and you're ready to go!
 
 ## Flight
 
+
+![flight from Tartu to HCMC]({filename}/images/tartu_hcmc_flight.png)
+
 The flight prices are very reasonable. The month on November this year turned out to be especially cheap.
 Our flight is `Tartu-Helsinki-Bangkok` -> `Bangkok-HCMC`
 It's a bit tricky since not many flight searches offer direct flights to HCMC but you can simply organize it
