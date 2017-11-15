@@ -1,6 +1,6 @@
 Title: Pycon PL + Warsaw report
 Date: 2016-10-23
-Tags: pycon, python, poland, travel, warsaw, poland
+Tags: pycon, python, poland, travel, warsaw
 Slug: pycon-pl-after
 Summary: Pycon Poland and Warsaw aftermath: a summary of my experience in Pycon Poland and Poland, Warsaw in general.
 

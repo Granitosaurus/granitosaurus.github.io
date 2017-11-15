@@ -1,7 +1,7 @@
 Status: Draft
 Title: Stackoverflow [scrapy] Experience: The Good.
 Date: 2016-09-14
-Tags: scrapy, python, stackoverflow, good
+Tags: scrapy, python, stackoverflow
 Slug: scrapy-stackoverflow-good
 Summary: The good bits of my experience with stackoverflow scrapy tag
 

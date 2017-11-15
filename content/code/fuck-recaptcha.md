@@ -1,6 +1,6 @@
 Title: Fuck reCaptcha and everyone who uses it blindly
 Date: 2017-10-28
-Tags: security, captcha, web-crawling, api
+Tags: security, captcha, web-crawling
 Slug: fuck-recaptcha
 Summary: and fuck you bandcamp
 

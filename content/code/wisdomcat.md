@@ -1,6 +1,6 @@
 Title: wisdom.cat
 Date: 2017-04-01
-Tags: python, linux, flask, website
+Tags: python, linux, flask, webdev
 Slug: wisdom-cat
 Summary: Recently I made small website in flask for aggregating educational youtube videos and I'd like to share my experience.
 

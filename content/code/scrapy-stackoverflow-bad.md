@@ -1,7 +1,7 @@
 Status: Draft
 Title: Stackoverflow [scrapy] Experience: The Bad
 Date: 2016-09-14
-Tags: scrapy, python, stackoverflow, bad
+Tags: scrapy, python, stackoverflow
 Slug: scrapy-stackoverflow-bad
 Summary: The bad bits of my experience with stackoverflow scrapy tag
 
