@@ -1,5 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-11-14T00:00:00+01:00</updated><entry><title>Going to Vietnam!</title><link href="https://granitosaurus.github.io/vietnam.html" rel="alternate"></link><published>2017-11-14T00:00:00+01:00</published><updated>2017-11-14T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-14:/vietnam.html</id><summary type="html">&lt;p&gt;Preparing to spend 3 months in Vietnam, working remotely and experiencing a distance culture - an exciting proposition!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Me and my girlfriend have been planning to spend this year somewhere abroad.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/all.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-11-17T00:00:00+01:00</updated><entry><title>How to disable thinkpad trackpoint acceleration</title><link href="https://granitosaurus.github.io/disable-thinkpad-acceleration.html" rel="alternate"></link><published>2017-11-17T00:00:00+01:00</published><updated>2017-11-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-17:/disable-thinkpad-acceleration.html</id><summary type="html">&lt;p&gt;A short note on how to properly disable thinkpoint trackpad acceleration&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I've got a new thinkpad laptop and I've been struggling with mouse acceleration on trackpoint,
+turns out disabling it isn't as straight-forward as you'd expect&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To get rid of this abomination of a feature that is enabled by default we need &lt;code&gt;xinput&lt;/code&gt;&lt;/p&gt;
+&lt;h1&gt;The Fix&lt;/h1&gt;
+&lt;p&gt;First you need to find the code or name of your trackpoint:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ xinput list
+⎡ Virtual core pointer                          &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;master pointer  &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+⎜   ↳ Virtual core XTEST pointer                &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;slave  pointer  &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+⎜   ↳ SynPS/2 Synaptics TouchPad                &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;   &lt;span class="o"&gt;[&lt;/span&gt;slave  pointer  &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+⎜   ↳ TPPS/2 IBM TrackPoint                     &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;13&lt;/span&gt;   &lt;span class="o"&gt;[&lt;/span&gt;slave  pointer  &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+⎣ Virtual core keyboard                         &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;master keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ Virtual core XTEST keyboard               &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ Power Button                              &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ Video Bus                                 &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ Sleep Button                              &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ Integrated Camera: Integrated C           &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;   &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ AT Translated Set &lt;span class="m"&gt;2&lt;/span&gt; keyboard              &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;   &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ ThinkPad Extra Buttons                    &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;14&lt;/span&gt;   &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+    ↳ SteelSeries  SteelSeries Arctis &lt;span class="m"&gt;7&lt;/span&gt;         &lt;span class="nv"&gt;id&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;9&lt;/span&gt;    &lt;span class="o"&gt;[&lt;/span&gt;slave  keyboard &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Our guy is &lt;code&gt;TPPS/2 IBM Trackpoint&lt;/code&gt; aka id &lt;code&gt;13&lt;/code&gt;.
+Next we can see the properties of this prop:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ xinput list-props &lt;span class="m"&gt;13&lt;/span&gt;
+Device &lt;span class="s1"&gt;&amp;#39;TPPS/2 IBM TrackPoint&amp;#39;&lt;/span&gt;:
+        Device Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;140&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:   &lt;span class="m"&gt;1&lt;/span&gt;
+        Coordinate Transformation Matrix &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;142&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="m"&gt;1&lt;/span&gt;.000000, &lt;span class="m"&gt;0&lt;/span&gt;.000000, &lt;span class="m"&gt;0&lt;/span&gt;.000000, &lt;span class="m"&gt;0&lt;/span&gt;.000000, &lt;span class="m"&gt;1&lt;/span&gt;.000000, &lt;span class="m"&gt;0&lt;/span&gt;.000000, &lt;span class="m"&gt;0&lt;/span&gt;.000000, &lt;span class="m"&gt;0&lt;/span&gt;.000000, &lt;span class="m"&gt;1&lt;/span&gt;.000000
+        libinput Natural Scrolling Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;310&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Natural Scrolling Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;311&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Left Handed Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;312&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:     &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Left Handed Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;313&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:     &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Accel Speed &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;314&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:     &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Accel Speed Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;315&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:     &lt;span class="m"&gt;0&lt;/span&gt;.000000
+        libinput Accel Profiles Available &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;316&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;1&lt;/span&gt;, &lt;span class="m"&gt;1&lt;/span&gt;
+        libinput Accel Profile Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;317&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:   &lt;span class="m"&gt;1&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Accel Profile Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;318&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:   &lt;span class="m"&gt;1&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Scroll Methods Available &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;319&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;1&lt;/span&gt;
+        libinput Scroll Method Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;320&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:   &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;1&lt;/span&gt;
+        libinput Scroll Method Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;321&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:   &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;1&lt;/span&gt;
+        libinput Button Scrolling Button &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;322&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="m"&gt;2&lt;/span&gt;
+        libinput Button Scrolling Button Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;323&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;: &lt;span class="m"&gt;2&lt;/span&gt;
+        libinput Middle Emulation Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;324&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Middle Emulation Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;325&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Send Events Modes Available &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;260&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:     &lt;span class="m"&gt;1&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Send Events Mode Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;261&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;
+        libinput Send Events Mode Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;262&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;
+        Device Node &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;263&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:      &lt;span class="s2"&gt;&amp;quot;/dev/input/event18&amp;quot;&lt;/span&gt;
+        Device Product ID &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;264&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;2&lt;/span&gt;, &lt;span class="m"&gt;10&lt;/span&gt;
+        libinput Drag Lock Buttons &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;326&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &amp;lt;no items&amp;gt;
+        libinput Horizontal Scroll Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;327&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To disable acceleration we are interested in one of these two settings:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        libinput Accel Speed (314):     0
+        libinput Accel Profile Enabled (317):   1, 0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can either diminish/change the acceleration speed by:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# to disable we can use negative acceleration
+$ xinput set-prop 13 314 -1
+# or we can disable acceleration profile entirely
+$ xinput set-prop 13 317 0 1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note, don't use both, -1 with disabled acceleration pretty much disables the devices.&lt;/p&gt;
+&lt;h1&gt;Make It Persisntant&lt;/h1&gt;
+&lt;p&gt;To make the change persist after restart simply add the config line it to your &lt;code&gt;~/.xsessionrc&lt;/code&gt; file, e.g.:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &amp;quot;xinput set-prop 13 317 0 1&amp;quot; &amp;gt;&amp;gt; ~/.xsessionrc
+&lt;/pre&gt;&lt;/div&gt;</content><category term="linux"></category><category term="guide"></category></entry><entry><title>Why I use GPL license</title><link href="https://granitosaurus.github.io/why-gpl.html" rel="alternate"></link><published>2017-11-16T00:00:00+01:00</published><updated>2017-11-16T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-16:/why-gpl.html</id><summary type="html">&lt;p&gt;Why I use GNU's General Public License and why I think it's a superior free or even open software license and anyone should consider it for your project.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This issue has been discussed to death and I still find people blindly advocating MIT or even WTFPL licenses.
+I'm far from a lawyer but I feel that there are few very generic and simple details about software licensing people
+who lead open software projects should understand.&lt;/p&gt;
+&lt;h2&gt;Protect Yourself&lt;/h2&gt;
+&lt;p&gt;For start the license should protect the project contributors and creators.
+This called a warranty provided and it's dangerous. Technology law sucks -
+it's outdated, overly complicated and widely regional where software itself has no borders.&lt;/p&gt;
+&lt;p&gt;Imagine John made a library and used a license that does not fully protect the creators
+from warranty responsibilities like WTFPL. Now some company decides to use it in their software stack,
+unfortunately John left a bug in his library that either exposed the company to theft or caused
+their technology to break. The company could easily start lawsuit against John and argue
+that it was John's open source library that cause them issues.&lt;/p&gt;
+&lt;p&gt;GPL example:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For the developers' and authors' protection, the GPL clearly explains
+that there is no warranty for this free software.  For both users' and
+authors' sake, the GPL requires that modified versions be marked as
+changed, so that their problems will not be attributed erroneously to
+authors of previous versions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;While WTFPL doesn't even mention warranty.&lt;/p&gt;
+&lt;p&gt;To summarise, whatever license you use make sure to protect yourself - make sure you provide no warranty!&lt;/p&gt;
+&lt;h2&gt;Restrictive Doesn't Mean Bad&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Copyleft is a general method for making a program (or other work) free
+(in the sense of freedom, not “zero price”), and requiring all modified
+and extended versions of the program to be free as well.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For example GPL is a copyleft license. It's a "viral" license
+which means any forks or modifications have to also have carry the same license.&lt;/p&gt;
+&lt;p&gt;This is a heavily criticised point of GPL - it's &lt;em&gt;too restrictive&lt;/em&gt; and puts too many gates in education!
+However this is not true. The thing about GPL is that it only applies to &lt;strong&gt;published&lt;/strong&gt; software,
+so in other words you can modify and learn from software all you want and use it as long as you don't publish it.
+If you do publish it, you have to publish the rest under the same license.&lt;/p&gt;
+&lt;p&gt;On the other hand it's also worth considering the &lt;strong&gt;benefits&lt;/strong&gt; of viral copyleft nature of GPL type licenses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patches - since the license is viral any changes or forks will be public and those changes can be applied
+to the original project very easily. This&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://www.gnu.org/philosophy/pragmatic.html"&gt;Copyleft: Pragmactic Idealism&lt;/a&gt;&lt;/p&gt;</content><category term="floss"></category><category term="legal"></category></entry><entry><title>Going to Vietnam!</title><link href="https://granitosaurus.github.io/vietnam.html" rel="alternate"></link><published>2017-11-14T00:00:00+01:00</published><updated>2017-11-14T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-14:/vietnam.html</id><summary type="html">&lt;p&gt;Preparing to spend 3 months in Vietnam, working remotely and experiencing a distance culture - an exciting proposition!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Me and my girlfriend have been planning to spend this year somewhere abroad.
 My first choice was Lisbon, Portugal as we visited Porto last year and
 I've always wanted to spend a year or two living and experiencing Portugal.
 However due to huge house market inflation (what was 500€/month two years ago

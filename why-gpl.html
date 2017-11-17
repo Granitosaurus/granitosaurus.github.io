@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Why I use GPL license</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
+        <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+</head>
+<body>
+
+    <div class="navigation pure-menu pure-menu-horizontal">
+        <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
+            <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
+            <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
+
+            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
+            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
+            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
+            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
+        </ul>
+    </div>
+
+
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+
+<div class="pure-u-3-4 meta-data">
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/tag/floss" class="tag">floss</a>
+    <a href="https://granitosaurus.github.io/tag/legal" class="tag">legal</a>
+    </br>
+    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
+    &mdash; <abbr title="2017-11-16T00:00:00+01:00">Thu 16 November 2017</abbr>
+</div>        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Why I use GPL license</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="entry-content">
+        <p>This issue has been discussed to death and I still find people blindly advocating MIT or even WTFPL licenses.
+I'm far from a lawyer but I feel that there are few very generic and simple details about software licensing people
+who lead open software projects should understand.</p>
+<h2>Protect Yourself</h2>
+<p>For start the license should protect the project contributors and creators.
+This called a warranty provided and it's dangerous. Technology law sucks -
+it's outdated, overly complicated and widely regional where software itself has no borders.</p>
+<p>Imagine John made a library and used a license that does not fully protect the creators
+from warranty responsibilities like WTFPL. Now some company decides to use it in their software stack,
+unfortunately John left a bug in his library that either exposed the company to theft or caused
+their technology to break. The company could easily start lawsuit against John and argue
+that it was John's open source library that cause them issues.</p>
+<p>GPL example:</p>
+<blockquote>
+<p>For the developers' and authors' protection, the GPL clearly explains
+that there is no warranty for this free software.  For both users' and
+authors' sake, the GPL requires that modified versions be marked as
+changed, so that their problems will not be attributed erroneously to
+authors of previous versions.</p>
+</blockquote>
+<p>While WTFPL doesn't even mention warranty.</p>
+<p>To summarise, whatever license you use make sure to protect yourself - make sure you provide no warranty!</p>
+<h2>Restrictive Doesn't Mean Bad</h2>
+<blockquote>
+<p>Copyleft is a general method for making a program (or other work) free
+(in the sense of freedom, not “zero price”), and requiring all modified
+and extended versions of the program to be free as well.</p>
+</blockquote>
+<p>For example GPL is a copyleft license. It's a "viral" license
+which means any forks or modifications have to also have carry the same license.</p>
+<p>This is a heavily criticised point of GPL - it's <em>too restrictive</em> and puts too many gates in education!
+However this is not true. The thing about GPL is that it only applies to <strong>published</strong> software,
+so in other words you can modify and learn from software all you want and use it as long as you don't publish it.
+If you do publish it, you have to publish the rest under the same license.</p>
+<p>On the other hand it's also worth considering the <strong>benefits</strong> of viral copyleft nature of GPL type licenses:</p>
+<ul>
+<li>Patches - since the license is viral any changes or forks will be public and those changes can be applied
+to the original project very easily. This</li>
+</ul>
+<p><a href="https://www.gnu.org/philosophy/pragmatic.html">Copyleft: Pragmactic Idealism</a></p>
+    </div>
+
+    <footer>
+        <div class="tags">
+            <a href="https://granitosaurus.github.io/tag/floss.html">floss</a>
+            <a href="https://granitosaurus.github.io/tag/legal.html">legal</a>
+        </div>
+    </footer>
+
+    <div class="entry-content">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'granitosaurus';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="https://granitosaurus.github.io/" title="Blog of Bernardas Ališauskas">Blog of Bernardas Ališauskas</a>
+        <a href="/archives.html">Archives</a></li>
+        <a href="/categories.html">Categories</a></li>
+        <a href="/tags.html">Tags</a></li>
+        <a href="https://granitosaurus.github.io/category/code.html">code</a>
+        <a href="https://granitosaurus.github.io/category/self.html">self</a>
+
+    </footer>
+
+</body>
+</html>
