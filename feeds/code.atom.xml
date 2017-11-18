@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-11-17T00:00:00+01:00</updated><entry><title>How to disable thinkpad trackpoint acceleration</title><link href="https://granitosaurus.github.io/disable-thinkpad-acceleration.html" rel="alternate"></link><published>2017-11-17T00:00:00+01:00</published><updated>2017-11-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-17:/disable-thinkpad-acceleration.html</id><summary type="html">&lt;p&gt;A short note on how to properly disable thinkpoint trackpad acceleration&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I've got a new thinkpad laptop and I've been struggling with mouse acceleration on trackpoint,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2017-11-18T00:00:00+01:00</updated><entry><title>Why I use GPL license</title><link href="https://granitosaurus.github.io/why-gpl.html" rel="alternate"></link><published>2017-11-18T00:00:00+01:00</published><updated>2017-11-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-18:/why-gpl.html</id><summary type="html">&lt;p&gt;Why I use GNU's General Public License and why I think it's a superior free or even open software license and anyone should consider it for your project.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This issue has been discussed to death and I still find people blindly advocating MIT or even WTFPL licenses.
+I'm far from a lawyer but I feel that there are few very generic and simple details about software licensing people
+who lead open software projects should understand.&lt;/p&gt;
+&lt;h2&gt;Protect Yourself&lt;/h2&gt;
+&lt;p&gt;For start the license should protect the project contributors and creators.
+This called a warranty provided and it's dangerous. Technology law sucks -
+it's outdated, overly complicated and widely regional where software itself has no borders.&lt;/p&gt;
+&lt;p&gt;Imagine John made a library and used a license that does not fully protect the creators
+from warranty responsibilities like WTFPL. Now some company decides to use it in their software stack,
+unfortunately John left a bug in his library that either exposed the company to theft or caused
+their technology to break. The company could easily start lawsuit against John and argue
+that it was John's open source library that cause them issues.&lt;/p&gt;
+&lt;p&gt;GPL example:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;For the developers' and authors' protection, the GPL clearly explains
+that there is no warranty for this free software.  For both users' and
+authors' sake, the GPL requires that modified versions be marked as
+changed, so that their problems will not be attributed erroneously to
+authors of previous versions.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;While WTFPL doesn't even mention warranty.&lt;/p&gt;
+&lt;p&gt;To summarise, whatever license you use make sure to protect yourself - make sure you provide no warranty!&lt;/p&gt;
+&lt;h2&gt;Philosophy and Copyleft&lt;/h2&gt;
+&lt;p&gt;It's important to consider license philosophy as well.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Copyleft is a general method for making a program (or other work) free
+(in the sense of freedom, not “zero price”), and requiring all modified
+and extended versions of the program to be free as well.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For example GPL is a copyleft license. It's a "viral" license, 
+which means any forks or modifications (that are published) have to also
+carry the same license. This protects the projects ecosystem and enables 
+a bunch of benefits for everyone involved.&lt;/p&gt;
+&lt;h3&gt;Benefits&lt;/h3&gt;
+&lt;p&gt;On the other hand it's also worth considering the &lt;strong&gt;benefits&lt;/strong&gt; of viral copyleft nature of GPL type licenses:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Patches - since the license is viral any changes or forks will be public and those changes can be applied
+to the original project very easily. This huge reason why Linux kernel itself is licensed under GPL.&lt;/li&gt;
+&lt;li&gt;Freedom - it continues the message of free software. As project lead you have the
+power to propagate the message as any derivatives will have to carry your choice.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Restrictions&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;it's too restrictive and puts too many gates in education!  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This quote comes up a lot when people argue against GPL, however this argument is false as &lt;strong&gt;GPL's restriction only applies to published software&lt;/strong&gt;&lt;br&gt;
+(&lt;a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic"&gt;as per FAQ&lt;/a&gt;).
+So in other words you can modify and learn from software all you want and use it (even for profit)
+as long as you don't publish it and try to turn it into a product of your own.&lt;/p&gt;
+&lt;p&gt;Is it too restrictive for business? Maybe, but why would you be concerned about business?
+The ecosystem should not expect anything from a business, it puts an unnecessary
+centralization to an unreliable source. At the end of the day a business is out there with
+one goal in mind - to make money - it's not a bad goal, but putting any expectations
+for a business to go out of their way and support the ecosystem is wildly unreasonable.&lt;/p&gt;
+&lt;h2&gt;Closing Statement&lt;/h2&gt;
+&lt;p&gt;I'll continue using GPL license for all of my project where possible. It aligns with my ideology of software and
+I believe I can develop and maintain software where I don't need to rely on adoption.&lt;/p&gt;
+&lt;p&gt;Additional read:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.gnu.org/philosophy/pragmatic.html"&gt;Copyleft: Pragmactic Idealism&lt;/a&gt;&lt;br&gt;
+&lt;a href="https://www.gnu.org/licenses/gpl-faq.html"&gt;GPL's FAQ&lt;/a&gt;&lt;br&gt;
+&lt;a href="https://www.fsf.org/blogs/rms/selling-exceptions"&gt;It's possible to sell GPL exception&lt;/a&gt;   &lt;/p&gt;</content><category term="floss"></category><category term="legal"></category></entry><entry><title>How to disable thinkpad trackpoint acceleration</title><link href="https://granitosaurus.github.io/disable-thinkpad-acceleration.html" rel="alternate"></link><published>2017-11-17T00:00:00+01:00</published><updated>2017-11-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-17:/disable-thinkpad-acceleration.html</id><summary type="html">&lt;p&gt;A short note on how to properly disable thinkpoint trackpad acceleration&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I've got a new thinkpad laptop and I've been struggling with mouse acceleration on trackpoint,
 turns out disabling it isn't as straight-forward as you'd expect&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;To get rid of this abomination of a feature that is enabled by default we need &lt;code&gt;xinput&lt;/code&gt;&lt;/p&gt;
 &lt;h1&gt;The Fix&lt;/h1&gt;
@@ -71,62 +131,7 @@ $ xinput set-prop 13 317 0 1
 &lt;h1&gt;Make It Persisntant&lt;/h1&gt;
 &lt;p&gt;To make the change persist after restart simply add the config line it to your &lt;code&gt;~/.xsessionrc&lt;/code&gt; file, e.g.:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &amp;quot;xinput set-prop 13 317 0 1&amp;quot; &amp;gt;&amp;gt; ~/.xsessionrc
-&lt;/pre&gt;&lt;/div&gt;</content><category term="linux"></category><category term="guide"></category></entry><entry><title>Why I use GPL license</title><link href="https://granitosaurus.github.io/why-gpl.html" rel="alternate"></link><published>2017-11-16T00:00:00+01:00</published><updated>2017-11-16T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-16:/why-gpl.html</id><summary type="html">&lt;p&gt;Why I use GNU's General Public License and why I think it's a superior free or even open software license and anyone should consider it for your project.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This issue has been discussed to death and I still find people blindly advocating MIT or even WTFPL licenses.
-I'm far from a lawyer but I feel that there are few very generic and simple details about software licensing people
-who lead open software projects should understand.&lt;/p&gt;
-&lt;h2&gt;Protect Yourself&lt;/h2&gt;
-&lt;p&gt;For start the license should protect the project contributors and creators.
-This called a warranty provided and it's dangerous. Technology law sucks -
-it's outdated, overly complicated and widely regional where software itself has no borders.&lt;/p&gt;
-&lt;p&gt;Imagine John made a library and used a license that does not fully protect the creators
-from warranty responsibilities like WTFPL. Now some company decides to use it in their software stack,
-unfortunately John left a bug in his library that either exposed the company to theft or caused
-their technology to break. The company could easily start lawsuit against John and argue
-that it was John's open source library that cause them issues.&lt;/p&gt;
-&lt;p&gt;GPL example:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;For the developers' and authors' protection, the GPL clearly explains
-that there is no warranty for this free software.  For both users' and
-authors' sake, the GPL requires that modified versions be marked as
-changed, so that their problems will not be attributed erroneously to
-authors of previous versions.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;While WTFPL doesn't even mention warranty.&lt;/p&gt;
-&lt;p&gt;To summarise, whatever license you use make sure to protect yourself - make sure you provide no warranty!&lt;/p&gt;
-&lt;h2&gt;Follow the Philosophy and Copyleft&lt;/h2&gt;
-&lt;p&gt;It's important to consider license philosophy as well.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Copyleft is a general method for making a program (or other work) free
-(in the sense of freedom, not “zero price”), and requiring all modified
-and extended versions of the program to be free as well.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;For example GPL is a copyleft license. It's a "viral" license
-which means any forks or modifications (that are published) have to also
-carry the same license.&lt;/p&gt;
-&lt;p&gt;This is a heavily criticised point of GPL - it's &lt;em&gt;too restrictive&lt;/em&gt; and puts too many gates in education!
-However this is &lt;strong&gt;not true&lt;/strong&gt;. The thing about &lt;strong&gt;GPL is that the restriction only applies to published&lt;/strong&gt; software
-(&lt;a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic"&gt;as per FAQ&lt;/a&gt;),
-so in other words you can modify and learn from software all you want and use it (even for profit)
-as long as you don't publish it and try to &lt;strong&gt;turn it into a product of your own&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;Is it too restrictive for business? Maybe, but why would you be concerned about business?
-The ecosystem should not expect anything from a business, it put's an unnecessary
-centralization to an unreliable source. At the end of the day a business is out there with
-one goal in mind - to make money - it's not a bad goal, but putting any expectations
-to support the ecosystem is wildly unreasonable.&lt;/p&gt;
-&lt;p&gt;On the other hand it's also worth considering the &lt;strong&gt;benefits&lt;/strong&gt; of viral copyleft nature of GPL type licenses:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Patches - since the license is viral any changes or forks will be public and those changes can be applied
-to the original project very easily. This huge reason why Linux kernel itself is licensed under GPL.&lt;/li&gt;
-&lt;li&gt;Freedom - it continues the message of free software. As project lead you have the
-power to propagate the message as any derivatives will have to carry your choice.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Closing Statement&lt;/h2&gt;
-&lt;p&gt;I'll continue using GPL license for all of my project where possible. It aligns with my ideology of software and
-I believe I can develop and maintain software where I don't need to rely on adoption.&lt;/p&gt;
-&lt;p&gt;Additional read:&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.gnu.org/philosophy/pragmatic.html"&gt;Copyleft: Pragmactic Idealism&lt;/a&gt;
-&lt;a href="https://www.gnu.org/licenses/gpl-faq.html"&gt;GPL's FAQ&lt;/a&gt;
-&lt;a href="https://www.fsf.org/blogs/rms/selling-exceptions"&gt;It's possible to sell GPL exception&lt;/a&gt;&lt;/p&gt;</content><category term="floss"></category><category term="legal"></category></entry><entry><title>Fuck reCaptcha and everyone who uses it blindly</title><link href="https://granitosaurus.github.io/fuck-recaptcha.html" rel="alternate"></link><published>2017-10-28T00:00:00+02:00</published><updated>2017-10-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-28:/fuck-recaptcha.html</id><summary type="html">&lt;p&gt;and fuck you bandcamp&lt;/p&gt;</summary><content type="html">&lt;p&gt;reCaptcha is a joke, it doesn't work and it only fucks with your userbase - stop using this cancer.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="linux"></category><category term="guide"></category></entry><entry><title>Fuck reCaptcha and everyone who uses it blindly</title><link href="https://granitosaurus.github.io/fuck-recaptcha.html" rel="alternate"></link><published>2017-10-28T00:00:00+02:00</published><updated>2017-10-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-28:/fuck-recaptcha.html</id><summary type="html">&lt;p&gt;and fuck you bandcamp&lt;/p&gt;</summary><content type="html">&lt;p&gt;reCaptcha is a joke, it doesn't work and it only fucks with your userbase - stop using this cancer.&lt;/p&gt;
 &lt;p&gt;Recently I bought a collection of 160 albums on Bandcamp. Turns out I need to download all of them individually,
 so I thought I'll write up short script to pull it via api or something. Well api is not a thing on bandcamp,
 which is hardly a surprise really for today's standards.&lt;/p&gt;
