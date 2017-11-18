@@ -1,5 +1,5 @@
 Title: Why I use GPL license
-Date: 2017-11-16
+Date: 2017-11-18
 Tags: floss, legal
 Slug: why-gpl
 Summary: Why I use GNU's General Public License and why I think it's a superior free or even open software license and anyone should consider it for your project.
@@ -32,7 +32,7 @@ While WTFPL doesn't even mention warranty.
 
 To summarise, whatever license you use make sure to protect yourself - make sure you provide no warranty!
 
-## Follow the Philosophy and Copyleft
+## Philosophy and Copyleft
 
 It's important to consider license philosophy as well.
 
@@ -40,28 +40,34 @@ It's important to consider license philosophy as well.
 (in the sense of freedom, not “zero price”), and requiring all modified
 and extended versions of the program to be free as well.
 
-For example GPL is a copyleft license. It's a "viral" license
+For example GPL is a copyleft license. It's a "viral" license, 
 which means any forks or modifications (that are published) have to also
-carry the same license.
+carry the same license. This protects the projects ecosystem and enables 
+a bunch of benefits for everyone involved.
 
-This is a heavily criticised point of GPL - it's _too restrictive_ and puts too many gates in education!
-However this is __not true__. The thing about __GPL is that the restriction only applies to published__ software
-([as per FAQ](https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic)),
-so in other words you can modify and learn from software all you want and use it (even for profit)
-as long as you don't publish it and try to __turn it into a product of your own__.
-
-Is it too restrictive for business? Maybe, but why would you be concerned about business?
-The ecosystem should not expect anything from a business, it put's an unnecessary
-centralization to an unreliable source. At the end of the day a business is out there with
-one goal in mind - to make money - it's not a bad goal, but putting any expectations
-to support the ecosystem is wildly unreasonable.
-
+### Benefits
 On the other hand it's also worth considering the __benefits__ of viral copyleft nature of GPL type licenses:
 
 - Patches - since the license is viral any changes or forks will be public and those changes can be applied
 to the original project very easily. This huge reason why Linux kernel itself is licensed under GPL.
 - Freedom - it continues the message of free software. As project lead you have the
 power to propagate the message as any derivatives will have to carry your choice.
+
+
+### Restrictions
+
+> it's too restrictive and puts too many gates in education!  
+
+This quote comes up a lot when people argue against GPL, however this argument is false as __GPL's restriction only applies to published software__  
+([as per FAQ](https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic)).
+So in other words you can modify and learn from software all you want and use it (even for profit)
+as long as you don't publish it and try to turn it into a product of your own.
+
+Is it too restrictive for business? Maybe, but why would you be concerned about business?
+The ecosystem should not expect anything from a business, it puts an unnecessary
+centralization to an unreliable source. At the end of the day a business is out there with
+one goal in mind - to make money - it's not a bad goal, but putting any expectations
+for a business to go out of their way and support the ecosystem is wildly unreasonable.
 
 ## Closing Statement
 
@@ -70,7 +76,6 @@ I believe I can develop and maintain software where I don't need to rely on adop
 
 Additional read:
 
-[Copyleft: Pragmactic Idealism](https://www.gnu.org/philosophy/pragmatic.html)
-[GPL's FAQ](https://www.gnu.org/licenses/gpl-faq.html)
-[It's possible to sell GPL exception](https://www.fsf.org/blogs/rms/selling-exceptions)
-
+[Copyleft: Pragmactic Idealism](https://www.gnu.org/philosophy/pragmatic.html)  
+[GPL's FAQ](https://www.gnu.org/licenses/gpl-faq.html)  
+[It's possible to sell GPL exception](https://www.fsf.org/blogs/rms/selling-exceptions)   
