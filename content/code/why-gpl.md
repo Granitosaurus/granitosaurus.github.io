@@ -10,17 +10,15 @@ who lead open software projects should understand.
 
 ## Protect Yourself
 
-For start the license should protect the project contributors and creators.
-This called a warranty provided and it's dangerous. Technology law sucks -
+First thing first - the license should protect the project contributors and creators. In legal terms it's called no-warranty-provided and exlucsion of it can be dangerous.  
+Technology law sucks -
 it's outdated, overly complicated and widely regional where software itself has no borders.
 
-Imagine John made a library and used a license that does not fully protect the creators
-from warranty responsibilities like WTFPL. Now some company decides to use it in their software stack,
-unfortunately John left a bug in his library that either exposed the company to theft or caused
-their technology to break. The company could easily start lawsuit against John and argue
-that it was John's open source library that cause them issues.
+To illustrate tis danger imagine John made a library and used a license that does not fully protect the creators
+from warranty responsibilities(like WTFPL). Now some company decides to use John's work in their software stack and
+unfortunately John left a bug in his library that either exposed the company to theft or caused their technology to break. In this case the company could easily start lawsuit against John and argue that it was John's open source library that cause them to go under and John would be liable.
 
-GPL example:
+Most linceses however have this included, GPL for example:
 
 >For the developers' and authors' protection, the GPL clearly explains
 that there is no warranty for this free software.  For both users' and
@@ -28,7 +26,7 @@ authors' sake, the GPL requires that modified versions be marked as
 changed, so that their problems will not be attributed erroneously to
 authors of previous versions.
 
-While WTFPL doesn't even mention warranty.
+While some occasional ones like WTFPL don't.
 
 To summarise, whatever license you use make sure to protect yourself - make sure you provide no warranty!
 
