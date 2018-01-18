@@ -28,7 +28,6 @@ THEME = 'medius'
 DISQUS_SITENAME = "granitosaurus"
 
 # Social widget
-
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
@@ -39,7 +38,7 @@ CC_LICENSE = {
     'slug': 'by-sa'
 }
 COPYRIGHT_YEAR = 2016
-STATIC_PATHS = ['images', 'pages', 'data', 'extra/CNAME']
+STATIC_PATHS = ['images', 'pages', 'data', 'extra/CNAME', 'gifs']
 # CNAME fix
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}, }
 PLUGIN_PATHS = ['./pelican-plugins']
