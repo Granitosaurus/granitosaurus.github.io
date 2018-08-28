@@ -94,6 +94,9 @@ div.post-content, div.entry-content {
 
     img {
         max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
     }
 
     hr {
@@ -540,7 +543,9 @@ div.article-header-container {
 
 }
 
-
+.italics {
+    font-style: italic;
+}
 
 //////////////////////////////////////////////////
 //               category page                  //
