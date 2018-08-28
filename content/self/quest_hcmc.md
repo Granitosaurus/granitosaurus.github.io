@@ -2,7 +2,7 @@ Title: Quest Accepted: Travel to HCMC, Vietnam
 Date: 2018-01-18
 Tags: travel, vietnam
 Slug: quest-hcmc
-Summary: Me and my girlfriend's struggle to get to Ho Chi Minh City, Vietnam
+Summary: My and my girlfriend's struggle to get to Ho Chi Minh City, Vietnam
 
 Me and my girlfriend are spending 3 months in Vietnam this year (amount tourist visa allows you) and our first stop is the biggest city in Vietnam, and the biggest city we've been to in general!  
 
