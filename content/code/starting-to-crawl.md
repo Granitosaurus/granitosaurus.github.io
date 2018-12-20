@@ -47,17 +47,22 @@ There can be few more steps in between but the core logic of a web crawler looks
 
 _worth noting that websites can return all sorts of content not only html. Some return json, some just text and some code like javascript._
 
-In very simplest python code for a crawler would look like this:
+In very simplest python pseudo code for a crawler would look like this:
 
 ```python
-import requests
 url = 'https://www.python.org/jobs/'
 
+job_urls = find_job_urls(url)
+data = consume(job_urls)
+processed_data = process(data)
+
+import json
+with open('output.json','w') as f:
+    f.write(json.dumps(data))
 ```
 
-This simple crawler skeleton would download blog posts from python.org and put them in a database! 
 
-You can find full crawler that actually downloads the articles to a file see here #TODO
+You can find full crawler at the end of blog post.
 
 # Crawling
 
