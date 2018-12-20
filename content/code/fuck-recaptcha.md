@@ -3,6 +3,7 @@ Date: 2017-10-28
 Tags: security, captcha, web-crawling
 Slug: fuck-recaptcha
 Summary: and fuck you bandcamp
+Status: draft
 
 
 reCaptcha is a joke, it doesn't work and it only fucks with your userbase - stop using this cancer.
