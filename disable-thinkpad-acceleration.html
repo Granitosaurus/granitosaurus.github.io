@@ -120,7 +120,7 @@ Device <span class="s1">&#39;TPPS/2 IBM TrackPoint&#39;</span>:
         libinput Send Events Mode Enabled Default <span class="o">(</span><span class="m">262</span><span class="o">)</span>:        <span class="m">0</span>, <span class="m">0</span>
         Device Node <span class="o">(</span><span class="m">263</span><span class="o">)</span>:      <span class="s2">&quot;/dev/input/event18&quot;</span>
         Device Product ID <span class="o">(</span><span class="m">264</span><span class="o">)</span>:        <span class="m">2</span>, <span class="m">10</span>
-        libinput Drag Lock Buttons <span class="o">(</span><span class="m">326</span><span class="o">)</span>:       &lt;no items&gt;
+        libinput Drag Lock Buttons <span class="o">(</span><span class="m">326</span><span class="o">)</span>:       <span class="p">&amp;</span>lt<span class="p">;</span>no items<span class="p">&amp;</span>gt<span class="p">;</span>
         libinput Horizontal Scroll Enabled <span class="o">(</span><span class="m">327</span><span class="o">)</span>:       <span class="m">1</span>
 </pre></div>
 
@@ -142,7 +142,7 @@ $ xinput set-prop 13 317 0 1
 <p>Note, don't use both, -1 with disabled acceleration pretty much disables the devices.</p>
 <h1>Make It Persisntant</h1>
 <p>To make the change persist after restart simply add the config line it to your <code>~/.xsessionrc</code> file, e.g.:</p>
-<div class="highlight"><pre><span></span>echo &quot;xinput set-prop 13 317 0 1&quot; &gt;&gt; ~/.xsessionrc
+<div class="highlight"><pre><span></span>echo &quot;xinput set-prop 13 317 0 1&quot; &amp;gt;&amp;gt; ~/.xsessionrc
 </pre></div>
     </div>
 

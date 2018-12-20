@@ -1,5 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2018-08-28T00:00:00+02:00</updated><entry><title>How to fix redis busy</title><link href="https://granitosaurus.github.io/redis-busy.html" rel="alternate"></link><published>2018-08-28T00:00:00+02:00</published><updated>2018-08-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-08-28:/redis-busy.html</id><summary type="html">&lt;p&gt;How to fix annoying redis busy error when working with redis lua scripts and multiple clients&lt;/p&gt;</summary><content type="html">&lt;p&gt;Imagine scenario where you have a single redis server (which is single threaded) and you have multiple clients:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2018-12-10T00:00:00+01:00</updated><entry><title>Diving Into Web-Crawling</title><link href="https://granitosaurus.github.io/starting-to-crawl.html" rel="alternate"></link><published>2018-12-10T00:00:00+01:00</published><updated>2018-12-10T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-12-10:/starting-to-crawl.html</id><summary type="html">&lt;p&gt;Where to start with the art of hoarding online data?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on world wide web!&lt;/p&gt;
+&lt;p&gt;In this introduction I'll cover the core ideas behind web-crawling and web-crawling with python.&lt;/p&gt;
+&lt;h1&gt;What's Web Crawling?&lt;/h1&gt;
+&lt;p&gt;First it's important to wrap your head around the stages of web crawling program.  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;crawler&lt;/strong&gt; or &lt;strong&gt;spider&lt;/strong&gt;
+A program that connects to web pages and downloads their contents. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To put it simply it's a program that goes online and finds two things:  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;data the user is looking for.  &lt;/li&gt;
+&lt;li&gt;more targets to crawl &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;e.g.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to http://shop.com&lt;/li&gt;
+&lt;li&gt;Find product pages&lt;/li&gt;
+&lt;li&gt;Find and download product data such as price, title, description&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Stages&lt;/h1&gt;
+&lt;p&gt;&lt;img alt="basic crawl loop" src="https://granitosaurus.github.io/images/crawl-loop.png"&gt;&lt;/p&gt;
+&lt;p&gt;A usual web-crawler program will be made from 4 core stages:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Discovery - find product urls to crawl&lt;/li&gt;
+&lt;li&gt;Consumer - consume product urls and retrieve their htmls&lt;/li&gt;
+&lt;li&gt;Parser - parse html data into something useful&lt;/li&gt;
+&lt;li&gt;Processor - process the data with pipeline, filters etc.&lt;/li&gt;
+&lt;li&gt;Loop!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;em&gt;note: these stages don't have to have to happen in strict order&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;There can be few more steps in between but the core logic of a web crawler looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="basic crawler" src="https://granitosaurus.github.io/images/crawling.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;worth noting that websites can return all sorts of content not only html. Some return json, some just text and some code like javascript.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In very simplest python code for a crawler would look like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+&lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://www.python.org/jobs/&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This simple crawler skeleton would download blog posts from python.org and put them in a database! &lt;/p&gt;
+&lt;p&gt;You can find full crawler that actually downloads the articles to a file see here #TODO&lt;/p&gt;
+&lt;h1&gt;Crawling&lt;/h1&gt;
+&lt;p&gt;There are two ways to crawl http urls: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Synchronous - slow and simple &lt;/li&gt;
+&lt;li&gt;Asynchronous - complex but blazing fast.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Which one to use?&lt;/strong&gt; As beginner or if you don't need speed stick with synchronous approach. The programming is much more simple and easier to debug. However asynchronous knowledge is very valuable and learning it is a great idea&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Synchronous&lt;/h2&gt;
+&lt;p&gt;This is very straight-forward approach. Everything goes in your program's order: &lt;/p&gt;
+&lt;p&gt;&lt;img alt="basic crawl loop" src="https://granitosaurus.github.io/images/crawl-loop.png"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;for every url: download page -&amp;gt; parse it -&amp;gt; store it -&amp;gt; repeat&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For synchronous crawling most popular library is &lt;a href="http://docs.python-requests.org/en/master/"&gt;requests&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;However while this approach is simple and easy to maintain it ends up being very slow as every time program connects to a webpage to download data program need to wait for it to response - in the mean time program could be doing something else: like download &lt;em&gt;another&lt;/em&gt; webpage, parse the data or store it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;when is synchronous approach good enough?&lt;/strong&gt; Often a lot of applications don't need to retrieve a lot of data (e.g. football match score crawler) then sync code is more than enough. &lt;br&gt;
+Alternatively a lot of website have request limits that are high enough that match synchronous code slowness. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Asynchronous&lt;/h2&gt;
+&lt;p&gt;Async programming is a bit more complex to wrap your head around but to put it shortly it allows the code to be executed in pararel.  &lt;/p&gt;
+&lt;p&gt;Your program can schedule 100 request to a website &lt;em&gt;at once&lt;/em&gt; and handle response as they come in or do something else!  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="async crawl loop" src="https://granitosaurus.github.io/images/crawl-loop-async.png"&gt;&lt;/p&gt;
+&lt;p&gt;So it terms of speed it vastly outperforms synchronous crawlers as they don't have to wait!&lt;/p&gt;
+&lt;p&gt;&lt;img alt="basic crawler" src="https://granitosaurus.github.io/images/sync_v_async.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;"checking" square here is very simplified representation of async mechanism&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For asynchronous crawling there are a lot of choices and no clear defacto standards. I recommend &lt;a href="https://github.com/ross/requests-futures"&gt;requests-futures&lt;/a&gt; for caroutine based approach and &lt;a href="https://twistedmatrix.com/"&gt;twisted&lt;/a&gt; for callback based approach.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;caroutines or callbacks?&lt;/strong&gt; While caroutines are much more favored async principle these days callbacks have a special place in web-crawling community as the logic tends to match scraping patterns better&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Parsing&lt;/h1&gt;
+&lt;p&gt;There are all sorts of data types on the web, but most likely you're either will be crawling &lt;code&gt;html&lt;/code&gt; or &lt;code&gt;json&lt;/code&gt;. &lt;/p&gt;
+&lt;h2&gt;Html&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;Html&lt;/code&gt; is a subset of xml tree structures. It's a great data type for representing structure, however it's not a great data type for representing data itself.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nt"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;name&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; rubber chicken &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;price&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; 55.99 &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So usually this data is either converted to database tables or json, csv documents:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;csv documents:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;name,price   
+rubber chicken, 55.99
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;json documents:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[
+    {
+        &amp;quot;name&amp;quot;: &amp;quot;rubber chicken&amp;quot;,
+        &amp;quot;price&amp;quot;: 55.99
+    } 
+]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;database tables&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;------------------------------
+|       name       |  price  |
+------------------------------
+|  rubber chicken  |  55.99  |
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;What data type to chose for output?&lt;/strong&gt; Anything works! However some data types are easier to work than others. &lt;code&gt;json&lt;/code&gt; is an easy to format to work with as it translates to python &lt;code&gt;dict&lt;/code&gt; seamlessly. &lt;code&gt;csv&lt;/code&gt; is great to work with as it's an easy format to write and parse. &lt;code&gt;json-lines&lt;/code&gt; format is best of both worlds. 
+&lt;strong&gt;What about data bases?&lt;/strong&gt; Document based databases are often preferred when web-scraping. Like &lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt; and &lt;a href="http://couchdb.apache.org/"&gt;couchDB&lt;/a&gt;, they are great for storing json data, while relation databases are a bit less straight-forward but come with their own benefits (like &lt;a href="https://sqlite.org/index.html"&gt;sqlite&lt;/a&gt; and &lt;a href="https://mariadb.org/"&gt;mariadb&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Parsing&lt;/h3&gt;
+&lt;p&gt;Since html is a structural data type we can parse it quite easily. For that there are &lt;a href="https://www.w3schools.com/xml/xpath_intro.asp"&gt;xpath&lt;/a&gt; and &lt;a href="https://www.w3schools.com/csSref/css_selectors.asp"&gt;css&lt;/a&gt; selectors and appropriate python libraries that implement this selector logic.&lt;/p&gt;
+&lt;p&gt;For python all you need is &lt;a href="https://github.com/scrapy/parsel"&gt;parsel&lt;/a&gt; which allows you to use both types of selectors to parse data. Alternatively you can also use a popular alternative &lt;a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/"&gt;beautifulsoup4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here's a &lt;code&gt;parsel&lt;/code&gt; example&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;parsel&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;
+
+&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;    &amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;        &amp;lt;body&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;            &amp;lt;div id=name&amp;gt; rubber chicken &amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;            &amp;lt;div id=price&amp;gt; 55.99 &amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;        &amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;    &amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;selector&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# css selector&lt;/span&gt;
+&lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#name::text&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract_first&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# xpath selector&lt;/span&gt;
+&lt;span class="n"&gt;price&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;selector&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;//div[@id=&amp;quot;price&amp;quot;]/text()&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract_first&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;price&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# &amp;#39; 55.99 &amp;#39;,&amp;#39; rubber chicken &amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Surprisingly simple!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Which one, css or xpath?&lt;/strong&gt;
+Generally css selectors are much easier and more bautiful but xpath selectors are much powerful. So ideally use css and fallback to xpath when encountering something more complicated.  &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parsing with regex?&lt;/strong&gt;
+Generally parsing html with regex is a bad idea as regex patterns will quickly become unreliable. Html is structure data type - embrace it!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Json&lt;/h2&gt;
+&lt;p&gt;This type of data is often used by website internally together with javascript. Sometimes you can crawl these pages directly either through public or internal websites API. &lt;/p&gt;
+&lt;p&gt;It's super convenient as you don't need to do any parsing yourself! &lt;/p&gt;
+&lt;h4&gt;Parsing&lt;/h4&gt;
+&lt;p&gt;Parsing json is super easy as it can be read as python dictionary right out of the box:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="n"&gt;json_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{&amp;quot;data&amp;quot;: [{&amp;quot;name&amp;quot;: &amp;quot;product&amp;quot;, &amp;quot;price&amp;quot;: 55.99}]}&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;price&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="c1"&gt;# 55.99&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;These days more and more web pages become dependant on javascript thus often providing json data&lt;/em&gt;&lt;/p&gt;
+&lt;h1&gt;Synchronous Example&lt;/h1&gt;
+&lt;p&gt;Lets write a simple article crawler for python blog posts!&lt;/p&gt;
+&lt;p&gt;for this we'll use &lt;a href="https://github.com/scrapy/parsel"&gt;parsel&lt;/a&gt; and &lt;a href="http://docs.python-requests.org/en/master/"&gt;requests&lt;/a&gt; packages. You can get them via pip:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install parsel requests
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Our spider logic would follow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to page with all links to blog posts&lt;/li&gt;
+&lt;li&gt;Go to every blog post&lt;/li&gt;
+&lt;li&gt;Extract data&lt;/li&gt;
+&lt;li&gt;Store data to file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;urllib.parse&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;urljoin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;unquote&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;parsel&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+
+&lt;span class="n"&gt;session&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# 1&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;discover&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Discover job urls in jobs listing page&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;jobs_url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;https://www.python.org/jobs/&amp;#39;&lt;/span&gt;
+
+    &lt;span class="n"&gt;jobs_html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jobs_url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
+    &lt;span class="n"&gt;jobs_sel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;jobs_html&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;urls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;jobs_sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.listing-company-name a::attr(href)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;urljoin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;jobs_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Parse job html&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;sel&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;company&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.listing-location a::text&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract_first&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;email&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;.reference.external::attr(href)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract_first&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;//h2[contains(text(),&amp;#39;Job Title&amp;#39;)]&amp;quot;&lt;/span&gt;
+                      &lt;span class="s2"&gt;&amp;quot;/following-sibling::text()&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract_first&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;description&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sel&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xpath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;//h2[contains(text(),&amp;#39;Job Title&amp;#39;)]&amp;quot;&lt;/span&gt;
+                            &lt;span class="s2"&gt;&amp;quot;/following-sibling::p/text()&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extract_first&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;location&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;company&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;description&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;email&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;unquote&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;:&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]),&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;process&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Here usually you&amp;#39;d add extra processing steps&lt;/span&gt;
+&lt;span class="sd"&gt;    like upload to database&lt;/span&gt;
+&lt;span class="sd"&gt;    or adding crawl time&lt;/span&gt;
+&lt;span class="sd"&gt;    or determening whether to drop results based on their values&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;consume&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Consume job urls by downloading them, parsing data and saving to disk&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;crawling job: {url}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
+        &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;crawl&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;    Complete crawl loop:&lt;/span&gt;
+&lt;span class="sd"&gt;    1. Discover job listing urls&lt;/span&gt;
+&lt;span class="sd"&gt;    2. parse html for data&lt;/span&gt;
+&lt;span class="sd"&gt;    3. process data&lt;/span&gt;
+&lt;span class="sd"&gt;    4. store data&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;urls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;discover&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;consume&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;collected.json&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;indent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;crawl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As you can see the crawler is split into 4 parts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Discovery - discover job urls in listing page&lt;/li&gt;
+&lt;li&gt;Consumer - crawl job urls&lt;/li&gt;
+&lt;li&gt;Parser - parse data from job htmls&lt;/li&gt;
+&lt;li&gt;Processor - process data and save it to file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;1&lt;/strong&gt; - connection sessions establish connection to server and keeps it open for more requests, this speeds up crawling and puts less stress on the host.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;Data is often the core of application functionality and web-crawling is a great tool to easily take advantage of public data available online.  &lt;/p&gt;
+&lt;p&gt;Crawling is a diverse, multi-step process with a lot of viable approaches but to start off sticking with syncrhonious &lt;code&gt;requests&lt;/code&gt; and html parsers like &lt;code&gt;parsel&lt;/code&gt; can be more than enough for most projects.&lt;/p&gt;
+&lt;p&gt;For further reading it's important to take a look at &lt;strong&gt;web caching&lt;/strong&gt; and &lt;strong&gt;rate limiting&lt;/strong&gt;, &lt;strong&gt;proxies&lt;/strong&gt; and &lt;strong&gt;failure and memory managing&lt;/strong&gt;. Finally there's a whole other problem of &lt;strong&gt;scaling&lt;/strong&gt; both crawling and data storage when it comes to millions of results. &lt;br&gt;
+I'll be covering these in later blogs &lt;/p&gt;</content><category term="scrapy"></category><category term="python"></category><category term="web-crawling"></category></entry><entry><title>How to fix redis busy</title><link href="https://granitosaurus.github.io/redis-busy.html" rel="alternate"></link><published>2018-08-28T00:00:00+02:00</published><updated>2018-08-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-08-28:/redis-busy.html</id><summary type="html">&lt;p&gt;How to fix annoying redis busy error when working with redis lua scripts and multiple clients&lt;/p&gt;</summary><content type="html">&lt;p&gt;Imagine scenario where you have a single redis server (which is single threaded) and you have multiple clients:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="redis structure" src="https://granitosaurus.github.io/images/redis-busy1.png"&gt;&lt;/p&gt;
 &lt;p&gt;Eventhough redis is single-threaded it has no problem handling this setup since it's blazing fast and knows how to manage it's task queue.&lt;br&gt;
 However if we ask redis server to perform a lua script evaluation it might take a while, which ends up with clients getting this nasty error:&lt;/p&gt;
@@ -146,7 +419,7 @@ Device &lt;span class="s1"&gt;&amp;#39;TPPS/2 IBM TrackPoint&amp;#39;&lt;/span&g
         libinput Send Events Mode Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;262&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;
         Device Node &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;263&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:      &lt;span class="s2"&gt;&amp;quot;/dev/input/event18&amp;quot;&lt;/span&gt;
         Device Product ID &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;264&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;2&lt;/span&gt;, &lt;span class="m"&gt;10&lt;/span&gt;
-        libinput Drag Lock Buttons &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;326&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &amp;lt;no items&amp;gt;
+        libinput Drag Lock Buttons &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;326&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;no items&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;
         libinput Horizontal Scroll Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;327&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -168,31 +441,8 @@ $ xinput set-prop 13 317 0 1
 &lt;p&gt;Note, don't use both, -1 with disabled acceleration pretty much disables the devices.&lt;/p&gt;
 &lt;h1&gt;Make It Persisntant&lt;/h1&gt;
 &lt;p&gt;To make the change persist after restart simply add the config line it to your &lt;code&gt;~/.xsessionrc&lt;/code&gt; file, e.g.:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &amp;quot;xinput set-prop 13 317 0 1&amp;quot; &amp;gt;&amp;gt; ~/.xsessionrc
-&lt;/pre&gt;&lt;/div&gt;</content><category term="linux"></category><category term="guide"></category></entry><entry><title>Fuck reCaptcha and everyone who uses it blindly</title><link href="https://granitosaurus.github.io/fuck-recaptcha.html" rel="alternate"></link><published>2017-10-28T00:00:00+02:00</published><updated>2017-10-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-28:/fuck-recaptcha.html</id><summary type="html">&lt;p&gt;and fuck you bandcamp&lt;/p&gt;</summary><content type="html">&lt;p&gt;reCaptcha is a joke, it doesn't work and it only fucks with your userbase - stop using this cancer.&lt;/p&gt;
-&lt;p&gt;Recently I bought a collection of 160 albums on Bandcamp. Turns out I need to download all of them individually,
-so I thought I'll write up short script to pull it via api or something. Well api is not a thing on bandcamp,
-which is hardly a surprise really for today's standards.&lt;/p&gt;
-&lt;p&gt;Being a web crawler junkie that I am I thought I can put up a simple web-crawler to get my music that is being kept
-hostage by technological illiteracy.
-I open up web inspector and everything seems to be pretty easy. There's an api under the hood that uses log in
-cookies to serve your data with album download links - easy!&lt;/p&gt;
-&lt;p&gt;Well login page is under reCaptcha protection, from what?
-Brute force password cracking? That's not how the shit works. Web Crawling? That's not how any of this works.
-You think by putting reCaptcha (which is an abomination on it's own right) will protect your users or you from real bots?
-People who do web-crawling in scale you want to protect from have all the necessary tools to get around the captcha,
-I know, because I've been working in this field for half-a-decade now - captcha doesn't do shit.&lt;/p&gt;
-&lt;p&gt;What suffers from this blanket policies is &lt;strong&gt;your userbase&lt;/strong&gt;. I could put up simple cli app and github so people
-and pull their songs easily. Everyone would be happy with extra features that you don't need to implement
-but your userbase can take care of. Everyone wins right?&lt;/p&gt;
-&lt;p&gt;Will I be able to save my songs from retardedCaptcha captors? Yes, I'll just use the resources from my work.
-Can I publish it as an app on github? Kinda, but it will suck. I'd need to prompt the user to solve the captcha
-or input cookies from browser - all of which makes the whole ordeal inconvenient and hell to maintain and implement.
-Something that would be an evening project ends up being a week-long one.
-How does one motivate itself to produce free code and build a community around your project at this point?&lt;/p&gt;
-&lt;p&gt;Captcha is DRM and just like any sort of DRM it hurts the userbase more than anything else.&lt;/p&gt;
-&lt;p&gt;I'll make the fucking app, I'll jump through hoops, I'll find something because
-&lt;strong&gt;Fuck DRM, fuck Google and fuck Bandcamp.&lt;/strong&gt;&lt;/p&gt;</content><category term="security"></category><category term="captcha"></category><category term="web-crawling"></category></entry><entry><title>Securing Data With eCryptfs</title><link href="https://granitosaurus.github.io/ecrypt-yourself.html" rel="alternate"></link><published>2017-10-22T00:00:00+02:00</published><updated>2017-10-22T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-22:/ecrypt-yourself.html</id><summary type="html">&lt;p&gt;protect your sensitive data like crypto wallets with eCrypt overlay filesystem!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. &lt;br&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &amp;quot;xinput set-prop 13 317 0 1&amp;quot; &amp;amp;gt;&amp;amp;gt; ~/.xsessionrc
+&lt;/pre&gt;&lt;/div&gt;</content><category term="linux"></category><category term="guide"></category></entry><entry><title>Securing Data With eCryptfs</title><link href="https://granitosaurus.github.io/ecrypt-yourself.html" rel="alternate"></link><published>2017-10-22T00:00:00+02:00</published><updated>2017-10-22T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-22:/ecrypt-yourself.html</id><summary type="html">&lt;p&gt;protect your sensitive data like crypto wallets with eCrypt overlay filesystem!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. &lt;br&gt;
 The standard tool for linux is called eCryptfs and let me tell you how awesome and convenient it is!&lt;/p&gt;
 &lt;h1&gt;eCryptfs&lt;/h1&gt;
 &lt;p&gt;eCryptfs is a cryptographic overlay filesystem for Linux. It's a great tool to encrypt some private data like cryptocurrency wallet keys, private pictures — anything really.&lt;br&gt;
@@ -228,7 +478,7 @@ etc. etc.
 
 
 &lt;p&gt;Once you have it installed you'll find your user-space path populated with a bunch of ecryptfs utils, just type in your terminal &lt;code&gt;ecryptfs-&lt;/code&gt; and press tab to see the goodies:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[dex@nanosaurus ~]$ ecryptfs-&amp;lt;tab&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[dex@nanosaurus ~]$ ecryptfs-&amp;amp;lt;tab&amp;amp;gt;
 ecryptfs-add-passphrase
 ecryptfs-find
 ecryptfs-insert-wrapped-passphrase-into-keyring
@@ -266,7 +516,7 @@ myetherwallet  btc diary emberassing_hobbies
 &lt;p&gt;&lt;code&gt;~/Private&lt;/code&gt; is a pretty terrible name. It's Camelcase and I'd very much prefer it to be hidden.&lt;br&gt;
 We can change it to &lt;code&gt;~/.private&lt;/code&gt; very easily though:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mv ~/Private ~/.private
-echo /home/dex/.private &amp;gt; ~/.ecryptfs/Private.mnt
+echo /home/dex/.private &amp;amp;gt; ~/.ecryptfs/Private.mnt
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -579,9 +829,9 @@ There's an official &lt;a href="https://reddit.com/r/scrapy"&gt;scrapy subreddit
 &lt;p&gt;Once you have these bits you can easily formulate your question and I'm sure someone will help you out!&lt;/p&gt;
 &lt;h2 id="log"&gt;Producing Logs&lt;/h2&gt;
 &lt;p&gt;To save a log of your spider run you can use UNIX output redirection syntax:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider 2&amp;gt;&amp;amp;1 &amp;gt; mylog.log
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider 2&amp;amp;gt;&amp;amp;amp;1 &amp;amp;gt; mylog.log
 # or
-scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
+scrapy crawl myspider &amp;amp;amp;&amp;amp;gt; mylog.log
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -710,38 +960,38 @@ Since json is part of javascript, this means we can use this tool to parse it:&l
 
 
 &lt;p&gt;This is the result:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;program&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;var&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;one&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
-          &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;two&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
-              &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;four&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-                  &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
-                    &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-                      &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;four1_name&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-                    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-                  &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-              &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
-              &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;four&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-                  &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
-                    &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-                      &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;four2_name&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-                    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-                  &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
-                &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-              &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
-            &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
-          &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
-      &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
-  &lt;span class="nt"&gt;&amp;lt;/var&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;/program&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;lt;program&amp;amp;gt;
+  &amp;amp;lt;var name=&amp;quot;foo&amp;quot;&amp;amp;gt;
+    &amp;amp;lt;object&amp;amp;gt;
+      &amp;amp;lt;property name=&amp;quot;one&amp;quot;&amp;amp;gt;
+        &amp;amp;lt;object&amp;amp;gt;
+          &amp;amp;lt;property name=&amp;quot;two&amp;quot;&amp;amp;gt;
+            &amp;amp;lt;array&amp;amp;gt;
+              &amp;amp;lt;object&amp;amp;gt;
+                &amp;amp;lt;property name=&amp;quot;four&amp;quot;&amp;amp;gt;
+                  &amp;amp;lt;object&amp;amp;gt;
+                    &amp;amp;lt;property name=&amp;quot;name&amp;quot;&amp;amp;gt;
+                      &amp;amp;lt;string&amp;amp;gt;four1_name&amp;amp;lt;/string&amp;amp;gt;
+                    &amp;amp;lt;/property&amp;amp;gt;
+                  &amp;amp;lt;/object&amp;amp;gt;
+                &amp;amp;lt;/property&amp;amp;gt;
+              &amp;amp;lt;/object&amp;amp;gt;
+              &amp;amp;lt;object&amp;amp;gt;
+                &amp;amp;lt;property name=&amp;quot;four&amp;quot;&amp;amp;gt;
+                  &amp;amp;lt;object&amp;amp;gt;
+                    &amp;amp;lt;property name=&amp;quot;name&amp;quot;&amp;amp;gt;
+                      &amp;amp;lt;string&amp;amp;gt;four2_name&amp;amp;lt;/string&amp;amp;gt;
+                    &amp;amp;lt;/property&amp;amp;gt;
+                  &amp;amp;lt;/object&amp;amp;gt;
+                &amp;amp;lt;/property&amp;amp;gt;
+              &amp;amp;lt;/object&amp;amp;gt;
+            &amp;amp;lt;/array&amp;amp;gt;
+          &amp;amp;lt;/property&amp;amp;gt;
+        &amp;amp;lt;/object&amp;amp;gt;
+      &amp;amp;lt;/property&amp;amp;gt;
+    &amp;amp;lt;/object&amp;amp;gt;
+  &amp;amp;lt;/var&amp;amp;gt;
+&amp;amp;lt;/program&amp;amp;gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -756,22 +1006,22 @@ For sake of being brief I'll show off &lt;code&gt;dicttoxml&lt;/code&gt; + &lt;c
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dicttoxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;
 &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;attr_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="c1"&gt;# the tree we get:&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;four1_name&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;four2_name&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four1_name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four2_name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

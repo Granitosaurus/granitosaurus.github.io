@@ -111,7 +111,7 @@ etc. etc.
 
 
 <p>Once you have it installed you'll find your user-space path populated with a bunch of ecryptfs utils, just type in your terminal <code>ecryptfs-</code> and press tab to see the goodies:</p>
-<div class="highlight"><pre><span></span>[dex@nanosaurus ~]$ ecryptfs-&lt;tab&gt;
+<div class="highlight"><pre><span></span>[dex@nanosaurus ~]$ ecryptfs-&amp;lt;tab&amp;gt;
 ecryptfs-add-passphrase
 ecryptfs-find
 ecryptfs-insert-wrapped-passphrase-into-keyring
@@ -149,7 +149,7 @@ myetherwallet  btc diary emberassing_hobbies
 <p><code>~/Private</code> is a pretty terrible name. It's Camelcase and I'd very much prefer it to be hidden.<br>
 We can change it to <code>~/.private</code> very easily though:</p>
 <div class="highlight"><pre><span></span>mv ~/Private ~/.private
-echo /home/dex/.private &gt; ~/.ecryptfs/Private.mnt
+echo /home/dex/.private &amp;gt; ~/.ecryptfs/Private.mnt
 </pre></div>
 
 

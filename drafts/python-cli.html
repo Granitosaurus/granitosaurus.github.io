@@ -274,7 +274,7 @@ that we either update the data or not before we make our calculations.</p>
         <span class="nx">filename</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="nx">f</span><span class="s1">&#39;{currency}.json&#39;</span>
         <span class="k">if</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="o">:</span>
             <span class="nx">data</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">filename</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">datetime</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">strptime</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)).</span><span class="nx">days</span> <span class="o">&lt;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span><span class="p">[</span><span class="s1">&#39;update_days&#39;</span><span class="p">]</span><span class="o">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">datetime</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">strptime</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)).</span><span class="nx">days</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span><span class="p">[</span><span class="s1">&#39;update_days&#39;</span><span class="p">]</span><span class="o">:</span>
                 <span class="k">return</span> <span class="nx">data</span>
         <span class="err">#</span> <span class="mi">6</span>
         <span class="k">try</span><span class="o">:</span>
@@ -340,7 +340,7 @@ def cli(from_what, to_what, verbose, basedir):
     &quot;&quot;&quot;
     #3
     Simple currency converter.
-    e.g. &quot;curr 100usd eur&quot; -&gt; 85.164
+    e.g. &quot;curr 100usd eur&quot; -&amp;gt; 85.164
     &quot;&quot;&quot;
     #4
     if not verbose:
@@ -380,7 +380,7 @@ See this github file for easy access:</p>
 <div class="highlight"><pre><span></span>$ python curr.py --help
 Usage: curr <span class="o">[</span>OPTIONS<span class="o">]</span> FROM_WHAT TO_WHAT
 
-  Simple currency converter. e.g. <span class="s2">&quot;curr 100usd eur&quot;</span> -&gt; <span class="m">85</span>.164
+  Simple currency converter. e.g. <span class="s2">&quot;curr 100usd eur&quot;</span> -<span class="p">&amp;</span>gt<span class="p">;</span> <span class="m">85</span>.164
 
 Options:
   -v, --verbose  show info messages

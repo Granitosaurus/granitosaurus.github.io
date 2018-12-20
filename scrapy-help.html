@@ -113,9 +113,9 @@ There's an official <a href="https://reddit.com/r/scrapy">scrapy subreddit</a>, 
 <p>Once you have these bits you can easily formulate your question and I'm sure someone will help you out!</p>
 <h2 id="log">Producing Logs</h2>
 <p>To save a log of your spider run you can use UNIX output redirection syntax:</p>
-<div class="highlight"><pre><span></span>scrapy crawl myspider 2&gt;&amp;1 &gt; mylog.log
+<div class="highlight"><pre><span></span>scrapy crawl myspider 2&amp;gt;&amp;amp;1 &amp;gt; mylog.log
 # or
-scrapy crawl myspider &amp;&gt; mylog.log
+scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
 </pre></div>
 
 
