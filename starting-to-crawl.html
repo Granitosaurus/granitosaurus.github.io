@@ -106,14 +106,20 @@ A program that connects to web pages and downloads their contents. </p>
 <p>There can be few more steps in between but the core logic of a web crawler looks like this:</p>
 <p><img alt="basic crawler" src="https://granitosaurus.github.io/images/crawling.png"></p>
 <p><em>worth noting that websites can return all sorts of content not only html. Some return json, some just text and some code like javascript.</em></p>
-<p>In very simplest python code for a crawler would look like this:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.python.org/jobs/&#39;</span>
+<p>In very simplest python pseudo code for a crawler would look like this:</p>
+<div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.python.org/jobs/&#39;</span>
+
+<span class="n">job_urls</span> <span class="o">=</span> <span class="n">find_job_urls</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">consume</span><span class="p">(</span><span class="n">job_urls</span><span class="p">)</span>
+<span class="n">processed_data</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.json&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 
 
-<p>This simple crawler skeleton would download blog posts from python.org and put them in a database! </p>
-<p>You can find full crawler that actually downloads the articles to a file see here #TODO</p>
+<p>You can find full crawler at the end of blog post.</p>
 <h1>Crawling</h1>
 <p>There are two ways to crawl http urls: </p>
 <ul>
