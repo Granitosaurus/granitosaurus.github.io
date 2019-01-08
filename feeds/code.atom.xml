@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2018-12-10T00:00:00+01:00</updated><entry><title>Diving Into Web-Crawling</title><link href="https://granitosaurus.github.io/starting-to-crawl.html" rel="alternate"></link><published>2018-12-10T00:00:00+01:00</published><updated>2018-12-10T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-12-10:/starting-to-crawl.html</id><summary type="html">&lt;p&gt;Where to start with the art of hoarding online data?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on world wide web!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="https://granitosaurus.github.io/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2018-12-10T00:00:00+01:00</updated><entry><title>Diving Into Web-Crawling</title><link href="https://granitosaurus.github.io/starting-to-crawl.html" rel="alternate"></link><published>2018-12-10T00:00:00+01:00</published><updated>2018-12-10T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-12-10:/starting-to-crawl.html</id><summary type="html">&lt;p&gt;Where to start with the art of hoarding online data?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on the world wide web!&lt;/p&gt;
 &lt;p&gt;In this introduction I'll cover the core ideas behind web-crawling and web-crawling with python.&lt;/p&gt;
 &lt;h1&gt;What's Web Crawling?&lt;/h1&gt;
 &lt;p&gt;First it's important to wrap your head around the stages of web crawling program.  &lt;/p&gt;
@@ -37,7 +37,7 @@ A program that connects to web pages and downloads their contents. &lt;/p&gt;
 
 &lt;span class="n"&gt;job_urls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;find_job_urls&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;consume&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;job_urls&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;processed_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
 &lt;span class="k"&gt;with&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;output.json&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;w&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -74,7 +74,7 @@ Alternatively a lot of website have request limits that are high enough that mat
 &lt;p&gt;So it terms of speed it vastly outperforms synchronous crawlers as they don't have to wait!&lt;/p&gt;
 &lt;p&gt;&lt;img alt="basic crawler" src="https://granitosaurus.github.io/images/sync_v_async.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;"checking" square here is very simplified representation of async mechanism&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;For asynchronous crawling there are a lot of choices and no clear defacto standards. I recommend &lt;a href="https://github.com/ross/requests-futures"&gt;requests-futures&lt;/a&gt; for caroutine based approach and &lt;a href="https://twistedmatrix.com/"&gt;twisted&lt;/a&gt; for callback based approach.&lt;/p&gt;
+&lt;p&gt;For asynchronous crawling there are a lot of choices and no clear defacto standards. I recommend &lt;a href="https://github.com/ross/requests-futures"&gt;requests-futures&lt;/a&gt; for caroutine based approach and &lt;a href="https://twistedmatrix.com/"&gt;twisted&lt;/a&gt; or &lt;a href="https://github.com/twisted/treq"&gt;treq&lt;/a&gt; for callback based approach.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;caroutines or callbacks?&lt;/strong&gt; While caroutines are much more favored async principle these days callbacks have a special place in web-crawling community as the logic tends to match scraping patterns better&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -128,10 +128,10 @@ rubber chicken, 55.99
 &lt;p&gt;&lt;strong&gt;What data type to chose for output?&lt;/strong&gt; Anything works! However some data types are easier to work than others. &lt;code&gt;json&lt;/code&gt; is an easy to format to work with as it translates to python &lt;code&gt;dict&lt;/code&gt; seamlessly. &lt;code&gt;csv&lt;/code&gt; is great to work with as it's an easy format to write and parse. &lt;code&gt;json-lines&lt;/code&gt; format is best of both worlds. 
 &lt;strong&gt;What about data bases?&lt;/strong&gt; Document based databases are often preferred when web-scraping. Like &lt;a href="https://www.mongodb.com/"&gt;MongoDB&lt;/a&gt; and &lt;a href="http://couchdb.apache.org/"&gt;couchDB&lt;/a&gt;, they are great for storing json data, while relation databases are a bit less straight-forward but come with their own benefits (like &lt;a href="https://sqlite.org/index.html"&gt;sqlite&lt;/a&gt; and &lt;a href="https://mariadb.org/"&gt;mariadb&lt;/a&gt;)&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h3&gt;Parsing&lt;/h3&gt;
+&lt;h3&gt;Parsing html&lt;/h3&gt;
 &lt;p&gt;Since html is a structural data type we can parse it quite easily. For that there are &lt;a href="https://www.w3schools.com/xml/xpath_intro.asp"&gt;xpath&lt;/a&gt; and &lt;a href="https://www.w3schools.com/csSref/css_selectors.asp"&gt;css&lt;/a&gt; selectors and appropriate python libraries that implement this selector logic.&lt;/p&gt;
 &lt;p&gt;For python all you need is &lt;a href="https://github.com/scrapy/parsel"&gt;parsel&lt;/a&gt; which allows you to use both types of selectors to parse data. Alternatively you can also use a popular alternative &lt;a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/"&gt;beautifulsoup4&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Here's a &lt;code&gt;parsel&lt;/code&gt; example&lt;/p&gt;
+&lt;p&gt;Here's a &lt;code&gt;parsel&lt;/code&gt; example:  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;parsel&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;
 
 &lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
@@ -165,7 +165,7 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 &lt;h2&gt;Json&lt;/h2&gt;
 &lt;p&gt;This type of data is often used by website internally together with javascript. Sometimes you can crawl these pages directly either through public or internal websites API. &lt;/p&gt;
 &lt;p&gt;It's super convenient as you don't need to do any parsing yourself! &lt;/p&gt;
-&lt;h4&gt;Parsing&lt;/h4&gt;
+&lt;h4&gt;Parsing json&lt;/h4&gt;
 &lt;p&gt;Parsing json is super easy as it can be read as python dictionary right out of the box:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
 &lt;span class="n"&gt;json_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{&amp;quot;data&amp;quot;: [{&amp;quot;name&amp;quot;: &amp;quot;product&amp;quot;, &amp;quot;price&amp;quot;: 55.99}]}&amp;#39;&lt;/span&gt;
