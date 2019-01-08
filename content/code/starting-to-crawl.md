@@ -4,7 +4,7 @@ Tags: scrapy, python, web-crawling
 Slug: starting-to-crawl
 Summary: Where to start with the art of hoarding online data?
 
-Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on world wide web!
+Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on the world wide web!
 
 In this introduction I'll cover the core ideas behind web-crawling and web-crawling with python.
 
@@ -54,7 +54,7 @@ url = 'https://www.python.org/jobs/'
 
 job_urls = find_job_urls(url)
 data = consume(job_urls)
-processed_data = process(data)
+data = process(data)
 
 import json
 with open('output.json','w') as f:
@@ -102,7 +102,7 @@ So it terms of speed it vastly outperforms synchronous crawlers as they don't ha
 
 _"checking" square here is very simplified representation of async mechanism_
 
-For asynchronous crawling there are a lot of choices and no clear defacto standards. I recommend [requests-futures] for caroutine based approach and [twisted] for callback based approach.
+For asynchronous crawling there are a lot of choices and no clear defacto standards. I recommend [requests-futures] for caroutine based approach and [twisted] or [treq] for callback based approach.
 
 >__caroutines or callbacks?__ While caroutines are much more favored async principle these days callbacks have a special place in web-crawling community as the logic tends to match scraping patterns better
 
@@ -149,13 +149,13 @@ So usually this data is either converted to database tables or json, csv documen
 > __What data type to chose for output?__ Anything works! However some data types are easier to work than others. `json` is an easy to format to work with as it translates to python `dict` seamlessly. `csv` is great to work with as it's an easy format to write and parse. `json-lines` format is best of both worlds. 
 >__What about data bases?__ Document based databases are often preferred when web-scraping. Like [MongoDB] and [couchDB], they are great for storing json data, while relation databases are a bit less straight-forward but come with their own benefits (like [sqlite] and [mariadb])
 
-### Parsing 
+### Parsing html
 
 Since html is a structural data type we can parse it quite easily. For that there are [xpath] and [css] selectors and appropriate python libraries that implement this selector logic.
 
 For python all you need is [parsel] which allows you to use both types of selectors to parse data. Alternatively you can also use a popular alternative [beautifulsoup4]
 
-Here's a `parsel` example
+Here's a `parsel` example:  
 
 ```
 from parsel import Selector
@@ -195,7 +195,7 @@ This type of data is often used by website internally together with javascript. 
 
 It's super convenient as you don't need to do any parsing yourself! 
 
-#### Parsing
+#### Parsing json
 
 Parsing json is super easy as it can be read as python dictionary right out of the box:
 
@@ -325,6 +325,7 @@ I'll be covering these in later blogs
 [css]: https://www.w3schools.com/csSref/css_selectors.asp
 [requests-futures]: https://github.com/ross/requests-futures
 [twisted]: https://twistedmatrix.com/
+[treq]: https://github.com/twisted/treq
 [MongoDB]: https://www.mongodb.com/
 [couchDB]: http://couchdb.apache.org/
 [sqlite]: https://sqlite.org/index.html
