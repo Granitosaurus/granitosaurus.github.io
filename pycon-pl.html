@@ -4,12 +4,12 @@
         <title>Going to Pycon Poland!</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/self.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="Going to Pycon PL and checking out Warsaw!" />
@@ -31,35 +31,28 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/self.html" class="category">self</a></br>
+    <a href="https://granitosaurus.github.io/category/self.html" class="category">self</a>
+    &mdash; <span title="2016-10-10T00:00:00+02:00">Mon 10 October 2016</span></br>
     <a href="https://granitosaurus.github.io/tag/pycon" class="tag">pycon</a>
     <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
     <a href="https://granitosaurus.github.io/tag/poland" class="tag">poland</a>
     <a href="https://granitosaurus.github.io/tag/travel" class="tag">travel</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2016-10-10T00:00:00+02:00">Mon 10 October 2016</abbr>
 </div>        </div>
     </div>
 
@@ -72,24 +65,30 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
+        <!--insert table of contents between text and first header-->
         <p>Last year in Euro-Python 2015 someone from PyconPL had a lightning talk about PyconPL and since that moment I was sold. However I missed it by few days. This year however, I'm going and I'm taking a short vacation to explore Warsaw too!</p>
 <p>There's a bunch of info about the conference on the <a href="https://pl.pycon.org/2016/about_en.html">official page</a> and I don't want to be redundant, but the venue looks awesome and in overall the event looks pretty huge. Primarily I just wanted to share how much money do you need to attend something like this, how do you get there and lastly whether it is worth it.   </p>
-<h1>The route</h1>
-<p><img alt="Trip route from Tartu to Warsaw" src="https://granitosaurus.github.io/images/pycon-pl-travel.png">   </p>
-<p>So we're taking a bus from Tartu -&gt; Riga which is really the most tedious part of this trip. As you can see in the image the trip almost takes <strong>4 hours</strong> and the bus leaves early and often is packed full. We'll spend two hours in Riga's airport waiting for our flight, which I really don't mind since Riga's airport is really nice. And to finish it off we'll take a <strong>1.25</strong> hour long flight to Warsaw itself. I love flying, more accurately I like take offs and landings so having such short flights, where majority of the time will be the take off and the landing, sounds great!<br>
-In conclusion, we leave at 7:00 and we should be in Warsaw at 14:35 (warsaw's time). So this ends up being <strong>8.5 hours for 900km</strong> which really doesn't have a good hour/km ratio per se but considering the down-times and the location it really isn't bad at all! <br>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#the route" title="The route">The route</a></li><li><a class="toc-href" href="#the cost" title="The Cost">The Cost</a><ul><li><a class="toc-href" href="#conference" title="Conference">Conference</a></li><li><a class="toc-href" href="#travel" title="Travel">Travel</a></li></ul></li></ul></div>
+        </div>
+        <hr>
+        <h1 id="the route">The route</h1>
+<p><img alt="Trip route from Tartu to Warsaw" src="https://granitosaurus.github.io/images/pycon-pl-travel.png"/> </p>
+<p>So we're taking a bus from Tartu -&gt; Riga which is really the most tedious part of this trip. As you can see in the image the trip almost takes <strong>4 hours</strong> and the bus leaves early and often is packed full. We'll spend two hours in Riga's airport waiting for our flight, which I really don't mind since Riga's airport is really nice. And to finish it off we'll take a <strong>1.25</strong> hour long flight to Warsaw itself. I love flying, more accurately I like take offs and landings so having such short flights, where majority of the time will be the take off and the landing, sounds great!<br/>
+In conclusion, we leave at 7:00 and we should be in Warsaw at 14:35 (warsaw's time). So this ends up being <strong>8.5 hours for 900km</strong> which really doesn't have a good hour/km ratio per se but considering the down-times and the location it really isn't bad at all! <br/>
 Lastly the conference organizes a bus that will take us from Warsaw to Ossa village, which is few kilometers away from Warsaw and there the conference itself will be held. </p>
-<h1>The Cost</h1>
-<h3>Conference</h3>
-<p>Since I was a bit late to register and missed the early bird prices, I had to drop 211€ per person (422€ for two people) for 4 days of the conference, including food and accommodation. This might seem like a lot but compared to other conferences is really little. <br>
-I actually chatted with one of the hosts a bit and he mentioned that pretty much the whole fee goes to the hotel that is hosting the conference, after visiting the website I can understand that since it advertises the rooms at 90€ a night the conference fee seems to be very reasonable indeed!</p>
-<h3>Travel</h3>
-<p>The plane tickets from Riga to Warsaw and back ended up being 62€ per person(125€ for two) which is slightly above from the best I could find. At one point I got 42€ deals pop up but the payment didn't go through and the next day it popped to 62€. I know airline websites are really fishy when it comes to pricing, storing profiles and cookies to jack up the price whenever they see fit but I'm certain this was just an unfortunate coincidence.<br>
-The bus to Riga from Tartu ended up being 30€ per person (60€ in total) both ways.</p>
-<p>So <strong>total ended up being 303€ per person</strong> which is pretty cheap for a conference 906km away!<br>
+<h1 id="the cost">The Cost</h1>
+<h3 id="conference">Conference</h3>
+<p>Since I was a bit late to register and missed the early bird prices, I had to drop 211&euro; per person (422&euro; for two people) for 4 days of the conference, including food and accommodation. This might seem like a lot but compared to other conferences is really little. <br/>
+I actually chatted with one of the hosts a bit and he mentioned that pretty much the whole fee goes to the hotel that is hosting the conference, after visiting the website I can understand that since it advertises the rooms at 90&euro; a night the conference fee seems to be very reasonable indeed!</p>
+<h3 id="travel">Travel</h3>
+<p>The plane tickets from Riga to Warsaw and back ended up being 62&euro; per person(125&euro; for two) which is slightly above from the best I could find. At one point I got 42&euro; deals pop up but the payment didn't go through and the next day it popped to 62&euro;. I know airline websites are really fishy when it comes to pricing, storing profiles and cookies to jack up the price whenever they see fit but I'm certain this was just an unfortunate coincidence.<br/>
+The bus to Riga from Tartu ended up being 30&euro; per person (60&euro; in total) both ways.</p>
+<p>So <strong>total ended up being 303&euro; per person</strong> which is pretty cheap for a conference 906km away!<br/>
 This doesn't include any traveling expenses which I'll be sure to calculated and include in aftermath blogpost!</p>
 <p>The last python conference I went to was EuroPython 2015 and it was super fun, mostly because I got to meet a bunch of coworkers from Scrapinghub, I hope PyconPL can live up to the hype and I'll be sure to post about it either way.</p>
     </div>
@@ -126,8 +125,6 @@ This doesn't include any traveling expenses which I'll be sure to calculated and
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

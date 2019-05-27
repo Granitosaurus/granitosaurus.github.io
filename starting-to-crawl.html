@@ -4,12 +4,12 @@
         <title>Diving Into Web-Crawling</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="Where to start with the art of hoarding online data?" />
@@ -30,34 +30,27 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2018-12-10T00:00:00+01:00">Mon 10 December 2018</span></br>
     <a href="https://granitosaurus.github.io/tag/scrapy" class="tag">scrapy</a>
     <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
     <a href="https://granitosaurus.github.io/tag/web-crawling" class="tag">web-crawling</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2018-12-10T00:00:00+01:00">Mon 10 December 2018</abbr>
 </div>        </div>
     </div>
 
@@ -70,12 +63,18 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
+        <!--insert table of contents between text and first header-->
         <p>Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on the world wide web!</p>
 <p>In this introduction I'll cover the core ideas behind web-crawling and web-crawling with python.</p>
-<h1>What's Web Crawling?</h1>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" crawling?'="" href="#what" s="" title="What" web="">What's Web Crawling?</a></li><li><a class="toc-href" href="#stages" title="Stages">Stages</a></li><li><a class="toc-href" href="#crawling" title="Crawling">Crawling</a><ul><li><a class="toc-href" href="#synchronous" title="Synchronous">Synchronous</a></li><li><a class="toc-href" href="#asynchronous" title="Asynchronous">Asynchronous</a></li></ul></li><li><a class="toc-href" href="#parsing_1" title="Parsing">Parsing</a><ul><li><a class="toc-href" href="#html" title="Html">Html</a><ul><li><a class="toc-href" href="#parsing html" title="Parsing html">Parsing html</a></li></ul></li><li><a class="toc-href" href="#json_1" title="Json">Json</a><ul><li><a class="toc-href" href="#parsing json" title="Parsing json">Parsing json</a></li></ul></li></ul></li><li><a class="toc-href" href="#synchronous example_2" title="Synchronous Example">Synchronous Example</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
+        </div>
+        <hr>
+        <h1 id="what's web crawling?">What's Web Crawling?</h1>
 <p>First it's important to wrap your head around the stages of web crawling program.  </p>
 <blockquote>
 <p><strong>crawler</strong> or <strong>spider</strong>
@@ -92,8 +91,8 @@ A program that connects to web pages and downloads their contents. </p>
 <li>Find product pages</li>
 <li>Find and download product data such as price, title, description</li>
 </ol>
-<h1>Stages</h1>
-<p><img alt="basic crawl loop" src="https://granitosaurus.github.io/images/crawl-loop.png"></p>
+<h1 id="stages">Stages</h1>
+<p><img cool="" is="" src="/images/crawl-loop.png" title="this" very=""/><figcaption>this is very cool</figcaption></p>
 <p>A usual web-crawler program will be made from 4 core stages:</p>
 <ol>
 <li>Discovery - find product urls to crawl</li>
@@ -104,23 +103,21 @@ A program that connects to web pages and downloads their contents. </p>
 </ol>
 <p><em>note: these stages don't have to have to happen in strict order</em></p>
 <p>There can be few more steps in between but the core logic of a web crawler looks like this:</p>
-<p><img alt="basic crawler" src="https://granitosaurus.github.io/images/crawling.png"></p>
+<p><img alt="basic crawler" src="https://granitosaurus.github.io/images/crawling.png"/></p>
 <p><em>worth noting that websites can return all sorts of content not only html. Some return json, some just text and some code like javascript.</em></p>
 <p>In very simplest python pseudo code for a crawler would look like this:</p>
-<div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.python.org/jobs/&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://www.python.org/jobs/'</span>
 
 <span class="n">job_urls</span> <span class="o">=</span> <span class="n">find_job_urls</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">consume</span><span class="p">(</span><span class="n">job_urls</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">json</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.json&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'output.json'</span><span class="p">,</span><span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
-
-
 <p>You can find full crawler at the end of blog post.</p>
-<h1>Crawling</h1>
+<h1 id="crawling">Crawling</h1>
 <p>There are two ways to crawl http urls: </p>
 <ul>
 <li>Synchronous - slow and simple </li>
@@ -129,32 +126,32 @@ A program that connects to web pages and downloads their contents. </p>
 <blockquote>
 <p><strong>Which one to use?</strong> As beginner or if you don't need speed stick with synchronous approach. The programming is much more simple and easier to debug. However asynchronous knowledge is very valuable and learning it is a great idea</p>
 </blockquote>
-<h2>Synchronous</h2>
+<h2 id="synchronous">Synchronous</h2>
 <p>This is very straight-forward approach. Everything goes in your program's order: </p>
-<p><img alt="basic crawl loop" src="https://granitosaurus.github.io/images/crawl-loop.png"></p>
+<p><img alt="basic crawl loop" src="https://granitosaurus.github.io/images/crawl-loop.png"/></p>
 <blockquote>
 <p>for every url: download page -&gt; parse it -&gt; store it -&gt; repeat</p>
 </blockquote>
 <p>For synchronous crawling most popular library is <a href="http://docs.python-requests.org/en/master/">requests</a></p>
 <p>However while this approach is simple and easy to maintain it ends up being very slow as every time program connects to a webpage to download data program need to wait for it to response - in the mean time program could be doing something else: like download <em>another</em> webpage, parse the data or store it.</p>
 <blockquote>
-<p><strong>when is synchronous approach good enough?</strong> Often a lot of applications don't need to retrieve a lot of data (e.g. football match score crawler) then sync code is more than enough. <br>
+<p><strong>when is synchronous approach good enough?</strong> Often a lot of applications don't need to retrieve a lot of data (e.g. football match score crawler) then sync code is more than enough. <br/>
 Alternatively a lot of website have request limits that are high enough that match synchronous code slowness. </p>
 </blockquote>
-<h2>Asynchronous</h2>
+<h2 id="asynchronous">Asynchronous</h2>
 <p>Async programming is a bit more complex to wrap your head around but to put it shortly it allows the code to be executed in pararel.  </p>
 <p>Your program can schedule 100 request to a website <em>at once</em> and handle response as they come in or do something else!  </p>
-<p><img alt="async crawl loop" src="https://granitosaurus.github.io/images/crawl-loop-async.png"></p>
+<p><img alt="async crawl loop" src="https://granitosaurus.github.io/images/crawl-loop-async.png"/></p>
 <p>So it terms of speed it vastly outperforms synchronous crawlers as they don't have to wait!</p>
-<p><img alt="basic crawler" src="https://granitosaurus.github.io/images/sync_v_async.png"></p>
+<p><img alt="basic crawler" src="https://granitosaurus.github.io/images/sync_v_async.png"/></p>
 <p><em>"checking" square here is very simplified representation of async mechanism</em></p>
 <p>For asynchronous crawling there are a lot of choices and no clear defacto standards. I recommend <a href="https://github.com/ross/requests-futures">requests-futures</a> for caroutine based approach and <a href="https://twistedmatrix.com/">twisted</a> or <a href="https://github.com/twisted/treq">treq</a> for callback based approach.</p>
 <blockquote>
 <p><strong>caroutines or callbacks?</strong> While caroutines are much more favored async principle these days callbacks have a special place in web-crawling community as the logic tends to match scraping patterns better</p>
 </blockquote>
-<h1>Parsing</h1>
+<h1 id="parsing_1">Parsing</h1>
 <p>There are all sorts of data types on the web, but most likely you're either will be crawling <code>html</code> or <code>json</code>. </p>
-<h2>Html</h2>
+<h2 id="html">Html</h2>
 <p><code>Html</code> is a subset of xml tree structures. It's a great data type for representing structure, however it's not a great data type for representing data itself.</p>
 <div class="highlight"><pre><span></span>    <span class="nt">&lt;html&gt;</span>
         <span class="nt">&lt;body&gt;</span>
@@ -163,8 +160,6 @@ Alternatively a lot of website have request limits that are high enough that mat
         <span class="nt">&lt;/body&gt;</span>
     <span class="nt">&lt;/html&gt;</span>
 </pre></div>
-
-
 <p>So usually this data is either converted to database tables or json, csv documents:</p>
 <ul>
 <li>
@@ -172,20 +167,16 @@ Alternatively a lot of website have request limits that are high enough that mat
 <div class="highlight"><pre><span></span>name,price   
 rubber chicken, 55.99
 </pre></div>
-
-
 </li>
 <li>
 <p>json documents:</p>
 <div class="highlight"><pre><span></span>[
     {
-        &quot;name&quot;: &quot;rubber chicken&quot;,
-        &quot;price&quot;: 55.99
+        "name": "rubber chicken",
+        "price": 55.99
     } 
 ]
 </pre></div>
-
-
 </li>
 <li>
 <p>database tables</p>
@@ -194,41 +185,37 @@ rubber chicken, 55.99
 ------------------------------
 |  rubber chicken  |  55.99  |
 </pre></div>
-
-
 </li>
 </ul>
 <blockquote>
 <p><strong>What data type to chose for output?</strong> Anything works! However some data types are easier to work than others. <code>json</code> is an easy to format to work with as it translates to python <code>dict</code> seamlessly. <code>csv</code> is great to work with as it's an easy format to write and parse. <code>json-lines</code> format is best of both worlds. 
 <strong>What about data bases?</strong> Document based databases are often preferred when web-scraping. Like <a href="https://www.mongodb.com/">MongoDB</a> and <a href="http://couchdb.apache.org/">couchDB</a>, they are great for storing json data, while relation databases are a bit less straight-forward but come with their own benefits (like <a href="https://sqlite.org/index.html">sqlite</a> and <a href="https://mariadb.org/">mariadb</a>)</p>
 </blockquote>
-<h3>Parsing html</h3>
+<h3 id="parsing html">Parsing html</h3>
 <p>Since html is a structural data type we can parse it quite easily. For that there are <a href="https://www.w3schools.com/xml/xpath_intro.asp">xpath</a> and <a href="https://www.w3schools.com/csSref/css_selectors.asp">css</a> selectors and appropriate python libraries that implement this selector logic.</p>
 <p>For python all you need is <a href="https://github.com/scrapy/parsel">parsel</a> which allows you to use both types of selectors to parse data. Alternatively you can also use a popular alternative <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">beautifulsoup4</a></p>
 <p>Here's a <code>parsel</code> example:  </p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">parsel</span> <span class="kn">import</span> <span class="n">Selector</span>
 
-<span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="n">html</span> <span class="o">=</span> <span class="s2">"""</span>
 <span class="s2">    &lt;html&gt;</span>
 <span class="s2">        &lt;body&gt;</span>
 <span class="s2">            &lt;div id=name&gt; rubber chicken &lt;/div&gt;</span>
 <span class="s2">            &lt;div id=price&gt; 55.99 &lt;/div&gt;</span>
 <span class="s2">        &lt;/body&gt;</span>
 <span class="s2">    &lt;/html&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">"""</span>
 <span class="n">selector</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">html</span><span class="p">)</span>
 
 <span class="c1"># css selector</span>
-<span class="n">name</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;#name::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">'#name::text'</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
 
 <span class="c1"># xpath selector</span>
-<span class="n">price</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//div[@id=&quot;price&quot;]/text()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+<span class="n">price</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">'//div[@id="price"]/text()'</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
 
 <span class="k">print</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="c1"># &#39; 55.99 &#39;,&#39; rubber chicken &#39;</span>
+<span class="c1"># ' 55.99 ',' rubber chicken '</span>
 </pre></div>
-
-
 <p>Surprisingly simple!</p>
 <blockquote>
 <p><strong>Which one, css or xpath?</strong>
@@ -236,27 +223,23 @@ Generally css selectors are much easier and more bautiful but xpath selectors ar
 <p><strong>Parsing with regex?</strong>
 Generally parsing html with regex is a bad idea as regex patterns will quickly become unreliable. Html is structure data type - embrace it!</p>
 </blockquote>
-<h2>Json</h2>
+<h2 id="json_1">Json</h2>
 <p>This type of data is often used by website internally together with javascript. Sometimes you can crawl these pages directly either through public or internal websites API. </p>
 <p>It's super convenient as you don't need to do any parsing yourself! </p>
-<h4>Parsing json</h4>
+<h4 id="parsing json">Parsing json</h4>
 <p>Parsing json is super easy as it can be read as python dictionary right out of the box:</p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;data&quot;: [{&quot;name&quot;: &quot;product&quot;, &quot;price&quot;: 55.99}]}&#39;</span>
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">'{"data": [{"name": "product", "price": 55.99}]}'</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'data'</span><span class="p">][</span><span class="s1">'price'</span><span class="p">])</span>
 <span class="c1"># 55.99</span>
 </pre></div>
-
-
 <p><em>These days more and more web pages become dependant on javascript thus often providing json data</em></p>
-<h1>Synchronous Example</h1>
+<h1 id="synchronous example_2">Synchronous Example</h1>
 <p>Lets write a simple article crawler for python blog posts!</p>
 <p>for this we'll use <a href="https://github.com/scrapy/parsel">parsel</a> and <a href="http://docs.python-requests.org/en/master/">requests</a> packages. You can get them via pip:</p>
 <div class="highlight"><pre><span></span>pip install parsel requests
 </pre></div>
-
-
 <p>Our spider logic would follow:</p>
 <ol>
 <li>Go to page with all links to blog posts</li>
@@ -274,70 +257,68 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 
 
 <span class="k">def</span> <span class="nf">discover</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;Discover job urls in jobs listing page&quot;&quot;&quot;</span>
-    <span class="n">jobs_url</span> <span class="o">=</span> <span class="s1">&#39;https://www.python.org/jobs/&#39;</span>
+    <span class="sd">"""Discover job urls in jobs listing page"""</span>
+    <span class="n">jobs_url</span> <span class="o">=</span> <span class="s1">'https://www.python.org/jobs/'</span>
 
     <span class="n">jobs_html</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">jobs_url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
     <span class="n">jobs_sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">jobs_html</span><span class="p">)</span>
 
-    <span class="n">urls</span> <span class="o">=</span> <span class="n">jobs_sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.listing-company-name a::attr(href)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="n">jobs_sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">'.listing-company-name a::attr(href)'</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">urljoin</span><span class="p">(</span><span class="n">jobs_url</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">html</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Parse job html&quot;&quot;&quot;</span>
+    <span class="sd">"""Parse job html"""</span>
     <span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">html</span><span class="p">)</span>
 
-    <span class="n">company</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.listing-location a::text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
-    <span class="n">email</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">&#39;.reference.external::attr(href)&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
-    <span class="n">title</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;//h2[contains(text(),&#39;Job Title&#39;)]&quot;</span>
-                      <span class="s2">&quot;/following-sibling::text()&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">description</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">&quot;//h2[contains(text(),&#39;Job Title&#39;)]&quot;</span>
-                            <span class="s2">&quot;/following-sibling::p/text()&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">company</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">'.listing-location a::text'</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">css</span><span class="p">(</span><span class="s1">'.reference.external::attr(href)'</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">()</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">"//h2[contains(text(),'Job Title')]"</span>
+                      <span class="s2">"/following-sibling::text()"</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">"//h2[contains(text(),'Job Title')]"</span>
+                            <span class="s2">"/following-sibling::p/text()"</span><span class="p">)</span><span class="o">.</span><span class="n">extract_first</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="s1">&#39;url&#39;</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
-        <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="n">company</span><span class="p">,</span>
-        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
-        <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">description</span><span class="p">,</span>
-        <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="n">unquote</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="s1">'url'</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span>
+        <span class="s1">'location'</span><span class="p">:</span> <span class="n">company</span><span class="p">,</span>
+        <span class="s1">'title'</span><span class="p">:</span> <span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
+        <span class="s1">'description'</span><span class="p">:</span> <span class="n">description</span><span class="p">,</span>
+        <span class="s1">'email'</span><span class="p">:</span> <span class="n">unquote</span><span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
     <span class="p">}</span>
 
 
 <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Here usually you&#39;d add extra processing steps</span>
+    <span class="sd">"""Here usually you'd add extra processing steps</span>
 <span class="sd">    like upload to database</span>
 <span class="sd">    or adding crawl time</span>
-<span class="sd">    or determening whether to drop results based on their values&quot;&quot;&quot;</span>
+<span class="sd">    or determening whether to drop results based on their values"""</span>
     <span class="k">return</span> <span class="n">data</span>
 
 
 <span class="k">def</span> <span class="nf">consume</span><span class="p">(</span><span class="n">urls</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Consume job urls by downloading them, parsing data and saving to disk&quot;&quot;&quot;</span>
+    <span class="sd">"""Consume job urls by downloading them, parsing data and saving to disk"""</span>
     <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;crawling job: {url}&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'crawling job: {url}'</span><span class="p">)</span>
         <span class="n">html</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
         <span class="k">yield</span> <span class="n">process</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">html</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">crawl</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">"""</span>
 <span class="sd">    Complete crawl loop:</span>
 <span class="sd">    1. Discover job listing urls</span>
 <span class="sd">    2. parse html for data</span>
 <span class="sd">    3. process data</span>
 <span class="sd">    4. store data</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">urls</span> <span class="o">=</span> <span class="n">discover</span><span class="p">()</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">consume</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;collected.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'collected.json'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">crawl</span><span class="p">()</span>
 </pre></div>
-
-
 <p>As you can see the crawler is split into 4 parts:</p>
 <ul>
 <li>Discovery - discover job urls in listing page</li>
@@ -348,10 +329,10 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 <blockquote>
 <p><strong>1</strong> - connection sessions establish connection to server and keeps it open for more requests, this speeds up crawling and puts less stress on the host.</p>
 </blockquote>
-<h1>Conclusion</h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>Data is often the core of application functionality and web-crawling is a great tool to easily take advantage of public data available online.  </p>
 <p>Crawling is a diverse, multi-step process with a lot of viable approaches but to start off sticking with syncrhonious <code>requests</code> and html parsers like <code>parsel</code> can be more than enough for most projects.</p>
-<p>For further reading it's important to take a look at <strong>web caching</strong> and <strong>rate limiting</strong>, <strong>proxies</strong> and <strong>failure and memory managing</strong>. Finally there's a whole other problem of <strong>scaling</strong> both crawling and data storage when it comes to millions of results. <br>
+<p>For further reading it's important to take a look at <strong>web caching</strong> and <strong>rate limiting</strong>, <strong>proxies</strong> and <strong>failure and memory managing</strong>. Finally there's a whole other problem of <strong>scaling</strong> both crawling and data storage when it comes to millions of results. <br/>
 I'll be covering these in later blogs </p>
     </div>
 
@@ -386,8 +367,6 @@ I'll be covering these in later blogs </p>
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

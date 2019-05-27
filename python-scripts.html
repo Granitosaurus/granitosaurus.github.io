@@ -4,12 +4,12 @@
         <title>Guide: setup for python scripting</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="Short guide on how to setup an environment for executable python scripts" />
@@ -30,34 +30,27 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2017-01-17T00:00:00+01:00">Tue 17 January 2017</span></br>
     <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
     <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
     <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2017-01-17T00:00:00+01:00">Tue 17 January 2017</abbr>
 </div>        </div>
     </div>
 
@@ -70,54 +63,49 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
-        <p>Few python scripts can make your daily routines significantly easier and enjoyable. In this post I'll cover how to set up your linux environment to have your scripts always easily accessible.<br>
+        <!--insert table of contents between text and first header-->
+        <p>Few python scripts can make your daily routines significantly easier and enjoyable. In this post I'll cover how to set up your linux environment to have your scripts always easily accessible.<br/>
 In other words, how to make this reality:</p>
 <div class="highlight"><pre><span></span>$ amicool 
 Yes you are, keep it up!
 </pre></div>
-
-
 <p>To start off we need to create a directory where your scripts be located. A de facto standard is <code>~/bin</code>:</p>
 <div class="highlight"><pre><span></span>$ mkdir bin
 </pre></div>
 
-
-<h2>Handling the PATH</h2>
-<p>Now depending on your system and the shell you use, this directory might already be created or might not be in your <code>PATH</code> environment at all.<br>
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#handling the path" title="Handling the PATH">Handling the PATH</a></li><li><a class="toc-href" href="#creating the script" title="Creating the script">Creating the script</a></li><li><a class="toc-href" href="#making it executable" title="Making it executable">Making it executable</a></li></ul></div>
+        </div>
+        <hr>
+        <h2 id="handling the path">Handling the PATH</h2>
+<p>Now depending on your system and the shell you use, this directory might already be created or might not be in your <code>PATH</code> environment at all.<br/>
 <code>PATH</code> environment variable is a list of locations your shell will look for executable files - programs in other words. So if you're using good ol' bash simply adding this line to your <code>~/.bashrc</code> file will do:</p>
-<div class="highlight"><pre><span></span>export PATH=&quot;~/bin:$PATH&quot;
+<div class="highlight"><pre><span></span>export PATH="~/bin:$PATH"
 </pre></div>
-
-
-<h2>Creating the script</h2>
+<h2 id="creating the script">Creating the script</h2>
 <p>Now we can create the script itself:</p>
 <div class="highlight"><pre><span></span>$ touch ~/bin/amicool 
 </pre></div>
-
-
-<p>Notice that we do not use <code>.py</code> extension, because linux takes executables in PATH literally and we don't want to type the extension whenever we call the script.<br>
+<p>Notice that we do not use <code>.py</code> extension, because linux takes executables in PATH literally and we don't want to type the extension whenever we call the script.<br/>
 We should populate this script with some actual code:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes you are, keep it up!&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Yes you are, keep it up!"</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
-
-<p>Notice that we start of the file with <code>#!/usr/bin/env python3</code>. This is called shebang, it's basically a header that tells your operating system what to use to execute the file, in this case we want to use <code>python3</code>.<br>
+<p>Notice that we start of the file with <code>#!/usr/bin/env python3</code>. This is called shebang, it's basically a header that tells your operating system what to use to execute the file, in this case we want to use <code>python3</code>.<br/>
 Afterwards we have the most simple of python code that just prints some text when call it directly, you see when you call a python module directly the magic variable <code>__name__</code> is being set to <code>'__main__'</code> so you can gate some code in your script behind it so it would only be executed if it's called directly as opposed by being imported by some other module.  </p>
-<h2>Making it executable</h2>
+<h2 id="making it executable">Making it executable</h2>
 <p>Lastly we want to mark our file "executable" so the operating system know it can actually call this file as a script or a program:</p>
 <div class="highlight"><pre><span></span>chmod +x ~/bin/amicool
 </pre></div>
-
-
 <p>And there we go! Your script is good to go and whenever you feel inadequate regarding your coolness just type:</p>
 <div class="highlight"><pre><span></span>$ amicool
 Yes you are, keep it up!
@@ -155,8 +143,6 @@ Yes you are, keep it up!
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

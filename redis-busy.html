@@ -4,12 +4,12 @@
         <title>How to fix redis busy</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="How to fix annoying redis busy error when working with redis lua scripts and multiple clients" />
@@ -31,35 +31,28 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2018-08-28T00:00:00+02:00">Tue 28 August 2018</span></br>
     <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
     <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
     <a href="https://granitosaurus.github.io/tag/redis" class="tag">redis</a>
     <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2018-08-28T00:00:00+02:00">Tue 28 August 2018</abbr>
 </div>        </div>
     </div>
 
@@ -72,18 +65,24 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
+        <!--insert table of contents between text and first header-->
         <p>Imagine scenario where you have a single redis server (which is single threaded) and you have multiple clients:</p>
-<p><img alt="redis structure" src="https://granitosaurus.github.io/images/redis-busy1.png"></p>
-<p>Eventhough redis is single-threaded it has no problem handling this setup since it's blazing fast and knows how to manage it's task queue.<br>
+<p><img alt="redis structure" src="https://granitosaurus.github.io/images/redis-busy1.png"/></p>
+<p>Eventhough redis is single-threaded it has no problem handling this setup since it's blazing fast and knows how to manage it's task queue.<br/>
 However if we ask redis server to perform a lua script evaluation it might take a while, which ends up with clients getting this nasty error:</p>
 <blockquote>
 <p>redis.exceptions.ResponseError: BUSY Redis is busy running a script. You can only call SCRIPT KILL or SHUTDOWN NOSAVE</p>
 </blockquote>
-<p><img alt="redis structure" src="https://granitosaurus.github.io/images/redis-busy2.png"></p>
-<h1>The Fix</h1>
+<p><img alt="redis structure" src="https://granitosaurus.github.io/images/redis-busy2.png"/></p>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#the fix" title="The Fix">The Fix</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
+        </div>
+        <hr>
+        <h1 id="the fix">The Fix</h1>
 <p>Thi fix this we need to apply a fix to the client side - make it wait and retry this <code>ResponseError</code>:</p>
 <p>To do this lets patch <code>Redis</code> class in python's <code>redis-py</code> client:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">redis</span> <span class="kn">import</span> <span class="n">Redis</span>
@@ -100,21 +99,19 @@ However if we ask redis server to perform a lua script evaluation it might take 
             <span class="k">try</span><span class="p">:</span>
                 <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">execute_command</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">ResponseError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s1">&#39;busy redis is busy&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">'busy redis is busy'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
                     <span class="k">raise</span> <span class="n">e</span>
                 <span class="k">if</span> <span class="n">wait_time</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># only print once</span>
-                    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Redis is busy, waiting up to 120 seconds...&#39;</span><span class="p">)</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s1">'Redis is busy, waiting up to 120 seconds...'</span><span class="p">)</span>
                 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
                 <span class="n">wait_time</span> <span class="o">+=</span> <span class="mi">2</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">execute_command</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span>
 </pre></div>
-
-
 <p>Since every command in this client goes through <code>execute_command</code> method we can override it to keep retrying <code>Redis BUSY</code> errors for a fixed amount of time.</p>
 <p>With this patch Redis client will retry the connection every 2 seconds if redis is busy evaluating LUA.</p>
-<p><img alt="redis final structure" src="https://granitosaurus.github.io/images/redis-busy3.png"></p>
-<h1>Conclusion</h1>
-<p>I've been trying to find some in-built solution for this and couldn't believe there's no official approach, neither with redis itself nor python's redis client. <br>
+<p><img alt="redis final structure" src="https://granitosaurus.github.io/images/redis-busy3.png"/></p>
+<h1 id="conclusion">Conclusion</h1>
+<p>I've been trying to find some in-built solution for this and couldn't believe there's no official approach, neither with redis itself nor python's redis client. <br/>
 The internet resources are very scarce around this issue too, so I figured I'd try and remedy this.</p>
     </div>
 
@@ -150,8 +147,6 @@ The internet resources are very scarce around this issue too, so I figured I'd t
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

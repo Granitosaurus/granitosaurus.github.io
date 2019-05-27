@@ -4,12 +4,12 @@
         <title>Using python to setup desktop notifications.</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="Notify-send is great, you should use it!" />
@@ -30,34 +30,27 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2016-11-03T10:20:00+01:00">Thu 03 November 2016</span></br>
     <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
     <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
     <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2016-11-03T10:20:00+01:00">Thu 03 November 2016</abbr>
 </div>        </div>
     </div>
 
@@ -70,53 +63,53 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
-        <p>Have you ever wondered how could you incorporate notification pop ups you might see thrown by your operating system in your application? Well worry no more, because this is the subject of this blog. <br>
+        <!--insert table of contents between text and first header-->
+        <p>Have you ever wondered how could you incorporate notification pop ups you might see thrown by your operating system in your application? Well worry no more, because this is the subject of this blog. <br/>
 Linux has some very powerful notification tools that if incorporated into your daily workflow can make things so much more convenient, easy and fun!  </p>
 <p>In this blog I'll tell you more about some inner workings of notifications and how to set up a small app in python that can send such notifications.</p>
-<h1>Notifications On Linux</h1>
-<p>Most gnu/linux systems use <code>libnotify</code> package for notifications - this package provides simple <code>notify-send</code> command line interface for sending notifications to your desktop environment or directly to your xorg display.<br>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#notifications on linux" title="Notifications On Linux">Notifications On Linux</a></li><li><a class="toc-href" href="#python and notifications." title="Python and Notifications.">Python and Notifications.</a></li><li><a class="toc-href" href="#simple notification app" title="Simple Notification App">Simple Notification App</a><ul><li><a class="toc-href" href="#bonus: setup notifications" title="Bonus: Setup Notifications">Bonus: Setup Notifications</a></li></ul></li></ul></div>
+        </div>
+        <hr>
+        <h1 id="notifications on linux">Notifications On Linux</h1>
+<p>Most gnu/linux systems use <code>libnotify</code> package for notifications - this package provides simple <code>notify-send</code> command line interface for sending notifications to your desktop environment or directly to your xorg display.<br/>
 To use it however, you need a running daemon program that would handle all of this; my personal recommendation is a great, robust daemon called <code>dunst</code>. You can find more info about this and alternatives to <code>dunst</code> in this arch-wiki <a href="https://wiki.archlinux.org/index.php/Desktop_notifications#Standalone">article</a>.</p>
 <p>See [Bonus: Set Up Notification] section of the blog for more info how to set it up.</p>
-<h1>Python and Notifications.</h1>
-<p>Python is a perfect language for making such notification applications!<br>
-By default python comes with everything we need to set this up, however to make things nicer lets use <code>click</code> command line interface package. It will greatly simplify the CLI part of the program. <br>
+<h1 id="python and notifications.">Python and Notifications.</h1>
+<p>Python is a perfect language for making such notification applications!<br/>
+By default python comes with everything we need to set this up, however to make things nicer lets use <code>click</code> command line interface package. It will greatly simplify the CLI part of the program. <br/>
 You can get it from pip via <code>pip install click</code> and skim through the <a href="http://click.pocoo.org/">tutorial here</a> to get a quick gist of what it does.</p>
 <p>To display a notification on your desktop using python all you need is to call <code>notify-send</code> via <code>subprocess</code> module like so:</p>
-<div class="highlight"><pre><span></span>subprocess.call([&#39;notify-send&#39;, &#39;title&#39;, &#39;body&#39;])
+<div class="highlight"><pre><span></span>subprocess.call(['notify-send', 'title', 'body'])
 </pre></div>
-
-
 <p>This will start a process in your terminal that will tell notification daemon to show a notification with supplied title and a body.</p>
-<h1>Simple Notification App</h1>
+<h1 id="simple notification app">Simple Notification App</h1>
 <p>Now that we know how to send notification, we can use this to make a real application.</p>
-<p>Combined that with a bit of web-scraping we can create cool little apps that will send this notification when something happens on the web.<br>
+<p>Combined that with a bit of web-scraping we can create cool little apps that will send this notification when something happens on the web.<br/>
 For this example let's do hackernews - notification when a new post containing some keywords is being posted.</p>
-<p>For this we'll need few python dependencies:<br>
-<code>click</code> - an easier way to generate command line interface.<br>
-<code>requests</code> - an easier way to get data via http.<br>
-<code>parsel</code> - a way to parse the html for the data we need.<br>
+<p>For this we'll need few python dependencies:<br/>
+<code>click</code> - an easier way to generate command line interface.<br/>
+<code>requests</code> - an easier way to get data via http.<br/>
+<code>parsel</code> - a way to parse the html for the data we need.<br/>
 All of these are somewhat optional and could be replaced with python's inbuilt tools but these packages are just plain better.</p>
-<h3>Bonus: Setup Notifications</h3>
-<p>By default majority of gnu/linux distributions already have everything covered for you! <code>libnotify</code> should be installed and some sort of notification daemon should be running in the background.<br>
+<h3 id="bonus: setup notifications">Bonus: Setup Notifications</h3>
+<p>By default majority of gnu/linux distributions already have everything covered for you! <code>libnotify</code> should be installed and some sort of notification daemon should be running in the background.<br/>
 Try writing this in your terminal:</p>
-<div class="highlight"><pre><span></span>notify-send &quot;test title&quot; &quot;test body&quot;
+<div class="highlight"><pre><span></span>notify-send "test title" "test body"
 </pre></div>
-
-
 <p>If you see something, then great - you're done with this step!  </p>
-<p>Otherwise you're probably missing a notification daemon. To fix that you need to install one. I recommend and will use <a href="http://knopwob.org/dunst/index.html">dunst</a> in this example.<br>
+<p>Otherwise you're probably missing a notification daemon. To fix that you need to install one. I recommend and will use <a href="http://knopwob.org/dunst/index.html">dunst</a> in this example.<br/>
 You can simply pull it from you package manager, e.g.:</p>
 <div class="highlight"><pre><span></span>sudo pacman -S dunst  # for arch
 sudo apt install dunst  # for ubuntu
 </pre></div>
-
-
 <p>Usually <code>dunst</code> autostarts on majority of system on boot up as DBus autostarts it by default, but some systems might require explicit autostart, so in your init file just call <code>dunst</code>, e.g. for i3wm you'd add <code>exec dunst</code>.  </p>
-<p><img alt="dunst solarized" src="{filename}/images/dunst.png">
-You can also customize your dunst quite extensively as well. All you need to do is pass the location of the config file as <code>--conf</code> parameter, i.e. <code>dunst --config ~/.dunstrc</code>.<br>
+<p><img alt="dunst solarized" src="https://granitosaurus.github.io/images/dunst.png"/>
+You can also customize your dunst quite extensively as well. All you need to do is pass the location of the config file as <code>--conf</code> parameter, i.e. <code>dunst --config ~/.dunstrc</code>.<br/>
 I'm running solarized look and you can find my config <a href="https://github.com/Granitosaurus/.dotfiles/.dunstrc">on my dotfiles repo here</a></p>
 <p>My favorite thing about this particular notification daemon is the fact it's keyboard driven which means you can do cool stuff like:</p>
 <div class="highlight"><pre><span></span># Close notifactions
@@ -128,8 +121,6 @@ history = ctrl+grave
 # e.g. if notification has an url - open it in default browser
 context = ctrl+shift+period
 </pre></div>
-
-
 <p>It's really lovely, convenient, customizable and robust, so give it a shot.</p>
     </div>
 
@@ -164,8 +155,6 @@ context = ctrl+shift+period
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

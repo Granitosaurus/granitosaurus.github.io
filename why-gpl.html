@@ -4,12 +4,12 @@
         <title>Why I use GPL license</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="Why I use GNU&#39;s General Public License and why I think it&#39;s a superior free or even open software license and anyone should consider it for your project." />
@@ -29,33 +29,26 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2017-11-18T00:00:00+01:00">Sat 18 November 2017</span></br>
     <a href="https://granitosaurus.github.io/tag/floss" class="tag">floss</a>
     <a href="https://granitosaurus.github.io/tag/legal" class="tag">legal</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2017-11-18T00:00:00+01:00">Sat 18 November 2017</abbr>
 </div>        </div>
     </div>
 
@@ -68,14 +61,20 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
+        <!--insert table of contents between text and first header-->
         <p>This issue has been discussed to death and I still find people blindly advocating MIT or even WTFPL licenses.
 I'm far from a lawyer but I feel that there are few very generic and simple details about software licensing people
 who lead open software projects should understand.</p>
-<h2>Protect Yourself</h2>
-<p>First thing first - the license should protect the project contributors and creators. In legal terms it's called no-warranty-provided and exlucsion of it can be dangerous.<br>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#protect yourself" title="Protect Yourself">Protect Yourself</a></li><li><a class="toc-href" href="#philosophy and copyleft" title="Philosophy and Copyleft">Philosophy and Copyleft</a><ul><li><a class="toc-href" href="#benefits" title="Benefits">Benefits</a></li><li><a class="toc-href" href="#restrictions" title="Restrictions">Restrictions</a></li></ul></li><li><a class="toc-href" href="#closing statement_1" title="Closing Statement">Closing Statement</a></li></ul></div>
+        </div>
+        <hr>
+        <h2 id="protect yourself">Protect Yourself</h2>
+<p>First thing first - the license should protect the project contributors and creators. In legal terms it's called no-warranty-provided and exlucsion of it can be dangerous.<br/>
 Technology law sucks -
 it's outdated, overly complicated and widely regional where software itself has no borders.</p>
 <p>To illustrate tis danger imagine John made a library and used a license that does not fully protect the creators
@@ -91,18 +90,18 @@ authors of previous versions.</p>
 </blockquote>
 <p>While some occasional ones like WTFPL don't.</p>
 <p>To summarise, whatever license you use make sure to protect yourself - make sure you provide no warranty!</p>
-<h2>Philosophy and Copyleft</h2>
+<h2 id="philosophy and copyleft">Philosophy and Copyleft</h2>
 <p>It's important to consider license philosophy as well.</p>
 <blockquote>
 <p>Copyleft is a general method for making a program (or other work) free
-(in the sense of freedom, not “zero price”), and requiring all modified
+(in the sense of freedom, not &ldquo;zero price&rdquo;), and requiring all modified
 and extended versions of the program to be free as well.</p>
 </blockquote>
 <p>For example GPL is a copyleft license. It's a "viral" license, 
 which means any forks or modifications (that are published) have to also
 carry the same license. This protects the projects ecosystem and enables 
 a bunch of benefits for everyone involved.</p>
-<h3>Benefits</h3>
+<h3 id="benefits">Benefits</h3>
 <p>On the other hand it's also worth considering the <strong>benefits</strong> of viral copyleft nature of GPL type licenses:</p>
 <ul>
 <li>Patches - since the license is viral any changes or forks will be public and those changes can be applied
@@ -110,11 +109,11 @@ to the original project very easily. This huge reason why Linux kernel itself is
 <li>Freedom - it continues the message of free software. As project lead you have the
 power to propagate the message as any derivatives will have to carry your choice.</li>
 </ul>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <blockquote>
 <p>it's too restrictive and puts too many gates in education!  </p>
 </blockquote>
-<p>This quote comes up a lot when people argue against GPL, however this argument is false as <strong>GPL's restriction only applies to published software</strong><br>
+<p>This quote comes up a lot when people argue against GPL, however this argument is false as <strong>GPL's restriction only applies to published software</strong><br/>
 (<a href="https://www.gnu.org/licenses/gpl-faq.html#GPLRequireSourcePostedPublic">as per FAQ</a>).
 So in other words you can modify and learn from software all you want and use it (even for profit)
 as long as you don't publish it and try to turn it into a product of your own.</p>
@@ -123,13 +122,13 @@ The ecosystem should not expect anything from a business, it puts an unnecessary
 centralization to an unreliable source. At the end of the day a business is out there with
 one goal in mind - to make money - it's not a bad goal, but putting any expectations
 for a business to go out of their way and support the ecosystem is wildly unreasonable.</p>
-<h2>Closing Statement</h2>
+<h2 id="closing statement_1">Closing Statement</h2>
 <p>I'll continue using GPL license for all of my project where possible. It aligns with my ideology of software and
 I believe I can develop and maintain software where I don't need to rely on adoption.</p>
 <p>Additional read:</p>
-<p><a href="https://www.gnu.org/philosophy/pragmatic.html">Copyleft: Pragmactic Idealism</a><br>
-<a href="https://www.gnu.org/licenses/gpl-faq.html">GPL's FAQ</a><br>
-<a href="https://www.fsf.org/blogs/rms/selling-exceptions">It's possible to sell GPL exception</a>   </p>
+<p><a href="https://www.gnu.org/philosophy/pragmatic.html">Copyleft: Pragmactic Idealism</a><br/>
+<a href="https://www.gnu.org/licenses/gpl-faq.html">GPL's FAQ</a><br/>
+<a href="https://www.fsf.org/blogs/rms/selling-exceptions">It's possible to sell GPL exception</a> </p>
     </div>
 
     <footer>
@@ -162,8 +161,6 @@ I believe I can develop and maintain software where I don't need to rely on adop
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

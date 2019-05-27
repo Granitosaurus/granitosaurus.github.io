@@ -4,12 +4,12 @@
         <title>My Bin: center</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="&#34;My bin&#34; is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size." />
@@ -31,35 +31,28 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2017-01-18T00:00:00+01:00">Wed 18 January 2017</span></br>
     <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
     <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
     <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
     <a href="https://granitosaurus.github.io/tag/my-bin" class="tag">my-bin</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2017-01-18T00:00:00+01:00">Wed 18 January 2017</abbr>
 </div>        </div>
     </div>
 
@@ -72,12 +65,12 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
-        <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that is. <br>
-On how to setup your environment for easily accessible scripting see my <a href="/python-scripts.html">Guide: setup for python scripting</a>  </p>
-<p>Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!<br>
+        <!--insert table of contents between text and first header-->
+        <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that is. <br/>
+On how to setup your environment for easily accessible scripting see my <a href="/python-scripts.html">Guide: setup for python scripting</a> </p>
+<p>Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!<br/>
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running <a href="http://i3wm.org/">i3wm</a> - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.</p>
 <p>In other words it turns something like:</p>
 <div class="highlight"><pre><span></span>$ cat raven.md
@@ -85,24 +78,26 @@ Once upon a midnight dreary, <span class="k">while</span> I pondered, weak and w
 Over many a quaint and curious volume of forgotten lore,
 While I nodded, nearly napping, suddenly there came a tapping,
 As of some one gently rapping, rapping at my chamber door.
-<span class="s1">&#39;Tis some visitor,&#39;</span> I muttered, <span class="s1">&#39;tapping at my chamber door-</span>
-<span class="s1">Only this, and nothing more.&#39;</span>
+<span class="s1">'Tis some visitor,'</span> I muttered, <span class="s1">'tapping at my chamber door-</span>
+<span class="s1">Only this, and nothing more.'</span>
 </pre></div>
-
-
 <p>Into:</p>
 <div class="highlight"><pre><span></span>$ cat raven.md <span class="p">|</span> center
              Once upon a midnight dreary, <span class="k">while</span> I pondered, weak and weary,              
                 Over many a quaint and curious volume of forgotten lore,                 
              While I nodded, nearly napping, suddenly there came a tapping,              
                As of some one gently rapping, rapping at my chamber door.                
-              <span class="s1">&#39;Tis some visitor,&#39;</span> I muttered, <span class="s1">&#39;tapping at my chamber door-               </span>
-<span class="s1">                              Only this, and nothing more.&#39;</span>   
+              <span class="s1">'Tis some visitor,'</span> I muttered, <span class="s1">'tapping at my chamber door-               </span>
+<span class="s1">                              Only this, and nothing more.'</span>   
 </pre></div>
-
-
 <p>While taking your current terminal size into account, so no matter what you're doing or where you are the text will nice and pretty.   </p>
-<h3>Source</h3>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#source" title="Source">Source</a></li><li><a class="toc-href" href="#explanation" title="Explanation">Explanation</a></li><li><a class="toc-href" href="#improvements" title="Improvements">Improvements</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
+        </div>
+        <hr>
+        <h3 id="source">Source</h3>
 <p>Now lets take a look at the source code:</p>
 <div class="highlight"><pre><span></span>    <span class="c1">#!/usr/bin/env python3</span>
     <span class="kn">import</span> <span class="nn">click</span>
@@ -111,14 +106,14 @@ As of some one gently rapping, rapping at my chamber door.
 
 
     <span class="nd">@click.command</span><span class="p">()</span>
-    <span class="nd">@click.argument</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">))</span>
-    <span class="nd">@click.argument</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">))</span>
-    <span class="nd">@click.option</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--length&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;maximum line length [default:current terminal size]&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">INT</span><span class="p">)</span>
+    <span class="nd">@click.argument</span><span class="p">(</span><span class="s1">'input'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">'r'</span><span class="p">))</span>
+    <span class="nd">@click.argument</span><span class="p">(</span><span class="s1">'output'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">'w'</span><span class="p">))</span>
+    <span class="nd">@click.option</span><span class="p">(</span><span class="s1">'-l'</span><span class="p">,</span> <span class="s1">'--length'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">'maximum line length [default:current terminal size]'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">INT</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">cli</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Simple, pipeable tool for centering text&quot;&quot;&quot;</span>
+        <span class="sd">"""Simple, pipeable tool for centering text"""</span>
         <span class="n">columns</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1">#1</span>
         <span class="n">source</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="k">if</span> <span class="nb">input</span> <span class="k">else</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span>  <span class="c1">#2</span>
-        <span class="n">_format</span> <span class="o">=</span> <span class="s1">&#39;{{:^{}}}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">length</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">columns</span><span class="p">))</span>  <span class="c1">#3</span>
+        <span class="n">_format</span> <span class="o">=</span> <span class="s1">'{{:^{}}}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">length</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">columns</span><span class="p">))</span>  <span class="c1">#3</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>  <span class="c1">#4</span>
             <span class="n">text</span> <span class="o">=</span> <span class="n">_format</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
             <span class="k">if</span> <span class="n">output</span><span class="p">:</span>
@@ -126,24 +121,22 @@ As of some one gently rapping, rapping at my chamber door.
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
         <span class="n">cli</span><span class="p">()</span>
 </pre></div>
-
-
-<h3>Explanation</h3>
-<p>I love <code>click</code> library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for the pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!  <br>
+<h3 id="explanation">Explanation</h3>
+<p>I love <code>click</code> library, which is a tool for creating command line interfaces. It's beautiful, easy and saves so much space and time. So we start off with two positional arguments for input and output filenames, these are not necessary for the pipe logic we need but is a nice addition if there's a need for standalone function and only takes two extra lines, so why not!  <br/>
 Next we have custom option for length which allows overriding maximum line length. In case you have a very huge terminal window and you just want a nice margin instead of the text being at the very center of your screen.
-Finally there's the program itself:<br>
-<code>#1</code> - We retrieve dimensions of the current terminal window. This returns a tuple of <code>(columns, rows)</code> since we only care about columns we take the first member. <br>
-Check out a related blog entry why we are using this function instead of alternatives <a href="/getting-terminal-size.html">here</a><br>
-<code>#2</code> - We decide on which source to use for input, if first position argument is supplied to script, we'll use that as a source, otherwise use standard input.<br>
-<code>#3</code> - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to <code>{:^&lt;terminal_size&gt;}\n</code> now if we call <code>.format()</code> on that we can insert text and it will be centered. For more check out <a href="https://docs.python.org/3.1/library/string.html#string-formatting">python's string formatting</a>, it's awesome!<br>
+Finally there's the program itself:<br/>
+<code>#1</code> - We retrieve dimensions of the current terminal window. This returns a tuple of <code>(columns, rows)</code> since we only care about columns we take the first member. <br/>
+Check out a related blog entry why we are using this function instead of alternatives <a href="/getting-terminal-size.html">here</a><br/>
+<code>#2</code> - We decide on which source to use for input, if first position argument is supplied to script, we'll use that as a source, otherwise use standard input.<br/>
+<code>#3</code> - This might appear complicated but what we are doing here is creating a format that we will use to format every line of our text. The line evaluates to <code>{:^&lt;terminal_size&gt;}\n</code> now if we call <code>.format()</code> on that we can insert text and it will be centered. For more check out <a href="https://docs.python.org/3.1/library/string.html#string-formatting">python's string formatting</a>, it's awesome!<br/>
 <code>#4</code> - And lastly we have the loop itself. Here we loop through every line, center it and either write it to file if the second positional argument is supplied or put it straight to standard output.  </p>
-<h3>Improvements</h3>
+<h3 id="improvements">Improvements</h3>
 <p>You could probably go wild with a bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) </p>
-<h3>Conclusion</h3>
-<p>I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and <code>click</code>. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!<br>
+<h3 id="conclusion">Conclusion</h3>
+<p>I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and <code>click</code>. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!<br/>
 Let me know if you have any questions and stay tuned for more scripts and explanations!</p>
     </div>
 
@@ -179,8 +172,6 @@ Let me know if you have any questions and stay tuned for more scripts and explan
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

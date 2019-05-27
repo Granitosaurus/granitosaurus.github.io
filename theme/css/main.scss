@@ -317,9 +317,19 @@ a.tag {
 //             article and page                 //
 //////////////////////////////////////////////////
 
+#toc li {
+    list-style-type: decimal;
+}
+#toc li li{
+    list-style-type: square;
+}
+#toc li li li{
+    list-style-type: circle;
+}
+
 div.page-container {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 30px;
 
     div.entry-content {
         max-width: 700px;
@@ -411,6 +421,11 @@ div.page-container {
             padding: 0;
         }
     }
+
+    a.social {
+        color: rgba(0, 0, 0, 0.8);
+    }
+
 
 }
 

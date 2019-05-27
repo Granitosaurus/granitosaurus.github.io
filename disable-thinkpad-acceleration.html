@@ -4,12 +4,12 @@
         <title>How to disable thinkpad trackpoint acceleration</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="A short note on how to properly disable thinkpoint trackpad acceleration" />
@@ -29,33 +29,26 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2017-11-17T00:00:00+01:00">Fri 17 November 2017</span></br>
     <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
     <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2017-11-17T00:00:00+01:00">Fri 17 November 2017</abbr>
 </div>        </div>
     </div>
 
@@ -68,13 +61,19 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
+        <!--insert table of contents between text and first header-->
         <p><em>I've got a new thinkpad laptop and I've been struggling with mouse acceleration on trackpoint,
 turns out disabling it isn't as straight-forward as you'd expect</em></p>
 <p>To get rid of this abomination of a feature that is enabled by default we need <code>xinput</code></p>
-<h1>The Fix</h1>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#the fix" title="The Fix">The Fix</a></li><li><a class="toc-href" href="#make it persisntant" title="Make It Persisntant">Make It Persisntant</a></li></ul></div>
+        </div>
+        <hr>
+        <h1 id="the fix">The Fix</h1>
 <p>First you need to find the code or name of your trackpoint:</p>
 <div class="highlight"><pre><span></span>$ xinput list
 ⎡ Virtual core pointer                          <span class="nv">id</span><span class="o">=</span><span class="m">2</span>    <span class="o">[</span>master pointer  <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
@@ -91,12 +90,10 @@ turns out disabling it isn't as straight-forward as you'd expect</em></p>
     ↳ ThinkPad Extra Buttons                    <span class="nv">id</span><span class="o">=</span><span class="m">14</span>   <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
     ↳ SteelSeries  SteelSeries Arctis <span class="m">7</span>         <span class="nv">id</span><span class="o">=</span><span class="m">9</span>    <span class="o">[</span>slave  keyboard <span class="o">(</span><span class="m">3</span><span class="o">)]</span>
 </pre></div>
-
-
 <p>Our guy is <code>TPPS/2 IBM Trackpoint</code> aka id <code>13</code>.
 Next we can see the properties of this prop:</p>
 <div class="highlight"><pre><span></span>$ xinput list-props <span class="m">13</span>
-Device <span class="s1">&#39;TPPS/2 IBM TrackPoint&#39;</span>:
+Device <span class="s1">'TPPS/2 IBM TrackPoint'</span>:
         Device Enabled <span class="o">(</span><span class="m">140</span><span class="o">)</span>:   <span class="m">1</span>
         Coordinate Transformation Matrix <span class="o">(</span><span class="m">142</span><span class="o">)</span>: <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">0</span>.000000, <span class="m">1</span>.000000
         libinput Natural Scrolling Enabled <span class="o">(</span><span class="m">310</span><span class="o">)</span>:       <span class="m">0</span>
@@ -118,31 +115,25 @@ Device <span class="s1">&#39;TPPS/2 IBM TrackPoint&#39;</span>:
         libinput Send Events Modes Available <span class="o">(</span><span class="m">260</span><span class="o">)</span>:     <span class="m">1</span>, <span class="m">0</span>
         libinput Send Events Mode Enabled <span class="o">(</span><span class="m">261</span><span class="o">)</span>:        <span class="m">0</span>, <span class="m">0</span>
         libinput Send Events Mode Enabled Default <span class="o">(</span><span class="m">262</span><span class="o">)</span>:        <span class="m">0</span>, <span class="m">0</span>
-        Device Node <span class="o">(</span><span class="m">263</span><span class="o">)</span>:      <span class="s2">&quot;/dev/input/event18&quot;</span>
+        Device Node <span class="o">(</span><span class="m">263</span><span class="o">)</span>:      <span class="s2">"/dev/input/event18"</span>
         Device Product ID <span class="o">(</span><span class="m">264</span><span class="o">)</span>:        <span class="m">2</span>, <span class="m">10</span>
         libinput Drag Lock Buttons <span class="o">(</span><span class="m">326</span><span class="o">)</span>:       <span class="p">&amp;</span>lt<span class="p">;</span>no items<span class="p">&amp;</span>gt<span class="p">;</span>
         libinput Horizontal Scroll Enabled <span class="o">(</span><span class="m">327</span><span class="o">)</span>:       <span class="m">1</span>
 </pre></div>
-
-
 <p>To disable acceleration we are interested in one of these two settings:</p>
 <div class="highlight"><pre><span></span>        libinput Accel Speed (314):     0
         libinput Accel Profile Enabled (317):   1, 0
 </pre></div>
-
-
 <p>We can either diminish/change the acceleration speed by:</p>
 <div class="highlight"><pre><span></span># to disable we can use negative acceleration
 $ xinput set-prop 13 314 -1
 # or we can disable acceleration profile entirely
 $ xinput set-prop 13 317 0 1
 </pre></div>
-
-
 <p>Note, don't use both, -1 with disabled acceleration pretty much disables the devices.</p>
-<h1>Make It Persisntant</h1>
+<h1 id="make it persisntant">Make It Persisntant</h1>
 <p>To make the change persist after restart simply add the config line it to your <code>~/.xsessionrc</code> file, e.g.:</p>
-<div class="highlight"><pre><span></span>echo &quot;xinput set-prop 13 317 0 1&quot; &amp;gt;&amp;gt; ~/.xsessionrc
+<div class="highlight"><pre><span></span>echo "xinput set-prop 13 317 0 1" &amp;gt;&amp;gt; ~/.xsessionrc
 </pre></div>
     </div>
 
@@ -176,8 +167,6 @@ $ xinput set-prop 13 317 0 1
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 

@@ -4,12 +4,12 @@
         <title>Tutorial: Design, produce and publish a cli app on linux using python</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
         <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
         <link href="https://granitosaurus.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="https://granitosaurus.github.io/feeds/code.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <link href="https://granitosaurus.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
         <meta name="author" content="Bernardas Ališauskas" />
         <meta name="description" content="A lengthy guide that on how to design, make and publish a command line interface appliction for *nix." />
@@ -31,35 +31,28 @@
 </head>
 <body>
 
-    <div class="navigation pure-menu pure-menu-horizontal">
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/archives.html" class="pure-menu-link">Archives</a></li>
             <li class="pure-menu-item"><a href="/categories.html" class="pure-menu-link">Categories</a></li>
             <li class="pure-menu-item"><a href="/tags.html" class="pure-menu-link">Tags</a></li>
-
             <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/about.html" class="pure-menu-link">About</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/pages/contact.html" class="pure-menu-link">Contact</a></li>
-            <li class="pure-menu-item pure-menu-selected"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-            <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
         </ul>
     </div>
-
-
 <div class="page-container">
     <div class="entry-content">
         <div class="post-meta pure-g">
 
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a></br>
+    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
+    &mdash; <span title="2017-10-07T00:00:00+02:00">Sat 07 October 2017</span></br>
     <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
     <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
     <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
     <a href="https://granitosaurus.github.io/tag/cli" class="tag">cli</a>
     </br>
-    <a class="author" href="https://granitosaurus.github.io/author/bernardas-alisauskas.html">Bernardas Ališauskas</a>
-    &mdash; <abbr title="2017-10-07T00:00:00+02:00">Sat 07 October 2017</abbr>
 </div>        </div>
     </div>
 
@@ -72,10 +65,16 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <div class="entry-content">
-        <h1>Intro</h1>
+        <!--insert table of contents between text and first header-->
+        
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#intro" title="Intro">Intro</a></li><li><a class="toc-href" href="#design" title="Design">Design</a><ul><li><a class="toc-href" href="#understanding command line interface (cli)" title="Understanding Command Line Interface (CLI)">Understanding Command Line Interface (CLI)</a></li><li><a class="toc-href" href="#cli in python" title="CLI in python">CLI in python</a></li><li><a class="toc-href" href="#finding a data source" title="Finding a Data Source">Finding a Data Source</a></li><li><a class="toc-href" href="#choosing config format" title="Choosing Config Format">Choosing Config Format</a></li></ul></li><li><a class="toc-href" href="#production_1" title="Production">Production</a><ul><li><a class="toc-href" href="#interface" title="Interface">Interface</a></li><li><a class="toc-href" href="#brains!" title="Brains!">Brains!</a><ul><li><a class="toc-href" href="#handling config" title="Handling Config">Handling Config</a></li><li><a class="toc-href" href="#serving data" title="Serving Data">Serving Data</a></li><li><a class="toc-href" href="#action" title="Action">Action</a></li></ul></li><li><a class="toc-href" href="#wrap it up_1" title="Wrap It Up">Wrap It Up</a></li></ul></li><li><a class="toc-href" href="#packaging_1" title="Packaging">Packaging</a><ul><li><a class="toc-href" href="#as a script" title="As a script">As a script</a></li><li><a class="toc-href" href="#as a package" title="As a package">As a package</a></li></ul></li></ul></div>
+        </div>
+        <hr>
+        <h1 id="intro">Intro</h1>
 <p>In this guide we'll design, create and finally publish a command line
 interface application for linux!
 We'll replicate a tiny app I made recently that converts one amount of currency to another.
@@ -83,22 +82,18 @@ In other words it does this:</p>
 <div class="highlight"><pre><span></span>$ curr 100usd eur
 <span class="m">85</span>.42
 </pre></div>
-
-
 <p>you can find the app and it's source code here:
 https://github.com/Granitosaurus/curr</p>
-<h1>Design</h1>
+<h1 id="design">Design</h1>
 <p>Before we head on to code we should have a quick run-through of how
 should we do this, what resources we should use and what we want from our application.</p>
 <p>In this guide our goal is:
 <strong>An application that converts one currency value to another</strong></p>
-<h2>Understanding Command Line Interface (CLI)</h2>
+<h2 id="understanding command line interface (cli)">Understanding Command Line Interface (CLI)</h2>
 <p>First we should understand how cli application functions. Here's how standard
 cli application might look like this:</p>
 <div class="highlight"><pre><span></span>person run start finish --speed 100 -v
 </pre></div>
-
-
 <p>Breaking down the components:</p>
 <ul>
 <li><code>person</code> - name of program; this is how you call the program</li>
@@ -110,7 +105,7 @@ every command has their own arguments and they can be either mandatory or option
 short (like our <code>-v</code>) and long (like our <code>--speed</code>). The difference is pretty self explanatory:
 short options are easier to type but long ones are more explicit and self documenting.</li>
 </ul>
-<h2>CLI in python</h2>
+<h2 id="cli in python">CLI in python</h2>
 <p>Python modules (the <code>.py</code>) files can receive command arguments
 very easily without much of additional code.
 Python has <code>sys</code> module which contains operating system functions.
@@ -119,14 +114,10 @@ In this case we can use it to get program arguments:</p>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 </pre></div>
-
-
 <p>If we run it, we can see that sys.argv gets populated with our input:</p>
 <div class="highlight"><pre><span></span>$ python foo.py one two --three
-<span class="o">[</span><span class="s1">&#39;foo.py&#39;</span>, <span class="s1">&#39;one&#39;</span>, <span class="s1">&#39;two&#39;</span>, <span class="s1">&#39;--three&#39;</span><span class="o">]</span>
+<span class="o">[</span><span class="s1">'foo.py'</span>, <span class="s1">'one'</span>, <span class="s1">'two'</span>, <span class="s1">'--three'</span><span class="o">]</span>
 </pre></div>
-
-
 <p>However we still need to parse this to find out which of these are
 commands, options or arguments; as well as add appropriate errors and help texts.
 Fortunately for us there are already plenty of packages that manage that for you.
@@ -135,15 +126,13 @@ We'll be using one of the most popular ones called <a href="https://github.com/p
 <div class="highlight"><pre><span></span><span class="c1"># pi.py</span>
 <span class="kn">import</span> <span class="nn">click</span>
 <span class="nd">@click.command</span><span class="p">()</span>
-<span class="nd">@click.argument</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">INT</span><span class="p">)</span>
+<span class="nd">@click.argument</span><span class="p">(</span><span class="s1">'number'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">INT</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">myapp</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;This app multiples number by 3.14&quot;&quot;&quot;</span>
+    <span class="sd">"""This app multiples number by 3.14"""</span>
     <span class="k">print</span><span class="p">(</span><span class="n">number</span> <span class="o">*</span> <span class="mf">3.14</span><span class="p">)</span>
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">myapp</span><span class="p">()</span>
 </pre></div>
-
-
 <p>If we run it:</p>
 <div class="highlight"><pre><span></span>$ python pi.py --help
 Usage: pi.py <span class="o">[</span>OPTIONS<span class="o">]</span> NUMBER
@@ -155,24 +144,22 @@ Options:
 $ python pi.py <span class="m">11</span>
 <span class="m">34</span>.54
 </pre></div>
-
-
 <p>You can get <code>click</code> from <code>pypi</code> by <code>pip install click</code> command.</p>
-<h2>Finding a Data Source</h2>
+<h2 id="finding a data source">Finding a Data Source</h2>
 <p>Our goal is to get <em>up to date</em> currency conversions.
 So we need to find some internet resource that can provide this data we need.</p>
 <p>If you google "currency data json" (json is a file format that is very similar to python dictionaries) you'll get quite a bit of results.
 We'll use http://fixer.io/ in this example since it doesn't require any authentication and is very straight-forward.</p>
-<h2>Choosing Config Format</h2>
+<h2 id="choosing config format">Choosing Config Format</h2>
 <p>Just like every great program ours should have a config file!
 There are lot of different config file types. There are <code>.ini</code>,<code>json</code>,<code>xml</code> or even <code>.py</code> files can be used!
 Since we're developing app for *nix systems we should stick to something that is similar to good ol' <code>rc</code> files.</p>
 <p><a href="https://en.wikipedia.org/wiki/TOML">TOML</a> is a popular and easy configuration format and we'll stick to it.
 For that we'll use <code>toml</code> package from <code>pypi</code>, you can install it via <code>pip install toml</code> command</p>
-<h1>Production</h1>
+<h1 id="production_1">Production</h1>
 <p>This is the part where we write actual code!
 We're already familiar with tools that we'll use: <code>python3.6</code> with <code>click</code> for interface and <code>toml</code> for configuration.</p>
-<h2>Interface</h2>
+<h2 id="interface">Interface</h2>
 <p>First lets design the interface:
 We want a user to be able to provide three arguments to our application - <code>amount</code>, <code>currency</code> and <code>result_currency</code>.
 Since amount and currency go together we can have them as one argument <code>amount_and_currency</code> and later separate it in our program.</p>
@@ -182,27 +169,23 @@ In python and click this would look like:</p>
 <span class="kn">import</span> <span class="nn">click</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="nd">@click.command</span><span class="p">()</span>
-<span class="nd">@click.argument</span><span class="p">(</span><span class="s1">&#39;amount_and_currency&#39;</span><span class="p">)</span>
-<span class="nd">@click.argument</span><span class="p">(</span><span class="s1">&#39;result_currency&#39;</span><span class="p">)</span>
+<span class="nd">@click.argument</span><span class="p">(</span><span class="s1">'amount_and_currency'</span><span class="p">)</span>
+<span class="nd">@click.argument</span><span class="p">(</span><span class="s1">'result_currency'</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">cli</span><span class="p">(</span><span class="n">amount_and_currency</span><span class="p">,</span> <span class="n">result_currency</span><span class="p">):</span>
     <span class="c1"># separate amount and currency</span>
-    <span class="n">amount</span><span class="p">,</span> <span class="n">currency</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(\d+\.*\d*)&#39;</span><span class="p">,</span> <span class="n">amount_and_currency</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;amount: {amount}</span><span class="se">\n</span><span class="s1">currency: {currency}</span><span class="se">\n</span><span class="s1">result_currency: {result_currency}&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">amount</span><span class="p">,</span> <span class="n">currency</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'(\d+\.*\d*)'</span><span class="p">,</span> <span class="n">amount_and_currency</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'amount: {amount}</span><span class="se">\n</span><span class="s1">currency: {currency}</span><span class="se">\n</span><span class="s1">result_currency: {result_currency}'</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">cli</span><span class="p">()</span>
 </pre></div>
-
-
 <p>We can already test it:</p>
 <div class="highlight"><pre><span></span>$ python curr.py 100USD EUR
 amount: <span class="m">100</span>
 currency: USD
 result_currency: EUR
 </pre></div>
-
-
 <p>Believe it or not that's almost all of the interface code we need!</p>
-<h2>Brains!</h2>
+<h2 id="brains!">Brains!</h2>
 <p>The brains of our program have to do three things:</p>
 <ol>
 <li>Download currency data and store it as a file somewhere.</li>
@@ -212,50 +195,46 @@ result_currency: EUR
 <p>Since all of these things are closely related we'll consider them as one and create a class called <code>Manager</code></p>
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Manager</span>:
     <span class="kt">def</span> <span class="nx">load_config</span><span class="p">()</span><span class="o">:</span>
-        <span class="s2">&quot;&quot;&quot;return config dictionary and initiate default directories and files if they don&#39;t exist&quot;&quot;&quot;</span>
+        <span class="s2">"""return config dictionary and initiate default directories and files if they don't exist"""</span>
 
     <span class="nx">def</span> <span class="nx">get_currency_data</span><span class="p">(</span><span class="nx">currency</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">&quot;&quot;&quot;return up-to-date currency data from hard drive&quot;&quot;&quot;</span>
+        <span class="s2">"""return up-to-date currency data from hard drive"""</span>
 </pre></div>
-
-
-<h3>Handling Config</h3>
+<h3 id="handling config">Handling Config</h3>
 <p>There are standard locations where your app configs and data should reside.
 For linux based OS that is defined in <a href="https://specifications.freedesktop.org/basedir-spec/basedir-spec-0.6.html">XDG base directory specification</a>
 For config files that directory is either user set directory in
 <code>$XDG_CONFIG_HOME</code> environment variable or it defaults to <code>/home/user/.config/</code>.</p>
 <p>In other words to get config directory we have to use:</p>
-<div class="highlight"><pre><span></span>Path(os.path.expanduser(os.environ.get(&#39;XDG_CONFIG_HOME&#39;) or &#39;~/.config&#39;)) / &#39;curr&#39;
+<div class="highlight"><pre><span></span>Path(os.path.expanduser(os.environ.get('XDG_CONFIG_HOME') or '~/.config')) / 'curr'
 </pre></div>
-
-
-<h3>Serving Data</h3>
+<h3 id="serving data">Serving Data</h3>
 <p>We want to cache data to reduce amount of requests we need.
 Why download the same file every time we want to use the app?
 This is where config directory comes in -
 we can store data of every currency there! Once user makes conversion
 we check the local data, see how dated it is and depending on
 that we either update the data or not before we make our calculations.</p>
-<h3>Action</h3>
+<h3 id="action">Action</h3>
 <p>We can put this whole logic into one class:</p>
 <div class="highlight"><pre><span></span><span class="err">#</span> <span class="mi">1</span>
-<span class="nx">CONFIG</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">expanduser</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">environ</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;XDG_CONFIG_HOME&#39;</span><span class="p">)</span> <span class="nx">or</span> <span class="s1">&#39;~/.config&#39;</span><span class="p">))</span> <span class="o">/</span> <span class="s1">&#39;curr&#39;</span>
+<span class="nx">CONFIG</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">expanduser</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">environ</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'XDG_CONFIG_HOME'</span><span class="p">)</span> <span class="nx">or</span> <span class="s1">'~/.config'</span><span class="p">))</span> <span class="o">/</span> <span class="s1">'curr'</span>
 
 <span class="kr">class</span> <span class="nx">ConfigManager</span><span class="o">:</span>
     <span class="err">#</span> <span class="mi">2</span>
     <span class="nx">default_conf</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;update_days&#39;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="s1">&#39;output_format&#39;</span><span class="o">:</span> <span class="s1">&#39;{result:.2f}&#39;</span><span class="p">,</span>
+        <span class="s1">'update_days'</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s1">'output_format'</span><span class="o">:</span> <span class="s1">'{result:.2f}'</span><span class="p">,</span>
     <span class="p">}</span>
 
     <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">basedir</span><span class="o">=</span><span class="nx">CONFIG</span><span class="p">)</span><span class="o">:</span>
         <span class="err">#</span> <span class="mi">3</span>
         <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">=</span> <span class="nx">basedir</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">rc</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="s1">&#39;currrc&#39;</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">rc</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="s1">'currrc'</span>
         <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">load_config</span><span class="p">()</span>
 
     <span class="nx">def</span> <span class="nx">load_config</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">&quot;&quot;&quot;return config dictionary and initiate default directories and files if they don&#39;t exist&quot;&quot;&quot;</span>
+        <span class="s2">"""return config dictionary and initiate default directories and files if they don't exist"""</span>
         <span class="err">#</span> <span class="mi">4</span>
         <span class="nx">conf</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">default_conf</span>
         <span class="k">if</span> <span class="nx">not</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">dir</span><span class="p">)</span><span class="o">:</span>
@@ -263,35 +242,35 @@ that we either update the data or not before we make our calculations.</p>
         <span class="k">if</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">rc</span><span class="p">)</span><span class="o">:</span>
             <span class="nx">conf</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">toml</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">rc</span><span class="p">).</span><span class="nx">read</span><span class="p">()))</span>
         <span class="k">else</span><span class="o">:</span>
-            <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">rc</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">f</span>:
+            <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">rc</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">f</span>:
                 <span class="kt">toml.dump</span><span class="p">(</span><span class="nx">conf</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span>
         <span class="k">return</span> <span class="nx">conf</span>
 
     <span class="nx">def</span> <span class="nx">get_currency_data</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">currency</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">&quot;&quot;&quot;update currency data files if outdated&quot;&quot;&quot;</span>
+        <span class="s2">"""update currency data files if outdated"""</span>
         <span class="err">#</span> <span class="mi">5</span>
         <span class="nx">currency</span> <span class="o">=</span> <span class="nx">currency</span><span class="p">.</span><span class="nx">upper</span><span class="p">()</span>
-        <span class="nx">filename</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="nx">f</span><span class="s1">&#39;{currency}.json&#39;</span>
+        <span class="nx">filename</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="nx">f</span><span class="s1">'{currency}.json'</span>
         <span class="k">if</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="o">:</span>
             <span class="nx">data</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">filename</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">datetime</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">strptime</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)).</span><span class="nx">days</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span><span class="p">[</span><span class="s1">&#39;update_days&#39;</span><span class="p">]</span><span class="o">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">datetime</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">strptime</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">'date'</span><span class="p">],</span> <span class="s1">'%Y-%m-%d'</span><span class="p">)).</span><span class="nx">days</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span><span class="p">[</span><span class="s1">'update_days'</span><span class="p">]</span><span class="o">:</span>
                 <span class="k">return</span> <span class="nx">data</span>
         <span class="err">#</span> <span class="mi">6</span>
         <span class="k">try</span><span class="o">:</span>
-            <span class="nx">source</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">urlopen</span><span class="p">(</span><span class="nx">f</span><span class="s1">&#39;http://api.fixer.io/latest?base={currency.upper()}&#39;</span><span class="p">).</span><span class="nx">read</span><span class="p">()</span>
+            <span class="nx">source</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">urlopen</span><span class="p">(</span><span class="nx">f</span><span class="s1">'http://api.fixer.io/latest?base={currency.upper()}'</span><span class="p">).</span><span class="nx">read</span><span class="p">()</span>
         <span class="nx">except</span> <span class="nx">HTTPError</span> <span class="kr">as</span> <span class="nx">err</span>:
             <span class="kt">if</span> <span class="nx">err</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="nx">422</span>:
-                <span class="kt">exit</span><span class="p">(</span><span class="nx">f</span><span class="s1">&#39;ERROR: unknown currency {currency}&#39;</span><span class="p">)</span>
+                <span class="kt">exit</span><span class="p">(</span><span class="nx">f</span><span class="s1">'ERROR: unknown currency {currency}'</span><span class="p">)</span>
         <span class="nx">except</span> <span class="p">(</span><span class="nx">ConnectionError</span><span class="p">,</span> <span class="nx">URLError</span><span class="p">)</span><span class="o">:</span>  <span class="err">#</span> <span class="nx">todo</span> <span class="nx">figure</span> <span class="nx">out</span> <span class="nx">which</span> <span class="nx">errors</span> <span class="nx">are</span> <span class="nx">no</span> <span class="nx">internet</span> <span class="nx">errors</span>
             <span class="k">if</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="o">:</span>
-                <span class="nx">log</span><span class="p">.</span><span class="nx">warning</span><span class="p">(</span><span class="nx">f</span><span class="s1">&#39;No internet connection: outdated currency for {currency}: {data[&quot;date&quot;]}&#39;</span><span class="p">)</span>
+                <span class="nx">log</span><span class="p">.</span><span class="nx">warning</span><span class="p">(</span><span class="nx">f</span><span class="s1">'No internet connection: outdated currency for {currency}: {data["date"]}'</span><span class="p">)</span>
                 <span class="k">return</span> <span class="nx">data</span>
             <span class="k">else</span><span class="o">:</span>
-                <span class="nx">exit</span><span class="p">(</span><span class="nx">f</span><span class="s2">&quot;Error: No internet connect and cached data doesn&#39;t exist&quot;</span><span class="p">)</span>
+                <span class="nx">exit</span><span class="p">(</span><span class="nx">f</span><span class="s2">"Error: No internet connect and cached data doesn't exist"</span><span class="p">)</span>
         <span class="k">else</span><span class="o">:</span>
             <span class="nx">data</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span>
-            <span class="nx">log</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">f</span><span class="s1">&#39;updated {currency} @ {data[&quot;date&quot;]}&#39;</span><span class="p">)</span>
-            <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="nx">f</span><span class="s1">&#39;{currency}.json&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">f</span>:
+            <span class="nx">log</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">f</span><span class="s1">'updated {currency} @ {data["date"]}'</span><span class="p">)</span>
+            <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="nx">f</span><span class="s1">'{currency}.json'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">f</span>:
                 <span class="kt">f.write</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span>
             <span class="k">return</span> <span class="nx">data</span>
 
@@ -299,8 +278,6 @@ that we either update the data or not before we make our calculations.</p>
         <span class="err">#</span><span class="mi">7</span>
         <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span>
 </pre></div>
-
-
 <p>This might look like a lot but bear with me - it's surprisingly simple.
 Let's dig through 7 comments and see what each bit of code does here:</p>
 <ol>
@@ -320,47 +297,43 @@ if necessary to make sure that used that is up to date.</li>
 What if user provides unsupported currency? We want to quit the program with an error message - nothing else we can do.
 What if user has no internet connect? Then we want to serve local currency info and warn the user if it's outdated.</li>
 <li>Magic methods are fun. In this particular case magic method
-<code>__getitem__</code> allows you to have a nice shortcut of accessing config details straight through our <code>Manager</code> object:<div class="highlight"><pre><span></span>print(Manager()[&#39;update_days&#39;])
+<code>__getitem__</code> allows you to have a nice shortcut of accessing config details straight through our <code>Manager</code> object:<div class="highlight"><pre><span></span>print(Manager()['update_days'])
 5
 </pre></div>
-
-
 </li>
 </ol>
-<h2>Wrap It Up</h2>
+<h2 id="wrap it up_1">Wrap It Up</h2>
 <p>Finally we wrap the brains with interface:</p>
 <div class="highlight"><pre><span></span>@click.command()
 #1
-@click.argument(&#39;from_what&#39;)
-@click.argument(&#39;to_what&#39;)
+@click.argument('from_what')
+@click.argument('to_what')
 #2
-@click.option(&#39;--basedir&#39;, help=&#39;directory where configuration and cached data is stored, default:&#39;)
-@click.option(&#39;-v&#39;, &#39;--verbose&#39;, help=&#39;show info messages&#39;, is_flag=True)
+@click.option('--basedir', help='directory where configuration and cached data is stored, default:')
+@click.option('-v', '--verbose', help='show info messages', is_flag=True)
 def cli(from_what, to_what, verbose, basedir):
-    &quot;&quot;&quot;
+    """
     #3
     Simple currency converter.
-    e.g. &quot;curr 100usd eur&quot; -&amp;gt; 85.164
-    &quot;&quot;&quot;
+    e.g. "curr 100usd eur" -&amp;gt; 85.164
+    """
     #4
     if not verbose:
         log.setLevel(logging.ERROR)
     #5
-    from_num, from_cur = re.split(&#39;(\d+)&#39;, from_what)[1:]
+    from_num, from_cur = re.split('(\d+)', from_what)[1:]
     from_cur = from_cur.strip().upper()
     #6
     conf = ConfigManager(basedir=basedir or CONFIG)
     data = conf.get_currency_data(from_cur)
     #7
-    output_format = conf[&#39;output_format&#39;]
-    click.echo(output_format.format(result=data[&#39;rates&#39;][to_what.upper()] * int(from_num)))
-    log.info(f&#39;{from_cur} last updated: {data[&quot;date&quot;]}&#39;)
+    output_format = conf['output_format']
+    click.echo(output_format.format(result=data['rates'][to_what.upper()] * int(from_num)))
+    log.info(f'{from_cur} last updated: {data["date"]}')
 #8
-if __name__ == &#39;__main__&#39;:
+if __name__ == '__main__':
     cli()
 </pre></div>
-
-
 <p>Again lets dig through the comments to clarify what's going on here:</p>
 <ol>
 <li>Define two mandatory arguments for our app: <code>from_what</code>
@@ -380,7 +353,7 @@ See this github file for easy access:</p>
 <div class="highlight"><pre><span></span>$ python curr.py --help
 Usage: curr <span class="o">[</span>OPTIONS<span class="o">]</span> FROM_WHAT TO_WHAT
 
-  Simple currency converter. e.g. <span class="s2">&quot;curr 100usd eur&quot;</span> -<span class="p">&amp;</span>gt<span class="p">;</span> <span class="m">85</span>.164
+  Simple currency converter. e.g. <span class="s2">"curr 100usd eur"</span> -<span class="p">&amp;</span>gt<span class="p">;</span> <span class="m">85</span>.164
 
 Options:
   -v, --verbose  show info messages
@@ -388,11 +361,9 @@ Options:
 $ curr 100usd eur
 <span class="m">85</span>.42
 </pre></div>
-
-
-<h1>Packaging</h1>
+<h1 id="packaging_1">Packaging</h1>
 <p>In this case there are two ways we can deliver our program to the userbase:</p>
-<h2>As a script</h2>
+<h2 id="as a script">As a script</h2>
 <p>Since our program is contained in a single <code>.py</code> file... #todo</p>
 <ul>
 <li>
@@ -401,14 +372,11 @@ $ curr 100usd eur
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
 </pre></div>
 </td></tr></table>
-
 </li>
 <li>
 <p>Now we can get rid of <code>.py</code> extensions since we already have an indicator inside of the file.</p>
 <div class="highlight"><pre><span></span>mv curr.py curr
 </pre></div>
-
-
 </li>
 <li>
 <p>Finally we can add our program to our system's <code>PATH</code>:</p>
@@ -419,14 +387,12 @@ $ cp curr ~/.local/bin  <span class="c1"># one of the locations from the above</
 $ curr --help
 Usage: curr <span class="o">[</span>OPTIONS<span class="o">]</span> FROM_WHAT TO_WHAT
 </pre></div>
-
-
 </li>
 </ul>
 <p>This is great for small programs that you <strong>don't intend to publish</strong>. As you can see this
 approach expects the user to get his hands dirty and handle dependencies
 and installation manually.</p>
-<h2>As a package</h2>
+<h2 id="as a package">As a package</h2>
 <p>The proper way to share programs is to turn them into packages, so various package managers
 can install them without any input required by user.
 Python has it's own packaging manager called <code>pip</code>, it's allows complex setup scenarios
@@ -473,8 +439,6 @@ that require minimal user interaction.</p>
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
 
     </footer>
 
