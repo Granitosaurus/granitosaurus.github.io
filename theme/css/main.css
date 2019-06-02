@@ -49,7 +49,7 @@ div.post-content, div.entry-content {
   div.post-content a, div.entry-content a {
     color: rgba(0, 0, 0, 0.8); }
   div.post-content img, div.entry-content img {
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
     display: block;
     margin: 0 auto; }
@@ -192,6 +192,9 @@ a.tag {
 
 #toc li li li {
   list-style-type: circle; }
+
+figcaption {
+  text-align: center; }
 
 div.page-container {
   text-align: center;
