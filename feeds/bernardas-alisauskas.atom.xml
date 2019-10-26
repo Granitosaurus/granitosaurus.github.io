@@ -1,5 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="Blog%20of%20Bernardas%20Ali%C5%A1auskas/feeds/bernardas-alisauskas.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2019-06-02T00:00:00+02:00</updated><subtitle>Python programmer and a goof who loves free software, video-games and heavy metal</subtitle><entry><title>1 Year in Chiang Mai, Thailand</title><link href="https://granitosaurus.github.io/chiang-mai-1.html" rel="alternate"></link><published>2019-06-02T00:00:00+02:00</published><updated>2019-06-02T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-06-02:/chiang-mai-1.html</id><summary type="html">&lt;p&gt;My experience of living 1 year in Chiang Mai, Thailand for 1 year now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been living in Chiang Mai - biggest city in North Thailand - for over one year now. I did a lot during this year and experienced many things. The food is great, the housing is cool and the language is complicated. Let me tell you all about it! &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="Blog%20of%20Bernardas%20Ali%C5%A1auskas/feeds/bernardas-alisauskas.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2019-10-26T00:00:00+02:00</updated><subtitle>Python programmer and a goof who loves free software, video-games and heavy metal</subtitle><entry><title>Get Organized With TaskWarrior!</title><link href="https://granitosaurus.github.io/taskwarrior-intro.html" rel="alternate"></link><published>2019-10-26T00:00:00+02:00</published><updated>2019-10-26T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-10-26:/taskwarrior-intro.html</id><summary type="html">&lt;p&gt;Quick introduction how to get productive and organized with amazing commandline tool called Taskwarrior!&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you've been part of terminal ecosystem for you're most likely familiar with numerous terminal &lt;em&gt;todo&lt;/em&gt; sort of programs. I'd like to introduce you to king of all of them &lt;a href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;. &lt;br/&gt;
+The name might sound intimidating but don't go - it's quite the opposite: it's butter smooth!  &lt;/p&gt;
+&lt;h1 id="intro"&gt;Intro&lt;/h1&gt;
+&lt;p&gt;Your key command here is &lt;code&gt;task&lt;/code&gt;. Typing this alone will list your open tasks:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task
+
+ID Age  Description                    Urg 
+&lt;span class="m"&gt;1&lt;/span&gt; 32s   write a blog about taskwarrior    &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="m"&gt;2&lt;/span&gt; 11s   make carrot cake                  &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="m"&gt;3&lt;/span&gt; 2s    pay electric bills                &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then the rest of cli goes as intuitive as it follows, these are your 3 vital beginner commands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;add "some task"&lt;/code&gt; - to add a task.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;done &amp;lt;id&amp;gt;&lt;/code&gt; - to close task.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modify &amp;lt;id&amp;gt;&lt;/code&gt; - change something about task.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finally Taskwarrior has one vital important feature for managing your tasks - &lt;strong&gt;tags&lt;/strong&gt;. You simply specify tags with &lt;code&gt;+&lt;/code&gt; signs in front of your commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task +work add &lt;span class="s2"&gt;"fix linkedin.com crawler"&lt;/span&gt;
+$ task +work 
+ID Age  Description                    Urg 
+&lt;span class="m"&gt;1&lt;/span&gt;  2s   fix linkedin.com crawler        &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can see already with these 4 little things: add, list, modify, tags - you have great powers. Time for example workflow!&lt;/p&gt;
+&lt;h1 id="example workflow"&gt;Example Workflow&lt;/h1&gt;
+&lt;p&gt;This is a simple version of my taskwarrior workflow; First add tasks the moment you get them and try to split them up into small tasks - you're not an idiot you won't get confused don't worry:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task add +work &lt;span class="s2"&gt;"fix project1"&lt;/span&gt;
+Created task &lt;span class="m"&gt;1&lt;/span&gt;.
+
+$ task add +work &lt;span class="s2"&gt;"msg admin about project1 dump"&lt;/span&gt;
+Created task &lt;span class="m"&gt;2&lt;/span&gt;.
+
+$ task add +shop &lt;span class="s2"&gt;"potatoes - for potato cannon"&lt;/span&gt;
+Created task &lt;span class="m"&gt;3&lt;/span&gt;.
+
+$ task add +me &lt;span class="s2"&gt;"1 chapter of new book"&lt;/span&gt;
+Created task &lt;span class="m"&gt;4&lt;/span&gt;.
+
+$ task add +me &lt;span class="s2"&gt;"wash dishes"&lt;/span&gt;
+Created task &lt;span class="m"&gt;5&lt;/span&gt;.
+
+$ task add +gf &lt;span class="s2"&gt;"research christmas present on etsy"&lt;/span&gt;
+Created task &lt;span class="m"&gt;6&lt;/span&gt;.
+
+$ task add +me &lt;span class="s2"&gt;"practice bass a bit"&lt;/span&gt;
+Created task &lt;span class="m"&gt;7&lt;/span&gt;.
+
+$ task
+ID Age  Tag  Description                        Urg 
+&lt;span class="m"&gt;1&lt;/span&gt; 7min work fix project1                        &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;span class="m"&gt;2&lt;/span&gt; 6min work msg admin about project1 dump       &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;span class="m"&gt;3&lt;/span&gt; 6min shop potatoes - &lt;span class="k"&gt;for&lt;/span&gt; potato cannon        &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;span class="m"&gt;4&lt;/span&gt; 5min me   &lt;span class="m"&gt;1&lt;/span&gt; chapter of new book               &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;span class="m"&gt;5&lt;/span&gt; 5min me   wash dishes                         &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;span class="m"&gt;6&lt;/span&gt; 4min gf   research christmas present on etsy  &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;span class="m"&gt;7&lt;/span&gt; 4min me   practice bass a bit                 &lt;span class="m"&gt;0&lt;/span&gt;.8 
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Right, got bunch of tasks and now just pop them as you feel like. Having a weekday work day? &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task +work
+ID Age   Tag  Description                   Urg 
+&lt;span class="m"&gt;1&lt;/span&gt; 11min work fix project1                   &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;span class="m"&gt;2&lt;/span&gt; 10min work msg admin about project1 dump  &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Task 1 really needs to get done: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task start &lt;span class="m"&gt;1&lt;/span&gt;
+Starting task &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="s1"&gt;'fix project1'&lt;/span&gt;.
+Started &lt;span class="m"&gt;1&lt;/span&gt; task.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;All this does is mark the task in your list that it's "ongoing"&lt;/em&gt; :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task +work
+ID Active Age   Tag  Description                   Urg 
+ &lt;span class="m"&gt;1&lt;/span&gt; 1min   14min work fix project1                   &lt;span class="m"&gt;4&lt;/span&gt;.8
+ &lt;span class="m"&gt;2&lt;/span&gt;        13min work msg admin about project1 dump  &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Been working hard for an hour or so, time for a short break. Lets keep the task active so we could jump right back in after our break and take a look at &lt;code&gt;me&lt;/code&gt; tasks we have for our break:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task +me 
+ID Age   Tag Description           Urg 
+ &lt;span class="m"&gt;4&lt;/span&gt; 14min me  &lt;span class="m"&gt;1&lt;/span&gt; chapter of new book  &lt;span class="m"&gt;0&lt;/span&gt;.8    
+ &lt;span class="m"&gt;5&lt;/span&gt; 14min me  wash dishes            &lt;span class="m"&gt;0&lt;/span&gt;.8
+ &lt;span class="m"&gt;7&lt;/span&gt; 12min me  practice bass a bit    &lt;span class="m"&gt;0&lt;/span&gt;.8
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Great time to boot up the bass for a song or two and while &lt;em&gt;Rocksmith on ps4&lt;/em&gt; is booting up - wash the dishes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ task &lt;span class="m"&gt;5&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+Completed task &lt;span class="m"&gt;5&lt;/span&gt; &lt;span class="s1"&gt;'wash dishes'&lt;/span&gt;.
+Completed &lt;span class="m"&gt;1&lt;/span&gt; task.
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Break over, simply jump back to work, the task you've been working on is still glowing red there waiting for you ;)&lt;/p&gt;
+&lt;h1 id="get micro motivated!"&gt;Get Micro Motivated!&lt;/h1&gt;
+&lt;p&gt;Taskwarrior allows this sort of dead-simple micro-motivation. It's so simple an intuitive that in never feels like &lt;em&gt;additional&lt;/em&gt; work.&lt;/p&gt;
+&lt;p&gt;Often it's easy to go through your day without having tangible experience of your accomplishments. No matter how small your tasks are - the day feels so much better when you can visualize and feel the tiny hills you've conquered!&lt;/p&gt;
+&lt;h1 id="further reading"&gt;Further Reading&lt;/h1&gt;
+&lt;p&gt;Taskwarrior also packs a bunch of awesome, rich features but those are beyond the scope of this blog post.&lt;br/&gt;
+Taskwarrior documentation is well written and quite short:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* intro: https://taskwarrior.org/docs/introduction.html
+* 30 second tutorial: https://taskwarrior.org/docs/30second.html
+* example workflows of users: https://taskwarrior.org/docs/workflow.html
+* `man task`
+&lt;/pre&gt;&lt;/div&gt;</content><category term="productivity"></category><category term="linux"></category></entry><entry><title>1 Year in Chiang Mai, Thailand</title><link href="https://granitosaurus.github.io/chiang-mai-1.html" rel="alternate"></link><published>2019-06-02T00:00:00+02:00</published><updated>2019-06-02T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-06-02:/chiang-mai-1.html</id><summary type="html">&lt;p&gt;My experience of living 1 year in Chiang Mai, Thailand for 1 year now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been living in Chiang Mai - biggest city in North Thailand - for over one year now. I did a lot during this year and experienced many things. The food is great, the housing is cool and the language is complicated. Let me tell you all about it! &lt;/p&gt;
 &lt;h1 id="visa and getting here"&gt;Visa And Getting Here&lt;/h1&gt;
 &lt;p&gt;Getting to Chiang Mai is dead easy - take a flight to Bangkok and then another one straight to Chiang Mai! There are flights almost every hour and are surprisingly cheap. The flight from Europe (e.g. Riga) - Bangkok is around 350&amp;euro; + Bangkok - Chiang Mai 50&amp;euro; = &lt;strong&gt;~400&amp;euro;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;For Visa it's a bit more complicated. There are several types of visa but the most interesting ones:&lt;/p&gt;

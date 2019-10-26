@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Get Organized With TaskWarrior!</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
+        <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
+        <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
+        <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom Feed" />
+        <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate" title="Blog of Bernardas Ališauskas RSS Feed" />
+        <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+
+        <meta name="author" content="Bernardas Ališauskas" />
+        <meta name="description" content="Quick introduction how to get productive and organized with amazing commandline tool called Taskwarrior!" />
+<meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
+<meta property="og:title" content="Get Organized With TaskWarrior!"/>
+<meta property="og:description" content="Quick introduction how to get productive and organized with amazing commandline tool called Taskwarrior!"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://granitosaurus.github.io/taskwarrior-intro.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-10-26 00:00:00+02:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://granitosaurus.github.io/author/bernardas-alisauskas.html">
+<meta property="article:section" content="self"/>
+<meta property="article:tag" content="productivity"/>
+<meta property="article:tag" content="linux"/>
+<meta property="og:image" content="http://localhost:8000/images/core/granitosaurus.png">
+</head>
+<body>
+
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
+        <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/pages/about.html" class="pure-menu-link">about</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
+              <li class="pure-menu-item pure-menu-selected">
+                <a href="atom.xml" class="pure-menu-link">
+                  <i class="fa fa-rss" aria-hidden="true"></i>
+                </a>
+              </li>
+        </ul>
+    </div>
+<div class="page-container">
+    <div class="entry-content">
+        <div class="post-meta pure-g">
+
+<div class="pure-u-3-4 meta-data">
+    <a href="https://granitosaurus.github.io/category/self.html" class="category">self</a>
+    &mdash; <span title="2019-10-26T00:00:00+02:00">Sat 26 October 2019</span></br>
+    <a href="https://granitosaurus.github.io/tag/productivity" class="tag">productivity</a>
+    <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
+    </br>
+</div>        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>Get Organized With TaskWarrior!</h1>
+                </div>
+            </div>
+        </div>
+
+    <div class="entry-content">
+        <!--insert table of contents between text and first header-->
+        <p>If you've been part of terminal ecosystem for you're most likely familiar with numerous terminal <em>todo</em> sort of programs. I'd like to introduce you to king of all of them <a href="https://taskwarrior.org/">Taskwarrior</a>. <br/>
+The name might sound intimidating but don't go - it's quite the opposite: it's butter smooth!  </p>
+
+        <hr>
+        <div class="pure-u">
+            <div id="toc"><ul><li><a class="toc-href" href="#intro" title="Intro">Intro</a></li><li><a class="toc-href" href="#example workflow" title="Example Workflow">Example Workflow</a></li><li><a class="toc-href" href="#get micro motivated!" title="Get Micro Motivated!">Get Micro Motivated!</a></li><li><a class="toc-href" href="#further reading" title="Further Reading">Further Reading</a></li></ul></div>
+        </div>
+        <hr>
+        <h1 id="intro">Intro</h1>
+<p>Your key command here is <code>task</code>. Typing this alone will list your open tasks:</p>
+<div class="highlight"><pre><span></span>$ task
+
+ID Age  Description                    Urg 
+<span class="m">1</span> 32s   write a blog about taskwarrior    <span class="m">1</span>
+<span class="m">2</span> 11s   make carrot cake                  <span class="m">1</span>
+<span class="m">3</span> 2s    pay electric bills                <span class="m">1</span>
+</pre></div>
+<p>Then the rest of cli goes as intuitive as it follows, these are your 3 vital beginner commands:</p>
+<ul>
+<li><code>add "some task"</code> - to add a task.</li>
+<li><code>done &lt;id&gt;</code> - to close task.</li>
+<li><code>modify &lt;id&gt;</code> - change something about task.</li>
+</ul>
+<p>Finally Taskwarrior has one vital important feature for managing your tasks - <strong>tags</strong>. You simply specify tags with <code>+</code> signs in front of your commands:</p>
+<div class="highlight"><pre><span></span>$ task +work add <span class="s2">"fix linkedin.com crawler"</span>
+$ task +work 
+ID Age  Description                    Urg 
+<span class="m">1</span>  2s   fix linkedin.com crawler        <span class="m">1</span>
+</pre></div>
+<p>You can see already with these 4 little things: add, list, modify, tags - you have great powers. Time for example workflow!</p>
+<h1 id="example workflow">Example Workflow</h1>
+<p>This is a simple version of my taskwarrior workflow; First add tasks the moment you get them and try to split them up into small tasks - you're not an idiot you won't get confused don't worry:</p>
+<div class="highlight"><pre><span></span>$ task add +work <span class="s2">"fix project1"</span>
+Created task <span class="m">1</span>.
+
+$ task add +work <span class="s2">"msg admin about project1 dump"</span>
+Created task <span class="m">2</span>.
+
+$ task add +shop <span class="s2">"potatoes - for potato cannon"</span>
+Created task <span class="m">3</span>.
+
+$ task add +me <span class="s2">"1 chapter of new book"</span>
+Created task <span class="m">4</span>.
+
+$ task add +me <span class="s2">"wash dishes"</span>
+Created task <span class="m">5</span>.
+
+$ task add +gf <span class="s2">"research christmas present on etsy"</span>
+Created task <span class="m">6</span>.
+
+$ task add +me <span class="s2">"practice bass a bit"</span>
+Created task <span class="m">7</span>.
+
+$ task
+ID Age  Tag  Description                        Urg 
+<span class="m">1</span> 7min work fix project1                        <span class="m">0</span>.8
+<span class="m">2</span> 6min work msg admin about project1 dump       <span class="m">0</span>.8
+<span class="m">3</span> 6min shop potatoes - <span class="k">for</span> potato cannon        <span class="m">0</span>.8
+<span class="m">4</span> 5min me   <span class="m">1</span> chapter of new book               <span class="m">0</span>.8
+<span class="m">5</span> 5min me   wash dishes                         <span class="m">0</span>.8
+<span class="m">6</span> 4min gf   research christmas present on etsy  <span class="m">0</span>.8
+<span class="m">7</span> 4min me   practice bass a bit                 <span class="m">0</span>.8 
+</pre></div>
+<p>Right, got bunch of tasks and now just pop them as you feel like. Having a weekday work day? </p>
+<div class="highlight"><pre><span></span>$ task +work
+ID Age   Tag  Description                   Urg 
+<span class="m">1</span> 11min work fix project1                   <span class="m">0</span>.8
+<span class="m">2</span> 10min work msg admin about project1 dump  <span class="m">0</span>.8
+</pre></div>
+<p>Task 1 really needs to get done: </p>
+<div class="highlight"><pre><span></span>$ task start <span class="m">1</span>
+Starting task <span class="m">1</span> <span class="s1">'fix project1'</span>.
+Started <span class="m">1</span> task.
+</pre></div>
+<p><em>All this does is mark the task in your list that it's "ongoing"</em> :</p>
+<div class="highlight"><pre><span></span>$ task +work
+ID Active Age   Tag  Description                   Urg 
+ <span class="m">1</span> 1min   14min work fix project1                   <span class="m">4</span>.8
+ <span class="m">2</span>        13min work msg admin about project1 dump  <span class="m">0</span>.8
+</pre></div>
+<p>Been working hard for an hour or so, time for a short break. Lets keep the task active so we could jump right back in after our break and take a look at <code>me</code> tasks we have for our break:</p>
+<div class="highlight"><pre><span></span>$ task +me 
+ID Age   Tag Description           Urg 
+ <span class="m">4</span> 14min me  <span class="m">1</span> chapter of new book  <span class="m">0</span>.8    
+ <span class="m">5</span> 14min me  wash dishes            <span class="m">0</span>.8
+ <span class="m">7</span> 12min me  practice bass a bit    <span class="m">0</span>.8
+</pre></div>
+<p>Great time to boot up the bass for a song or two and while <em>Rocksmith on ps4</em> is booting up - wash the dishes:</p>
+<div class="highlight"><pre><span></span>$ task <span class="m">5</span> <span class="k">done</span>
+Completed task <span class="m">5</span> <span class="s1">'wash dishes'</span>.
+Completed <span class="m">1</span> task.
+</pre></div>
+<p>Break over, simply jump back to work, the task you've been working on is still glowing red there waiting for you ;)</p>
+<h1 id="get micro motivated!">Get Micro Motivated!</h1>
+<p>Taskwarrior allows this sort of dead-simple micro-motivation. It's so simple an intuitive that in never feels like <em>additional</em> work.</p>
+<p>Often it's easy to go through your day without having tangible experience of your accomplishments. No matter how small your tasks are - the day feels so much better when you can visualize and feel the tiny hills you've conquered!</p>
+<h1 id="further reading">Further Reading</h1>
+<p>Taskwarrior also packs a bunch of awesome, rich features but those are beyond the scope of this blog post.<br/>
+Taskwarrior documentation is well written and quite short:</p>
+<div class="highlight"><pre><span></span>* intro: https://taskwarrior.org/docs/introduction.html
+* 30 second tutorial: https://taskwarrior.org/docs/30second.html
+* example workflows of users: https://taskwarrior.org/docs/workflow.html
+* `man task`
+</pre></div>
+    </div>
+
+    <footer>
+        <div class="tags">
+            <a href="https://granitosaurus.github.io/tag/productivity.html">productivity</a>
+            <a href="https://granitosaurus.github.io/tag/linux.html">linux</a>
+        </div>
+    </footer>
+</div>
+
+
+
+    <footer class="index-footer">
+
+        <a href="https://granitosaurus.github.io/" title="Blog of Bernardas Ališauskas">Blog of Bernardas Ališauskas</a>
+        <a href="/archives.html">Archives</a></li>
+        <a href="/categories.html">Categories</a></li>
+        <a href="/tags.html">Tags</a></li>
+        <a href="https://granitosaurus.github.io/category/code.html">code</a>
+        <a href="https://granitosaurus.github.io/category/self.html">self</a>
+        <a href="atom.xml">
+          <i class="fa fa-rss-square" aria-hidden="true"></i>
+        </a>
+
+    </footer>
+
+</body>
+</html>
