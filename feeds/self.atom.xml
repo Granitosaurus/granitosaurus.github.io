@@ -92,11 +92,13 @@ Completed &lt;span class="m"&gt;1&lt;/span&gt; task.
 &lt;h1 id="further reading"&gt;Further Reading&lt;/h1&gt;
 &lt;p&gt;Taskwarrior also packs a bunch of awesome, rich features but those are beyond the scope of this blog post.&lt;br/&gt;
 Taskwarrior documentation is well written and quite short:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* intro: https://taskwarrior.org/docs/introduction.html
-* 30 second tutorial: https://taskwarrior.org/docs/30second.html
-* example workflows of users: https://taskwarrior.org/docs/workflow.html
-* `man task`
-&lt;/pre&gt;&lt;/div&gt;</content><category term="productivity"></category><category term="linux"></category></entry><entry><title>1 Year in Chiang Mai, Thailand</title><link href="https://granitosaurus.github.io/chiang-mai-1.html" rel="alternate"></link><published>2019-06-02T00:00:00+02:00</published><updated>2019-06-02T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-06-02:/chiang-mai-1.html</id><summary type="html">&lt;p&gt;My experience of living 1 year in Chiang Mai, Thailand for 1 year now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been living in Chiang Mai - biggest city in North Thailand - for over one year now. I did a lot during this year and experienced many things. The food is great, the housing is cool and the language is complicated. Let me tell you all about it! &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;intro: https://taskwarrior.org/docs/introduction.html&lt;/li&gt;
+&lt;li&gt;30 second tutorial: https://taskwarrior.org/docs/30second.html&lt;/li&gt;
+&lt;li&gt;example workflows of users: https://taskwarrior.org/docs/workflow.html&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;man task&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Bugwarrior plugin for pulling issues from other sources - https://bugwarrior.readthedocs.io/&lt;/li&gt;
+&lt;/ul&gt;</content><category term="productivity"></category><category term="linux"></category></entry><entry><title>1 Year in Chiang Mai, Thailand</title><link href="https://granitosaurus.github.io/chiang-mai-1.html" rel="alternate"></link><published>2019-06-02T00:00:00+02:00</published><updated>2019-06-02T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-06-02:/chiang-mai-1.html</id><summary type="html">&lt;p&gt;My experience of living 1 year in Chiang Mai, Thailand for 1 year now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been living in Chiang Mai - biggest city in North Thailand - for over one year now. I did a lot during this year and experienced many things. The food is great, the housing is cool and the language is complicated. Let me tell you all about it! &lt;/p&gt;
 &lt;h1 id="visa and getting here"&gt;Visa And Getting Here&lt;/h1&gt;
 &lt;p&gt;Getting to Chiang Mai is dead easy - take a flight to Bangkok and then another one straight to Chiang Mai! There are flights almost every hour and are surprisingly cheap. The flight from Europe (e.g. Riga) - Bangkok is around 350&amp;euro; + Bangkok - Chiang Mai 50&amp;euro; = &lt;strong&gt;~400&amp;euro;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;For Visa it's a bit more complicated. There are several types of visa but the most interesting ones:&lt;/p&gt;
