@@ -117,10 +117,12 @@ Often it's easy to go through your day without having tangible experience of you
 Taskwarrior also packs a bunch of awesome, rich features but those are beyond the scope of this blog post.  
 Taskwarrior documentation is well written and quite short:
 
-    * intro: https://taskwarrior.org/docs/introduction.html
-    * 30 second tutorial: https://taskwarrior.org/docs/30second.html
-    * example workflows of users: https://taskwarrior.org/docs/workflow.html
-    * `man task`
+* intro: https://taskwarrior.org/docs/introduction.html
+* 30 second tutorial: https://taskwarrior.org/docs/30second.html
+* example workflows of users: https://taskwarrior.org/docs/workflow.html
+* `man task`
+* Bugwarrior plugin for pulling issues from other sources - https://bugwarrior.readthedocs.io/
+
 
 
 [taskwarrior]: https://taskwarrior.org/
