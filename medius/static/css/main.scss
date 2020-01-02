@@ -92,8 +92,8 @@ div.post-content, div.entry-content {
         color: rgba(0, 0, 0, 0.8);
     }
 
-    img {
-        max-width: 100%;
+    img, video{
+        max-width: 70%;
         height: auto;
         display: block;
         margin: 0 auto;
@@ -317,9 +317,23 @@ a.tag {
 //             article and page                 //
 //////////////////////////////////////////////////
 
+#toc li {
+    list-style-type: decimal;
+}
+#toc li li{
+    list-style-type: square;
+}
+#toc li li li{
+    list-style-type: circle;
+}
+
+figcaption {
+    text-align: center;
+}
+
 div.page-container {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 30px;
 
     div.entry-content {
         max-width: 700px;
@@ -411,6 +425,11 @@ div.page-container {
             padding: 0;
         }
     }
+
+    a.social {
+        color: rgba(0, 0, 0, 0.8);
+    }
+
 
 }
 

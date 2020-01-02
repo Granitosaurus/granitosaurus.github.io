@@ -4,13 +4,13 @@
 
     <div class="entry-content">
 
-        <h1>Tags for {{ SITENAME }}</h1>
+        <h1>Tags Used in This Blog</h1>
 
-        <ul>
+        <div class="tags">
         {%- for tag, articles in tags|sort %}
-            <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> ({{ articles|count }})</li>
+            <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
         {% endfor %}
-        </ul>
+        </div>
 
     </div>
 

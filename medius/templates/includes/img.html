@@ -1,0 +1,6 @@
+{% macro image(name, description) %}
+<figure class="image">
+  <img src="/images/{{name}}" alt="{{ description }}">
+  <figcaption>{{ description }}</figcaption>
+</figure>
+{% endmacro %}

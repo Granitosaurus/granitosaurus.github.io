@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="page-container archive-container">
-
     <div class="entry-content">
-
-        <h1>Categories for {{ SITENAME }}</h1>
-
-        <ul>
-        {% for category, articles in categories %}
-            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+        <h1>Categories of this blog</h1>
+        <div>
+        {% for category, summary in CATEGORY_DETAILS %}
+            <h2><a href="{{ SITEURL }}/{{ category }}">{{ category }}</a></h2>
+            <div></div>
         {% endfor %}
-        </ul>
+        </div>
 
     </div>
 

@@ -28,6 +28,13 @@
                     <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
                     {% endfor %}
                     </div>
+                    <div class="right-head">
+                        Social
+                    </div>
+                    {% for title, link in SOCIAL %}
+                    <a class="social" href="{{ link }}" title="{{ title }}">
+                        <i class="fa fa-{{title}} fa-2x" aria-hidden="true"></i></a>
+                    {% endfor %}
                 </div>
             </div>
         </div>

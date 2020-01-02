@@ -6,9 +6,9 @@
 
         <h1>Archives for {{ SITENAME }}</h1>
 
-        <ul>
+        <ul class="pure-g">
         {% for article in dates %}
-            <li>
+            <li class="pure-u">
                 <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> &mdash; {{ article.locale_date }}
             </li>
         {% endfor %}
