@@ -118,9 +118,9 @@ There's an official <a href="https://reddit.com/r/scrapy">scrapy subreddit</a>, 
 <p>Once you have these bits you can easily formulate your question and I'm sure someone will help you out!</p>
 <h2 id="log">Producing Logs</h2>
 <p>To save a log of your spider run you can use UNIX output redirection syntax:</p>
-<div class="highlight"><pre><span></span>scrapy crawl myspider 2&amp;gt;&amp;amp;1 &amp;gt; mylog.log
-# or
-scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
+<div class="highlight"><pre><span></span><span class="err">scrapy crawl myspider 2&gt;&amp;1 &gt; mylog.log</span>
+<span class="err"># or</span>
+<span class="err">scrapy crawl myspider &amp;&gt; mylog.log</span>
 </pre></div>
 <p>Explanation:<br/>
     1. <code>scrapy crawl myspider</code> - is a scrapy command that will start crawling spider called <code>myspider</code><br/>
@@ -130,15 +130,15 @@ scrapy crawl myspider &amp;amp;&amp;gt; mylog.log
 <p>For logging scrapy uses python's built-in <a href="https://docs.python.org/3/library/logging.html"><code>logging</code> module</a> which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just <code>import logging</code> and simply log message to root logger: <code>logging.warning("this page has no next page")</code>. To have simple logging in your spider.</p>
 <h2 id="output">Producing Output</h2>
 <p>Scrapy can automatically produce output in one these formats:  </p>
-<div class="highlight"><pre><span></span>'xml', 'jsonlines', 'jl', 'json', 'csv', 'pickle', 'marshal'
+<div class="highlight"><pre><span></span><span class="err">'xml', 'jsonlines', 'jl', 'json', 'csv', 'pickle', 'marshal'</span>
 </pre></div>
 <p>To do that simply run <code>crawl</code> command with <code>--output</code> flag (<code>-o</code> for short version) and provide a name + file ending of format you want as an argument:</p>
-<div class="highlight"><pre><span></span>scrapy crawl myspider --output output.json
+<div class="highlight"><pre><span></span><span class="err">scrapy crawl myspider --output output.json</span>
 </pre></div>
 <p><em>This will output all items your spider spews out to <code>output.json</code> file.</em> </p>
 <p>To get help for readability purposes you probably want to use either <code>json</code> or <code>xml</code> since those are most readable and as described in section below parsing-friendly formats.</p>
 <p><em>Tip: You can actually tell scrapy to produce output to stdout directly by setting output argument to <code>-</code>:</em></p>
-<div class="highlight"><pre><span></span>scrapy crawl myspider -t json -o - output.json
+<div class="highlight"><pre><span></span><span class="err">scrapy crawl myspider -t json -o - output.json</span>
 </pre></div>
 <h2 id="inspecting output">Inspecting Output</h2>
 <p>There few tools to parse <code>json</code> or <code>xml</code> content, similar like you'd use <code>sed</code> or <code>grep</code> in unix. The most popular and widely known is probably <a href="https://stedolan.github.io/jq/">jq</a>, which I believe translates to json query.<br/>
@@ -147,11 +147,11 @@ So in response to this I made <a href="https://github.com/granitosaurus/pq/"><st
 <p>To put it shortly, using the tools described above you can find specific values of some fields really easily.<br/>
 Lets imagine we have a bunch of products that have these fields: name and price. Now for some reason Samsung items have weird pricing and we want to find out whether that's the case every time we update the code. </p>
 <p>For example using pq we can navigate the prices of items that have some keywords in their names:</p>
-<div class="highlight"><pre><span></span>cat output.json | pq "//item[contains(@name,'samsung')]/price/text()"
+<div class="highlight"><pre><span></span><span class="err">cat output.json | pq "//item[contains(@name,'samsung')]/price/text()"</span>
 </pre></div>
 <p>Will find all items that contain "samsung" in the name and output their price values. If you change up your spider an run this command again you can easily navigate whether the values are changing.</p>
 <p>You can combine this with scrapy spider redirection to have everything in one line:</p>
-<div class="highlight"><pre><span></span>scrapy crawl spider --nolog -t json -o - | pq "//item[contains(@name,'samsung')]/price/text()"
+<div class="highlight"><pre><span></span><span class="err">scrapy crawl spider --nolog -t json -o - | pq "//item[contains(@name,'samsung')]/price/text()"</span>
 </pre></div>
 <h1 id="conclusion_1">Conclusion</h1>
 <p>Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!</p>

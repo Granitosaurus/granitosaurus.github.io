@@ -98,7 +98,7 @@ should we do this, what resources we should use and what we want from our applic
 <h2 id="understanding command line interface (cli)">Understanding Command Line Interface (CLI)</h2>
 <p>First we should understand how cli application functions. Here's how standard
 cli application might look like this:</p>
-<div class="highlight"><pre><span></span>person run start finish --speed 100 -v
+<div class="highlight"><pre><span></span><span class="err">person run start finish --speed 100 -v</span>
 </pre></div>
 <p>Breaking down the components:</p>
 <ul>
@@ -140,15 +140,15 @@ We'll be using one of the most popular ones called <a href="https://github.com/p
     <span class="n">myapp</span><span class="p">()</span>
 </pre></div>
 <p>If we run it:</p>
-<div class="highlight"><pre><span></span>$ python pi.py --help
-Usage: pi.py <span class="o">[</span>OPTIONS<span class="o">]</span> NUMBER
+<div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="nf">pi</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="c1">--help</span>
+<span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="nf">pi</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">NUMBER</span><span class="w"></span>
 
-  This app multiples number by <span class="m">3</span>.14
+<span class="w">  </span><span class="n">This</span><span class="w"> </span><span class="n">app</span><span class="w"> </span><span class="n">multiples</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="mf">3.14</span><span class="w"></span>
 
-Options:
-  --help  Show this message and exit.
-$ python pi.py <span class="m">11</span>
-<span class="m">34</span>.54
+<span class="nl">Options</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1">--help  Show this message and exit.</span>
+<span class="err">$</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="nf">pi</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
+<span class="mf">34.54</span><span class="w"></span>
 </pre></div>
 <p>You can get <code>click</code> from <code>pypi</code> by <code>pip install click</code> command.</p>
 <h2 id="finding a data source">Finding a Data Source</h2>
@@ -199,12 +199,12 @@ result_currency: EUR
 <li>Make sure currency data stays up to date.</li>
 </ol>
 <p>Since all of these things are closely related we'll consider them as one and create a class called <code>Manager</code></p>
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Manager</span>:
-    <span class="kt">def</span> <span class="nx">load_config</span><span class="p">()</span><span class="o">:</span>
-        <span class="s2">"""return config dictionary and initiate default directories and files if they don't exist"""</span>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Manager:</span>
+    <span class="n">def</span> <span class="n">load_config</span>():
+        <span class="s">"""return config dictionary and initiate default directories and files if they don't exist"""</span>
 
-    <span class="nx">def</span> <span class="nx">get_currency_data</span><span class="p">(</span><span class="nx">currency</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">"""return up-to-date currency data from hard drive"""</span>
+    <span class="n">def</span> <span class="n">get_currency_data</span>(<span class="n">currency</span>):
+        <span class="s">"""return up-to-date currency data from hard drive"""</span>
 </pre></div>
 <h3 id="handling config">Handling Config</h3>
 <p>There are standard locations where your app configs and data should reside.
@@ -212,7 +212,7 @@ For linux based OS that is defined in <a href="https://specifications.freedeskto
 For config files that directory is either user set directory in
 <code>$XDG_CONFIG_HOME</code> environment variable or it defaults to <code>/home/user/.config/</code>.</p>
 <p>In other words to get config directory we have to use:</p>
-<div class="highlight"><pre><span></span>Path(os.path.expanduser(os.environ.get('XDG_CONFIG_HOME') or '~/.config')) / 'curr'
+<div class="highlight"><pre><span></span><span class="err">Path(os.path.expanduser(os.environ.get('XDG_CONFIG_HOME') or '~/.config')) / 'curr'</span>
 </pre></div>
 <h3 id="serving data">Serving Data</h3>
 <p>We want to cache data to reduce amount of requests we need.
@@ -223,66 +223,66 @@ we check the local data, see how dated it is and depending on
 that we either update the data or not before we make our calculations.</p>
 <h3 id="action">Action</h3>
 <p>We can put this whole logic into one class:</p>
-<div class="highlight"><pre><span></span><span class="err">#</span> <span class="mi">1</span>
-<span class="nx">CONFIG</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">expanduser</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">environ</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'XDG_CONFIG_HOME'</span><span class="p">)</span> <span class="nx">or</span> <span class="s1">'~/.config'</span><span class="p">))</span> <span class="o">/</span> <span class="s1">'curr'</span>
+<div class="highlight"><pre><span></span><span class="err">#</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">CONFIG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Path</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s1">'XDG_CONFIG_HOME'</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="s1">'~/.config'</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s1">'curr'</span><span class="w"></span>
 
-<span class="kr">class</span> <span class="nx">ConfigManager</span><span class="o">:</span>
-    <span class="err">#</span> <span class="mi">2</span>
-    <span class="nx">default_conf</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'update_days'</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-        <span class="s1">'output_format'</span><span class="o">:</span> <span class="s1">'{result:.2f}'</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nl">ConfigManager</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">    </span><span class="n">default_conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="s1">'update_days'</span><span class="err">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s1">'output_format'</span><span class="err">:</span><span class="w"> </span><span class="s1">'{result:.2f}'</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
 
-    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">basedir</span><span class="o">=</span><span class="nx">CONFIG</span><span class="p">)</span><span class="o">:</span>
-        <span class="err">#</span> <span class="mi">3</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">=</span> <span class="nx">basedir</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">rc</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="s1">'currrc'</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">load_config</span><span class="p">()</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">basedir</span><span class="o">=</span><span class="n">CONFIG</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">basedir</span><span class="w"></span>
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">dir</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s1">'currrc'</span><span class="w"></span>
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">load_config</span><span class="p">()</span><span class="w"></span>
 
-    <span class="nx">def</span> <span class="nx">load_config</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">"""return config dictionary and initiate default directories and files if they don't exist"""</span>
-        <span class="err">#</span> <span class="mi">4</span>
-        <span class="nx">conf</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">default_conf</span>
-        <span class="k">if</span> <span class="nx">not</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">dir</span><span class="p">)</span><span class="o">:</span>
-            <span class="nx">os</span><span class="p">.</span><span class="nx">makedirs</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">dir</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">rc</span><span class="p">)</span><span class="o">:</span>
-            <span class="nx">conf</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">toml</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">rc</span><span class="p">).</span><span class="nx">read</span><span class="p">()))</span>
-        <span class="k">else</span><span class="o">:</span>
-            <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">rc</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">f</span>:
-                <span class="kt">toml.dump</span><span class="p">(</span><span class="nx">conf</span><span class="p">,</span> <span class="nx">f</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nx">conf</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">load_config</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="ss">"""return config dictionary and initiate default directories and files if they don't exist"""</span><span class="w"></span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">        </span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">default_conf</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="ow">exists</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dir</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">os</span><span class="p">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dir</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="ow">exists</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">rc</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">conf</span><span class="p">.</span><span class="k">update</span><span class="p">(</span><span class="n">toml</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="k">open</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">rc</span><span class="p">).</span><span class="k">read</span><span class="p">()))</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">with</span><span class="w"> </span><span class="k">open</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">rc</span><span class="p">,</span><span class="w"> </span><span class="s1">'w'</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nl">f</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">toml</span><span class="p">.</span><span class="k">dump</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">conf</span><span class="w"></span>
 
-    <span class="nx">def</span> <span class="nx">get_currency_data</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">currency</span><span class="p">)</span><span class="o">:</span>
-        <span class="s2">"""update currency data files if outdated"""</span>
-        <span class="err">#</span> <span class="mi">5</span>
-        <span class="nx">currency</span> <span class="o">=</span> <span class="nx">currency</span><span class="p">.</span><span class="nx">upper</span><span class="p">()</span>
-        <span class="nx">filename</span> <span class="o">=</span> <span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="nx">f</span><span class="s1">'{currency}.json'</span>
-        <span class="k">if</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="o">:</span>
-            <span class="nx">data</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">open</span><span class="p">(</span><span class="nx">filename</span><span class="p">).</span><span class="nx">read</span><span class="p">())</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">datetime</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">-</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">strptime</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="s1">'date'</span><span class="p">],</span> <span class="s1">'%Y-%m-%d'</span><span class="p">)).</span><span class="nx">days</span> <span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span> <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span><span class="p">[</span><span class="s1">'update_days'</span><span class="p">]</span><span class="o">:</span>
-                <span class="k">return</span> <span class="nx">data</span>
-        <span class="err">#</span> <span class="mi">6</span>
-        <span class="k">try</span><span class="o">:</span>
-            <span class="nx">source</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">urlopen</span><span class="p">(</span><span class="nx">f</span><span class="s1">'http://api.fixer.io/latest?base={currency.upper()}'</span><span class="p">).</span><span class="nx">read</span><span class="p">()</span>
-        <span class="nx">except</span> <span class="nx">HTTPError</span> <span class="kr">as</span> <span class="nx">err</span>:
-            <span class="kt">if</span> <span class="nx">err</span><span class="p">.</span><span class="nx">code</span> <span class="o">==</span> <span class="nx">422</span>:
-                <span class="kt">exit</span><span class="p">(</span><span class="nx">f</span><span class="s1">'ERROR: unknown currency {currency}'</span><span class="p">)</span>
-        <span class="nx">except</span> <span class="p">(</span><span class="nx">ConnectionError</span><span class="p">,</span> <span class="nx">URLError</span><span class="p">)</span><span class="o">:</span>  <span class="err">#</span> <span class="nx">todo</span> <span class="nx">figure</span> <span class="nx">out</span> <span class="nx">which</span> <span class="nx">errors</span> <span class="nx">are</span> <span class="nx">no</span> <span class="nx">internet</span> <span class="nx">errors</span>
-            <span class="k">if</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="o">:</span>
-                <span class="nx">log</span><span class="p">.</span><span class="nx">warning</span><span class="p">(</span><span class="nx">f</span><span class="s1">'No internet connection: outdated currency for {currency}: {data["date"]}'</span><span class="p">)</span>
-                <span class="k">return</span> <span class="nx">data</span>
-            <span class="k">else</span><span class="o">:</span>
-                <span class="nx">exit</span><span class="p">(</span><span class="nx">f</span><span class="s2">"Error: No internet connect and cached data doesn't exist"</span><span class="p">)</span>
-        <span class="k">else</span><span class="o">:</span>
-            <span class="nx">data</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span>
-            <span class="nx">log</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="nx">f</span><span class="s1">'updated {currency} @ {data["date"]}'</span><span class="p">)</span>
-            <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">dir</span> <span class="o">/</span> <span class="nx">f</span><span class="s1">'{currency}.json'</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">f</span>:
-                <span class="kt">f.write</span><span class="p">(</span><span class="nx">source</span><span class="p">)</span>
-            <span class="k">return</span> <span class="nx">data</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">get_currency_data</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">currency</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="ss">"""update currency data files if outdated"""</span><span class="w"></span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">        </span><span class="n">currency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currency</span><span class="p">.</span><span class="nf">upper</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">dir</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">f</span><span class="s1">'{currency}.json'</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="ow">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="k">open</span><span class="p">(</span><span class="n">filename</span><span class="p">).</span><span class="k">read</span><span class="p">())</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nc">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nc">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="k">data</span><span class="o">[</span><span class="n">'date'</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="s1">'%Y-%m-%d'</span><span class="p">)).</span><span class="n">days</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">conf</span><span class="o">[</span><span class="n">'update_days'</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">data</span><span class="w"></span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
+<span class="w">        </span><span class="k">try</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">request</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">f</span><span class="s1">'http://api.fixer.io/latest?base={currency.upper()}'</span><span class="p">).</span><span class="k">read</span><span class="p">()</span><span class="w"></span>
+<span class="w">        </span><span class="ow">except</span><span class="w"> </span><span class="n">HTTPError</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nl">err</span><span class="p">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">err</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">422</span><span class="err">:</span><span class="w"></span>
+<span class="w">                </span><span class="k">exit</span><span class="p">(</span><span class="n">f</span><span class="s1">'ERROR: unknown currency {currency}'</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="ow">except</span><span class="w"> </span><span class="p">(</span><span class="n">ConnectionError</span><span class="p">,</span><span class="w"> </span><span class="n">URLError</span><span class="p">)</span><span class="err">:</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="n">figure</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">errors</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">internet</span><span class="w"> </span><span class="n">errors</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="k">path</span><span class="p">.</span><span class="ow">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">                </span><span class="nf">log</span><span class="p">.</span><span class="n">warning</span><span class="p">(</span><span class="n">f</span><span class="s1">'No internet connection: outdated currency for {currency}: {data["date"]}'</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">data</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+<span class="w">                </span><span class="k">exit</span><span class="p">(</span><span class="n">f</span><span class="ss">"Error: No internet connect and cached data doesn't exist"</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="err">:</span><span class="w"></span>
+<span class="w">            </span><span class="k">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="nf">log</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="n">f</span><span class="s1">'updated {currency} @ {data["date"]}'</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">with</span><span class="w"> </span><span class="k">open</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">dir</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">f</span><span class="s1">'{currency}.json'</span><span class="p">,</span><span class="w"> </span><span class="s1">'wb'</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nl">f</span><span class="p">:</span><span class="w"></span>
+<span class="w">                </span><span class="n">f</span><span class="p">.</span><span class="k">write</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">data</span><span class="w"></span>
 
-    <span class="nx">def</span> <span class="nx">__getitem__</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span><span class="o">:</span>
-        <span class="err">#</span><span class="mi">7</span>
-        <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">conf</span><span class="p">[</span><span class="nx">item</span><span class="p">]</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__getitem__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">#7</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">conf</span><span class="o">[</span><span class="n">item</span><span class="o">]</span><span class="w"></span>
 </pre></div>
 <p>This might look like a lot but bear with me - it's surprisingly simple.
 Let's dig through 7 comments and see what each bit of code does here:</p>
@@ -303,42 +303,42 @@ if necessary to make sure that used that is up to date.</li>
 What if user provides unsupported currency? We want to quit the program with an error message - nothing else we can do.
 What if user has no internet connect? Then we want to serve local currency info and warn the user if it's outdated.</li>
 <li>Magic methods are fun. In this particular case magic method
-<code>__getitem__</code> allows you to have a nice shortcut of accessing config details straight through our <code>Manager</code> object:<div class="highlight"><pre><span></span>print(Manager()['update_days'])
-5
+<code>__getitem__</code> allows you to have a nice shortcut of accessing config details straight through our <code>Manager</code> object:<div class="highlight"><pre><span></span><span class="err">print(Manager()['update_days'])</span>
+<span class="err">5</span>
 </pre></div>
 </li>
 </ol>
 <h2 id="wrap it up_1">Wrap It Up</h2>
 <p>Finally we wrap the brains with interface:</p>
-<div class="highlight"><pre><span></span>@click.command()
-#1
-@click.argument('from_what')
-@click.argument('to_what')
-#2
-@click.option('--basedir', help='directory where configuration and cached data is stored, default:')
-@click.option('-v', '--verbose', help='show info messages', is_flag=True)
-def cli(from_what, to_what, verbose, basedir):
-    """
-    #3
-    Simple currency converter.
-    e.g. "curr 100usd eur" -&amp;gt; 85.164
-    """
-    #4
-    if not verbose:
-        log.setLevel(logging.ERROR)
-    #5
-    from_num, from_cur = re.split('(\d+)', from_what)[1:]
-    from_cur = from_cur.strip().upper()
-    #6
-    conf = ConfigManager(basedir=basedir or CONFIG)
-    data = conf.get_currency_data(from_cur)
-    #7
-    output_format = conf['output_format']
-    click.echo(output_format.format(result=data['rates'][to_what.upper()] * int(from_num)))
-    log.info(f'{from_cur} last updated: {data["date"]}')
-#8
-if __name__ == '__main__':
-    cli()
+<div class="highlight"><pre><span></span><span class="err">@click.command()</span>
+<span class="err">#1</span>
+<span class="err">@click.argument('from_what')</span>
+<span class="err">@click.argument('to_what')</span>
+<span class="err">#2</span>
+<span class="err">@click.option('--basedir', help='directory where configuration and cached data is stored, default:')</span>
+<span class="err">@click.option('-v', '--verbose', help='show info messages', is_flag=True)</span>
+<span class="err">def cli(from_what, to_what, verbose, basedir):</span>
+<span class="err">    """</span>
+<span class="err">    #3</span>
+<span class="err">    Simple currency converter.</span>
+<span class="err">    e.g. "curr 100usd eur" -&gt; 85.164</span>
+<span class="err">    """</span>
+<span class="err">    #4</span>
+<span class="err">    if not verbose:</span>
+<span class="err">        log.setLevel(logging.ERROR)</span>
+<span class="err">    #5</span>
+<span class="err">    from_num, from_cur = re.split('(\d+)', from_what)[1:]</span>
+<span class="err">    from_cur = from_cur.strip().upper()</span>
+<span class="err">    #6</span>
+<span class="err">    conf = ConfigManager(basedir=basedir or CONFIG)</span>
+<span class="err">    data = conf.get_currency_data(from_cur)</span>
+<span class="err">    #7</span>
+<span class="err">    output_format = conf['output_format']</span>
+<span class="err">    click.echo(output_format.format(result=data['rates'][to_what.upper()] * int(from_num)))</span>
+<span class="err">    log.info(f'{from_cur} last updated: {data["date"]}')</span>
+<span class="err">#8</span>
+<span class="err">if __name__ == '__main__':</span>
+<span class="err">    cli()</span>
 </pre></div>
 <p>Again lets dig through the comments to clarify what's going on here:</p>
 <ol>
@@ -356,16 +356,16 @@ and <code>--verbose</code> in case user wants to see logging info for debugging.
 <p>Combining both parts we now have an a full working application.
 See this github file for easy access:</p>
 <p>And try running it:</p>
-<div class="highlight"><pre><span></span>$ python curr.py --help
-Usage: curr <span class="o">[</span>OPTIONS<span class="o">]</span> FROM_WHAT TO_WHAT
+<div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">curr</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="c1">--help</span>
+<span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">FROM_WHAT</span><span class="w"> </span><span class="n">TO_WHAT</span><span class="w"></span>
 
-  Simple currency converter. e.g. <span class="s2">"curr 100usd eur"</span> -<span class="p">&amp;</span>gt<span class="p">;</span> <span class="m">85</span>.164
+<span class="w">  </span><span class="n">Simple</span><span class="w"> </span><span class="n">currency</span><span class="w"> </span><span class="n">converter</span><span class="p">.</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="w"> </span><span class="ss">"curr 100usd eur"</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">85.164</span><span class="w"></span>
 
-Options:
-  -v, --verbose  show info messages
-  --help         Show this message and exit.
-$ curr 100usd eur
-<span class="m">85</span>.42
+<span class="nl">Options</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="o">-</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="c1">--verbose  show info messages</span>
+<span class="w">  </span><span class="c1">--help         Show this message and exit.</span>
+<span class="err">$</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="mi">100</span><span class="n">usd</span><span class="w"> </span><span class="n">eur</span><span class="w"></span>
+<span class="mf">85.42</span><span class="w"></span>
 </pre></div>
 <h1 id="packaging_1">Packaging</h1>
 <p>In this case there are two ways we can deliver our program to the userbase:</p>
@@ -381,17 +381,17 @@ $ curr 100usd eur
 </li>
 <li>
 <p>Now we can get rid of <code>.py</code> extensions since we already have an indicator inside of the file.</p>
-<div class="highlight"><pre><span></span>mv curr.py curr
+<div class="highlight"><pre><span></span><span class="err">mv curr.py curr</span>
 </pre></div>
 </li>
 <li>
 <p>Finally we can add our program to our system's <code>PATH</code>:</p>
-<div class="highlight"><pre><span></span>$ chmod +x curr
-$ <span class="nb">echo</span> <span class="nv">$PATH</span>
-/usr/lib/jvm/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/youruser/bin:/home/youruser/.local/bin:/home/youruser/bin
-$ cp curr ~/.local/bin  <span class="c1"># one of the locations from the above</span>
-$ curr --help
-Usage: curr <span class="o">[</span>OPTIONS<span class="o">]</span> FROM_WHAT TO_WHAT
+<div class="highlight"><pre><span></span><span class="err">$</span><span class="w"> </span><span class="n">chmod</span><span class="w"> </span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="n">curr</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="err">$</span><span class="k">PATH</span><span class="w"></span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jvm</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="nl">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="nl">sbin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="nl">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nl">bin</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="nl">site_perl</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="nl">vendor_perl</span><span class="p">:</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="nl">core_perl</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">youruser</span><span class="o">/</span><span class="nl">bin</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">youruser</span><span class="o">/</span><span class="p">.</span><span class="k">local</span><span class="o">/</span><span class="nl">bin</span><span class="p">:</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">youruser</span><span class="o">/</span><span class="n">bin</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">~/</span><span class="p">.</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">locations</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">above</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="c1">--help</span>
+<span class="k">Usage</span><span class="err">:</span><span class="w"> </span><span class="n">curr</span><span class="w"> </span><span class="o">[</span><span class="n">OPTIONS</span><span class="o">]</span><span class="w"> </span><span class="n">FROM_WHAT</span><span class="w"> </span><span class="n">TO_WHAT</span><span class="w"></span>
 </pre></div>
 </li>
 </ul>

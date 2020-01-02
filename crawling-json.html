@@ -95,34 +95,34 @@ If you put this response through some json visual tool like <a href="http://json
 <span class="n">items</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'_embedded'</span><span class="p">][</span><span class="s1">'lanes'</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="s1">'_embedded'</span><span class="p">][</span><span class="s1">'items'</span><span class="p">]</span>
 </pre></div>
 <p>And that's just half-way through the tree. For example to find the sku you'd have to use something like:</p>
-<div class="highlight"><pre><span></span>sku = data['_embedded']['lanes'][4]['_embedded']['items'][0]['_embedded']['product']['id']
+<div class="highlight"><pre><span></span><span class="err">sku = data['_embedded']['lanes'][4]['_embedded']['items'][0]['_embedded']['product']['id']</span>
 </pre></div>
 <p>Now that's with hard-coding of list indices which are very likely to change for every product, so on top of that ugly line above you'd have to use multiple list comprehensions to find the correct list item from the <code>lanes</code> or <code>items</code> lists.  This is bad, ugly, unreliable and extremely painful to work with.</p>
 <h1 id="tools to solve this">Tools to Solve This</h1>
 <p>There are several ways this can be approaches and let me spoil it for you, majority of them are bad, so we'll start off with those.</p>
 <p>To demonstrate these tools better we'll be parsing this simple json:</p>
-<div class="highlight"><pre><span></span>data = """{
-    "one": {
-        "two": [{
-            "four": {
-                "name": "four1_name"
-            }
-        }, {
-            "four": {
-                "name": "four2_name"
-            }
-        }]
-    }
-}"""
+<div class="highlight"><pre><span></span><span class="err">data = """{</span>
+<span class="err">    "one": {</span>
+<span class="err">        "two": [{</span>
+<span class="err">            "four": {</span>
+<span class="err">                "name": "four1_name"</span>
+<span class="err">            }</span>
+<span class="err">        }, {</span>
+<span class="err">            "four": {</span>
+<span class="err">                "name": "four2_name"</span>
+<span class="err">            }</span>
+<span class="err">        }]</span>
+<span class="err">    }</span>
+<span class="err">}"""</span>
 </pre></div>
 <p>All examples below are also available on iPython notebook if you want to mess around with them yourself <a href="https://granitosaurus.github.io/data/crawling-json_examples.ipynb">here</a></p>
 <h2 id="wrong: flattening the json">Wrong: Flattening The Json</h2>
 <p>At first glance this might appear as an obvious solution - just flatten everything to the first level! However this brings out a huge issue with keys. Because every key has to be unique, when flattening the dictionary you need to merge several keys into one to preserve the tree order.
 If we were to flatten our <code>data</code>, it would end up looking like this:</p>
-<div class="highlight"><pre><span></span>data = """{
-    "one_two_four1_name": "four1_name",
-    "one_two_four2_name": "four2_name",
-    }"""
+<div class="highlight"><pre><span></span><span class="err">data = """{</span>
+<span class="err">    "one_two_four1_name": "four1_name",</span>
+<span class="err">    "one_two_four2_name": "four2_name",</span>
+<span class="err">    }"""</span>
 </pre></div>
 <p>In a way you might think it looks nice, but the truth is that it's really unpredictable and hard to parse in a more complex context, since you can only select individual values. This might be useful for some edge cases where you only need 1 field the json tree is only two or tree levels deep, but otherwise it's not worth bothering with.</p>
 <h2 id="wrong: jmespath, jsonpath and jsoniq etc.">Wrong: Jmespath, JSONPath and JSONiq etc.</h2>
@@ -150,38 +150,38 @@ Since json is part of javascript, this means we can use this tool to parse it:</
 <span class="k">print</span><span class="p">(</span><span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
 </pre></div>
 <p>This is the result:</p>
-<div class="highlight"><pre><span></span>&amp;lt;program&amp;gt;
-  &amp;lt;var name="foo"&amp;gt;
-    &amp;lt;object&amp;gt;
-      &amp;lt;property name="one"&amp;gt;
-        &amp;lt;object&amp;gt;
-          &amp;lt;property name="two"&amp;gt;
-            &amp;lt;array&amp;gt;
-              &amp;lt;object&amp;gt;
-                &amp;lt;property name="four"&amp;gt;
-                  &amp;lt;object&amp;gt;
-                    &amp;lt;property name="name"&amp;gt;
-                      &amp;lt;string&amp;gt;four1_name&amp;lt;/string&amp;gt;
-                    &amp;lt;/property&amp;gt;
-                  &amp;lt;/object&amp;gt;
-                &amp;lt;/property&amp;gt;
-              &amp;lt;/object&amp;gt;
-              &amp;lt;object&amp;gt;
-                &amp;lt;property name="four"&amp;gt;
-                  &amp;lt;object&amp;gt;
-                    &amp;lt;property name="name"&amp;gt;
-                      &amp;lt;string&amp;gt;four2_name&amp;lt;/string&amp;gt;
-                    &amp;lt;/property&amp;gt;
-                  &amp;lt;/object&amp;gt;
-                &amp;lt;/property&amp;gt;
-              &amp;lt;/object&amp;gt;
-            &amp;lt;/array&amp;gt;
-          &amp;lt;/property&amp;gt;
-        &amp;lt;/object&amp;gt;
-      &amp;lt;/property&amp;gt;
-    &amp;lt;/object&amp;gt;
-  &amp;lt;/var&amp;gt;
-&amp;lt;/program&amp;gt;
+<div class="highlight"><pre><span></span><span class="nt">&lt;program&gt;</span>
+  <span class="nt">&lt;var</span> <span class="na">name=</span><span class="s">"foo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;object&gt;</span>
+      <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"one"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;object&gt;</span>
+          <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"two"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;array&gt;</span>
+              <span class="nt">&lt;object&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"four"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;object&gt;</span>
+                    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;string&gt;</span>four1_name<span class="nt">&lt;/string&gt;</span>
+                    <span class="nt">&lt;/property&gt;</span>
+                  <span class="nt">&lt;/object&gt;</span>
+                <span class="nt">&lt;/property&gt;</span>
+              <span class="nt">&lt;/object&gt;</span>
+              <span class="nt">&lt;object&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"four"</span><span class="nt">&gt;</span>
+                  <span class="nt">&lt;object&gt;</span>
+                    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span><span class="nt">&gt;</span>
+                      <span class="nt">&lt;string&gt;</span>four2_name<span class="nt">&lt;/string&gt;</span>
+                    <span class="nt">&lt;/property&gt;</span>
+                  <span class="nt">&lt;/object&gt;</span>
+                <span class="nt">&lt;/property&gt;</span>
+              <span class="nt">&lt;/object&gt;</span>
+            <span class="nt">&lt;/array&gt;</span>
+          <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;/object&gt;</span>
+      <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;/object&gt;</span>
+  <span class="nt">&lt;/var&gt;</span>
+<span class="nt">&lt;/program&gt;</span>
 </pre></div>
 <p>As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! <br/>
 If you are already using it to parse javascript somewhere you might just go with it to reduce dependencies if you wish so.</p>
@@ -194,22 +194,22 @@ For sake of being brief I'll show off <code>dicttoxml</code> + <code>parsel</cod
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
 <span class="n">root</span> <span class="o">=</span> <span class="n">dicttoxml</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">attr_type</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="c1"># the tree we get:</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">root</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-  <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">one</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">two</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">item</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">four</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-          <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">four1_name</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">four</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">item</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">item</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">four</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-          <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">four2_name</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">name</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-        <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">four</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-      <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">item</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-    <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">two</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-  <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">one</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
-<span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">/</span><span class="n">root</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+<span class="o">&lt;</span><span class="n">root</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">one</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">two</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">item</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">four</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">four1_name</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">four</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">item</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">item</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">four</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">four2_name</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">four</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">item</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">two</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">one</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">root</span><span class="o">&gt;</span>
 </pre></div>
 <p>Now we can parse this tree using <code>parsel.Selector</code> and xpath:</p>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">parsel</span> <span class="kn">import</span> <span class="n">Selector</span>

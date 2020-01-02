@@ -90,7 +90,7 @@ To use it however, you need a running daemon program that would handle all of th
 By default python comes with everything we need to set this up, however to make things nicer lets use <code>click</code> command line interface package. It will greatly simplify the CLI part of the program. <br/>
 You can get it from pip via <code>pip install click</code> and skim through the <a href="http://click.pocoo.org/">tutorial here</a> to get a quick gist of what it does.</p>
 <p>To display a notification on your desktop using python all you need is to call <code>notify-send</code> via <code>subprocess</code> module like so:</p>
-<div class="highlight"><pre><span></span>subprocess.call(['notify-send', 'title', 'body'])
+<div class="highlight"><pre><span></span><span class="err">subprocess.call(['notify-send', 'title', 'body'])</span>
 </pre></div>
 <p>This will start a process in your terminal that will tell notification daemon to show a notification with supplied title and a body.</p>
 <h1 id="simple notification app">Simple Notification App</h1>
@@ -105,27 +105,27 @@ All of these are somewhat optional and could be replaced with python's inbuilt t
 <h3 id="bonus: setup notifications">Bonus: Setup Notifications</h3>
 <p>By default majority of gnu/linux distributions already have everything covered for you! <code>libnotify</code> should be installed and some sort of notification daemon should be running in the background.<br/>
 Try writing this in your terminal:</p>
-<div class="highlight"><pre><span></span>notify-send "test title" "test body"
+<div class="highlight"><pre><span></span><span class="err">notify-send "test title" "test body"</span>
 </pre></div>
 <p>If you see something, then great - you're done with this step!  </p>
 <p>Otherwise you're probably missing a notification daemon. To fix that you need to install one. I recommend and will use <a href="http://knopwob.org/dunst/index.html">dunst</a> in this example.<br/>
 You can simply pull it from you package manager, e.g.:</p>
-<div class="highlight"><pre><span></span>sudo pacman -S dunst  # for arch
-sudo apt install dunst  # for ubuntu
+<div class="highlight"><pre><span></span><span class="err">sudo pacman -S dunst  # for arch</span>
+<span class="err">sudo apt install dunst  # for ubuntu</span>
 </pre></div>
 <p>Usually <code>dunst</code> autostarts on majority of system on boot up as DBus autostarts it by default, but some systems might require explicit autostart, so in your init file just call <code>dunst</code>, e.g. for i3wm you'd add <code>exec dunst</code>.  </p>
 <p><img alt="dunst solarized" src="https://granitosaurus.github.io/images/dunst.png"/>
 You can also customize your dunst quite extensively as well. All you need to do is pass the location of the config file as <code>--conf</code> parameter, i.e. <code>dunst --config ~/.dunstrc</code>.<br/>
 I'm running solarized look and you can find my config <a href="https://github.com/Granitosaurus/.dotfiles/.dunstrc">on my dotfiles repo here</a></p>
 <p>My favorite thing about this particular notification daemon is the fact it's keyboard driven which means you can do cool stuff like:</p>
-<div class="highlight"><pre><span></span># Close notifactions
-close = ctrl+space
-close_all = ctrl+shift+space
-# Show history of notifications
-history = ctrl+grave
-# Open context of the notification
-# e.g. if notification has an url - open it in default browser
-context = ctrl+shift+period
+<div class="highlight"><pre><span></span><span class="err"># Close notifactions</span>
+<span class="err">close = ctrl+space</span>
+<span class="err">close_all = ctrl+shift+space</span>
+<span class="err"># Show history of notifications</span>
+<span class="err">history = ctrl+grave</span>
+<span class="err"># Open context of the notification</span>
+<span class="err"># e.g. if notification has an url - open it in default browser</span>
+<span class="err">context = ctrl+shift+period</span>
 </pre></div>
 <p>It's really lovely, convenient, customizable and robust, so give it a shot.</p>
     </div>

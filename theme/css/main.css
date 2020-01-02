@@ -48,7 +48,7 @@ div.post-content, div.entry-content {
     font-weight: 300; }
   div.post-content a, div.entry-content a {
     color: rgba(0, 0, 0, 0.8); }
-  div.post-content img, div.entry-content img {
+  div.post-content img, div.post-content video, div.entry-content img, div.entry-content video {
     max-width: 70%;
     height: auto;
     display: block;

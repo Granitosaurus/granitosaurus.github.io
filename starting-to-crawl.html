@@ -170,26 +170,26 @@ Alternatively a lot of website have request limits that are high enough that mat
 <ul>
 <li>
 <p>csv documents:  </p>
-<div class="highlight"><pre><span></span>name,price   
-rubber chicken, 55.99
+<div class="highlight"><pre><span></span><span class="err">name,price   </span>
+<span class="err">rubber chicken, 55.99</span>
 </pre></div>
 </li>
 <li>
 <p>json documents:</p>
-<div class="highlight"><pre><span></span>[
-    {
-        "name": "rubber chicken",
-        "price": 55.99
-    } 
-]
+<div class="highlight"><pre><span></span><span class="err">[</span>
+<span class="err">    {</span>
+<span class="err">        "name": "rubber chicken",</span>
+<span class="err">        "price": 55.99</span>
+<span class="err">    } </span>
+<span class="err">]</span>
 </pre></div>
 </li>
 <li>
 <p>database tables</p>
-<div class="highlight"><pre><span></span>------------------------------
-|       name       |  price  |
-------------------------------
-|  rubber chicken  |  55.99  |
+<div class="highlight"><pre><span></span><span class="err">------------------------------</span>
+<span class="err">|       name       |  price  |</span>
+<span class="err">------------------------------</span>
+<span class="err">|  rubber chicken  |  55.99  |</span>
 </pre></div>
 </li>
 </ul>
@@ -244,7 +244,7 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 <h1 id="synchronous example_2">Synchronous Example</h1>
 <p>Lets write a simple article crawler for python blog posts!</p>
 <p>for this we'll use <a href="https://github.com/scrapy/parsel">parsel</a> and <a href="http://docs.python-requests.org/en/master/">requests</a> packages. You can get them via pip:</p>
-<div class="highlight"><pre><span></span>pip install parsel requests
+<div class="highlight"><pre><span></span><span class="err">pip install parsel requests</span>
 </pre></div>
 <p>Our spider logic would follow:</p>
 <ol>
@@ -303,7 +303,7 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 <span class="k">def</span> <span class="nf">consume</span><span class="p">(</span><span class="n">urls</span><span class="p">):</span>
     <span class="sd">"""Consume job urls by downloading them, parsing data and saving to disk"""</span>
     <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'crawling job: {url}'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'crawling job: </span><span class="si">{url}</span><span class="s1">'</span><span class="p">)</span>
         <span class="n">html</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
         <span class="k">yield</span> <span class="n">process</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">html</span><span class="p">))</span>
 

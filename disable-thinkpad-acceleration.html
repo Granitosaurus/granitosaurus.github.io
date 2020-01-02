@@ -123,23 +123,23 @@ Device <span class="s1">'TPPS/2 IBM TrackPoint'</span>:
         libinput Send Events Mode Enabled Default <span class="o">(</span><span class="m">262</span><span class="o">)</span>:        <span class="m">0</span>, <span class="m">0</span>
         Device Node <span class="o">(</span><span class="m">263</span><span class="o">)</span>:      <span class="s2">"/dev/input/event18"</span>
         Device Product ID <span class="o">(</span><span class="m">264</span><span class="o">)</span>:        <span class="m">2</span>, <span class="m">10</span>
-        libinput Drag Lock Buttons <span class="o">(</span><span class="m">326</span><span class="o">)</span>:       <span class="p">&amp;</span>lt<span class="p">;</span>no items<span class="p">&amp;</span>gt<span class="p">;</span>
+        libinput Drag Lock Buttons <span class="o">(</span><span class="m">326</span><span class="o">)</span>:       &lt;no items&gt;
         libinput Horizontal Scroll Enabled <span class="o">(</span><span class="m">327</span><span class="o">)</span>:       <span class="m">1</span>
 </pre></div>
 <p>To disable acceleration we are interested in one of these two settings:</p>
-<div class="highlight"><pre><span></span>        libinput Accel Speed (314):     0
-        libinput Accel Profile Enabled (317):   1, 0
+<div class="highlight"><pre><span></span><span class="err">        libinput Accel Speed (314):     0</span>
+<span class="err">        libinput Accel Profile Enabled (317):   1, 0</span>
 </pre></div>
 <p>We can either diminish/change the acceleration speed by:</p>
-<div class="highlight"><pre><span></span># to disable we can use negative acceleration
-$ xinput set-prop 13 314 -1
-# or we can disable acceleration profile entirely
-$ xinput set-prop 13 317 0 1
+<div class="highlight"><pre><span></span><span class="err"># to disable we can use negative acceleration</span>
+<span class="err">$ xinput set-prop 13 314 -1</span>
+<span class="err"># or we can disable acceleration profile entirely</span>
+<span class="err">$ xinput set-prop 13 317 0 1</span>
 </pre></div>
 <p>Note, don't use both, -1 with disabled acceleration pretty much disables the devices.</p>
 <h1 id="make it persisntant">Make It Persisntant</h1>
 <p>To make the change persist after restart simply add the config line it to your <code>~/.xsessionrc</code> file, e.g.:</p>
-<div class="highlight"><pre><span></span>echo "xinput set-prop 13 317 0 1" &amp;gt;&amp;gt; ~/.xsessionrc
+<div class="highlight"><pre><span></span><span class="err">echo "xinput set-prop 13 317 0 1" &gt;&gt; ~/.xsessionrc</span>
 </pre></div>
     </div>
 

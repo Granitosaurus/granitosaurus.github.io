@@ -98,10 +98,10 @@ You can check <a href="http://docs.getpelican.com/en/latest/content.html#article
 <h3 id="vim markdown highlight for .md files">Vim markdown highlight for .md files</h3>
 <p>While going through the installation I've noticed that markdown doesn't have highlighting in vim which was peculiar. I found <a href="http://superuser.com/questions/701496/no-syntax-highlight-on-md-files">this post which describes a simple fix</a>.<br/>
 Simply create directories and file: </p>
-<div class="highlight"><pre><span></span>~/.vim/ftdetect/markdown.vim
+<div class="highlight"><pre><span></span><span class="err">~/.vim/ftdetect/markdown.vim</span>
 </pre></div>
 <p>with content: </p>
-<div class="highlight"><pre><span></span>au BufNewFile,BufRead *.md  setf markdown
+<div class="highlight"><pre><span></span><span class="err">au BufNewFile,BufRead *.md  setf markdown</span>
 </pre></div>
 <h3 id="theming pelican">Theming Pelican</h3>
 <p>The default Pelican theme is pretty great however I stumbled on <a href="https://github.com/alexandrevicenzi/Flex">flex-theme</a> on <a href="https://github.com/getpelican/pelican-themes">pelican theme repo</a> on github. So that's my choice for now, but I'd like to touch up the color scheme a bit. Check out <a href="http://docs.getpelican.com/en/stable/pelican-themes.html"><code>pelican-themes</code></a>.</p>

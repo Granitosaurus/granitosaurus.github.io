@@ -85,37 +85,37 @@ The standard tool for linux is called eCryptfs and let me tell you how awesome a
         <h1 id="ecryptfs">eCryptfs</h1>
 <p>eCryptfs is a cryptographic overlay filesystem for Linux. It's a great tool to encrypt some private data like cryptocurrency wallet keys, private pictures &mdash; anything really.<br/>
 It allows you to mount a password protected, encrypted filesystem on your usual unencrypted filesystem:</p>
-<div class="highlight"><pre><span></span>dex@~/.private $ ls
-Access-Your-Private-Data.desktop  README.txt
-$ ecryptfs-mount-private 
-    Enter your login passphrase:
-    Inserted auth tok with sig [xxxxxx] into the user session keyring
-    INFO: Your private directory has been mounted.
-    INFO: To see this change in your current shell:
-      cd /home/dex/.private
-dex@~/.private $ cd .
-dex@~/.private $ ls 
-myetherwallet  btc
+<div class="highlight"><pre><span></span><span class="n">dex</span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">private</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"></span>
+<span class="n">Access</span><span class="o">-</span><span class="n">Your</span><span class="o">-</span><span class="n">Private</span><span class="o">-</span><span class="k">Data</span><span class="p">.</span><span class="n">desktop</span><span class="w">  </span><span class="n">README</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
+<span class="err">$</span><span class="w"> </span><span class="n">ecryptfs</span><span class="o">-</span><span class="n">mount</span><span class="o">-</span><span class="n">private</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Enter</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="nl">passphrase</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="n">Inserted</span><span class="w"> </span><span class="n">auth</span><span class="w"> </span><span class="n">tok</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">sig</span><span class="w"> </span><span class="o">[</span><span class="n">xxxxxx</span><span class="o">]</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">session</span><span class="w"> </span><span class="n">keyring</span><span class="w"></span>
+<span class="w">    </span><span class="nl">INFO</span><span class="p">:</span><span class="w"> </span><span class="n">Your</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">mounted</span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nl">INFO</span><span class="p">:</span><span class="w"> </span><span class="k">To</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">current</span><span class="w"> </span><span class="nl">shell</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">dex</span><span class="o">/</span><span class="p">.</span><span class="n">private</span><span class="w"></span>
+<span class="n">dex</span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">private</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="n">dex</span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">private</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span>
+<span class="n">myetherwallet</span><span class="w">  </span><span class="n">btc</span><span class="w"></span>
 </pre></div>
 <p>Pretty damn cool - simple and secure!  </p>
 <h2 id="setup">Setup</h2>
 <p>eCryptfs setup is dead easy!<br/>
 Since linux version 3.18 eCrypt overlay filesystem is included with core kernel. 
 Simply enable it with:</p>
-<div class="highlight"><pre><span></span>modprobe ecryptfs
+<div class="highlight"><pre><span></span><span class="err">modprobe ecryptfs</span>
 </pre></div>
 <p>Then we need some tools to easily mount, unmount and generate our filesystem: <code>ecryptfs-utils</code> has everything we would need and is available on every linux package manager:  </p>
-<div class="highlight"><pre><span></span>sudo apt install ecryptfs-utils  # Ubuntu
-sudo pacman -S ecryptfs-utils  # Arch
-etc. etc.
+<div class="highlight"><pre><span></span><span class="err">sudo apt install ecryptfs-utils  # Ubuntu</span>
+<span class="err">sudo pacman -S ecryptfs-utils  # Arch</span>
+<span class="err">etc. etc.</span>
 </pre></div>
 <p>Once you have it installed you'll find your user-space path populated with a bunch of ecryptfs utils, just type in your terminal <code>ecryptfs-</code> and press tab to see the goodies:</p>
-<div class="highlight"><pre><span></span>[dex@nanosaurus ~]$ ecryptfs-&amp;lt;tab&amp;gt;
-ecryptfs-add-passphrase
-ecryptfs-find
-ecryptfs-insert-wrapped-passphrase-into-keyring
-ecryptfs-manager
-...
+<div class="highlight"><pre><span></span><span class="err">[dex@nanosaurus ~]$ ecryptfs-&lt;tab&gt;</span>
+<span class="err">ecryptfs-add-passphrase</span>
+<span class="err">ecryptfs-find</span>
+<span class="err">ecryptfs-insert-wrapped-passphrase-into-keyring</span>
+<span class="err">ecryptfs-manager</span>
+<span class="err">...</span>
 </pre></div>
 <p>Finally to initiate an ecryptfs system we need to run:</p>
 <div class="highlight"><pre><span></span>$ ecryptfs-setup-private --nopwcheck --noautomount
@@ -130,19 +130,19 @@ ecryptfs-manager
 <p><em>Note: you want to backup your encrypted mount password which is located in <code>~/.ecryptfs/wrapped-passphrase</code>. Remember that mount password is generated from your login password, so the passphrase is completely useless without your login password - put a copy of this file somewhere where you will never lose it!</em></p>
 <h2 id="usage">Usage</h2>
 <p><code>~/Private</code> is your ecryptfs encrypted directory from now on. To use it you must mount it with <code>ecryptfs-mount-private</code> command and once you're done using it use <code>ecryptfs-umount-private</code> command to make it inaccessible once again:  </p>
-<div class="highlight"><pre><span></span>dex@~/Private $ ls
-Access-Your-Private-Data.desktop  README.txt
-$ ecryptfs-mount-private 
-dex@~/Private $ cd .
-dex@~/Private $ ls 
-myetherwallet  btc diary emberassing_hobbies
+<div class="highlight"><pre><span></span><span class="err">dex@~/Private $ ls</span>
+<span class="err">Access-Your-Private-Data.desktop  README.txt</span>
+<span class="err">$ ecryptfs-mount-private </span>
+<span class="err">dex@~/Private $ cd .</span>
+<span class="err">dex@~/Private $ ls </span>
+<span class="err">myetherwallet  btc diary emberassing_hobbies</span>
 </pre></div>
 <p>That's it! Now you have a safe directory on your computer where you can store sensitive data! Even if someone gets access to your user's homespace they'll still need your ecryptfs password to get anything out of it.  </p>
 <h2 id="customizing">Customizing</h2>
 <p><code>~/Private</code> is a pretty terrible name. It's Camelcase and I'd very much prefer it to be hidden.<br/>
 We can change it to <code>~/.private</code> very easily though:</p>
-<div class="highlight"><pre><span></span>mv ~/Private ~/.private
-echo /home/dex/.private &amp;gt; ~/.ecryptfs/Private.mnt
+<div class="highlight"><pre><span></span><span class="err">mv ~/Private ~/.private</span>
+<span class="err">echo /home/dex/.private &gt; ~/.ecryptfs/Private.mnt</span>
 </pre></div>
 <h1 id="general security tips_1">General Security tips</h1>
 <h2 id="the three rule">The Three Rule</h2>

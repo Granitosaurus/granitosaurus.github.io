@@ -93,7 +93,7 @@ To confirm and test that with we can try this simple script <code>size.py</code>
 <span class="kn">import</span> <span class="nn">shutil</span>
 
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">))</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'cols:{}</span><span class="se">\n</span><span class="s1">rows:{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'cols:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">rows:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="p">))</span>
 </pre></div>
 <div class="highlight"><pre><span></span>$ python size.py
 cols:89
@@ -112,7 +112,7 @@ If we use <code>os.get_terminal_size(0)</code> function, we'll get it working wi
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'cols:{}</span><span class="se">\n</span><span class="s1">rows:{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'cols:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">rows:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="p">))</span>
 </pre></div>
 <p>The thing to note here is the positional argument <code>0</code> in <code>os.get_terminal_size()</code> function, which tells which <a href="https://en.wikipedia.org/wiki/File_descriptor">file descriptor</a> to use: </p>
 <blockquote>

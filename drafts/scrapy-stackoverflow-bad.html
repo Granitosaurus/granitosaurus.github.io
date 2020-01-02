@@ -101,7 +101,7 @@ I have the <a href="http://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.s
         <span class="n">Rule</span><span class="p">(</span><span class="n">LinkExtractor</span><span class="p">(</span><span class="n">restrict_xpaths</span><span class="o">=</span><span class="p">[</span><span class="s1">'//a[@href]'</span><span class="p">]),</span>
              <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_item</span><span class="p">),</span>
         <span class="n">Rule</span><span class="p">(</span><span class="n">LinkExtractor</span><span class="p">(</span><span class="n">restrict_xpaths</span><span class="o">=</span><span class="p">[</span><span class="s1">'//a[@id="cat"]'</span><span class="p">]),</span>
-            <span class="n">follow</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+            <span class="n">follow</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
     <span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">parse_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>

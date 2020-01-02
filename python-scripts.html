@@ -89,7 +89,7 @@ Yes you are, keep it up!
         <h2 id="handling the path">Handling the PATH</h2>
 <p>Now depending on your system and the shell you use, this directory might already be created or might not be in your <code>PATH</code> environment at all.<br/>
 <code>PATH</code> environment variable is a list of locations your shell will look for executable files - programs in other words. So if you're using good ol' bash simply adding this line to your <code>~/.bashrc</code> file will do:</p>
-<div class="highlight"><pre><span></span>export PATH="~/bin:$PATH"
+<div class="highlight"><pre><span></span><span class="err">export PATH="~/bin:$PATH"</span>
 </pre></div>
 <h2 id="creating the script">Creating the script</h2>
 <p>Now we can create the script itself:</p>
@@ -110,7 +110,7 @@ We should populate this script with some actual code:</p>
 Afterwards we have the most simple of python code that just prints some text when call it directly, you see when you call a python module directly the magic variable <code>__name__</code> is being set to <code>'__main__'</code> so you can gate some code in your script behind it so it would only be executed if it's called directly as opposed by being imported by some other module.  </p>
 <h2 id="making it executable">Making it executable</h2>
 <p>Lastly we want to mark our file "executable" so the operating system know it can actually call this file as a script or a program:</p>
-<div class="highlight"><pre><span></span>chmod +x ~/bin/amicool
+<div class="highlight"><pre><span></span><span class="err">chmod +x ~/bin/amicool</span>
 </pre></div>
 <p>And there we go! Your script is good to go and whenever you feel inadequate regarding your coolness just type:</p>
 <div class="highlight"><pre><span></span>$ amicool

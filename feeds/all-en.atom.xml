@@ -1,5 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="Blog%20of%20Bernardas%20Ali%C5%A1auskas/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2019-10-26T00:00:00+02:00</updated><subtitle>Python programmer and a goof who loves free software, video-games and heavy metal</subtitle><entry><title>Get Organized With TaskWarrior!</title><link href="https://granitosaurus.github.io/taskwarrior-intro.html" rel="alternate"></link><published>2019-10-26T00:00:00+02:00</published><updated>2019-10-26T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-10-26:/taskwarrior-intro.html</id><summary type="html">&lt;p&gt;Quick introduction how to get productive and organized with amazing commandline tool called Taskwarrior!&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you've been part of terminal ecosystem for you're most likely familiar with numerous terminal &lt;em&gt;todo&lt;/em&gt; sort of programs. I'd like to introduce you to king of all of them &lt;a href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;. &lt;br/&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="Blog%20of%20Bernardas%20Ali%C5%A1auskas/feeds/all-en.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2020-01-02T00:00:00+01:00</updated><subtitle>Python programmer and a goof who loves free software, video-games and heavy metal</subtitle><entry><title>Memory is Me</title><link href="https://granitosaurus.github.io/memory-is-me.html" rel="alternate"></link><published>2020-01-02T00:00:00+01:00</published><updated>2020-01-02T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2020-01-02:/memory-is-me.html</id><summary type="html">&lt;p&gt;New year resolution - understanding and figure out ways to improve memory.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been slowly reaching mature adulthood as I've turned 27 just now and I've constantly poked around major meta physics and philosophy question as most of people have. While I hadn't found many answers yet one thing I've got certain - how valuable memories are. &lt;/p&gt;
+&lt;p&gt;Objectively speaking our memory structure is often cited as one of the reason for our species intelligence and consciousness - an idea that has been explored in many books, shows and movies. I fully agree with this idea - what are we if not a biological machine with a collection of experiences and memories.&lt;/p&gt;
+&lt;p&gt;Unfortunately as I started to get older I feel I'm starting to forget things. Some might be pure biology - I'm vegetarian so I often skimp on B12 and my diet is lazy on iron - but most of it can be blamed on method. By that I mean my current methods of preserving memories are flawed and in need of improvement.  &lt;/p&gt;
+&lt;p&gt;So this is my new years resolution - improve on my memory management!&lt;/p&gt;
+&lt;h1 id="understanding and improving memory"&gt;Understanding and Improving Memory&lt;/h1&gt;
+&lt;p&gt;To improve something you have to understand it - well at least a little bit. For that I've went through few resources and got a worthy summary.&lt;/p&gt;
+&lt;p&gt;&lt;video autoplay="" height="240" loop="" muted="" title="Unfortunately you can't beam your memories as radio signals just yet :(" width="480"&gt;&lt;source src="/gifs/brain.mp4" type="video/mp4"/&gt;&lt;/video&gt;&lt;figcaption&gt;Unfortunately you can't beam your memories as radio signals just yet :(&lt;/figcaption&gt;&lt;/p&gt;
+&lt;p&gt;There are many kinds of memory, but the one I'm interested for this topic is long term declarative memory. Without digging to much into this immense subject declarative memory refers to all memories that are consciously available - things you can remember on demand. This is further split into: &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Semantic: knowledge about external world - facts.&lt;/li&gt;
+&lt;li&gt;Episodic: memory to specific event in time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Episodic memory is what really interests me and especially how to improve it but semantic memory has been a bit of an obsession of mine for a long time too, so I'd like to investigate both of these mediums.&lt;/p&gt;
+&lt;h1 id="improving episodic memory"&gt;Improving Episodic Memory&lt;/h1&gt;
+&lt;p&gt;According to bunch of resources there are ways to improve episodic memories but nothing is really certain so I've designed myself few episodic memory improvement strategies that I'd like to follow through this year.&lt;/p&gt;
+&lt;p&gt;&lt;video autoplay="" height="240" loop="" muted="" title="It seems that sometimes brain needs a bit of hand to start going!" width="480"&gt;&lt;source src="/gifs/brain-hand.mp4" type="video/mp4"/&gt;&lt;/video&gt;&lt;figcaption&gt;It seems that sometimes brain needs a bit of hand to start going!&lt;/figcaption&gt;&lt;/p&gt;
+&lt;h2 id="emotion"&gt;Emotion&lt;/h2&gt;
+&lt;p&gt;Generally memories with emotion attach to them tend to be much stronger. Obviously you can't really fake emotions to improve retention of a memory, but there are few ways you &lt;em&gt;could take advantage&lt;/em&gt; of this fact.  &lt;/p&gt;
+&lt;p&gt;One particular idea of flashbulb memory indicates that attaching feeling of scale and importance helps to retain a more vivid memory:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A &lt;strong&gt;flashbulb memory&lt;/strong&gt; is a memory laid down in great detail during a highly personally significant event, often a shocking event of national or international importance.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Taking advantage of this idea in this context is a bit hard but I've noticed that merely acknowledging emotions attached to memories helps to strengthen episodic memories as well as make them just more pleasant. For example a memory at the beach - I was happy and dazzled by the scenic view but the abundance of jelly fish made me feel a bit anxious. Just acknowledging these emotions makes the memory more vivid, it's as if the emotions helps the memory to branch out to deeper parts of me.&lt;/p&gt;
+&lt;p&gt;For this section the &lt;strong&gt;resolution&lt;/strong&gt; is quite simple - &lt;strong&gt;acknowledge the emotions attached to memories&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id="drugs"&gt;Drugs&lt;/h2&gt;
+&lt;p&gt;The relationship between memory and drugs has always been quite conflicting but there are some clear evidence that drugs can improve it. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A 2015 meta-analysis of high quality evidence found that therapeutic doses of &lt;strong&gt;amphetamine and methylphenidate&lt;/strong&gt; improve performance on working memory, episodic memory, and inhibitory control tests in normal healthy adults.[1]&lt;br/&gt;
+[1] - https://repository.upenn.edu/neuroethics_pubs/130&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Unfortunately most of episodic memory enhancing drugs are quite hardcore and unsurprisingly are developed to fight against various serious diseases like Alzheimer's or Parkinson's. I've tried digging around but every episodic memory drug seems to be quite hardcore messing of proteins and neurons which means any sort of recreational or supplemental usage is not worth it.&lt;/p&gt;
+&lt;p&gt;However malnutrition is clearly attributed to episodic memory (and memory in general) quality. Clearly not many people reading this blog are not suffering from malnutrition, right? Well I've been doing yearly blood tests and taking along everyone I could talk into it with me and you'd be surprising - almost everyone &lt;em&gt;was&lt;/em&gt; missing something. Personally my last years test was low on iron, B12 and vitamin D - I could clearly see my memory improve after sorting this out within few months.&lt;/p&gt;
+&lt;p&gt;My &lt;strong&gt;resolution&lt;/strong&gt; for this section is simply to &lt;strong&gt;take care of nutrition&lt;/strong&gt; better - more varied diet, some supplements and general awareness that the biochemistry in my body is important for my self.&lt;/p&gt;
+&lt;h2 id="recall"&gt;Recall&lt;/h2&gt;
+&lt;p&gt;By far the most common way of strengthening episodic memories is recalling the memories and everything attached to them. Basically the more you remember the memory the more it gets stuck in your head.&lt;/p&gt;
+&lt;p&gt;I'll be focusing on this the most in my approach - designing exercises to efficiently and accurately recall memories seems like the most effective improvement strategy.&lt;/p&gt;
+&lt;p&gt;Being a software nerd that I am I'll start my subject with a bunch of software tools that can help. &lt;/p&gt;
+&lt;h3 id="monica - personal contact assistant"&gt;Monica - Personal Contact Assistant&lt;/h3&gt;
+&lt;p&gt;First I'd like to start out with &lt;a href="https://www.monicahq.com/"&gt;Monica&lt;/a&gt; - a personal assistant web app where you can create contacts and keep track of experiences and events.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/images/monicahq.png"&gt;&lt;img src="/images/monicahq.png" title="it's like a digital rolodex!"/&gt;&lt;/a&gt;&lt;figcaption&gt;it's like a digital rolodex!&lt;/figcaption&gt;&lt;/p&gt;
+&lt;p&gt;This tool is not only great for recalling memories but for managing contacts as well. It helps you to be a better friend, coworker or even a family member - historical information makes it easier to care!&lt;br/&gt;
+I've already been using Monica a bit but my goal here is to incorporate it even more into my routines.&lt;/p&gt;
+&lt;h3 id="photography and video"&gt;Photography and Video&lt;/h3&gt;
+&lt;p&gt;Second tool so to speak is simply taking more photos. I love photography and there's an immense memory capture value here. Just scrolling through &lt;strong&gt;instagram stories&lt;/strong&gt; or &lt;strong&gt;snapchat&lt;/strong&gt; archives makes for a really fun and fulfilling experiences. Needless to say capturing visual moments is a brilliant recalling tool and I want to do more of it. &lt;/p&gt;
+&lt;p&gt;&lt;video autoplay="" height="240" loop="" muted="" title="Take pictures of everything and sort it later!" width="480"&gt;&lt;source src="/gifs/camera-much.mp4" type="video/mp4"/&gt;&lt;/video&gt;&lt;figcaption&gt;Take pictures of everything and sort it later!&lt;/figcaption&gt;&lt;/p&gt;
+&lt;p&gt;My currently tool usage for this medium is as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.instagram.com/wraptile_"&gt;Instagram&lt;/a&gt; Feed - feed of my own photos, it's more of a collage or a CV of my past self to my future self.  &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.instagram.com/wraptile_"&gt;Instagram&lt;/a&gt; Stories and Snapchat Archives - feed of my activities, snippets of various events and adventures.  &lt;/li&gt;
+&lt;li&gt;Photography on &lt;a href="https://pixelfed.social/Wraptile"&gt;Pixelfed&lt;/a&gt; - most interesting photography experiences go here.&lt;/li&gt;
+&lt;li&gt;Photos and Videos - Feed of my bigger events. I like to edit videos and photos but it's rather time consuming so I'm reserving bigger events.  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For storing photos and videos on cloud the biggest challenge  is actually curating the media to make recalling a streamlined and pleasant experience. &lt;br/&gt;
+For that I'm using &lt;a href="http://pcloud.com/"&gt;Pcloud&lt;/a&gt; cloud storage and dedicate few minutes every weekend to clean up auto-uploads for a more pleasant recalling experience if I do want to go back and look through my photos. &lt;br/&gt;
+There are applications which help to curate your feeds by generating stories of what it thinks are most important bits - this helps immensely if you don't curate your albums by hand. I haven't researched this thoroughly enough so one of my resolution goals is to categorize my photos better. For that I'll be investing more time with &lt;a href="https://www.darktable.org/"&gt;Darktable&lt;/a&gt; 3.0 release and go from there.&lt;/p&gt;
+&lt;h3 id="journal"&gt;Journal&lt;/h3&gt;
+&lt;p&gt;An obvious way to strengthen recalling is to start a journal (aka diary or log book). Not only it can be therapeutic way to relieve your mind and organize your thoughts but it's a great tool for improving memory too. Recalling memories right after they happened is a sure way to strengthen them, to add you can easily revisit these memories and recall them at any time given that your logbook system is properly indexed.&lt;/p&gt;
+&lt;p&gt;&lt;video autoplay="" height="240" loop="" muted="" title="Is making a journal terminal with raspberry pi going too far?" width="480"&gt;&lt;source src="/gifs/fallout-terminal.mp4" type="video/mp4"/&gt;&lt;/video&gt;&lt;figcaption&gt;Is making a journal terminal with raspberry pi going too far?&lt;/figcaption&gt;&lt;/p&gt;
+&lt;p&gt;I love static site generators and &lt;a href="https://github.com/ge3tpelican/pelican"&gt;pelican&lt;/a&gt; in particular thus I've started my log book as a local static website. Pelican allows me to categorise my entries by tags, date and any other additional meta fields allowing easy recall to any specific entries.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/images/pelican-journal.png"&gt;&lt;img src="/images/pelican-journal.png" title="html journal with pelican"/&gt;&lt;/a&gt;&lt;figcaption&gt;html journal with pelican&lt;/figcaption&gt;&lt;/p&gt;
+&lt;p&gt;For this I've developed &lt;a href="https://github.com/Granitosaurus/pelican-journal"&gt;pelican-journal&lt;/a&gt; - a pre-made pelican project designed for tag-based journaling.&lt;/p&gt;
+&lt;h2 id="exercise, meditation and fasting_1"&gt;Exercise, Meditation and Fasting&lt;/h2&gt;
+&lt;p&gt;There a sufficient amount of evidence that exercise, meditation and even occasional fasting helps to improve memory. However I've struggling integrating exercise into my routine.   &lt;/p&gt;
+&lt;p&gt;&lt;video autoplay="" height="240" loop="" muted="" title="" width="480"&gt;&lt;source src="/gifs/spongebob-workingout.mp4" type="video/mp4"/&gt;&lt;/video&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/p&gt;
+&lt;p&gt;Often I find exercise exciting at first but lately it has been failing to enter my routine. I identified few causes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lack of visible progression. 
+This is a bit difficult to address as the progression tends to slow down after initial two months or so during which you can upgrade your weights every few visits. After a while, however, I feel that I'm hitting a barrier of X kilos and lose interest. &lt;br/&gt;
+For that my resolution is tracking the progression in notes: weight, diameters and strength.&lt;/li&gt;
+&lt;li&gt;Pushing for too long gym visits.&lt;br/&gt;
+I've been a bit of a &lt;em&gt;victim&lt;/em&gt; of peer pressure to stay in gym longer than I really want to which really just kills my interest. I find 45 minutes to be a sweet spot for me. &lt;br/&gt;
+My resolution in this case is to push myself less.&lt;/li&gt;
+&lt;li&gt;Timing.&lt;br/&gt;
+This has been the hardest to figure out. When to go to gym? Sometimes I enjoy mornings, sometimes I enjoy evening but constant mixing of gym times messes up my routine.&lt;br/&gt;
+For this I've decided to focus on 4-5 o'clock. Hit the gym for an hour and just in time to catch early Thai sunset for after-gym recreation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For mediatation but I've been struggling to find enjoyment in it. I usually pick it up for few weeks and then lose interest. I've tried apps like &lt;a href="https://www.headspace.com/"&gt;headspace&lt;/a&gt; without much luck. However it only takes 5-10 minutes, I really need to give it a proper go.&lt;/p&gt;
+&lt;h1 id="summary and further research_1"&gt;Summary and Further Research&lt;/h1&gt;
+&lt;p&gt;For 2020 I've decided to strengthen my episodic memory through: taking more pictures and organizing them better, keeping track of contacts and events using Monica assistant and keep writing daily or at least semi-daily journal.&lt;/p&gt;
+&lt;p&gt;There seems to be a lot of information on the internet and I'm still on the lookout for possible improvement strategies but so far I'm satisfied with few approaches I've described here. 
+For further improvement I have my eyes on &lt;a href="https://www.magneticmemorymethod.com/"&gt;magnetic memory method&lt;/a&gt; - seems like memory course but the author seems to be quite legit their &lt;a href="https://www.magneticmemorymethod.com/episodic-memory/"&gt;article on episodic memory&lt;/a&gt; was surprisingly well writen, though I'm not very trustworthy of self-help salesmen and the name "magnetic" doesn't give much credibility but based on that article it might be worth investigating further.&lt;/p&gt;
+&lt;h1 id="happy 2020"&gt;Happy 2020&lt;/h1&gt;
+&lt;p&gt;&lt;video autoplay="" height="240" loop="" muted="" title="" width="480"&gt;&lt;source src="/gifs/2020.mp4" type="video/mp4"/&gt;&lt;/video&gt;&lt;figcaption&gt;&lt;/figcaption&gt;&lt;/p&gt;
+&lt;p&gt;Whoever read this, enjoy the new year! Hopefully you found some useful material in this article to make this year better :)&lt;/p&gt;</content><category term="self"></category><category term="self"></category><category term="memory"></category></entry><entry><title>Breakfast Is Dumb</title><link href="https://granitosaurus.github.io/buying-a-bike.html" rel="alternate"></link><published>2019-12-18T00:00:00+01:00</published><updated>2019-12-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-12-18:/buying-a-bike.html</id><summary type="html">&lt;p&gt;Eating breakfast is an absolutely awful idea and if ideas what you need you should definitely skip it. Here I'll argue my case against breakfast being part of your daily meal.&lt;/p&gt;</summary><content type="html">&lt;p&gt;The health benefits of breakfast meal were always a debate. There's a lot of negative and positive correlation as this &lt;a href="https://www.bbc.com/future/article/20181126-is-breakfast-good-for-your-health"&gt;BBC article&lt;/a&gt; points out eating breakfast could help with weight control and with control of metabolism and diabetes:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Eating breakfast, the researchers conclude, is essential for keeping our body clock running on time.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;That's n=36 study so I'd really take it with a huge grain of salt.&lt;br/&gt;
+That being said ok, maybe breakfast can be "healthy" but there are many more ways to approach metabolism and weight control, so this argued benefits seems to be very minor - let me argue against it and say that negatives of breakfast way outweigh the positives.&lt;/p&gt;
+&lt;h1 id="aging"&gt;Aging&lt;/h1&gt;
+&lt;p&gt;Latest trends in aging studies suggest that loss of information in our epigenome (part of DNA that tells cell what should it become) causes aging. A brilliant video by [Veratasium][veratasium] covers this really well:&lt;/p&gt;
+&lt;iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/QRt7LjqJ45k" width="560"&gt;&lt;/iframe&gt;
+&lt;p&gt;To summarize bits related to this topic: &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To counter decline of epigenome, we can activate the body's own defenses against aging by stressing the body. Eat less, eat less protein, engage in intense exercise, experience uncomfortable cold. When the body senses existential threats it triggers longevity genes, which attempt to maintain the body to ensure its survival until good times return. This may be the evolutionary legacy of early bacteria, which established these two modes of living (repair and protect vs grow and reproduce). Scientists are uncovering ways to mimic stresses on the body without the discomfort of fasting. Molecules like NMN also trigger sirtuins to monitor and repair the epigenome. This may slow aging.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The idea that stress on the body decreases aging is definitely not a new one and you'd probably find plenty of anecdotes in your life yourself!  &lt;/p&gt;</content><category term="self"></category><category term="travel"></category><category term="thailand"></category><category term="chiang-mai"></category><category term="motorcycle"></category></entry><entry><title>Get Organized With TaskWarrior!</title><link href="https://granitosaurus.github.io/taskwarrior-intro.html" rel="alternate"></link><published>2019-10-26T00:00:00+02:00</published><updated>2019-10-26T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-10-26:/taskwarrior-intro.html</id><summary type="html">&lt;p&gt;Quick introduction how to get productive and organized with amazing commandline tool called Taskwarrior!&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you've been part of terminal ecosystem for you're most likely familiar with numerous terminal &lt;em&gt;todo&lt;/em&gt; sort of programs. I'd like to introduce you to king of all of them &lt;a href="https://taskwarrior.org/"&gt;Taskwarrior&lt;/a&gt;. &lt;br/&gt;
 The name might sound intimidating but don't go - it's quite the opposite: it's butter smooth!  &lt;/p&gt;
 &lt;h1 id="intro"&gt;Intro&lt;/h1&gt;
 &lt;p&gt;Your key command here is &lt;code&gt;task&lt;/code&gt;. Typing this alone will list your open tasks:&lt;/p&gt;
@@ -98,7 +194,7 @@ Taskwarrior documentation is well written and quite short:&lt;/p&gt;
 &lt;li&gt;example workflows of users: https://taskwarrior.org/docs/workflow.html&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;man task&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Bugwarrior plugin for pulling issues from other sources - https://bugwarrior.readthedocs.io/&lt;/li&gt;
-&lt;/ul&gt;</content><category term="productivity"></category><category term="linux"></category></entry><entry><title>1 Year in Chiang Mai, Thailand</title><link href="https://granitosaurus.github.io/chiang-mai-1.html" rel="alternate"></link><published>2019-06-02T00:00:00+02:00</published><updated>2019-06-02T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-06-02:/chiang-mai-1.html</id><summary type="html">&lt;p&gt;My experience of living 1 year in Chiang Mai, Thailand for 1 year now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been living in Chiang Mai - biggest city in North Thailand - for over one year now. I did a lot during this year and experienced many things. The food is great, the housing is cool and the language is complicated. Let me tell you all about it! &lt;/p&gt;
+&lt;/ul&gt;</content><category term="self"></category><category term="productivity"></category><category term="linux"></category></entry><entry><title>1 Year in Chiang Mai, Thailand</title><link href="https://granitosaurus.github.io/chiang-mai-1.html" rel="alternate"></link><published>2019-06-02T00:00:00+02:00</published><updated>2019-06-02T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2019-06-02:/chiang-mai-1.html</id><summary type="html">&lt;p&gt;My experience of living 1 year in Chiang Mai, Thailand for 1 year now.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been living in Chiang Mai - biggest city in North Thailand - for over one year now. I did a lot during this year and experienced many things. The food is great, the housing is cool and the language is complicated. Let me tell you all about it! &lt;/p&gt;
 &lt;h1 id="visa and getting here"&gt;Visa And Getting Here&lt;/h1&gt;
 &lt;p&gt;Getting to Chiang Mai is dead easy - take a flight to Bangkok and then another one straight to Chiang Mai! There are flights almost every hour and are surprisingly cheap. The flight from Europe (e.g. Riga) - Bangkok is around 350&amp;euro; + Bangkok - Chiang Mai 50&amp;euro; = &lt;strong&gt;~400&amp;euro;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;For Visa it's a bit more complicated. There are several types of visa but the most interesting ones:&lt;/p&gt;
@@ -222,7 +318,7 @@ That being said some few people are absolute fine with it so personal tolerance 
 &lt;p&gt;I plan to stay here longer so there are many more blogpost to come! I plan to cover some subjects like expenses, food and my favorite activities in greater detail. &lt;/p&gt;
 &lt;p&gt;For more Chiang My photos check out my &lt;a href="https://pixelfed.social/Wraptile"&gt;pixelfed feed&lt;/a&gt;.&lt;/p&gt;
 &lt;h1 id="credits and attributions"&gt;Credits and attributions&lt;/h1&gt;
-&lt;p&gt;1 - https://commons.wikimedia.org/wiki/User:Takeaway&lt;/p&gt;</content><category term="travel"></category><category term="thailand"></category><category term="chiang-mai"></category></entry><entry><title>Diving Into Web-Crawling</title><link href="https://granitosaurus.github.io/starting-to-crawl.html" rel="alternate"></link><published>2018-12-10T00:00:00+01:00</published><updated>2018-12-10T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-12-10:/starting-to-crawl.html</id><summary type="html">&lt;p&gt;Where to start with the art of hoarding online data?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on the world wide web!&lt;/p&gt;
+&lt;p&gt;1 - https://commons.wikimedia.org/wiki/User:Takeaway&lt;/p&gt;</content><category term="self"></category><category term="travel"></category><category term="thailand"></category><category term="chiang-mai"></category></entry><entry><title>Diving Into Web-Crawling</title><link href="https://granitosaurus.github.io/starting-to-crawl.html" rel="alternate"></link><published>2018-12-10T00:00:00+01:00</published><updated>2018-12-10T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-12-10:/starting-to-crawl.html</id><summary type="html">&lt;p&gt;Where to start with the art of hoarding online data?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on the world wide web!&lt;/p&gt;
 &lt;p&gt;In this introduction I'll cover the core ideas behind web-crawling and web-crawling with python.&lt;/p&gt;
 &lt;h1 id="what's web crawling?"&gt;What's Web Crawling?&lt;/h1&gt;
 &lt;p&gt;First it's important to wrap your head around the stages of web crawling program.  &lt;/p&gt;
@@ -314,26 +410,26 @@ Alternatively a lot of website have request limits that are high enough that mat
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;csv documents:  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;name,price   
-rubber chicken, 55.99
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;name,price   &lt;/span&gt;
+&lt;span class="err"&gt;rubber chicken, 55.99&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;json documents:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[
-    {
-        "name": "rubber chicken",
-        "price": 55.99
-    } 
-]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;[&lt;/span&gt;
+&lt;span class="err"&gt;    {&lt;/span&gt;
+&lt;span class="err"&gt;        "name": "rubber chicken",&lt;/span&gt;
+&lt;span class="err"&gt;        "price": 55.99&lt;/span&gt;
+&lt;span class="err"&gt;    } &lt;/span&gt;
+&lt;span class="err"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;database tables&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;------------------------------
-|       name       |  price  |
-------------------------------
-|  rubber chicken  |  55.99  |
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;------------------------------&lt;/span&gt;
+&lt;span class="err"&gt;|       name       |  price  |&lt;/span&gt;
+&lt;span class="err"&gt;------------------------------&lt;/span&gt;
+&lt;span class="err"&gt;|  rubber chicken  |  55.99  |&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -388,7 +484,7 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 &lt;h1 id="synchronous example_2"&gt;Synchronous Example&lt;/h1&gt;
 &lt;p&gt;Lets write a simple article crawler for python blog posts!&lt;/p&gt;
 &lt;p&gt;for this we'll use &lt;a href="https://github.com/scrapy/parsel"&gt;parsel&lt;/a&gt; and &lt;a href="http://docs.python-requests.org/en/master/"&gt;requests&lt;/a&gt; packages. You can get them via pip:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install parsel requests
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;pip install parsel requests&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Our spider logic would follow:&lt;/p&gt;
 &lt;ol&gt;
@@ -447,7 +543,7 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;consume&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="sd"&gt;"""Consume job urls by downloading them, parsing data and saving to disk"""&lt;/span&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'crawling job: {url}'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;'crawling job: &lt;/span&gt;&lt;span class="si"&gt;{url}&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;
         &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
@@ -483,7 +579,7 @@ Generally parsing html with regex is a bad idea as regex patterns will quickly b
 &lt;p&gt;Data is often the core of application functionality and web-crawling is a great tool to easily take advantage of public data available online.  &lt;/p&gt;
 &lt;p&gt;Crawling is a diverse, multi-step process with a lot of viable approaches but to start off sticking with syncrhonious &lt;code&gt;requests&lt;/code&gt; and html parsers like &lt;code&gt;parsel&lt;/code&gt; can be more than enough for most projects.&lt;/p&gt;
 &lt;p&gt;For further reading it's important to take a look at &lt;strong&gt;web caching&lt;/strong&gt; and &lt;strong&gt;rate limiting&lt;/strong&gt;, &lt;strong&gt;proxies&lt;/strong&gt; and &lt;strong&gt;failure and memory managing&lt;/strong&gt;. Finally there's a whole other problem of &lt;strong&gt;scaling&lt;/strong&gt; both crawling and data storage when it comes to millions of results. &lt;br/&gt;
-I'll be covering these in later blogs &lt;/p&gt;</content><category term="scrapy"></category><category term="python"></category><category term="web-crawling"></category></entry><entry><title>How to fix redis busy</title><link href="https://granitosaurus.github.io/redis-busy.html" rel="alternate"></link><published>2018-08-28T00:00:00+02:00</published><updated>2018-08-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-08-28:/redis-busy.html</id><summary type="html">&lt;p&gt;How to fix annoying redis busy error when working with redis lua scripts and multiple clients&lt;/p&gt;</summary><content type="html">&lt;p&gt;Imagine scenario where you have a single redis server (which is single threaded) and you have multiple clients:&lt;/p&gt;
+I'll be covering these in later blogs &lt;/p&gt;</content><category term="code"></category><category term="scrapy"></category><category term="python"></category><category term="web-crawling"></category></entry><entry><title>How to fix redis busy</title><link href="https://granitosaurus.github.io/redis-busy.html" rel="alternate"></link><published>2018-08-28T00:00:00+02:00</published><updated>2018-08-28T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-08-28:/redis-busy.html</id><summary type="html">&lt;p&gt;How to fix annoying redis busy error when working with redis lua scripts and multiple clients&lt;/p&gt;</summary><content type="html">&lt;p&gt;Imagine scenario where you have a single redis server (which is single threaded) and you have multiple clients:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="redis structure" src="https://granitosaurus.github.io/images/redis-busy1.png"/&gt;&lt;/p&gt;
 &lt;p&gt;Eventhough redis is single-threaded it has no problem handling this setup since it's blazing fast and knows how to manage it's task queue.&lt;br/&gt;
 However if we ask redis server to perform a lua script evaluation it might take a while, which ends up with clients getting this nasty error:&lt;/p&gt;
@@ -521,7 +617,7 @@ However if we ask redis server to perform a lua script evaluation it might take 
 &lt;p&gt;&lt;img alt="redis final structure" src="https://granitosaurus.github.io/images/redis-busy3.png"/&gt;&lt;/p&gt;
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;I've been trying to find some in-built solution for this and couldn't believe there's no official approach, neither with redis itself nor python's redis client. &lt;br/&gt;
-The internet resources are very scarce around this issue too, so I figured I'd try and remedy this.&lt;/p&gt;</content><category term="linux"></category><category term="guide"></category><category term="redis"></category><category term="python"></category></entry><entry><title>Quest Accepted: Travel to HCMC, Vietnam</title><link href="https://granitosaurus.github.io/quest-hcmc.html" rel="alternate"></link><published>2018-01-18T00:00:00+01:00</published><updated>2018-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-01-18:/quest-hcmc.html</id><summary type="html">&lt;p&gt;My and my girlfriend's struggle to get to Ho Chi Minh City, Vietnam&lt;/p&gt;</summary><content type="html">&lt;p&gt;Me and my girlfriend are spending 3 months in Vietnam this year (amount tourist visa allows you) and our first stop is the biggest city in Vietnam, and the biggest city we've been to in general!  &lt;/p&gt;
+The internet resources are very scarce around this issue too, so I figured I'd try and remedy this.&lt;/p&gt;</content><category term="code"></category><category term="linux"></category><category term="guide"></category><category term="redis"></category><category term="python"></category></entry><entry><title>Quest Accepted: Travel to HCMC, Vietnam</title><link href="https://granitosaurus.github.io/quest-hcmc.html" rel="alternate"></link><published>2018-01-18T00:00:00+01:00</published><updated>2018-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-01-18:/quest-hcmc.html</id><summary type="html">&lt;p&gt;My and my girlfriend's struggle to get to Ho Chi Minh City, Vietnam&lt;/p&gt;</summary><content type="html">&lt;p&gt;Me and my girlfriend are spending 3 months in Vietnam this year (amount tourist visa allows you) and our first stop is the biggest city in Vietnam, and the biggest city we've been to in general!  &lt;/p&gt;
 &lt;h1 id="quest #1: getting there"&gt;Quest #1: Getting There&lt;/h1&gt;
 &lt;p&gt;Our original plan was to go fly out from Tartu to Helsinki, chill there for 8 hours (literally) then take an 8 hour flight to Bangkok, chill there for two hours (literally too, air conditioning is strong in asia) and finally take a two hour flight to HCMC.  &lt;/p&gt;
 &lt;iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/MeJzHSxRq40" width="560"&gt;&lt;/iframe&gt;
@@ -590,7 +686,7 @@ As we were about to leave the vehicle our driver used google translate to ask fo
 &lt;li&gt;Carry multiple mini-usb cables/power banks for phone charging.  &lt;/li&gt;
 &lt;li&gt;Do not trust taxi services too much.  &lt;/li&gt;
 &lt;li&gt;Finland is weird and expensive.  &lt;/li&gt;
-&lt;/ol&gt;</content><category term="travel"></category><category term="vietnam"></category></entry><entry><title>Why I use GPL license</title><link href="https://granitosaurus.github.io/why-gpl.html" rel="alternate"></link><published>2017-11-18T00:00:00+01:00</published><updated>2017-11-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-18:/why-gpl.html</id><summary type="html">&lt;p&gt;Why I use GNU's General Public License and why I think it's a superior free or even open software license and anyone should consider it for your project.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This issue has been discussed to death and I still find people blindly advocating MIT or even WTFPL licenses.
+&lt;/ol&gt;</content><category term="self"></category><category term="travel"></category><category term="vietnam"></category></entry><entry><title>Why I use GPL license</title><link href="https://granitosaurus.github.io/why-gpl.html" rel="alternate"></link><published>2017-11-18T00:00:00+01:00</published><updated>2017-11-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-18:/why-gpl.html</id><summary type="html">&lt;p&gt;Why I use GNU's General Public License and why I think it's a superior free or even open software license and anyone should consider it for your project.&lt;/p&gt;</summary><content type="html">&lt;p&gt;This issue has been discussed to death and I still find people blindly advocating MIT or even WTFPL licenses.
 I'm far from a lawyer but I feel that there are few very generic and simple details about software licensing people
 who lead open software projects should understand.&lt;/p&gt;
 &lt;h2 id="protect yourself"&gt;Protect Yourself&lt;/h2&gt;
@@ -648,7 +744,7 @@ I believe I can develop and maintain software where I don't need to rely on adop
 &lt;p&gt;Additional read:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.gnu.org/philosophy/pragmatic.html"&gt;Copyleft: Pragmactic Idealism&lt;/a&gt;&lt;br/&gt;
 &lt;a href="https://www.gnu.org/licenses/gpl-faq.html"&gt;GPL's FAQ&lt;/a&gt;&lt;br/&gt;
-&lt;a href="https://www.fsf.org/blogs/rms/selling-exceptions"&gt;It's possible to sell GPL exception&lt;/a&gt; &lt;/p&gt;</content><category term="floss"></category><category term="legal"></category></entry><entry><title>How to disable thinkpad trackpoint acceleration</title><link href="https://granitosaurus.github.io/disable-thinkpad-acceleration.html" rel="alternate"></link><published>2017-11-17T00:00:00+01:00</published><updated>2017-11-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-17:/disable-thinkpad-acceleration.html</id><summary type="html">&lt;p&gt;A short note on how to properly disable thinkpoint trackpad acceleration&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I've got a new thinkpad laptop and I've been struggling with mouse acceleration on trackpoint,
+&lt;a href="https://www.fsf.org/blogs/rms/selling-exceptions"&gt;It's possible to sell GPL exception&lt;/a&gt; &lt;/p&gt;</content><category term="code"></category><category term="floss"></category><category term="legal"></category></entry><entry><title>How to disable thinkpad trackpoint acceleration</title><link href="https://granitosaurus.github.io/disable-thinkpad-acceleration.html" rel="alternate"></link><published>2017-11-17T00:00:00+01:00</published><updated>2017-11-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-17:/disable-thinkpad-acceleration.html</id><summary type="html">&lt;p&gt;A short note on how to properly disable thinkpoint trackpad acceleration&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I've got a new thinkpad laptop and I've been struggling with mouse acceleration on trackpoint,
 turns out disabling it isn't as straight-forward as you'd expect&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;To get rid of this abomination of a feature that is enabled by default we need &lt;code&gt;xinput&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id="the fix"&gt;The Fix&lt;/h1&gt;
@@ -695,24 +791,24 @@ Device &lt;span class="s1"&gt;'TPPS/2 IBM TrackPoint'&lt;/span&gt;:
         libinput Send Events Mode Enabled Default &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;262&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;0&lt;/span&gt;, &lt;span class="m"&gt;0&lt;/span&gt;
         Device Node &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;263&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:      &lt;span class="s2"&gt;"/dev/input/event18"&lt;/span&gt;
         Device Product ID &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;264&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:        &lt;span class="m"&gt;2&lt;/span&gt;, &lt;span class="m"&gt;10&lt;/span&gt;
-        libinput Drag Lock Buttons &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;326&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;no items&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;
+        libinput Drag Lock Buttons &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;326&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &amp;lt;no items&amp;gt;
         libinput Horizontal Scroll Enabled &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;327&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;:       &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To disable acceleration we are interested in one of these two settings:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        libinput Accel Speed (314):     0
-        libinput Accel Profile Enabled (317):   1, 0
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;        libinput Accel Speed (314):     0&lt;/span&gt;
+&lt;span class="err"&gt;        libinput Accel Profile Enabled (317):   1, 0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;We can either diminish/change the acceleration speed by:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# to disable we can use negative acceleration
-$ xinput set-prop 13 314 -1
-# or we can disable acceleration profile entirely
-$ xinput set-prop 13 317 0 1
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;# to disable we can use negative acceleration&lt;/span&gt;
+&lt;span class="err"&gt;$ xinput set-prop 13 314 -1&lt;/span&gt;
+&lt;span class="err"&gt;# or we can disable acceleration profile entirely&lt;/span&gt;
+&lt;span class="err"&gt;$ xinput set-prop 13 317 0 1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Note, don't use both, -1 with disabled acceleration pretty much disables the devices.&lt;/p&gt;
 &lt;h1 id="make it persisntant"&gt;Make It Persisntant&lt;/h1&gt;
 &lt;p&gt;To make the change persist after restart simply add the config line it to your &lt;code&gt;~/.xsessionrc&lt;/code&gt; file, e.g.:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo "xinput set-prop 13 317 0 1" &amp;amp;gt;&amp;amp;gt; ~/.xsessionrc
-&lt;/pre&gt;&lt;/div&gt;</content><category term="linux"></category><category term="guide"></category></entry><entry><title>Going to Vietnam!</title><link href="https://granitosaurus.github.io/vietnam.html" rel="alternate"></link><published>2017-11-14T00:00:00+01:00</published><updated>2017-11-14T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-14:/vietnam.html</id><summary type="html">&lt;p&gt;Preparing to spend 3 months in Vietnam, working remotely and experiencing a distance culture - an exciting proposition!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Me and my girlfriend have been planning to spend this year somewhere abroad.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;echo "xinput set-prop 13 317 0 1" &amp;gt;&amp;gt; ~/.xsessionrc&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>Going to Vietnam!</title><link href="https://granitosaurus.github.io/vietnam.html" rel="alternate"></link><published>2017-11-14T00:00:00+01:00</published><updated>2017-11-14T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-11-14:/vietnam.html</id><summary type="html">&lt;p&gt;Preparing to spend 3 months in Vietnam, working remotely and experiencing a distance culture - an exciting proposition!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Me and my girlfriend have been planning to spend this year somewhere abroad.
 My first choice was Lisbon, Portugal as we visited Porto last year and
 I've always wanted to spend a year or two living and experiencing Portugal.
 However due to huge house market inflation (what was 500&amp;euro;/month two years ago
@@ -786,42 +882,42 @@ Vietnam is known for cheap products, especially when it comes to clothing, so re
 hardly a need to take anything else, it's more fun to go shopping!&lt;/p&gt;
 &lt;h2 id="follow up"&gt;Follow Up&lt;/h2&gt;
 &lt;p&gt;This is certainly exciting and I'll be sure to follow up this blog in the near future once we get there on Nov 22nd!&lt;/p&gt;
-&lt;p&gt;I'll be sure to include spending reports and such as well.&lt;/p&gt;</content><category term="travel"></category><category term="vietnam"></category></entry><entry><title>Securing Data With eCryptfs</title><link href="https://granitosaurus.github.io/ecrypt-yourself.html" rel="alternate"></link><published>2017-10-22T00:00:00+02:00</published><updated>2017-10-22T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-22:/ecrypt-yourself.html</id><summary type="html">&lt;p&gt;protect your sensitive data like crypto wallets with eCrypt overlay filesystem!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. &lt;br/&gt;
+&lt;p&gt;I'll be sure to include spending reports and such as well.&lt;/p&gt;</content><category term="self"></category><category term="travel"></category><category term="vietnam"></category></entry><entry><title>Securing Data With eCryptfs</title><link href="https://granitosaurus.github.io/ecrypt-yourself.html" rel="alternate"></link><published>2017-10-22T00:00:00+02:00</published><updated>2017-10-22T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-10-22:/ecrypt-yourself.html</id><summary type="html">&lt;p&gt;protect your sensitive data like crypto wallets with eCrypt overlay filesystem!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. &lt;br/&gt;
 The standard tool for linux is called eCryptfs and let me tell you how awesome and convenient it is!&lt;/p&gt;
 &lt;h1 id="ecryptfs"&gt;eCryptfs&lt;/h1&gt;
 &lt;p&gt;eCryptfs is a cryptographic overlay filesystem for Linux. It's a great tool to encrypt some private data like cryptocurrency wallet keys, private pictures &amp;mdash; anything really.&lt;br/&gt;
 It allows you to mount a password protected, encrypted filesystem on your usual unencrypted filesystem:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dex@~/.private $ ls
-Access-Your-Private-Data.desktop  README.txt
-$ ecryptfs-mount-private 
-    Enter your login passphrase:
-    Inserted auth tok with sig [xxxxxx] into the user session keyring
-    INFO: Your private directory has been mounted.
-    INFO: To see this change in your current shell:
-      cd /home/dex/.private
-dex@~/.private $ cd .
-dex@~/.private $ ls 
-myetherwallet  btc
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;dex&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ls&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Access&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Your&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Private&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;Data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;desktop&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ecryptfs&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;mount&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Enter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;login&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;passphrase&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;Inserted&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;auth&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tok&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sig&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;xxxxxx&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;into&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;session&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;keyring&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nl"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Your&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;directory&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;has&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;been&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mounted&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nl"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;To&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;see&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;change&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;current&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;shell&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dex&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;dex&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;dex&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ls&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="n"&gt;myetherwallet&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;btc&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Pretty damn cool - simple and secure!  &lt;/p&gt;
 &lt;h2 id="setup"&gt;Setup&lt;/h2&gt;
 &lt;p&gt;eCryptfs setup is dead easy!&lt;br/&gt;
 Since linux version 3.18 eCrypt overlay filesystem is included with core kernel. 
 Simply enable it with:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;modprobe ecryptfs
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;modprobe ecryptfs&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Then we need some tools to easily mount, unmount and generate our filesystem: &lt;code&gt;ecryptfs-utils&lt;/code&gt; has everything we would need and is available on every linux package manager:  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt install ecryptfs-utils  # Ubuntu
-sudo pacman -S ecryptfs-utils  # Arch
-etc. etc.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;sudo apt install ecryptfs-utils  # Ubuntu&lt;/span&gt;
+&lt;span class="err"&gt;sudo pacman -S ecryptfs-utils  # Arch&lt;/span&gt;
+&lt;span class="err"&gt;etc. etc.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Once you have it installed you'll find your user-space path populated with a bunch of ecryptfs utils, just type in your terminal &lt;code&gt;ecryptfs-&lt;/code&gt; and press tab to see the goodies:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[dex@nanosaurus ~]$ ecryptfs-&amp;amp;lt;tab&amp;amp;gt;
-ecryptfs-add-passphrase
-ecryptfs-find
-ecryptfs-insert-wrapped-passphrase-into-keyring
-ecryptfs-manager
-...
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;[dex@nanosaurus ~]$ ecryptfs-&amp;lt;tab&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;ecryptfs-add-passphrase&lt;/span&gt;
+&lt;span class="err"&gt;ecryptfs-find&lt;/span&gt;
+&lt;span class="err"&gt;ecryptfs-insert-wrapped-passphrase-into-keyring&lt;/span&gt;
+&lt;span class="err"&gt;ecryptfs-manager&lt;/span&gt;
+&lt;span class="err"&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Finally to initiate an ecryptfs system we need to run:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ecryptfs-setup-private --nopwcheck --noautomount
@@ -836,19 +932,19 @@ ecryptfs-manager
 &lt;p&gt;&lt;em&gt;Note: you want to backup your encrypted mount password which is located in &lt;code&gt;~/.ecryptfs/wrapped-passphrase&lt;/code&gt;. Remember that mount password is generated from your login password, so the passphrase is completely useless without your login password - put a copy of this file somewhere where you will never lose it!&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id="usage"&gt;Usage&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;~/Private&lt;/code&gt; is your ecryptfs encrypted directory from now on. To use it you must mount it with &lt;code&gt;ecryptfs-mount-private&lt;/code&gt; command and once you're done using it use &lt;code&gt;ecryptfs-umount-private&lt;/code&gt; command to make it inaccessible once again:  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dex@~/Private $ ls
-Access-Your-Private-Data.desktop  README.txt
-$ ecryptfs-mount-private 
-dex@~/Private $ cd .
-dex@~/Private $ ls 
-myetherwallet  btc diary emberassing_hobbies
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;dex@~/Private $ ls&lt;/span&gt;
+&lt;span class="err"&gt;Access-Your-Private-Data.desktop  README.txt&lt;/span&gt;
+&lt;span class="err"&gt;$ ecryptfs-mount-private &lt;/span&gt;
+&lt;span class="err"&gt;dex@~/Private $ cd .&lt;/span&gt;
+&lt;span class="err"&gt;dex@~/Private $ ls &lt;/span&gt;
+&lt;span class="err"&gt;myetherwallet  btc diary emberassing_hobbies&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;That's it! Now you have a safe directory on your computer where you can store sensitive data! Even if someone gets access to your user's homespace they'll still need your ecryptfs password to get anything out of it.  &lt;/p&gt;
 &lt;h2 id="customizing"&gt;Customizing&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;~/Private&lt;/code&gt; is a pretty terrible name. It's Camelcase and I'd very much prefer it to be hidden.&lt;br/&gt;
 We can change it to &lt;code&gt;~/.private&lt;/code&gt; very easily though:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mv ~/Private ~/.private
-echo /home/dex/.private &amp;amp;gt; ~/.ecryptfs/Private.mnt
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;mv ~/Private ~/.private&lt;/span&gt;
+&lt;span class="err"&gt;echo /home/dex/.private &amp;gt; ~/.ecryptfs/Private.mnt&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id="general security tips_1"&gt;General Security tips&lt;/h1&gt;
 &lt;h2 id="the three rule"&gt;The Three Rule&lt;/h2&gt;
@@ -859,7 +955,7 @@ echo /home/dex/.private &amp;amp;gt; ~/.ecryptfs/Private.mnt
 &lt;p&gt;I don't think I can top the explanation by this &lt;a href="https://xkcd.com/936/"&gt;xkcd comic&lt;/a&gt; so I'll just leave you with it and say that just have a simple a-z password which is at least 13 characters long.  &lt;/p&gt;
 &lt;h1 id="further reading_1"&gt;Further Reading&lt;/h1&gt;
 &lt;p&gt;If you want to dig deeper I suggest arch-wiki &lt;a href="https://wiki.archlinux.org/index.php/ECryptfs"&gt;article&lt;/a&gt; or symply &lt;code&gt;man ecryptfs&lt;/code&gt;!
-Additionally &lt;a href="https://stackoverflow.com/questions/tagged/ecryptfs?sort=votes&amp;amp;pageSize=15"&gt;top questions on stackoverflow&lt;/a&gt; also offer some interesting read.&lt;/p&gt;</content><category term="linux"></category><category term="guide"></category><category term="crypto"></category><category term="security"></category></entry><entry><title>wisdom.cat</title><link href="https://granitosaurus.github.io/wisdom-cat.html" rel="alternate"></link><published>2017-04-01T00:00:00+02:00</published><updated>2017-04-01T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-04-01:/wisdom-cat.html</id><summary type="html">&lt;p&gt;Recently I made small website in flask for aggregating educational youtube videos and I'd like to share my experience.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've always wanted to make a webapp and flask always looked appealing but deployment and production hassle really turned me off. A week ago I tried to force myself through it and I have to say, it's really not that bad!&lt;/p&gt;
+Additionally &lt;a href="https://stackoverflow.com/questions/tagged/ecryptfs?sort=votes&amp;amp;pageSize=15"&gt;top questions on stackoverflow&lt;/a&gt; also offer some interesting read.&lt;/p&gt;</content><category term="code"></category><category term="linux"></category><category term="guide"></category><category term="crypto"></category><category term="security"></category></entry><entry><title>wisdom.cat</title><link href="https://granitosaurus.github.io/wisdom-cat.html" rel="alternate"></link><published>2017-04-01T00:00:00+02:00</published><updated>2017-04-01T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-04-01:/wisdom-cat.html</id><summary type="html">&lt;p&gt;Recently I made small website in flask for aggregating educational youtube videos and I'd like to share my experience.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've always wanted to make a webapp and flask always looked appealing but deployment and production hassle really turned me off. A week ago I tried to force myself through it and I have to say, it's really not that bad!&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;This is not a guide and you most likely won't learn anything - it's more of a condense story of how wisdom.cat was developed and doesn't really serve any other purpose&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="wisdom.cat" src="https://i.imgur.com/JppvDUZ.png"/&gt;&lt;/p&gt;
 &lt;h2 id="wisdom.cat"&gt;Wisdom.cat&lt;/h2&gt;
@@ -905,7 +1001,7 @@ I've been using arch and systemd for few years now so this part was a breeze, ho
 &lt;p&gt;Finally I wrote up two daemon services: &lt;code&gt;gunicorn&lt;/code&gt; wsgi service to launch and expose the app, and a timer service - to run video crawler every half an hour, to update the video feed.&lt;/p&gt;
 &lt;p&gt;And with that wisdom.cat was finally drawing it's first breaths! &lt;/p&gt;
 &lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This was a really fun little project and I highly recommend investing some time into learning how to make a simple web app like this - it opens up so many gates for so many opportunities!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="flask"></category><category term="webdev"></category></entry><entry><title>Doom and Stone in Tallinn</title><link href="https://granitosaurus.github.io/doom-tallinn-2017.html" rel="alternate"></link><published>2017-01-31T00:00:00+01:00</published><updated>2017-01-31T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-31:/doom-tallinn-2017.html</id><summary type="html">&lt;p&gt;I went to a brilliant doom and stone metal concert in Tallinn, Estonia. Spearheaded by Stoned Jesus itself and back by two brilliant bands from Poland!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm a big fan of doom metal and to my surprise a brilliant rock club "Woodstock" was holding a concert featuring 3 brilliant bands: &lt;a href="https://dopelord.bandcamp.com/"&gt;Dopelord[PL]&lt;/a&gt;, &lt;a href="https://sunnataofficial.bandcamp.com/"&gt;Sunnata[PL]&lt;/a&gt; and &lt;a href="https://stonedjesus.bandcamp.com/"&gt;Stoned Jesus[UA]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This was a really fun little project and I highly recommend investing some time into learning how to make a simple web app like this - it opens up so many gates for so many opportunities!&lt;/p&gt;</content><category term="code"></category><category term="python"></category><category term="linux"></category><category term="flask"></category><category term="webdev"></category></entry><entry><title>Doom and Stone in Tallinn</title><link href="https://granitosaurus.github.io/doom-tallinn-2017.html" rel="alternate"></link><published>2017-01-31T00:00:00+01:00</published><updated>2017-01-31T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-31:/doom-tallinn-2017.html</id><summary type="html">&lt;p&gt;I went to a brilliant doom and stone metal concert in Tallinn, Estonia. Spearheaded by Stoned Jesus itself and back by two brilliant bands from Poland!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm a big fan of doom metal and to my surprise a brilliant rock club "Woodstock" was holding a concert featuring 3 brilliant bands: &lt;a href="https://dopelord.bandcamp.com/"&gt;Dopelord[PL]&lt;/a&gt;, &lt;a href="https://sunnataofficial.bandcamp.com/"&gt;Sunnata[PL]&lt;/a&gt; and &lt;a href="https://stonedjesus.bandcamp.com/"&gt;Stoned Jesus[UA]&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="The Procession II" src="https://granitosaurus.github.io/images/doom-tallinn.png"/&gt;&lt;/p&gt;
 &lt;p&gt;I've attended Stoned Jesus concert last year at the same place and it was a blast, so even though I wasn't familiar with the other two bands, Stoned Jesus was more than enough to convince me this time.&lt;br/&gt;
 I tried to keep the other two bands a surprise and only caved during the long and tedious bus ride to the concert itself. I've listened to the top 3 songs on spotify and was completely stoked! &lt;/p&gt;
@@ -923,7 +1019,7 @@ Sunnata formed in 2008 and overall they sound very much doom, though maybe a bit
 To finish up the show the band played a 20 minute long encore and had a pretty successful stage dive to finish up already exhausted fans!&lt;/p&gt;
 &lt;iframe allowfullscreen="" class="center-block" frameborder="0" height="360" src="https://www.youtube.com/embed/iW1jxJ6ISks" title="I'm the mountain!" width="560"&gt;&lt;/iframe&gt;
 &lt;p&gt;To summit it - the show was great and I'd like to publicly thank the bands for coming out this far up to Estonia, Tallinn and delivering such a great show! And would highly recommend, given the opportunity, to check these bands out to anyone both live and online.  &lt;/p&gt;
-&lt;p&gt;That's pretty much it, a rather pointless blog but I felt really inspired to share this and publicly thank Dopelord, Sunnata and Stoned Jesus for a great show!&lt;/p&gt;</content><category term="metal"></category><category term="doom"></category><category term="tallinn"></category></entry><entry><title>Getting Terminal Size In Python</title><link href="https://granitosaurus.github.io/getting-terminal-size.html" rel="alternate"></link><published>2017-01-26T00:00:00+01:00</published><updated>2017-01-26T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-26:/getting-terminal-size.html</id><summary type="html">&lt;p&gt;Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I'd like to share.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. However there are some few tricks worth noting that I'd like to share in this blog post.&lt;/p&gt;
+&lt;p&gt;That's pretty much it, a rather pointless blog but I felt really inspired to share this and publicly thank Dopelord, Sunnata and Stoned Jesus for a great show!&lt;/p&gt;</content><category term="self"></category><category term="metal"></category><category term="doom"></category><category term="tallinn"></category></entry><entry><title>Getting Terminal Size In Python</title><link href="https://granitosaurus.github.io/getting-terminal-size.html" rel="alternate"></link><published>2017-01-26T00:00:00+01:00</published><updated>2017-01-26T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-26:/getting-terminal-size.html</id><summary type="html">&lt;p&gt;Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I'd like to share.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. However there are some few tricks worth noting that I'd like to share in this blog post.&lt;/p&gt;
 &lt;p&gt;First of all the recommended way or the "pythonic" way of retrieving terminal size for python3 is:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python3&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
@@ -938,7 +1034,7 @@ To confirm and test that with we can try this simple script &lt;code&gt;size.py&
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;shutil&lt;/span&gt;
 
 &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;shutil&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fallback&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;456&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'cols:{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;rows:{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'cols:&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;rows:&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ python size.py
 cols:89
@@ -957,7 +1053,7 @@ If we use &lt;code&gt;os.get_terminal_size(0)&lt;/code&gt; function, we'll get i
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 
 &lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'cols:{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;rows:{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'cols:&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;rows:&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rows&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The thing to note here is the positional argument &lt;code&gt;0&lt;/code&gt; in &lt;code&gt;os.get_terminal_size()&lt;/code&gt; function, which tells which &lt;a href="https://en.wikipedia.org/wiki/File_descriptor"&gt;file descriptor&lt;/a&gt; to use: &lt;/p&gt;
 &lt;blockquote&gt;
@@ -1004,7 +1100,7 @@ So to combine all of these to cover all of the cases we can simply wrap it in a 
 &lt;p&gt;And there you go, you can use that instead of &lt;code&gt;os.get_terminal_size()&lt;/code&gt; and have a pipe-foolproof terminal size getter! &lt;/p&gt;
 &lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;I've spent more time than I'd like to admit trying to figure this out and the &lt;a href="http://stackoverflow.com/a/41864359/3737009"&gt;stackoverflow thread&lt;/a&gt; for this subject only left me more confused.&lt;br/&gt;
-As always if you have any questions, critique or notices feel free to leave a comment!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>My Bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;"My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br/&gt;
+As always if you have any questions, critique or notices feel free to leave a comment!&lt;/p&gt;</content><category term="code"></category><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>My Bin: center</title><link href="https://granitosaurus.github.io/my-bin-center.html" rel="alternate"></link><published>2017-01-18T00:00:00+01:00</published><updated>2017-01-18T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-18:/my-bin-center.html</id><summary type="html">&lt;p&gt;"My bin" is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size.&lt;/p&gt;</summary><content type="html">&lt;p&gt;People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory &lt;code&gt;~/bin&lt;/code&gt; is full of scripts that make my life easier or at least makes me feel that is. &lt;br/&gt;
 On how to setup your environment for easily accessible scripting see my &lt;a href="/python-scripts.html"&gt;Guide: setup for python scripting&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!&lt;br/&gt;
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running &lt;a href="http://i3wm.org/"&gt;i3wm&lt;/a&gt; - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.&lt;/p&gt;
@@ -1035,15 +1131,15 @@ As of some one gently rapping, rapping at my chamber door.
     &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 
 
-    &lt;span class="nd"&gt;@click.command&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-    &lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'input'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'r'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="nd"&gt;@click.argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'output'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-    &lt;span class="nd"&gt;@click.option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'-l'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'--length'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'maximum line length [default:current terminal size]'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nd"&gt;@click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="nd"&gt;@click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'input'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'r'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nd"&gt;@click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'output'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;required&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;False&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'w'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="nd"&gt;@click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'-l'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'--length'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'maximum line length [default:current terminal size]'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;click&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;cli&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;length&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="sd"&gt;"""Simple, pipeable tool for centering text"""&lt;/span&gt;
         &lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_terminal_size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;#1&lt;/span&gt;
         &lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;readlines&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;input&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stdin&lt;/span&gt;  &lt;span class="c1"&gt;#2&lt;/span&gt;
-        &lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'{{:^{}}}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;#3&lt;/span&gt;
+        &lt;span class="n"&gt;_format&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'{{:^&lt;/span&gt;&lt;span class="si"&gt;{}&lt;/span&gt;&lt;span class="s1"&gt;}}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;'&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;length&lt;/span&gt; &lt;span class="ow"&gt;or&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;  &lt;span class="c1"&gt;#3&lt;/span&gt;
         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;  &lt;span class="c1"&gt;#4&lt;/span&gt;
             &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_format&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
             &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -1067,7 +1163,7 @@ Check out a related blog entry why we are using this function instead of alterna
 &lt;p&gt;You could probably go wild with a bunch of flags and modifications but it's important to remember to KISS - keep it simple stupid. With pipes, aliases and various other shortcuts leaving this script to do one job is very much a good idea! :) &lt;/p&gt;
 &lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and &lt;code&gt;click&lt;/code&gt;. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!&lt;br/&gt;
-Let me know if you have any questions and stay tuned for more scripts and explanations!&lt;/p&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category><category term="my-bin"></category></entry><entry><title>Guide: setup for python scripting</title><link href="https://granitosaurus.github.io/python-scripts.html" rel="alternate"></link><published>2017-01-17T00:00:00+01:00</published><updated>2017-01-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-17:/python-scripts.html</id><summary type="html">&lt;p&gt;Short guide on how to setup an environment for executable python scripts&lt;/p&gt;</summary><content type="html">&lt;p&gt;Few python scripts can make your daily routines significantly easier and enjoyable. In this post I'll cover how to set up your linux environment to have your scripts always easily accessible.&lt;br/&gt;
+Let me know if you have any questions and stay tuned for more scripts and explanations!&lt;/p&gt;</content><category term="code"></category><category term="python"></category><category term="linux"></category><category term="guide"></category><category term="my-bin"></category></entry><entry><title>Guide: setup for python scripting</title><link href="https://granitosaurus.github.io/python-scripts.html" rel="alternate"></link><published>2017-01-17T00:00:00+01:00</published><updated>2017-01-17T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2017-01-17:/python-scripts.html</id><summary type="html">&lt;p&gt;Short guide on how to setup an environment for executable python scripts&lt;/p&gt;</summary><content type="html">&lt;p&gt;Few python scripts can make your daily routines significantly easier and enjoyable. In this post I'll cover how to set up your linux environment to have your scripts always easily accessible.&lt;br/&gt;
 In other words, how to make this reality:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ amicool 
 Yes you are, keep it up!
@@ -1078,7 +1174,7 @@ Yes you are, keep it up!
 &lt;h2 id="handling the path"&gt;Handling the PATH&lt;/h2&gt;
 &lt;p&gt;Now depending on your system and the shell you use, this directory might already be created or might not be in your &lt;code&gt;PATH&lt;/code&gt; environment at all.&lt;br/&gt;
 &lt;code&gt;PATH&lt;/code&gt; environment variable is a list of locations your shell will look for executable files - programs in other words. So if you're using good ol' bash simply adding this line to your &lt;code&gt;~/.bashrc&lt;/code&gt; file will do:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export PATH="~/bin:$PATH"
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;export PATH="~/bin:$PATH"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="creating the script"&gt;Creating the script&lt;/h2&gt;
 &lt;p&gt;Now we can create the script itself:&lt;/p&gt;
@@ -1099,12 +1195,12 @@ We should populate this script with some actual code:&lt;/p&gt;
 Afterwards we have the most simple of python code that just prints some text when call it directly, you see when you call a python module directly the magic variable &lt;code&gt;__name__&lt;/code&gt; is being set to &lt;code&gt;'__main__'&lt;/code&gt; so you can gate some code in your script behind it so it would only be executed if it's called directly as opposed by being imported by some other module.  &lt;/p&gt;
 &lt;h2 id="making it executable"&gt;Making it executable&lt;/h2&gt;
 &lt;p&gt;Lastly we want to mark our file "executable" so the operating system know it can actually call this file as a script or a program:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chmod +x ~/bin/amicool
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;chmod +x ~/bin/amicool&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And there we go! Your script is good to go and whenever you feel inadequate regarding your coolness just type:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ amicool
 Yes you are, keep it up!
-&lt;/pre&gt;&lt;/div&gt;</content><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>How to get scrapy help.</title><link href="https://granitosaurus.github.io/scrapy-help.html" rel="alternate"></link><published>2016-10-30T00:00:00+02:00</published><updated>2016-10-30T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-30:/scrapy-help.html</id><summary type="html">&lt;p&gt;Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.&lt;br/&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="code"></category><category term="python"></category><category term="linux"></category><category term="guide"></category></entry><entry><title>How to get scrapy help.</title><link href="https://granitosaurus.github.io/scrapy-help.html" rel="alternate"></link><published>2016-10-30T00:00:00+02:00</published><updated>2016-10-30T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-30:/scrapy-help.html</id><summary type="html">&lt;p&gt;Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars &lt;a href="https://github.com/scrapy/scrapy"&gt;on github&lt;/a&gt;. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.&lt;br/&gt;
 Not to mention millions of websites that provide their own unique scraping challenges.  &lt;/p&gt;
 &lt;p&gt;So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?&lt;/p&gt;
 &lt;h1 id="stackoverflow guidelines"&gt;Stackoverflow Guidelines&lt;/h1&gt;
@@ -1142,9 +1238,9 @@ There's an official &lt;a href="https://reddit.com/r/scrapy"&gt;scrapy subreddit
 &lt;p&gt;Once you have these bits you can easily formulate your question and I'm sure someone will help you out!&lt;/p&gt;
 &lt;h2 id="log"&gt;Producing Logs&lt;/h2&gt;
 &lt;p&gt;To save a log of your spider run you can use UNIX output redirection syntax:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider 2&amp;amp;gt;&amp;amp;amp;1 &amp;amp;gt; mylog.log
-# or
-scrapy crawl myspider &amp;amp;amp;&amp;amp;gt; mylog.log
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;scrapy crawl myspider 2&amp;gt;&amp;amp;1 &amp;gt; mylog.log&lt;/span&gt;
+&lt;span class="err"&gt;# or&lt;/span&gt;
+&lt;span class="err"&gt;scrapy crawl myspider &amp;amp;&amp;gt; mylog.log&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Explanation:&lt;br/&gt;
     1. &lt;code&gt;scrapy crawl myspider&lt;/code&gt; - is a scrapy command that will start crawling spider called &lt;code&gt;myspider&lt;/code&gt;&lt;br/&gt;
@@ -1154,15 +1250,15 @@ scrapy crawl myspider &amp;amp;amp;&amp;amp;gt; mylog.log
 &lt;p&gt;For logging scrapy uses python's built-in &lt;a href="https://docs.python.org/3/library/logging.html"&gt;&lt;code&gt;logging&lt;/code&gt; module&lt;/a&gt; which by itself is pretty awesome! If you look into it, it might appear quite daunting but you can actually just &lt;code&gt;import logging&lt;/code&gt; and simply log message to root logger: &lt;code&gt;logging.warning("this page has no next page")&lt;/code&gt;. To have simple logging in your spider.&lt;/p&gt;
 &lt;h2 id="output"&gt;Producing Output&lt;/h2&gt;
 &lt;p&gt;Scrapy can automatically produce output in one these formats:  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;'xml', 'jsonlines', 'jl', 'json', 'csv', 'pickle', 'marshal'
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;'xml', 'jsonlines', 'jl', 'json', 'csv', 'pickle', 'marshal'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To do that simply run &lt;code&gt;crawl&lt;/code&gt; command with &lt;code&gt;--output&lt;/code&gt; flag (&lt;code&gt;-o&lt;/code&gt; for short version) and provide a name + file ending of format you want as an argument:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider --output output.json
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;scrapy crawl myspider --output output.json&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;em&gt;This will output all items your spider spews out to &lt;code&gt;output.json&lt;/code&gt; file.&lt;/em&gt; &lt;/p&gt;
 &lt;p&gt;To get help for readability purposes you probably want to use either &lt;code&gt;json&lt;/code&gt; or &lt;code&gt;xml&lt;/code&gt; since those are most readable and as described in section below parsing-friendly formats.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Tip: You can actually tell scrapy to produce output to stdout directly by setting output argument to &lt;code&gt;-&lt;/code&gt;:&lt;/em&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl myspider -t json -o - output.json
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;scrapy crawl myspider -t json -o - output.json&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id="inspecting output"&gt;Inspecting Output&lt;/h2&gt;
 &lt;p&gt;There few tools to parse &lt;code&gt;json&lt;/code&gt; or &lt;code&gt;xml&lt;/code&gt; content, similar like you'd use &lt;code&gt;sed&lt;/code&gt; or &lt;code&gt;grep&lt;/code&gt; in unix. The most popular and widely known is probably &lt;a href="https://stedolan.github.io/jq/"&gt;jq&lt;/a&gt;, which I believe translates to json query.&lt;br/&gt;
@@ -1171,15 +1267,15 @@ So in response to this I made &lt;a href="https://github.com/granitosaurus/pq/"&
 &lt;p&gt;To put it shortly, using the tools described above you can find specific values of some fields really easily.&lt;br/&gt;
 Lets imagine we have a bunch of products that have these fields: name and price. Now for some reason Samsung items have weird pricing and we want to find out whether that's the case every time we update the code. &lt;/p&gt;
 &lt;p&gt;For example using pq we can navigate the prices of items that have some keywords in their names:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat output.json | pq "//item[contains(@name,'samsung')]/price/text()"
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;cat output.json | pq "//item[contains(@name,'samsung')]/price/text()"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Will find all items that contain "samsung" in the name and output their price values. If you change up your spider an run this command again you can easily navigate whether the values are changing.&lt;/p&gt;
 &lt;p&gt;You can combine this with scrapy spider redirection to have everything in one line:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scrapy crawl spider --nolog -t json -o - | pq "//item[contains(@name,'samsung')]/price/text()"
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;scrapy crawl spider --nolog -t json -o - | pq "//item[contains(@name,'samsung')]/price/text()"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id="conclusion_1"&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!&lt;/p&gt;
-&lt;p&gt;Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)&lt;/p&gt;</content><category term="scrapy"></category><category term="python"></category><category term="stackoverflow"></category><category term="web-crawling"></category></entry><entry><title>Pycon PL + Warsaw report</title><link href="https://granitosaurus.github.io/pycon-pl-after.html" rel="alternate"></link><published>2016-10-23T00:00:00+02:00</published><updated>2016-10-23T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-23:/pycon-pl-after.html</id><summary type="html">&lt;p&gt;Pycon Poland and Warsaw aftermath: a summary of my experience in Pycon Poland and Poland, Warsaw in general.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Last year during Euro-Python 2015 someone from PyconPL had an interesting lightning talk about PyconPL, and since that moment I was sold. However I missed it by few days that year. However this year I made it and as a bonus I checked out Warsaw, Poland too!&lt;/p&gt;
+&lt;p&gt;Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)&lt;/p&gt;</content><category term="code"></category><category term="scrapy"></category><category term="python"></category><category term="stackoverflow"></category><category term="web-crawling"></category></entry><entry><title>Pycon PL + Warsaw report</title><link href="https://granitosaurus.github.io/pycon-pl-after.html" rel="alternate"></link><published>2016-10-23T00:00:00+02:00</published><updated>2016-10-23T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-23:/pycon-pl-after.html</id><summary type="html">&lt;p&gt;Pycon Poland and Warsaw aftermath: a summary of my experience in Pycon Poland and Poland, Warsaw in general.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Last year during Euro-Python 2015 someone from PyconPL had an interesting lightning talk about PyconPL, and since that moment I was sold. However I missed it by few days that year. However this year I made it and as a bonus I checked out Warsaw, Poland too!&lt;/p&gt;
 &lt;p&gt;You can check my previous blog post how we got to Warsaw &lt;a href="/pycon-pl.html"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Before going to Pycon me and my girlfriend took two days to look around Warsaw, Poland. Throughout the trip we stayed in 3 airbnb places. The first day we were really surprised how pretty and big Warsaw is. To give a little background, before the trip we did a bunch of research of what to do in Warsaw and we really didn't find much so we didn't have high hopes to begin with, thus the surprise. &lt;/p&gt;
 &lt;p&gt;So without further ado, here is what I (and in some cases we) think of Warsaw!&lt;/p&gt;
@@ -1263,7 +1359,7 @@ Another cool piece of entertainment was retro computer games, a full room of the
 &lt;p&gt;Initially we didn't find much to do when we did research about Warsaw, however once we got there we got pleasantly surprised by the city and what it offered!  The city is big and beautiful. The center is structured in nice blocks that are easy to traverse and navigate. Every block being full of various small shops, caf&amp;eacute;s or restaurants. And even though there were indeed only few experience places we enjoyed them greatly!&lt;br/&gt;
 Pycon was a blast too! The educational opportunities weren't that great (the talks, workshops etc.) but the board games and leisure activities were more than enough to compensate!  &lt;/p&gt;
 &lt;p&gt;Will definitely consider going next year! &lt;br/&gt;
-Only regret was not taking more luggage.&lt;/p&gt;</content><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category><category term="warsaw"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:/crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
+Only regret was not taking more luggage.&lt;/p&gt;</content><category term="self"></category><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category><category term="warsaw"></category></entry><entry><title>How to parse complicated json trees.</title><link href="https://granitosaurus.github.io/crawling-json.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:/crawling-json.html</id><summary type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.&lt;/p&gt;
 &lt;p&gt;In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.&lt;br/&gt;
 &lt;strong&gt;If you don't care about the research you can just skip to the &lt;a href="#right"&gt;right tool&lt;/a&gt; and &lt;a href="#solving"&gt;solving of the real life case&lt;/a&gt; sections at the end&lt;/strong&gt;.&lt;/p&gt;
 &lt;h1 id="cause"&gt;Cause&lt;/h1&gt;
@@ -1280,34 +1376,34 @@ If you put this response through some json visual tool like &lt;a href="http://j
 &lt;span class="n"&gt;items&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'_embedded'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;'lanes'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;'_embedded'&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="s1"&gt;'items'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;And that's just half-way through the tree. For example to find the sku you'd have to use something like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sku = data['_embedded']['lanes'][4]['_embedded']['items'][0]['_embedded']['product']['id']
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;sku = data['_embedded']['lanes'][4]['_embedded']['items'][0]['_embedded']['product']['id']&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now that's with hard-coding of list indices which are very likely to change for every product, so on top of that ugly line above you'd have to use multiple list comprehensions to find the correct list item from the &lt;code&gt;lanes&lt;/code&gt; or &lt;code&gt;items&lt;/code&gt; lists.  This is bad, ugly, unreliable and extremely painful to work with.&lt;/p&gt;
 &lt;h1 id="tools to solve this"&gt;Tools to Solve This&lt;/h1&gt;
 &lt;p&gt;There are several ways this can be approaches and let me spoil it for you, majority of them are bad, so we'll start off with those.&lt;/p&gt;
 &lt;p&gt;To demonstrate these tools better we'll be parsing this simple json:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;data = """{
-    "one": {
-        "two": [{
-            "four": {
-                "name": "four1_name"
-            }
-        }, {
-            "four": {
-                "name": "four2_name"
-            }
-        }]
-    }
-}"""
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;data = """{&lt;/span&gt;
+&lt;span class="err"&gt;    "one": {&lt;/span&gt;
+&lt;span class="err"&gt;        "two": [{&lt;/span&gt;
+&lt;span class="err"&gt;            "four": {&lt;/span&gt;
+&lt;span class="err"&gt;                "name": "four1_name"&lt;/span&gt;
+&lt;span class="err"&gt;            }&lt;/span&gt;
+&lt;span class="err"&gt;        }, {&lt;/span&gt;
+&lt;span class="err"&gt;            "four": {&lt;/span&gt;
+&lt;span class="err"&gt;                "name": "four2_name"&lt;/span&gt;
+&lt;span class="err"&gt;            }&lt;/span&gt;
+&lt;span class="err"&gt;        }]&lt;/span&gt;
+&lt;span class="err"&gt;    }&lt;/span&gt;
+&lt;span class="err"&gt;}"""&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;All examples below are also available on iPython notebook if you want to mess around with them yourself &lt;a href="https://granitosaurus.github.io/data/crawling-json_examples.ipynb"&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="wrong: flattening the json"&gt;Wrong: Flattening The Json&lt;/h2&gt;
 &lt;p&gt;At first glance this might appear as an obvious solution - just flatten everything to the first level! However this brings out a huge issue with keys. Because every key has to be unique, when flattening the dictionary you need to merge several keys into one to preserve the tree order.
 If we were to flatten our &lt;code&gt;data&lt;/code&gt;, it would end up looking like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;data = """{
-    "one_two_four1_name": "four1_name",
-    "one_two_four2_name": "four2_name",
-    }"""
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;data = """{&lt;/span&gt;
+&lt;span class="err"&gt;    "one_two_four1_name": "four1_name",&lt;/span&gt;
+&lt;span class="err"&gt;    "one_two_four2_name": "four2_name",&lt;/span&gt;
+&lt;span class="err"&gt;    }"""&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In a way you might think it looks nice, but the truth is that it's really unpredictable and hard to parse in a more complex context, since you can only select individual values. This might be useful for some edge cases where you only need 1 field the json tree is only two or tree levels deep, but otherwise it's not worth bothering with.&lt;/p&gt;
 &lt;h2 id="wrong: jmespath, jsonpath and jsoniq etc."&gt;Wrong: Jmespath, JSONPath and JSONiq etc.&lt;/h2&gt;
@@ -1335,38 +1431,38 @@ Since json is part of javascript, this means we can use this tool to parse it:&l
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;etree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tostring&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parsed&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;pretty_print&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is the result:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;amp;lt;program&amp;amp;gt;
-  &amp;amp;lt;var name="foo"&amp;amp;gt;
-    &amp;amp;lt;object&amp;amp;gt;
-      &amp;amp;lt;property name="one"&amp;amp;gt;
-        &amp;amp;lt;object&amp;amp;gt;
-          &amp;amp;lt;property name="two"&amp;amp;gt;
-            &amp;amp;lt;array&amp;amp;gt;
-              &amp;amp;lt;object&amp;amp;gt;
-                &amp;amp;lt;property name="four"&amp;amp;gt;
-                  &amp;amp;lt;object&amp;amp;gt;
-                    &amp;amp;lt;property name="name"&amp;amp;gt;
-                      &amp;amp;lt;string&amp;amp;gt;four1_name&amp;amp;lt;/string&amp;amp;gt;
-                    &amp;amp;lt;/property&amp;amp;gt;
-                  &amp;amp;lt;/object&amp;amp;gt;
-                &amp;amp;lt;/property&amp;amp;gt;
-              &amp;amp;lt;/object&amp;amp;gt;
-              &amp;amp;lt;object&amp;amp;gt;
-                &amp;amp;lt;property name="four"&amp;amp;gt;
-                  &amp;amp;lt;object&amp;amp;gt;
-                    &amp;amp;lt;property name="name"&amp;amp;gt;
-                      &amp;amp;lt;string&amp;amp;gt;four2_name&amp;amp;lt;/string&amp;amp;gt;
-                    &amp;amp;lt;/property&amp;amp;gt;
-                  &amp;amp;lt;/object&amp;amp;gt;
-                &amp;amp;lt;/property&amp;amp;gt;
-              &amp;amp;lt;/object&amp;amp;gt;
-            &amp;amp;lt;/array&amp;amp;gt;
-          &amp;amp;lt;/property&amp;amp;gt;
-        &amp;amp;lt;/object&amp;amp;gt;
-      &amp;amp;lt;/property&amp;amp;gt;
-    &amp;amp;lt;/object&amp;amp;gt;
-  &amp;amp;lt;/var&amp;amp;gt;
-&amp;amp;lt;/program&amp;amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;program&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;var&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"foo"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"one"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"two"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"four"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"name"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                      &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;four1_name&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"four"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;object&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;property&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"name"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+                      &lt;span class="nt"&gt;&amp;lt;string&amp;gt;&lt;/span&gt;four2_name&lt;span class="nt"&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+                    &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+                  &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+                &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+              &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+          &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/object&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/var&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/program&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! &lt;br/&gt;
 If you are already using it to parse javascript somewhere you might just go with it to reduce dependencies if you wish so.&lt;/p&gt;
@@ -1379,22 +1475,22 @@ For sake of being brief I'll show off &lt;code&gt;dicttoxml&lt;/code&gt; + &lt;c
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;dicttoxml&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;
 &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dicttoxml&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;attr_type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="c1"&gt;# the tree we get:&lt;/span&gt;
-&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-          &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four1_name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-          &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="n"&gt;four2_name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;gt&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;four1_name&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;four2_name&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;four&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;two&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;one&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now we can parse this tree using &lt;code&gt;parsel.Selector&lt;/code&gt; and xpath:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;parsel&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Selector&lt;/span&gt;
@@ -1426,7 +1522,7 @@ For sake of being brief I'll show off &lt;code&gt;dicttoxml&lt;/code&gt; + &lt;c
 &lt;h1 id="conclusion"&gt;Conclusion&lt;/h1&gt;
 &lt;p&gt;Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!&lt;br/&gt;
 Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. &lt;br/&gt;
-Hopefully this write up can save someone few hours and an early balding. :D&lt;/p&gt;</content><category term="python"></category><category term="web-crawling"></category><category term="scrapy"></category></entry><entry><title>Going to Pycon Poland!</title><link href="https://granitosaurus.github.io/pycon-pl.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:/pycon-pl.html</id><summary type="html">&lt;p&gt;Going to Pycon PL and checking out Warsaw!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Last year in Euro-Python 2015 someone from PyconPL had a lightning talk about PyconPL and since that moment I was sold. However I missed it by few days. This year however, I'm going and I'm taking a short vacation to explore Warsaw too!&lt;/p&gt;
+Hopefully this write up can save someone few hours and an early balding. :D&lt;/p&gt;</content><category term="code"></category><category term="python"></category><category term="web-crawling"></category><category term="scrapy"></category></entry><entry><title>Going to Pycon Poland!</title><link href="https://granitosaurus.github.io/pycon-pl.html" rel="alternate"></link><published>2016-10-10T00:00:00+02:00</published><updated>2016-10-10T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-10:/pycon-pl.html</id><summary type="html">&lt;p&gt;Going to Pycon PL and checking out Warsaw!&lt;/p&gt;</summary><content type="html">&lt;p&gt;Last year in Euro-Python 2015 someone from PyconPL had a lightning talk about PyconPL and since that moment I was sold. However I missed it by few days. This year however, I'm going and I'm taking a short vacation to explore Warsaw too!&lt;/p&gt;
 &lt;p&gt;There's a bunch of info about the conference on the &lt;a href="https://pl.pycon.org/2016/about_en.html"&gt;official page&lt;/a&gt; and I don't want to be redundant, but the venue looks awesome and in overall the event looks pretty huge. Primarily I just wanted to share how much money do you need to attend something like this, how do you get there and lastly whether it is worth it.   &lt;/p&gt;
 &lt;h1 id="the route"&gt;The route&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="Trip route from Tartu to Warsaw" src="https://granitosaurus.github.io/images/pycon-pl-travel.png"/&gt; &lt;/p&gt;
@@ -1442,7 +1538,7 @@ I actually chatted with one of the hosts a bit and he mentioned that pretty much
 The bus to Riga from Tartu ended up being 30&amp;euro; per person (60&amp;euro; in total) both ways.&lt;/p&gt;
 &lt;p&gt;So &lt;strong&gt;total ended up being 303&amp;euro; per person&lt;/strong&gt; which is pretty cheap for a conference 906km away!&lt;br/&gt;
 This doesn't include any traveling expenses which I'll be sure to calculated and include in aftermath blogpost!&lt;/p&gt;
-&lt;p&gt;The last python conference I went to was EuroPython 2015 and it was super fun, mostly because I got to meet a bunch of coworkers from Scrapinghub, I hope PyconPL can live up to the hype and I'll be sure to post about it either way.&lt;/p&gt;</content><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category></entry><entry><title>First post. Hello Pelican!</title><link href="https://granitosaurus.github.io/installing-pelican.html" rel="alternate"></link><published>2016-10-09T00:00:00+02:00</published><updated>2016-10-09T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-09:/installing-pelican.html</id><summary type="html">&lt;p&gt;Starting up the blog with Python and Pelican static blog generator!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;br/&gt;
+&lt;p&gt;The last python conference I went to was EuroPython 2015 and it was super fun, mostly because I got to meet a bunch of coworkers from Scrapinghub, I hope PyconPL can live up to the hype and I'll be sure to post about it either way.&lt;/p&gt;</content><category term="self"></category><category term="pycon"></category><category term="python"></category><category term="poland"></category><category term="travel"></category></entry><entry><title>First post. Hello Pelican!</title><link href="https://granitosaurus.github.io/installing-pelican.html" rel="alternate"></link><published>2016-10-09T00:00:00+02:00</published><updated>2016-10-09T00:00:00+02:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2016-10-09:/installing-pelican.html</id><summary type="html">&lt;p&gt;Starting up the blog with Python and Pelican static blog generator!&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've decided to start a blog after Python package called Pelican caught my eye.&lt;br/&gt;
 Pelican is a tool to generate a static blog from reStructuredText or Markdown input files. And most importantly it looks to be really fun, full python with jinja2 templating, which means it's fully extendable, configurable and modifiable as it's under GPL license.&lt;/p&gt;
 &lt;h3 id="installing pelican"&gt;Installing Pelican&lt;/h3&gt;
 &lt;p&gt;&lt;img alt="Pelicans are cool" src="https://granitosaurus.github.io/images/pelican-bird.jpg"/&gt;&lt;br/&gt;
@@ -1462,10 +1558,10 @@ You can check &lt;a href="http://docs.getpelican.com/en/latest/content.html#arti
 &lt;h3 id="vim markdown highlight for .md files"&gt;Vim markdown highlight for .md files&lt;/h3&gt;
 &lt;p&gt;While going through the installation I've noticed that markdown doesn't have highlighting in vim which was peculiar. I found &lt;a href="http://superuser.com/questions/701496/no-syntax-highlight-on-md-files"&gt;this post which describes a simple fix&lt;/a&gt;.&lt;br/&gt;
 Simply create directories and file: &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/.vim/ftdetect/markdown.vim
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;~/.vim/ftdetect/markdown.vim&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;with content: &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;au BufNewFile,BufRead *.md  setf markdown
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;au BufNewFile,BufRead *.md  setf markdown&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id="theming pelican"&gt;Theming Pelican&lt;/h3&gt;
 &lt;p&gt;The default Pelican theme is pretty great however I stumbled on &lt;a href="https://github.com/alexandrevicenzi/Flex"&gt;flex-theme&lt;/a&gt; on &lt;a href="https://github.com/getpelican/pelican-themes"&gt;pelican theme repo&lt;/a&gt; on github. So that's my choice for now, but I'd like to touch up the color scheme a bit. Check out &lt;a href="http://docs.getpelican.com/en/stable/pelican-themes.html"&gt;&lt;code&gt;pelican-themes&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -1482,4 +1578,4 @@ Simply create directories and file: &lt;/p&gt;
 &lt;h3 id="wrap up"&gt;Wrap Up&lt;/h3&gt;
 &lt;p&gt;So far Pelican took quite a bit of work to get things going. It looks quite simple but there's a bunch of little quirks that are really hard to debug. It's not as easy as starting up a wordpress blog but it's quite fun and it seems to be really flexible. &lt;br/&gt;
 Let's see if it pays off! &lt;/p&gt;
-&lt;p&gt;Checkout the source for more at https://github.com/Granitas/granitas.github.io/tree/source&lt;/p&gt;</content><category term="pelican"></category><category term="python"></category><category term="blog"></category></entry></feed>
+&lt;p&gt;Checkout the source for more at https://github.com/Granitas/granitas.github.io/tree/source&lt;/p&gt;</content><category term="code"></category><category term="pelican"></category><category term="python"></category><category term="blog"></category></entry></feed>
