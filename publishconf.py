@@ -12,8 +12,6 @@ from pelicanconf import *
 
 SITEURL = 'https://granitosaurus.github.io'
 RELATIVE_URLS = False
-SITELOGO = SITEURL + '/images/core/me.jpg'
-FAVICON = SITEURL + '/images/favicon.ico'
 
 # FEED_ALL_ATOM = 'feeds/all.atom.xml'
 # CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
