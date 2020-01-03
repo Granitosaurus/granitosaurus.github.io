@@ -35,11 +35,12 @@ SOCIAL = (
     ('at', 'mailto:bernardas.alisauskas@pm.me'),
     ('matrix-org', 'https://matrix.to/#/@wraptile:matrix.org'),
     ('rss-square', '/atom.xml'),
+    ('ig', 'https://instagram.com/wraptile_'),
 )
 
 
 # Feed generation is usually not desired when developing
-THEME = 'medius'
+THEME = 'dotrocks'
 
 # Social widget
 DEFAULT_PAGINATION = 10
