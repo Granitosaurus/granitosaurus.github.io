@@ -35,7 +35,7 @@ SOCIAL = (
     ('at', 'mailto:bernardas.alisauskas@pm.me'),
     ('matrix-org', 'https://matrix.to/#/@wraptile:matrix.org'),
     ('rss-square', '/atom.xml'),
-    ('ig', 'https://instagram.com/wraptile_'),
+    ('instagram', 'https://instagram.com/wraptile_'),
 )
 
 
