@@ -1,5 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="Blog%20of%20Bernardas%20Ali%C5%A1auskas/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2018-12-10T00:00:00+01:00</updated><subtitle>Python programmer and a goof who loves free software, video-games and heavy metal</subtitle><entry><title>Diving Into Web-Crawling</title><link href="https://granitosaurus.github.io/starting-to-crawl.html" rel="alternate"></link><published>2018-12-10T00:00:00+01:00</published><updated>2018-12-10T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-12-10:/starting-to-crawl.html</id><summary type="html">&lt;p&gt;Where to start with the art of hoarding online data?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on the world wide web!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Blog of Bernardas Ališauskas - code</title><link href="https://granitosaurus.github.io/" rel="alternate"></link><link href="Blog%20of%20Bernardas%20Ali%C5%A1auskas/feeds/code.atom.xml" rel="self"></link><id>https://granitosaurus.github.io/</id><updated>2020-01-03T00:00:00+01:00</updated><subtitle>Python programmer and a goof who loves free software, video-games and heavy metal</subtitle><entry><title>Fixing Intel Micro-freezes</title><link href="https://granitosaurus.github.io/linux-intel-freeze.html" rel="alternate"></link><published>2020-01-03T00:00:00+01:00</published><updated>2020-01-03T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2020-01-03:/linux-intel-freeze.html</id><summary type="html">&lt;p&gt;I've been having the most annoying freezes since the latest linux kernel update. It has been a bit difficult to debug but the culprit is intel's video driver.&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been having the most annoying freezes since the latest linux kernel update. It has been a bit difficult to debug but the culprit is intel's video driver - &lt;strong&gt;i915&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The 2019 release of i915 driver has some weird bugs that are difficult to reproduce that often when engaged via chrome's webengine causes the system to freeze for few seconds or stutter, or even freeze completely. &lt;/p&gt;
+&lt;h1 id="debug"&gt;Debug&lt;/h1&gt;
+&lt;p&gt;I fired up &lt;code&gt;journalctl&lt;/code&gt; and started digging:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt; &lt;span class="n"&gt;nanosaurus&lt;/span&gt; &lt;span class="nl"&gt;kernel&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;i915&lt;/span&gt; &lt;span class="mo"&gt;0000&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;02.0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Resetting&lt;/span&gt; &lt;span class="n"&gt;rcs0&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;hang&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;rcs0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bcs0&lt;/span&gt;
+&lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;38&lt;/span&gt; &lt;span class="n"&gt;nanosaurus&lt;/span&gt; &lt;span class="n"&gt;audit&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;SERVICE_STOP&lt;/span&gt; &lt;span class="n"&gt;pid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;uid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;auid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4294967295&lt;/span&gt; &lt;span class="n"&gt;ses&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4294967295&lt;/span&gt; &lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;'&lt;/span&gt;&lt;span class="n"&gt;unit&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;systemd&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;coredu&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;38&lt;/span&gt; &lt;span class="n"&gt;nanosaurus&lt;/span&gt; &lt;span class="nl"&gt;kernel&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nl"&gt;audit&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1131&lt;/span&gt; &lt;span class="n"&gt;audit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;1577940038.557&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;72&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;uid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;auid&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4294967295&lt;/span&gt; &lt;span class="n"&gt;ses&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4294967&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;38&lt;/span&gt; &lt;span class="n"&gt;nanosaurus&lt;/span&gt; &lt;span class="n"&gt;systemd&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;systemd&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;coredump&lt;/span&gt;&lt;span class="mi"&gt;@2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;25794&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.&lt;/span&gt;&lt;span class="nl"&gt;service&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Succeeded&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Jan&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt; &lt;span class="mo"&gt;04&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;40&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;38&lt;/span&gt; &lt;span class="n"&gt;nanosaurus&lt;/span&gt; &lt;span class="n"&gt;systemd&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;coredump&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;25795&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Process&lt;/span&gt; &lt;span class="mi"&gt;25210&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;chromium&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt; &lt;span class="n"&gt;dumped&lt;/span&gt; &lt;span class="n"&gt;core&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25701&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x000055b6f99c8c88 n/a (chromium + 0x5539c88)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x000055b6f87bb647 n/a (chromium + 0x432c647)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x000055b6f87cc9ac n/a (chromium + 0x433d9ac)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x000055b6f87cc754 n/a (chromium + 0x433d754)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x000055b6f8785508 n/a (chromium + 0x42f6508)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#5  0x000055b6f87cd2ff n/a (chromium + 0x433e2ff)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#6  0x000055b6f87a5b5e n/a (chromium + 0x4316b5e)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#7  0x000055b6f87e19e2 n/a (chromium + 0x43529e2)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#8  0x000055b6f881e6da n/a (chromium + 0x438f6da)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#9  0x00007f18671ff4cf start_thread (libpthread.so.0 + 0x94cf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#10 0x00007f18634542d3 __clone (libc.so.6 + 0xff2d3)&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25210&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x00007f18634499ef __poll (libc.so.6 + 0xf49ef)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x00007f1867093630 n/a (libxcb.so.1 + 0xc630)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x00007f1867094fef n/a (libxcb.so.1 + 0xdfef)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x00007f1867095162 xcb_wait_for_reply64 (libxcb.so.1 + 0xe162)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x00007f18670f7269 _XReply (libX11.so.6 + 0x41269)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#5  0x00007f18670dd7ca _XGetWindowAttributes (libX11.so.6 + 0x277&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#6  0x00007f18670dd93b XGetWindowAttributes (libX11.so.6 + 0x2793&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#7  0x000055b6f91562c4 n/a (chromium + 0x4cc72c4)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#8  0x000055b6f9154fb7 n/a (chromium + 0x4cc5fb7)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#9  0x000055b6f9154ea9 n/a (chromium + 0x4cc5ea9)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#10 0x000055b6f9162518 n/a (chromium + 0x4cd3518)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#11 0x000055b6f915d746 n/a (chromium + 0x4cce746)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#12 0x000055b6f915d852 n/a (chromium + 0x4cce852)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#13 0x000055b6f99c6545 n/a (chromium + 0x5537545)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#14 0x000055b6fcad495b n/a (chromium + 0x864595b)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#15 0x000055b6f835ebae n/a (chromium + 0x3ecfbae)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#16 0x000055b6f8381fbf n/a (chromium + 0x3ef2fbf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#17 0x000055b6f835dde1 n/a (chromium + 0x3ecede1)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#18 0x000055b6f608af4e ChromeMain (chromium + 0x1bfbf4e)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#19 0x00007f186337c153 __libc_start_main (libc.so.6 + 0x27153)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#20 0x000055b6f5dfb02e _start (chromium + 0x196c02e)&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25702&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x00007f1867205c45 pthread_cond_wait@@GLIBC_2.3.2 (libpthread&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x00007f185ba0ed0c n/a (i965_dri.so + 0x4f6d0c)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x00007f185ba0e908 n/a (i965_dri.so + 0x4f6908)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x00007f18671ff4cf start_thread (libpthread.so.0 + 0x94cf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x00007f18634542d3 __clone (libc.so.6 + 0xff2d3)&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25703&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x00007f1867205c45 pthread_cond_wait@@GLIBC_2.3.2 (libpthread&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x00007f185ba0ed0c n/a (i965_dri.so + 0x4f6d0c)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x00007f185ba0e908 n/a (i965_dri.so + 0x4f6908)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x00007f18671ff4cf start_thread (libpthread.so.0 + 0x94cf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x00007f18634542d3 __clone (libc.so.6 + 0xff2d3)&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25704&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x00007f1867205c45 pthread_cond_wait@@GLIBC_2.3.2 (libpthread&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x00007f185ba0ed0c n/a (i965_dri.so + 0x4f6d0c)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x00007f185ba0e908 n/a (i965_dri.so + 0x4f6908)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x00007f18671ff4cf start_thread (libpthread.so.0 + 0x94cf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x00007f18634542d3 __clone (libc.so.6 + 0xff2d3)&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25705&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25703&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x00007f1867205c45 pthread_cond_wait@@GLIBC_2.3.2 (libpthread&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x00007f185ba0ed0c n/a (i965_dri.so + 0x4f6d0c)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x00007f185ba0e908 n/a (i965_dri.so + 0x4f6908)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x00007f18671ff4cf start_thread (libpthread.so.0 + 0x94cf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x00007f18634542d3 __clone (libc.so.6 + 0xff2d3)&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25704&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x00007f1867205c45 pthread_cond_wait@@GLIBC_2.3.2 (libpthread&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x00007f185ba0ed0c n/a (i965_dri.so + 0x4f6d0c)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x00007f185ba0e908 n/a (i965_dri.so + 0x4f6908)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x00007f18671ff4cf start_thread (libpthread.so.0 + 0x94cf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x00007f18634542d3 __clone (libc.so.6 + 0xff2d3)&lt;/span&gt;
+
+                                                    &lt;span class="n"&gt;Stack&lt;/span&gt; &lt;span class="n"&gt;trace&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="mi"&gt;25705&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#0  0x00007f1867205c45 pthread_cond_wait@@GLIBC_2.3.2 (libpthread&amp;gt;&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#1  0x00007f185ba0ed0c n/a (i965_dri.so + 0x4f6d0c)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#2  0x00007f185ba0e908 n/a (i965_dri.so + 0x4f6908)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#3  0x00007f18671ff4cf start_thread (libpthread.so.0 + 0x94cf)&lt;/span&gt;
+                                                    &lt;span class="cp"&gt;#4  0x00007f18634542d3 __clone (libc.so.6 + 0xff2d3)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So chrome crashes the driver and it jumps into a pretty lengthy restart loop for almost 10 seconds:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;Resetting rcs0 for hang on rcs0, bcs0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id="the fix"&gt;The fix&lt;/h1&gt;
+&lt;p&gt;I dug around it seems the only fix for the time being is enabling some kernel parameters for &lt;code&gt;i915&lt;/code&gt; driver:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;i915.modeset=1 &lt;/span&gt;
+&lt;span class="err"&gt;i915.enable_fbc=1 &lt;/span&gt;
+&lt;span class="err"&gt;i915.enable_psr=1 &lt;/span&gt;
+&lt;span class="err"&gt;i915.disable_power_well=0 &lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To explain these:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;modeset - prioritizes driver initiation on boot (not really necessary here)&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://wiki.archlinux.org/index.php/Intel_graphics#Framebuffer_compression_(enable_fbc)"&gt;enable_fbc&lt;/a&gt; - enables framebuffer compensation&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://wiki.archlinux.org/index.php/Intel_graphics#Screen_flickering"&gt;enable_psr&lt;/a&gt; - power saving feature for screen refresh&lt;/li&gt;
+&lt;li&gt;disable_power_well - disable power wells when possible, this seems to be the culprit. However the info about it really scarce and only points to issues about hangs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To enable the fixes you need to enable these kernel options either on compile or on boot. If you're running &lt;code&gt;systemctl-boot&lt;/code&gt; simply extend your boot config under options:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# my config example&lt;/span&gt;
+$ sudo vim /boot/loader/entries/arch.conf  
+title   arch
+linux   /vmlinuz-linux
+initrd  /initramfs-linux.img
+initrd  /intel-ucode.img
+options &amp;lt;...&amp;gt; i915.modeset&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; i915.enable_fbc&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; i915.enable_psr&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; i915.disable_power_well&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Otherwise refer to &lt;a href="https://wiki.archlinux.org/index.php/Kernel_parameters"&gt;Kernel Parameters&lt;/a&gt; article by arch wiki.&lt;/p&gt;</content><category term="code"></category><category term="linux"></category><category term="fix"></category><category term="guide"></category></entry><entry><title>Diving Into Web-Crawling</title><link href="https://granitosaurus.github.io/starting-to-crawl.html" rel="alternate"></link><published>2018-12-10T00:00:00+01:00</published><updated>2018-12-10T00:00:00+01:00</updated><author><name>Bernardas Ališauskas</name></author><id>tag:granitosaurus.github.io,2018-12-10:/starting-to-crawl.html</id><summary type="html">&lt;p&gt;Where to start with the art of hoarding online data?&lt;/p&gt;</summary><content type="html">&lt;p&gt;Web crawling is a brilliant source to bootstrap your application. Almost every application requires data of some sort and why not just pick up some public data available on the world wide web!&lt;/p&gt;
 &lt;p&gt;In this introduction I'll cover the core ideas behind web-crawling and web-crawling with python.&lt;/p&gt;
 &lt;h1 id="what's web crawling?"&gt;What's Web Crawling?&lt;/h1&gt;
 &lt;p&gt;First it's important to wrap your head around the stages of web crawling program.  &lt;/p&gt;
