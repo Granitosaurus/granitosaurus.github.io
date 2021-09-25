@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>How to parse complicated json trees.</title>
+        <title> Blog of Bernardas Ališauskas - How to parse complicated json trees.</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
-        <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
+        <link rel="stylesheet" href="https://granitosaur.us/theme/css/main.css" />
         <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
         <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom Feed" />
         <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate" title="Blog of Bernardas Ališauskas RSS Feed" />
         <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
-        <meta name="author" content="Bernardas Ališauskas" />
-        <meta name="description" content="Often when web-crawling you can find access to website&#39;s api which provides direct JSON of a product, however it&#39;s not always so easy to find what you need in what could be a multi-layer mess of a json." />
+<meta name="author" content="Bernardas Ališauskas" />
+<meta name="description" content="Often when web-crawling you can find access to website&#39;s api which provides direct JSON of a product, however it&#39;s not always so easy to find what you need in what could be a multi-layer mess of a json." />
 <meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
 <meta property="og:title" content="How to parse complicated json trees."/>
 <meta property="og:description" content="Often when web-crawling you can find access to website&#39;s api which provides direct JSON of a product, however it&#39;s not always so easy to find what you need in what could be a multi-layer mess of a json."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://granitosaurus.github.io/crawling-json.html"/>
+<meta property="og:url" content="https://granitosaur.us/crawling-json.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2016-10-10 00:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://granitosaurus.github.io/author/bernardas-alisauskas.html">
+<meta property="article:author" content="https://granitosaur.us/author/bernardas-alisauskas.html">
 <meta property="article:section" content="code"/>
 <meta property="article:tag" content="python"/>
 <meta property="article:tag" content="web-crawling"/>
@@ -33,13 +33,17 @@
 <body>
 
     <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
-        <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
+        <a href="https://granitosaur.us">
+          <img src="http://localhost:8000/images/core/granitosaurus.png" width="50"></img>
+        </a>
+        <a href="https://granitosaur.us/" class="pure-menu-heading  pure-menu-link">
+          Blog of Bernardas Ališauskas
+        </a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/pages/about.html" class="pure-menu-link">about</a></li>
-            <li class="pure-menu-item"><a href="/likes" class="pure-menu-link">likes</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/code.html" class="pure-menu-link">code</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/self.html" class="pure-menu-link">self</a></li>
               <li class="pure-menu-item pure-menu-selected">
                 <a href="atom.xml" class="pure-menu-link">
                   <i class="fa fa-rss" aria-hidden="true"></i>
@@ -48,85 +52,77 @@
         </ul>
     </div>
 <div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-
+  <div class="entry-content">
+    <div class="post-meta pure-g">
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
-    &mdash; <span title="2016-10-10T00:00:00+02:00">Mon 10 October 2016</span></br>
-    <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
-    <a href="https://granitosaurus.github.io/tag/web-crawling" class="tag">web-crawling</a>
-    <a href="https://granitosaurus.github.io/tag/scrapy" class="tag">scrapy</a>
+    <a href="https://granitosaur.us/category/code.html" class="category">code</a>
+    &mdash; 
+    <span title="2016-10-10T00:00:00+02:00">Mon 10 October 2016</span></br>
+    <a href="https://granitosaur.us/tag/python.html" class="tag">python</a>
+    <a href="https://granitosaur.us/tag/web-crawling.html" class="tag">web-crawling</a>
+    <a href="https://granitosaur.us/tag/scrapy.html" class="tag">scrapy</a>
     </br>
-</div>        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>How to parse complicated json trees.</h1>
-                </div>
-            </div>
+</div>    </div>
+  </div>
+  <div class="article-header-container">
+    <div class="background-image-container title">
+      <div class="background-image-small">
+        <div class="title-container">
+          <h1>How to parse complicated json trees.</h1>
         </div>
-
-    <div class="entry-content">
-        <!--insert table of contents between text and first header-->
-        <p>Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.</p>
+      </div>
+    </div>
+    <div class="entry-content article">
+      <!--insert table of contents between text and first header-->
+      <p>Often when web-crawling you can find access to website's api which provides direct JSON of a product, however it's not always so easy to find what you need in what could be a multi-layer mess of a json.</p>
 <p>In this blog-post I'll cover few tools and ways to deal with really ugly json trees that you probably don't want to iterate through manually using dictionary key indices.<br/>
 <strong>If you don't care about the research you can just skip to the <a href="#right">right tool</a> and <a href="#solving">solving of the real life case</a> sections at the end</strong>.</p>
 
-        <hr>
-        <div class="pure-u">
-            <div id="toc"><ul><li><a class="toc-href" href="#cause" title="Cause">Cause</a></li><li><a class="toc-href" href="#tools to solve this" title="Tools to Solve This">Tools to Solve This</a><ul><li><a class="toc-href" href="#wrong: flattening the json" title="Wrong: Flattening The Json">Wrong: Flattening The Json</a></li><li><a class="toc-href" href="#wrong: jmespath, jsonpath and jsoniq etc." title="Wrong: Jmespath, JSONPath and JSONiq etc.">Wrong: Jmespath, JSONPath and JSONiq etc.</a></li><li><a class="toc-href" href="#almost right: js2xml" title="Almost Right: js2xml">Almost Right: js2xml</a></li></ul></li><li><a class="toc-href" href="#right_1" title="Right: Converting json to xml and Parsing It With xpath">Right: Converting json to xml and Parsing It With xpath</a></li><li><a class="toc-href" href="#solving" title="Solving Our Example">Solving Our Example</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
-        </div>
-        <hr>
-        <h1 id="cause">Cause</h1>
+      <h1 id="cause">Cause</h1>
 <p>Often websites, especially the ones that sell various products tend to overcomplicate their apis by stacking everything in one huge json tree that is at least 10 layers deep and is impossible to understand for an outsider or maybe even other developers in the company.</p>
 <p>In this case we'll take a look at small examples of <a href="http://ah.nl">http://ah.nl</a> responses and how can we deal with them without spending hours trying to reverse engineer the whole process.</p>
 <p><strong>Example info</strong>:<br/>
 Product url: <a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees">http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees</a><br/>
 Product api response: <a href="https://ptpb.pw/aZ_S">https://ptpb.pw/aZ_S</a><br/>
 If you put this response through some json visual tool like <a href="http://jsonviewer.stack.hu/">http://jsonviewer.stack.hu/</a> you'll notice what a huge mess it is: </p>
-<p><img alt="example json view" src="https://granitosaurus.github.io/images/json-crawling.png"/></p>
+<p><img alt="example json view" src="https://granitosaur.us/images/json-crawling.png"/></p>
 <p>Multiple layers, multiple elements, list in a dict in a list in a dict and to parse that you'd end up doing something like:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'_embedded'</span><span class="p">][</span><span class="s1">'lanes'</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="s1">'_embedded'</span><span class="p">][</span><span class="s1">'items'</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 <p>And that's just half-way through the tree. For example to find the sku you'd have to use something like:</p>
-<div class="highlight"><pre><span></span><span class="err">sku = data['_embedded']['lanes'][4]['_embedded']['items'][0]['_embedded']['product']['id']</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>sku = data['_embedded']['lanes'][4]['_embedded']['items'][0]['_embedded']['product']['id']
+</code></pre></div>
 <p>Now that's with hard-coding of list indices which are very likely to change for every product, so on top of that ugly line above you'd have to use multiple list comprehensions to find the correct list item from the <code>lanes</code> or <code>items</code> lists.  This is bad, ugly, unreliable and extremely painful to work with.</p>
-<h1 id="tools to solve this">Tools to Solve This</h1>
+<h1 id="tools-to-solve-this">Tools to Solve This</h1>
 <p>There are several ways this can be approaches and let me spoil it for you, majority of them are bad, so we'll start off with those.</p>
 <p>To demonstrate these tools better we'll be parsing this simple json:</p>
-<div class="highlight"><pre><span></span><span class="err">data = """{</span>
-<span class="err">    "one": {</span>
-<span class="err">        "two": [{</span>
-<span class="err">            "four": {</span>
-<span class="err">                "name": "four1_name"</span>
-<span class="err">            }</span>
-<span class="err">        }, {</span>
-<span class="err">            "four": {</span>
-<span class="err">                "name": "four2_name"</span>
-<span class="err">            }</span>
-<span class="err">        }]</span>
-<span class="err">    }</span>
-<span class="err">}"""</span>
-</pre></div>
-<p>All examples below are also available on iPython notebook if you want to mess around with them yourself <a href="https://granitosaurus.github.io/data/crawling-json_examples.ipynb">here</a></p>
-<h2 id="wrong: flattening the json">Wrong: Flattening The Json</h2>
+<div class="highlight"><pre><span></span><code>data = """{
+    "one": {
+        "two": [{
+            "four": {
+                "name": "four1_name"
+            }
+        }, {
+            "four": {
+                "name": "four2_name"
+            }
+        }]
+    }
+}"""
+</code></pre></div>
+<p>All examples below are also available on iPython notebook if you want to mess around with them yourself <a href="https://granitosaur.us/data/crawling-json_examples.ipynb">here</a></p>
+<h2 id="wrong-flattening-the-json">Wrong: Flattening The Json</h2>
 <p>At first glance this might appear as an obvious solution - just flatten everything to the first level! However this brings out a huge issue with keys. Because every key has to be unique, when flattening the dictionary you need to merge several keys into one to preserve the tree order.
 If we were to flatten our <code>data</code>, it would end up looking like this:</p>
-<div class="highlight"><pre><span></span><span class="err">data = """{</span>
-<span class="err">    "one_two_four1_name": "four1_name",</span>
-<span class="err">    "one_two_four2_name": "four2_name",</span>
-<span class="err">    }"""</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>data = """{
+    "one_two_four1_name": "four1_name",
+    "one_two_four2_name": "four2_name",
+    }"""
+</code></pre></div>
 <p>In a way you might think it looks nice, but the truth is that it's really unpredictable and hard to parse in a more complex context, since you can only select individual values. This might be useful for some edge cases where you only need 1 field the json tree is only two or tree levels deep, but otherwise it's not worth bothering with.</p>
-<h2 id="wrong: jmespath, jsonpath and jsoniq etc.">Wrong: Jmespath, JSONPath and JSONiq etc.</h2>
+<h2 id="wrong-jmespath-jsonpath-and-jsoniq-etc">Wrong: Jmespath, JSONPath and JSONiq etc.</h2>
 <p>These few libraries in a way designed specifically to solve this issue. It seems that json is notoriously bad when it comes to this issue, so tools like theses are dime a dozen on github and while they are great, they fall short when in comes to web-crawling or similar use cases.   </p>
 <p>However there are two major issues with these tools:  </p>
 <ul>
@@ -141,17 +137,17 @@ It is still bad though since at any point the tree might change and our crawler 
 <li>The second issue being is that all of them <strong>are extremely bloated</strong>, to the point where they not only design their own parsing logic but also design their own syntax.   </li>
 </ul>
 <p>When you are crawling a website you already have your own parsing tools to parse the html/xml (like <code>lxml</code> or <code>parsel</code>) and anything other would just introduce obvious redundancy and unnecessary complexity. </p>
-<h2 id="almost right: js2xml">Almost Right: js2xml</h2>
+<h2 id="almost-right-js2xml">Almost Right: js2xml</h2>
 <p>First I'd like to start off with and give a shout out to a great tool called <code>js2xml</code> which maintained by Scrapinghub. It pretty much does what it says - converts javascript code to an xml tree and it's <em>almost</em> the right tool for our issue, almost.<br/>
 Since json is part of javascript, this means we can use this tool to parse it:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
 <span class="c1"># we need to wrap our data json in variable declaration</span>
 <span class="c1"># for js2xml to interpret it</span>
 <span class="n">parsed</span> <span class="o">=</span> <span class="n">js2xml</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s1">'var foo = '</span> <span class="o">+</span> <span class="n">data</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
-</pre></div>
+<span class="nb">print</span><span class="p">(</span><span class="n">etree</span><span class="o">.</span><span class="n">tostring</span><span class="p">(</span><span class="n">parsed</span><span class="p">,</span> <span class="n">pretty_print</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</code></pre></div>
 <p>This is the result:</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;program&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;program&gt;</span>
   <span class="nt">&lt;var</span> <span class="na">name=</span><span class="s">"foo"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;object&gt;</span>
       <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"one"</span><span class="nt">&gt;</span>
@@ -183,7 +179,7 @@ Since json is part of javascript, this means we can use this tool to parse it:</
     <span class="nt">&lt;/object&gt;</span>
   <span class="nt">&lt;/var&gt;</span>
 <span class="nt">&lt;/program&gt;</span>
-</pre></div>
+</code></pre></div>
 <p>As you can see it works and could probably be parsed with xpath. It's really ugly and if we were to write an xpath for it, it would be unnecessary complicated and long, but it would work! <br/>
 If you are already using it to parse javascript somewhere you might just go with it to reduce dependencies if you wish so.</p>
 <h1 id="right_1">Right: Converting json to xml and Parsing It With xpath</h1>
@@ -192,8 +188,8 @@ If you are already using it to parse javascript somewhere you might just go with
 Fun fact - it's also used by <a href="https://github.com/scrapy/scrapy">scrapy</a> and that's where it originated.</p>
 <p>Getting back to the point, the two tools that are pretty much alternative to each other are <a href="https://github.com/quandyfactory/dicttoxml"><code>dicttoxml</code></a> and <a href="https://github.com/delfick/python-dict2xml"><code>dict2xml</code></a>. They are essentially the same thing but I thought I'd mention both since I'm not sure which one is better and requires the recognition. <br/>
 For sake of being brief I'll show off <code>dicttoxml</code> + <code>parsel</code> only:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">dicttoxml</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">attr_type</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">dicttoxml</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">attr_type</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="c1"># the tree we get:</span>
 <span class="o">&lt;</span><span class="n">root</span><span class="o">&gt;</span>
   <span class="o">&lt;</span><span class="n">one</span><span class="o">&gt;</span>
@@ -211,26 +207,26 @@ For sake of being brief I'll show off <code>dicttoxml</code> + <code>parsel</cod
     <span class="o">&lt;/</span><span class="n">two</span><span class="o">&gt;</span>
   <span class="o">&lt;/</span><span class="n">one</span><span class="o">&gt;</span>
 <span class="o">&lt;/</span><span class="n">root</span><span class="o">&gt;</span>
-</pre></div>
+</code></pre></div>
 <p>Now we can parse this tree using <code>parsel.Selector</code> and xpath:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">parsel</span> <span class="kn">import</span> <span class="n">Selector</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">parsel</span> <span class="kn">import</span> <span class="n">Selector</span>
 <span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">root</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
 <span class="c1"># and get the names with</span>
 <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">"//name/text()"</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="c1"># ['four1_name', 'four2_name']</span>
-</pre></div>
+</code></pre></div>
 <p>Pretty mind blowing how we solved this mess with one 300 loc big package from pypi and one short xpath.</p>
 <h1 id="solving">Solving Our Example</h1>
 <p>Now that we have chosen a tool let's see how well it works on a real life example we got ourselves at the beginning of this blog: <a href="http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees">http://www.ah.nl/producten/product/wi166580/maggi-opkikker-rundvlees</a> </p>
 <p>I'm going to spoil you the joy of reverse engineering the products api and tell you the api url in this case is: 
 <code>'http://www.ah.nl/service/rest/delegate?url=/producten/product/wi166580/x'</code></p>
 <p>Lets assume we already have the page source in <code>body</code> variable and dive in:</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dicttoxml</span> <span class="kn">import</span> <span class="n">dicttoxml</span>
 <span class="kn">from</span> <span class="nn">parsel</span> <span class="kn">import</span> <span class="n">Selector</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
-<span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">dicttoxml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">attr_type</span><span class="o">=</span><span class="bp">False</span><span class="p">))</span>
+<span class="n">sel</span> <span class="o">=</span> <span class="n">Selector</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">dicttoxml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">attr_type</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="c1"># now we can find things very easily!</span>
 <span class="c1"># sku:</span>
 <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">"//product/id/text()"</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
@@ -238,32 +234,34 @@ For sake of being brief I'll show off <code>dicttoxml</code> + <code>parsel</cod
 <span class="c1"># price:</span>
 <span class="n">sel</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s2">"//product//pricelabel/now/text()"</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">()</span>
 <span class="c1"># [u'0.82']</span>
-</pre></div>
+</code></pre></div>
 <h1 id="conclusion">Conclusion</h1>
 <p>Mission accomplished! We managed to parse multi-layer monster with very few, simple xpaths and a small package from pipy!<br/>
 Personally I wish I started doing this earlier because iterating through monsters like this one key at the time is extremely tedious and it breaks every time the website decides to update something. <br/>
 Hopefully this write up can save someone few hours and an early balding. :D</p>
     </div>
-
-    <footer>
-        <div class="tags">
-            <a href="https://granitosaurus.github.io/tag/python.html">python</a>
-            <a href="https://granitosaurus.github.io/tag/web-crawling.html">web-crawling</a>
-            <a href="https://granitosaurus.github.io/tag/scrapy.html">scrapy</a>
+    <div class="entry-content footer">
+      <hr>
+      <div class="pure-g">
+        <div class="tags pure-u-1-2">
+          <a href="https://granitosaur.us/tag/python.html">python </a>
+          <a href="https://granitosaur.us/tag/web-crawling.html">web-crawling </a>
+          <a href="https://granitosaur.us/tag/scrapy.html">scrapy </a>
         </div>
-    </footer>
-</div>
+      </div>
+
+    </div>
+  </div>
 
 
 
     <footer class="index-footer">
 
-        <a href="https://granitosaurus.github.io/" title="Blog of Bernardas Ališauskas">Blog of Bernardas Ališauskas</a>
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
+        <a href="https://granitosaur.us/category/code.html">code</a>
+        <a href="https://granitosaur.us/category/self.html">self</a>
         <a href="atom.xml">
           <i class="fa fa-rss-square" aria-hidden="true"></i>
         </a>

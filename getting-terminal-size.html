@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Getting Terminal Size In Python</title>
+        <title> Blog of Bernardas Ališauskas - Getting Terminal Size In Python</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
-        <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
+        <link rel="stylesheet" href="https://granitosaur.us/theme/css/main.css" />
         <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
         <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom Feed" />
         <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate" title="Blog of Bernardas Ališauskas RSS Feed" />
         <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
-        <meta name="author" content="Bernardas Ališauskas" />
-        <meta name="description" content="Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I&#39;d like to share." />
+<meta name="author" content="Bernardas Ališauskas" />
+<meta name="description" content="Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I&#39;d like to share." />
 <meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
 <meta property="og:title" content="Getting Terminal Size In Python"/>
 <meta property="og:description" content="Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. There are some few tricks worth noting that I&#39;d like to share."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://granitosaurus.github.io/getting-terminal-size.html"/>
+<meta property="og:url" content="https://granitosaur.us/getting-terminal-size.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2017-01-26 00:00:00+01:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://granitosaurus.github.io/author/bernardas-alisauskas.html">
+<meta property="article:author" content="https://granitosaur.us/author/bernardas-alisauskas.html">
 <meta property="article:section" content="code"/>
 <meta property="article:tag" content="python"/>
 <meta property="article:tag" content="linux"/>
@@ -33,13 +33,17 @@
 <body>
 
     <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
-        <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
+        <a href="https://granitosaur.us">
+          <img src="http://localhost:8000/images/core/granitosaurus.png" width="50"></img>
+        </a>
+        <a href="https://granitosaur.us/" class="pure-menu-heading  pure-menu-link">
+          Blog of Bernardas Ališauskas
+        </a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/pages/about.html" class="pure-menu-link">about</a></li>
-            <li class="pure-menu-item"><a href="/likes" class="pure-menu-link">likes</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/code.html" class="pure-menu-link">code</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/self.html" class="pure-menu-link">self</a></li>
               <li class="pure-menu-item pure-menu-selected">
                 <a href="atom.xml" class="pure-menu-link">
                   <i class="fa fa-rss" aria-hidden="true"></i>
@@ -48,73 +52,65 @@
         </ul>
     </div>
 <div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-
+  <div class="entry-content">
+    <div class="post-meta pure-g">
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
-    &mdash; <span title="2017-01-26T00:00:00+01:00">Thu 26 January 2017</span></br>
-    <a href="https://granitosaurus.github.io/tag/python" class="tag">python</a>
-    <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
-    <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
+    <a href="https://granitosaur.us/category/code.html" class="category">code</a>
+    &mdash; 
+    <span title="2017-01-26T00:00:00+01:00">Thu 26 January 2017</span></br>
+    <a href="https://granitosaur.us/tag/python.html" class="tag">python</a>
+    <a href="https://granitosaur.us/tag/linux.html" class="tag">linux</a>
+    <a href="https://granitosaur.us/tag/guide.html" class="tag">guide</a>
     </br>
-</div>        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>Getting Terminal Size In Python</h1>
-                </div>
-            </div>
+</div>    </div>
+  </div>
+  <div class="article-header-container">
+    <div class="background-image-container title">
+      <div class="background-image-small">
+        <div class="title-container">
+          <h1>Getting Terminal Size In Python</h1>
         </div>
-
-    <div class="entry-content">
-        <!--insert table of contents between text and first header-->
-        <p>Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. However there are some few tricks worth noting that I'd like to share in this blog post.</p>
+      </div>
+    </div>
+    <div class="entry-content article">
+      <!--insert table of contents between text and first header-->
+      <p>Getting terminal size can be vital for your application, especially if you are doing some serious printing or drawing. However there are some few tricks worth noting that I'd like to share in this blog post.</p>
 <p>First of all the recommended way or the "pythonic" way of retrieving terminal size for python3 is:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 <p>And it works pretty great, well for the most part that is.  </p>
 
-        <hr>
-        <div class="pure-u">
-            <div id="toc"><ul><li><a class="toc-href" href="#the issue" title="The Issue">The Issue</a><ul><li><a class="toc-href" href="#making it work!" title="Making It Work!">Making It Work!</a></li></ul></li><li><a class="toc-href" href="#edit_1" title="Edit">Edit</a></li><li><a class="toc-href" href="#conclusion" title="Conclusion">Conclusion</a></li></ul></div>
-        </div>
-        <hr>
-        <h2 id="the issue">The Issue</h2>
+      <h2 id="the-issue">The Issue</h2>
 <p>This particular function is just a high level wrapper around low level cpython function <code>os.get_terminal_size</code> and the only real thing it does is handle an exception and returns <code>fallback</code> values if that's the case.</p>
 <p>However there's a huge pitfall with this function and it's that <strong>it doesn't work with terminal pipes!</strong> <br/>
 To confirm and test that with we can try this simple script <code>size.py</code>:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">123</span><span class="p">,</span> <span class="mi">456</span><span class="p">))</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'cols:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">rows:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="p">))</span>
-</pre></div>
-<div class="highlight"><pre><span></span>$ python size.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>$ python size.py
 cols:89
 rows:22
 $ python size.py <span class="p">|</span> cat
 cols:123
 rows:456
-</pre></div>
+</code></pre></div>
 <p>89 to 22 is my actual size however when piping to anything, including python itself, the size seems to fallback to the fallback values, which in most cases defeats the whole purpose of retrieving the terminal size.</p>
-<h3 id="making it work!">Making It Work!</h3>
+<h3 id="making-it-work">Making It Work!</h3>
 <p>The solution is pretty simple - use the other function instead!<br/>
 If we use <code>os.get_terminal_size(0)</code> function, we'll get it working with piping too!</p>
 <p>To test that lets change our script:  </p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'cols:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">rows:</span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">rows</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 <p>The thing to note here is the positional argument <code>0</code> in <code>os.get_terminal_size()</code> function, which tells which <a href="https://en.wikipedia.org/wiki/File_descriptor">file descriptor</a> to use: </p>
 <blockquote>
 <p>0 - Standard Input<br/>
@@ -122,11 +118,11 @@ If we use <code>os.get_terminal_size(0)</code> function, we'll get it working wi
 2 - Standard Error  </p>
 </blockquote>
 <p>By default both <code>os</code> and <code>shutil</code> functions use <code>1</code>, which stands for Standard Output. This means that if we pipe and this output detaches itself we get an OsError:</p>
-<div class="highlight"><pre><span></span><span class="ne">OSError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">25</span><span class="p">]</span> <span class="n">Inappropriate</span> <span class="n">ioctl</span> <span class="k">for</span> <span class="n">device</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="ne">OSError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">25</span><span class="p">]</span> <span class="n">Inappropriate</span> <span class="n">ioctl</span> <span class="k">for</span> <span class="n">device</span>
+</code></pre></div>
 <p>This default somewhat makes sense if the size of your terminal changes when the output is displayed, but I'm having trouble even imagining an example where that would be the case.</p>
 <p>So if we were to run our script now, we'd get the results we are looking for:</p>
-<div class="highlight"><pre><span></span>$ python size.py
+<div class="highlight"><pre><span></span><code>$ python size.py
 cols:89
 rows:22
 $ python size.py <span class="p">|</span> cat
@@ -136,17 +132,17 @@ rows:22
 $ python size.py <span class="p">|</span> grep . <span class="p">|</span> cat
 cols:89
 rows:22
-</pre></div>
+</code></pre></div>
 <h2 id="edit_1">Edit</h2>
 <p>As user bearded_unix_guy pointed out on <a href="https://www.reddit.com/r/Python/comments/5q7b36/getting_terminal_size_in_python/dcxil66/">reddit</a>, using stdin(argument 0) might not always work, in particular it wont work when we pipe to our app: </p>
-<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">-</span> <span class="o">|</span> <span class="n">size</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">cat</span> <span class="o">-</span> <span class="o">|</span> <span class="n">size</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
 <p>In case like above we actually want to use stdout(default argument) since it's not detached. However what about if your app is in the middle: </p>
-<div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">-</span> <span class="o">|</span> <span class="n">size</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">cat</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">cat</span> <span class="o">-</span> <span class="o">|</span> <span class="n">size</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">cat</span>
+</code></pre></div>
 <p>In this case neither stdout nor stdin will work, but sterr(2) will!<br/>
 So to combine all of these to cover all of the cases we can simply wrap it in a for loop with exception catching:</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_terminal_size</span><span class="p">(</span><span class="n">fallback</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">24</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -156,32 +152,34 @@ So to combine all of these to cover all of the cases we can simply wrap it in a 
     <span class="k">else</span><span class="p">:</span>  <span class="c1"># set default if the loop completes which means all failed</span>
         <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">fallback</span>
     <span class="k">return</span> <span class="n">columns</span><span class="p">,</span> <span class="n">rows</span>
-</pre></div>
+</code></pre></div>
 <p>And there you go, you can use that instead of <code>os.get_terminal_size()</code> and have a pipe-foolproof terminal size getter! </p>
 <h2 id="conclusion">Conclusion</h2>
 <p>I've spent more time than I'd like to admit trying to figure this out and the <a href="http://stackoverflow.com/a/41864359/3737009">stackoverflow thread</a> for this subject only left me more confused.<br/>
 As always if you have any questions, critique or notices feel free to leave a comment!</p>
     </div>
-
-    <footer>
-        <div class="tags">
-            <a href="https://granitosaurus.github.io/tag/python.html">python</a>
-            <a href="https://granitosaurus.github.io/tag/linux.html">linux</a>
-            <a href="https://granitosaurus.github.io/tag/guide.html">guide</a>
+    <div class="entry-content footer">
+      <hr>
+      <div class="pure-g">
+        <div class="tags pure-u-1-2">
+          <a href="https://granitosaur.us/tag/python.html">python </a>
+          <a href="https://granitosaur.us/tag/linux.html">linux </a>
+          <a href="https://granitosaur.us/tag/guide.html">guide </a>
         </div>
-    </footer>
-</div>
+      </div>
+
+    </div>
+  </div>
 
 
 
     <footer class="index-footer">
 
-        <a href="https://granitosaurus.github.io/" title="Blog of Bernardas Ališauskas">Blog of Bernardas Ališauskas</a>
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
+        <a href="https://granitosaur.us/category/code.html">code</a>
+        <a href="https://granitosaur.us/category/self.html">self</a>
         <a href="atom.xml">
           <i class="fa fa-rss-square" aria-hidden="true"></i>
         </a>

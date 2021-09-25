@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Securing Data With eCryptfs</title>
+        <title> Blog of Bernardas Ališauskas - Securing Data With eCryptfs</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
-        <link rel="stylesheet" href="https://granitosaurus.github.io/theme/css/main.css" />
+        <link rel="stylesheet" href="https://granitosaur.us/theme/css/main.css" />
         <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
         <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom Feed" />
         <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate" title="Blog of Bernardas Ališauskas RSS Feed" />
         <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
-        <meta name="author" content="Bernardas Ališauskas" />
-        <meta name="description" content="protect your sensitive data like crypto wallets with eCrypt overlay filesystem!" />
+<meta name="author" content="Bernardas Ališauskas" />
+<meta name="description" content="protect your sensitive data like crypto wallets with eCrypt overlay filesystem!" />
 <meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
 <meta property="og:title" content="Securing Data With eCryptfs"/>
 <meta property="og:description" content="protect your sensitive data like crypto wallets with eCrypt overlay filesystem!"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://granitosaurus.github.io/ecrypt-yourself.html"/>
+<meta property="og:url" content="https://granitosaur.us/ecrypt-yourself.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2017-10-22 00:00:00+02:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://granitosaurus.github.io/author/bernardas-alisauskas.html">
+<meta property="article:author" content="https://granitosaur.us/author/bernardas-alisauskas.html">
 <meta property="article:section" content="code"/>
 <meta property="article:tag" content="linux"/>
 <meta property="article:tag" content="guide"/>
@@ -34,13 +34,17 @@
 <body>
 
     <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
-        <a href="https://granitosaurus.github.io/" class="pure-menu-heading  pure-menu-link">Blog of Bernardas Ališauskas</a>
+        <a href="https://granitosaur.us">
+          <img src="http://localhost:8000/images/core/granitosaurus.png" width="50"></img>
+        </a>
+        <a href="https://granitosaur.us/" class="pure-menu-heading  pure-menu-link">
+          Blog of Bernardas Ališauskas
+        </a>
         <ul class="pure-menu-list">
             <li class="pure-menu-item"></li>
             <li class="pure-menu-item"><a href="/pages/about.html" class="pure-menu-link">about</a></li>
-            <li class="pure-menu-item"><a href="/likes" class="pure-menu-link">likes</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/code.html" class="pure-menu-link">code</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaurus.github.io/category/self.html" class="pure-menu-link">self</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/code.html" class="pure-menu-link">code</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/self.html" class="pure-menu-link">self</a></li>
               <li class="pure-menu-item pure-menu-selected">
                 <a href="atom.xml" class="pure-menu-link">
                   <i class="fa fa-rss" aria-hidden="true"></i>
@@ -49,44 +53,36 @@
         </ul>
     </div>
 <div class="page-container">
-    <div class="entry-content">
-        <div class="post-meta pure-g">
-
+  <div class="entry-content">
+    <div class="post-meta pure-g">
 <div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaurus.github.io/category/code.html" class="category">code</a>
-    &mdash; <span title="2017-10-22T00:00:00+02:00">Sun 22 October 2017</span></br>
-    <a href="https://granitosaurus.github.io/tag/linux" class="tag">linux</a>
-    <a href="https://granitosaurus.github.io/tag/guide" class="tag">guide</a>
-    <a href="https://granitosaurus.github.io/tag/crypto" class="tag">crypto</a>
-    <a href="https://granitosaurus.github.io/tag/security" class="tag">security</a>
+    <a href="https://granitosaur.us/category/code.html" class="category">code</a>
+    &mdash; 
+    <span title="2017-10-22T00:00:00+02:00">Sun 22 October 2017</span></br>
+    <a href="https://granitosaur.us/tag/linux.html" class="tag">linux</a>
+    <a href="https://granitosaur.us/tag/guide.html" class="tag">guide</a>
+    <a href="https://granitosaur.us/tag/crypto.html" class="tag">crypto</a>
+    <a href="https://granitosaur.us/tag/security.html" class="tag">security</a>
     </br>
-</div>        </div>
-    </div>
-
-    <div class="article-header-container">
-        <div class="background-image-container">
-
-            <div class="background-image-small">
-                <div class="title-container">
-                    <h1>Securing Data With eCryptfs</h1>
-                </div>
-            </div>
+</div>    </div>
+  </div>
+  <div class="article-header-container">
+    <div class="background-image-container title">
+      <div class="background-image-small">
+        <div class="title-container">
+          <h1>Securing Data With eCryptfs</h1>
         </div>
-
-    <div class="entry-content">
-        <!--insert table of contents between text and first header-->
-        <p>Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. <br/>
+      </div>
+    </div>
+    <div class="entry-content article">
+      <!--insert table of contents between text and first header-->
+      <p>Since I started dabbling in Cryptocurrency I've been feeling a bit paranoid about protecting my wallet information and keys. Fortunately there are already tools that are dead easy to use. <br/>
 The standard tool for linux is called eCryptfs and let me tell you how awesome and convenient it is!</p>
 
-        <hr>
-        <div class="pure-u">
-            <div id="toc"><ul><li><a class="toc-href" href="#ecryptfs" title="eCryptfs">eCryptfs</a><ul><li><a class="toc-href" href="#setup" title="Setup">Setup</a></li><li><a class="toc-href" href="#usage" title="Usage">Usage</a></li><li><a class="toc-href" href="#customizing" title="Customizing">Customizing</a></li></ul></li><li><a class="toc-href" href="#general security tips_1" title="General Security tips">General Security tips</a><ul><li><a class="toc-href" href="#the three rule" title="The Three Rule">The Three Rule</a></li><li><a class="toc-href" href="#long passwords triumph" title="Long Passwords Triumph">Long Passwords Triumph</a></li></ul></li><li><a class="toc-href" href="#further reading_1" title="Further Reading">Further Reading</a></li></ul></div>
-        </div>
-        <hr>
-        <h1 id="ecryptfs">eCryptfs</h1>
+      <h1 id="ecryptfs">eCryptfs</h1>
 <p>eCryptfs is a cryptographic overlay filesystem for Linux. It's a great tool to encrypt some private data like cryptocurrency wallet keys, private pictures &mdash; anything really.<br/>
 It allows you to mount a password protected, encrypted filesystem on your usual unencrypted filesystem:</p>
-<div class="highlight"><pre><span></span><span class="n">dex</span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">private</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">dex</span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">private</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"></span>
 <span class="n">Access</span><span class="o">-</span><span class="n">Your</span><span class="o">-</span><span class="n">Private</span><span class="o">-</span><span class="k">Data</span><span class="p">.</span><span class="n">desktop</span><span class="w">  </span><span class="n">README</span><span class="p">.</span><span class="n">txt</span><span class="w"></span>
 <span class="err">$</span><span class="w"> </span><span class="n">ecryptfs</span><span class="o">-</span><span class="n">mount</span><span class="o">-</span><span class="n">private</span><span class="w"> </span>
 <span class="w">    </span><span class="n">Enter</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="nl">passphrase</span><span class="p">:</span><span class="w"></span>
@@ -97,30 +93,30 @@ It allows you to mount a password protected, encrypted filesystem on your usual 
 <span class="n">dex</span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">private</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 <span class="n">dex</span><span class="err">@</span><span class="o">~/</span><span class="p">.</span><span class="n">private</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span>
 <span class="n">myetherwallet</span><span class="w">  </span><span class="n">btc</span><span class="w"></span>
-</pre></div>
+</code></pre></div>
 <p>Pretty damn cool - simple and secure!  </p>
 <h2 id="setup">Setup</h2>
 <p>eCryptfs setup is dead easy!<br/>
 Since linux version 3.18 eCrypt overlay filesystem is included with core kernel. 
 Simply enable it with:</p>
-<div class="highlight"><pre><span></span><span class="err">modprobe ecryptfs</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>modprobe ecryptfs
+</code></pre></div>
 <p>Then we need some tools to easily mount, unmount and generate our filesystem: <code>ecryptfs-utils</code> has everything we would need and is available on every linux package manager:  </p>
-<div class="highlight"><pre><span></span><span class="err">sudo apt install ecryptfs-utils  # Ubuntu</span>
-<span class="err">sudo pacman -S ecryptfs-utils  # Arch</span>
-<span class="err">etc. etc.</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>sudo apt install ecryptfs-utils  # Ubuntu
+sudo pacman -S ecryptfs-utils  # Arch
+etc. etc.
+</code></pre></div>
 <p>Once you have it installed you'll find your user-space path populated with a bunch of ecryptfs utils, just type in your terminal <code>ecryptfs-</code> and press tab to see the goodies:</p>
-<div class="highlight"><pre><span></span><span class="err">[dex@nanosaurus ~]$ ecryptfs-&lt;tab&gt;</span>
-<span class="err">ecryptfs-add-passphrase</span>
-<span class="err">ecryptfs-find</span>
-<span class="err">ecryptfs-insert-wrapped-passphrase-into-keyring</span>
-<span class="err">ecryptfs-manager</span>
-<span class="err">...</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">dex@nanosaurus ~</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">ecryptfs</span><span class="o">-&lt;</span><span class="n">tab</span><span class="o">&gt;</span><span class="w"></span>
+<span class="n">ecryptfs</span><span class="o">-</span><span class="k">add</span><span class="o">-</span><span class="n">passphrase</span><span class="w"></span>
+<span class="n">ecryptfs</span><span class="o">-</span><span class="n">find</span><span class="w"></span>
+<span class="n">ecryptfs</span><span class="o">-</span><span class="k">insert</span><span class="o">-</span><span class="n">wrapped</span><span class="o">-</span><span class="n">passphrase</span><span class="o">-</span><span class="k">into</span><span class="o">-</span><span class="n">keyring</span><span class="w"></span>
+<span class="n">ecryptfs</span><span class="o">-</span><span class="n">manager</span><span class="w"></span>
+<span class="p">...</span><span class="w"></span>
+</code></pre></div>
 <p>Finally to initiate an ecryptfs system we need to run:</p>
-<div class="highlight"><pre><span></span>$ ecryptfs-setup-private --nopwcheck --noautomount
-</pre></div>
+<div class="highlight"><pre><span></span><code>$ ecryptfs-setup-private --nopwcheck --noautomount
+</code></pre></div>
 <p>We use <code>--nopwcheck</code> and <code>--noautomount</code> flags here for extra security.   </p>
 <ul>
 <li><code>nopwcheck</code> allows us to use different password from our user's password   </li>
@@ -131,52 +127,54 @@ Simply enable it with:</p>
 <p><em>Note: you want to backup your encrypted mount password which is located in <code>~/.ecryptfs/wrapped-passphrase</code>. Remember that mount password is generated from your login password, so the passphrase is completely useless without your login password - put a copy of this file somewhere where you will never lose it!</em></p>
 <h2 id="usage">Usage</h2>
 <p><code>~/Private</code> is your ecryptfs encrypted directory from now on. To use it you must mount it with <code>ecryptfs-mount-private</code> command and once you're done using it use <code>ecryptfs-umount-private</code> command to make it inaccessible once again:  </p>
-<div class="highlight"><pre><span></span><span class="err">dex@~/Private $ ls</span>
-<span class="err">Access-Your-Private-Data.desktop  README.txt</span>
-<span class="err">$ ecryptfs-mount-private </span>
-<span class="err">dex@~/Private $ cd .</span>
-<span class="err">dex@~/Private $ ls </span>
-<span class="err">myetherwallet  btc diary emberassing_hobbies</span>
-</pre></div>
+<div class="highlight"><pre><span></span><code>dex@~/Private $ ls
+Access-Your-Private-Data.desktop  README.txt
+$ ecryptfs-mount-private 
+dex@~/Private $ cd .
+dex@~/Private $ ls 
+myetherwallet  btc diary emberassing_hobbies
+</code></pre></div>
 <p>That's it! Now you have a safe directory on your computer where you can store sensitive data! Even if someone gets access to your user's homespace they'll still need your ecryptfs password to get anything out of it.  </p>
 <h2 id="customizing">Customizing</h2>
 <p><code>~/Private</code> is a pretty terrible name. It's Camelcase and I'd very much prefer it to be hidden.<br/>
 We can change it to <code>~/.private</code> very easily though:</p>
-<div class="highlight"><pre><span></span><span class="err">mv ~/Private ~/.private</span>
-<span class="err">echo /home/dex/.private &gt; ~/.ecryptfs/Private.mnt</span>
-</pre></div>
-<h1 id="general security tips_1">General Security tips</h1>
-<h2 id="the three rule">The Three Rule</h2>
-<p><em>If it doesn't exist in <strong>three</strong> places it doesn't exist at all.</em></p>
+<div class="highlight"><pre><span></span><code>mv ~/Private ~/.private
+echo /home/dex/.private &gt; ~/.ecryptfs/Private.mnt
+</code></pre></div>
+<h1 id="general-security-tips_1">General Security tips</h1>
+<h2 id="the-three-rule">The Three Rule</h2>
+<p><em>If it doesn't exist in __three__ places it doesn't exist at all.</em></p>
 <p>Fortunately ecryptfs directory acts like a normal directory so you can easily back it up to usb-stick, cloud storage or even email. Really just put that shit everywhere as longs as you have your login and mount passwords safe no one will be able to access your stuff.</p>
 <p>We've all heard magical stories about people losing usb sticks with their bitcoin wallets. Well if you had your wallet encrypted and in three different places that would have never happened!</p>
-<h2 id="long passwords triumph">Long Passwords Triumph</h2>
+<h2 id="long-passwords-triumph">Long Passwords Triumph</h2>
 <p>I don't think I can top the explanation by this <a href="https://xkcd.com/936/">xkcd comic</a> so I'll just leave you with it and say that just have a simple a-z password which is at least 13 characters long.  </p>
-<h1 id="further reading_1">Further Reading</h1>
+<h1 id="further-reading_1">Further Reading</h1>
 <p>If you want to dig deeper I suggest arch-wiki <a href="https://wiki.archlinux.org/index.php/ECryptfs">article</a> or symply <code>man ecryptfs</code>!
 Additionally <a href="https://stackoverflow.com/questions/tagged/ecryptfs?sort=votes&amp;pageSize=15">top questions on stackoverflow</a> also offer some interesting read.</p>
     </div>
-
-    <footer>
-        <div class="tags">
-            <a href="https://granitosaurus.github.io/tag/linux.html">linux</a>
-            <a href="https://granitosaurus.github.io/tag/guide.html">guide</a>
-            <a href="https://granitosaurus.github.io/tag/crypto.html">crypto</a>
-            <a href="https://granitosaurus.github.io/tag/security.html">security</a>
+    <div class="entry-content footer">
+      <hr>
+      <div class="pure-g">
+        <div class="tags pure-u-1-2">
+          <a href="https://granitosaur.us/tag/linux.html">linux </a>
+          <a href="https://granitosaur.us/tag/guide.html">guide </a>
+          <a href="https://granitosaur.us/tag/crypto.html">crypto </a>
+          <a href="https://granitosaur.us/tag/security.html">security </a>
         </div>
-    </footer>
-</div>
+      </div>
+
+    </div>
+  </div>
 
 
 
     <footer class="index-footer">
 
-        <a href="https://granitosaurus.github.io/" title="Blog of Bernardas Ališauskas">Blog of Bernardas Ališauskas</a>
         <a href="/archives.html">Archives</a></li>
         <a href="/categories.html">Categories</a></li>
         <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaurus.github.io/category/code.html">code</a>
-        <a href="https://granitosaurus.github.io/category/self.html">self</a>
+        <a href="https://granitosaur.us/category/code.html">code</a>
+        <a href="https://granitosaur.us/category/self.html">self</a>
         <a href="atom.xml">
           <i class="fa fa-rss-square" aria-hidden="true"></i>
         </a>

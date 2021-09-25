@@ -93,10 +93,14 @@ div.post-content, div.entry-content {
     }
 
     img, video{
-        max-width: 70%;
-        height: auto;
-        display: block;
-        margin: 0 auto;
+        border: 3px solid rgba(0,0,0,.09);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -30vw;
+        margin-right: -30vw;
+        max-width: 60vw;
+        width: 60vw;
     }
 
     hr {
@@ -118,6 +122,10 @@ div.navigation {
     text-align: left;
     max-width: 1000px;
     margin: 0 auto;
+    
+    img {
+        vertical-align: middle;
+    }
 }
 
 
@@ -236,7 +244,23 @@ div.main-container {
         }
 
     }
+    
+    div.author {
 
+        display: block;
+        width: 200px;
+        text-align: center;
+        margin: 10px;
+        a {
+            display: inline-block;
+            color: rgba(0,0,0,0.3);
+        }
+     
+        img {
+            width: 100%;
+            border: 3px solid rgba(0,0,0,0.05);
+        }
+    }
 }
 
 
@@ -317,6 +341,10 @@ a.tag {
 //             article and page                 //
 //////////////////////////////////////////////////
 
+ul {
+    list-style-type: circle;
+}
+
 #toc li {
     list-style-type: decimal;
 }
@@ -329,7 +357,10 @@ a.tag {
 
 figcaption {
     text-align: center;
+    font-size: smaller;
+    color: slategrey;
 }
+
 
 div.page-container {
     text-align: center;
@@ -420,6 +451,8 @@ div.page-container {
 
     div.tags {
         padding: 20px;
+        text-align: left;
+        align-self: center;
 
         @media #{$media-md} {
             padding: 0;
@@ -429,7 +462,6 @@ div.page-container {
     a.social {
         color: rgba(0, 0, 0, 0.8);
     }
-
 
 }
 
@@ -892,6 +924,8 @@ div.tags a:hover {
 
 pre, code {
     font-family: $font-family-mono;
+    max-width: 65ch;
+
 }
 
 pre {
@@ -905,9 +939,6 @@ pre {
 
 code {
     background-color: #F8F8F8;
-    border: 1px solid #E6E6E6;
-    border-radius: 4px;
-    padding: 2px 5px 0 5px;
 }
 
 blockquote {
@@ -1028,4 +1059,50 @@ div.pagination {
 
 i.fa{
     padding: 0;
+}
+
+
+info:before, tip:before, warning:before, related:before {
+    display: inline-grid;
+    float: left;
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+}
+
+warning:before {
+    content: "⚠";
+}
+
+info:before {
+    content: "ℹ️";
+}
+
+related:before {
+    content: "📖";
+}
+
+tip:before {
+    content: "💡";
+}
+
+
+tip, info, warning, related {
+    font-size: smaller;
+    display: block;
+    padding: 10px;
+    text-wrap: normal;
+    color: lighten(black,50%);
+}
+
+info, tip {
+    background: aliceblue;
+}
+
+related {
+    background-color: #F8F8F8;
+}
+
+warning {
+    background-color: #fff6e6;
 }
