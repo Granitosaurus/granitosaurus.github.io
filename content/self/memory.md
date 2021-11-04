@@ -3,6 +3,8 @@ Date: 2020-01-02
 Tags: self, memory
 Slug: memory-is-me
 Summary: New year resolution - understanding and figure out ways to improve memory.
+toc: True
+add_toc: True
 
 I've been slowly reaching mature adulthood as I've turned 27 just now and I've constantly poked around major meta physics and philosophy question as most of people have. While I hadn't found many answers yet one thing I've got certain - how valuable memories are. 
 

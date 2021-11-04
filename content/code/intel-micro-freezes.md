@@ -1,6 +1,7 @@
 Title: Fixing Intel Micro-freezes
 Date: 2020-01-03
 Tags: linux, fix, guide
+Status: draft
 Slug: linux-intel-freeze
 Summary: I've been having the most annoying freezes since the latest linux kernel update. It has been a bit difficult to debug but the culprit is intel's video driver.
 
