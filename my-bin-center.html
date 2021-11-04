@@ -1,86 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title> Blog of Bernardas Ališauskas - My Bin: center</title>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="description" content="Thoughts and Writings of Granitosaurus" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
-    integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
-  <script src="https://granitosaur.us/theme/main.js"></script>
-  <link rel="stylesheet" href="https://granitosaur.us/theme/css/main.css" />
-  <link rel="stylesheet" href="https://granitosaur.us/theme/css/applause-button.css" />
-  <script src="https://granitosaur.us/theme/applause-button.js"></script>
-  <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-    title="Blog of Bernardas Ališauskas Full Atom Feed" />
-  <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate"
-    title="Blog of Bernardas Ališauskas Atom Feed" />
-  <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate"
-    title="Blog of Bernardas Ališauskas RSS Feed" />
-  <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml"
-    rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+        <title> Blog of Bernardas Ališauskas - My Bin: center</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
+        <link rel="stylesheet" href="https://granitosaur.us/theme/css/main.css" />
+        <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
+        <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom Feed" />
+        <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate" title="Blog of Bernardas Ališauskas RSS Feed" />
+        <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
 <meta name="author" content="Bernardas Ališauskas" />
 <meta name="description" content="&#34;My bin&#34; is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size." />
-  <meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
-  <meta property="og:title" content="My Bin: center"/>
-  <meta property="og:description" content="&#34;My bin&#34; is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size."/>
-  <meta property="og:locale" content="en_US"/>
-  <meta property="og:url" content="https://granitosaur.us/my-bin-center.html"/>
-  <meta property="og:type" content="article"/>
-  <meta property="article:published_time" content="2017-01-18 00:00:00+01:00"/>
-  <meta property="article:modified_time" content="2017-01-18 00:00:00+01:00"/>
-  <meta property="article:author" content="Bernardas Ališauskas">
-  <meta property="article:section" content="code"/>
-  <meta property="article:tag" content="python"/>
-  <meta property="article:tag" content="linux"/>
-  <meta property="article:tag" content="guide"/>
-  <meta property="article:tag" content="my-bin"/>
-  <meta property="og:image" content="https://granitosaur.ushttp://localhost:8000/images/core/granitosaurus.png">
+<meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
+<meta property="og:title" content="My Bin: center"/>
+<meta property="og:description" content="&#34;My bin&#34; is series of blog post where I cover some useful or at least interesting programs, scripts or hacks that I have in my ~/bin. In this one I cover a small pipeable app that simply centers text to your terminal size."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://granitosaur.us/my-bin-center.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-01-18 00:00:00+01:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://granitosaur.us/author/bernardas-alisauskas.html">
+<meta property="article:section" content="code"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="linux"/>
+<meta property="article:tag" content="guide"/>
+<meta property="article:tag" content="my-bin"/>
+<meta property="og:image" content="http://localhost:8000/images/core/granitosaurus.png">
 </head>
-
 <body>
-  <div class="navigation">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://granitosaur.us">
+
+    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
+        <a href="https://granitosaur.us">
           <img src="http://localhost:8000/images/core/granitosaurus.png" width="50"></img>
         </a>
-        <a class="navbar-item" href="https://granitosaur.us">Blog of Bernardas Ališauskas</a>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+        <a href="https://granitosaur.us/" class="pure-menu-heading  pure-menu-link">
+          Blog of Bernardas Ališauskas
         </a>
-      </div>
-      <div class="navbar-menu" id="navMenu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="https://stackoverflow.com/users/story/3737009?view=Timeline">CV</a>
-          <a class="navbar-item" href="/pages/about.html">about</a>
-          <a class="navbar-item" href="/likes">likes</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"></li>
+            <li class="pure-menu-item"><a href="/pages/about.html" class="pure-menu-link">about</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/code.html" class="pure-menu-link">code</a></li>
+              <li class="pure-menu-item"><a href="https://granitosaur.us/category/self.html" class="pure-menu-link">self</a></li>
+              <li class="pure-menu-item pure-menu-selected">
+                <a href="atom.xml" class="pure-menu-link">
+                  <i class="fa fa-rss" aria-hidden="true"></i>
+                </a>
+              </li>
+        </ul>
+    </div>
+<div class="page-container">
+  <div class="entry-content">
+    <div class="post-meta pure-g">
+<div class="pure-u-3-4 meta-data">
+    <a href="https://granitosaur.us/category/code.html" class="category">code</a>
+    &mdash; 
+    <span title="2017-01-18T00:00:00+01:00">Wed 18 January 2017</span></br>
+    <a href="https://granitosaur.us/tag/python.html" class="tag">python</a>
+    <a href="https://granitosaur.us/tag/linux.html" class="tag">linux</a>
+    <a href="https://granitosaur.us/tag/guide.html" class="tag">guide</a>
+    <a href="https://granitosaur.us/tag/my-bin.html" class="tag">my-bin</a>
+    </br>
+</div>    </div>
+  </div>
+  <div class="article-header-container">
+    <div class="background-image-container title">
+      <div class="background-image-small">
+        <div class="title-container">
+          <h1>My Bin: center</h1>
         </div>
       </div>
-    </nav>
-  </div>
-  <div class="main">
-<div class="content">
-  <div class="post-meta">
-<div class="post-meta">
-    <a href="https://granitosaur.us/category/code.html" class="category">code</a>
-    &mdash;
-    <span title="2017-01-18T00:00:00+01:00">Wed 18 January 2017</span></br>
-    <a class="tag" href="https://granitosaur.us/tag/python.html" title="python programming language">python</a>
-    <a class="tag" href="https://granitosaur.us/tag/linux.html" title="">linux</a>
-    <a class="tag" href="https://granitosaur.us/tag/guide.html" title="">guide</a>
-    <a class="tag" href="https://granitosaur.us/tag/my-bin.html" title="">my-bin</a>
-    </br>
-</div>  </div>
-  <h1>My Bin: center</h1>
-  <div class="post-content">
-    <!--insert table of contents between text and first header-->
-    <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that is. <br/>
+    </div>
+    <div class="entry-content article">
+      <!--insert table of contents between text and first header-->
+      <p>People are naturally lazy and strive to automate as much as possible. I'm no exception and my user scripts directory <code>~/bin</code> is full of scripts that make my life easier or at least makes me feel that is. <br/>
 On how to setup your environment for easily accessible scripting see my <a href="/python-scripts.html">Guide: setup for python scripting</a> </p>
 <p>Today I want to show you and explain some bits of a little python script for centering text. It's isn't particularly special, but it's a great base to show off how awesome and powerful python command line tools can be!<br/>
 It's a simple pipeable script that takes in some text, centers it according to your terminal size and outputs it to standard output.My use case for this is for reading poems and by default they are not centered properly. To add to that I also like to constantly resize my terminal window because I'm running <a href="http://i3wm.org/">i3wm</a> - a tilling windows manager for linux, which forces every window to use up all of the space it can, which makes them very much dynamic and unpredictable.</p>
@@ -103,7 +99,8 @@ As of some one gently rapping, rapping at my chamber door.
 <span class="s1">                              Only this, and nothing more.'</span>   
 </code></pre></div>
 <p>While taking your current terminal size into account, so no matter what you're doing or where you are the text will nice and pretty.   </p>
-<h3 id="source">Source</h3>
+
+      <h3 id="source">Source</h3>
 <p>Now lets take a look at the source code:</p>
 <div class="highlight"><pre><span></span><code>    <span class="c1">#!/usr/bin/env python3</span>
     <span class="kn">import</span> <span class="nn">click</span>
@@ -144,47 +141,35 @@ Check out a related blog entry why we are using this function instead of alterna
 <h3 id="conclusion">Conclusion</h3>
 <p>I'd like to encourage anyone who uses ugly awk scripts and aliases just write a short command line application with python and <code>click</code>. It takes no longer than 10 minutes, it's beautiful, usable, readable and easily shareable!<br/>
 Let me know if you have any questions and stay tuned for more scripts and explanations!</p>
+    </div>
+    <div class="entry-content footer">
+      <hr>
+      <div class="pure-g">
+        <div class="tags pure-u-1-2">
+          <a href="https://granitosaur.us/tag/python.html">python </a>
+          <a href="https://granitosaur.us/tag/linux.html">linux </a>
+          <a href="https://granitosaur.us/tag/guide.html">guide </a>
+          <a href="https://granitosaur.us/tag/my-bin.html">my-bin </a>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
-<hr>
-<div class="article-buttons">
-  <div class="float-side applause" title="show your appreciation">
-    <applause-button url="https://granitosaur.us/my-bin-center.html" style="width: 58px; height: 58px;" />
-  </div>
-  <div class="article-button applause" title="show your appreciation">
-    <applause-button url="https://granitosaur.us/my-bin-center.html" style="width: 58px; height: 58px;" />
-  </div>
-  <div class="article-button twitter" title="share on twitter">
-    <a href="http://twitter.com/share?text=&url=https://granitosaur.us/my-bin-center.html&hashtags=">
-      <i class="fa fa-twitter fa-3x pure-menu-link" aria-hidden="true"></i>
-    </a>
-  </div>
-  <div class="article-button email">
-    <a href="" title="subscribe to mailist">
-      <i class="fa fa-email-bulk-o fa-3x pure-menu-link" aria-hidden="true"></i>
-    </a>
-  </div>
-</div>
-<hr>
-<div class="comments">
-  <script src="https://utteranc.es/client.js" repo="Granitosaurus/granitosaurus.github.io"
-    issue-term="my-bin-center" label="comments"
-    theme="github-light" crossorigin="anonymous" async>
-  </script>
-</div>
-  </div>
-  <footer class="footer">
-    <div class="content">
-      <span class="footer-item"><a href="/archives.html">Archives</a></span>
-      <span class="footer-item"><a href="/categories.html">Categories</a></span>
-      <span class="footer-item"><a href="/tags.html">Tags</a></span>
-      <span class="footer-item">
+
+
+
+    <footer class="index-footer">
+
+        <a href="/archives.html">Archives</a></li>
+        <a href="/categories.html">Categories</a></li>
+        <a href="/tags.html">Tags</a></li>
+        <a href="https://granitosaur.us/category/code.html">code</a>
+        <a href="https://granitosaur.us/category/self.html">self</a>
         <a href="atom.xml">
           <i class="fa fa-rss-square" aria-hidden="true"></i>
         </a>
-      </span>
-    </div>
-  </footer>
-</body>
 
+    </footer>
+
+</body>
 </html>
