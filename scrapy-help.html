@@ -1,86 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <title> Blog of Bernardas Ališauskas - How to get scrapy help.</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fork-awesome/1.1.7/css/fork-awesome.min.css">
-        <link rel="stylesheet" href="https://granitosaur.us/theme/css/main.css" />
-        <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Full Atom Feed" />
-        <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Atom Feed" />
-        <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate" title="Blog of Bernardas Ališauskas RSS Feed" />
-        <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
+  <title> Blog of Bernardas Ališauskas - How to get scrapy help.</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="Thoughts and Writings of Granitosaurus" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+    integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+  <script src="https://granitosaur.us/theme/main.js"></script>
+  <link rel="stylesheet" href="https://granitosaur.us/theme/css/main.css" />
+  <link rel="stylesheet" href="https://granitosaur.us/theme/css/applause-button.css" />
+  <script src="https://granitosaur.us/theme/applause-button.js"></script>
+  <link href="Blog of Bernardas Ališauskas/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+    title="Blog of Bernardas Ališauskas Full Atom Feed" />
+  <link href="Blog of Bernardas Ališauskas/atom.xml" type="application/atom+xml" rel="alternate"
+    title="Blog of Bernardas Ališauskas Atom Feed" />
+  <link href="Blog of Bernardas Ališauskas/rss.xml" type="application/rss+xml" rel="alternate"
+    title="Blog of Bernardas Ališauskas RSS Feed" />
+  <link href="Blog of Bernardas Ališauskas/feeds/{slug}.atom.xml" type="application/atom+xml"
+    rel="alternate" title="Blog of Bernardas Ališauskas Categories Atom Feed" />
 
 <meta name="author" content="Bernardas Ališauskas" />
 <meta name="description" content="Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework." />
-<meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
-<meta property="og:title" content="How to get scrapy help."/>
-<meta property="og:description" content="Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework."/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://granitosaur.us/scrapy-help.html"/>
-<meta property="og:type" content="article"/>
-<meta property="article:published_time" content="2016-10-30 00:00:00+02:00"/>
-<meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://granitosaur.us/author/bernardas-alisauskas.html">
-<meta property="article:section" content="code"/>
-<meta property="article:tag" content="scrapy"/>
-<meta property="article:tag" content="python"/>
-<meta property="article:tag" content="stackoverflow"/>
-<meta property="article:tag" content="web-crawling"/>
-<meta property="og:image" content="http://localhost:8000/images/core/granitosaurus.png">
+  <meta property="og:site_name" content="Blog of Bernardas Ališauskas"/>
+  <meta property="og:title" content="How to get scrapy help."/>
+  <meta property="og:description" content="Few suggestions how to ask questions correctly and where to ask them regarding using scrapy web-crawling framework."/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="https://granitosaur.us/scrapy-help.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2016-10-30 00:00:00+02:00"/>
+  <meta property="article:modified_time" content="2016-10-30 00:00:00+02:00"/>
+  <meta property="article:author" content="Bernardas Ališauskas">
+  <meta property="article:section" content="code"/>
+  <meta property="article:tag" content="scrapy"/>
+  <meta property="article:tag" content="python"/>
+  <meta property="article:tag" content="stackoverflow"/>
+  <meta property="article:tag" content="web-crawling"/>
+  <meta property="og:image" content="https://granitosaur.ushttp://localhost:8000/images/core/granitosaurus.png">
 </head>
-<body>
 
-    <div class="navigation pure-menu pure-menu-horizontal pure-menu-scrollable">
-        <a href="https://granitosaur.us">
+<body>
+  <div class="navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://granitosaur.us">
           <img src="http://localhost:8000/images/core/granitosaurus.png" width="50"></img>
         </a>
-        <a href="https://granitosaur.us/" class="pure-menu-heading  pure-menu-link">
-          Blog of Bernardas Ališauskas
+        <a class="navbar-item" href="https://granitosaur.us">Blog of Bernardas Ališauskas</a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item"></li>
-            <li class="pure-menu-item"><a href="/pages/about.html" class="pure-menu-link">about</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaur.us/category/code.html" class="pure-menu-link">code</a></li>
-              <li class="pure-menu-item"><a href="https://granitosaur.us/category/self.html" class="pure-menu-link">self</a></li>
-              <li class="pure-menu-item pure-menu-selected">
-                <a href="atom.xml" class="pure-menu-link">
-                  <i class="fa fa-rss" aria-hidden="true"></i>
-                </a>
-              </li>
-        </ul>
-    </div>
-<div class="page-container">
-  <div class="entry-content">
-    <div class="post-meta pure-g">
-<div class="pure-u-3-4 meta-data">
-    <a href="https://granitosaur.us/category/code.html" class="category">code</a>
-    &mdash; 
-    <span title="2016-10-30T00:00:00+02:00">Sun 30 October 2016</span></br>
-    <a href="https://granitosaur.us/tag/scrapy.html" class="tag">scrapy</a>
-    <a href="https://granitosaur.us/tag/python.html" class="tag">python</a>
-    <a href="https://granitosaur.us/tag/stackoverflow.html" class="tag">stackoverflow</a>
-    <a href="https://granitosaur.us/tag/web-crawling.html" class="tag">web-crawling</a>
-    </br>
-</div>    </div>
-  </div>
-  <div class="article-header-container">
-    <div class="background-image-container title">
-      <div class="background-image-small">
-        <div class="title-container">
-          <h1>How to get scrapy help.</h1>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="https://stackoverflow.com/users/story/3737009?view=Timeline">CV</a>
+          <a class="navbar-item" href="/pages/about.html">about</a>
+          <a class="navbar-item" href="/likes">likes</a>
         </div>
       </div>
-    </div>
-    <div class="entry-content article">
-      <!--insert table of contents between text and first header-->
-      <p>Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars <a href="https://github.com/scrapy/scrapy">on github</a>. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.<br/>
+    </nav>
+  </div>
+  <div class="main">
+<div class="content">
+  <div class="post-meta">
+<div class="post-meta">
+    <a href="https://granitosaur.us/category/code.html" class="category">code</a>
+    &mdash;
+    <span title="2016-10-30T00:00:00+02:00">Sun 30 October 2016</span></br>
+    <a class="tag" href="https://granitosaur.us/tag/scrapy.html" title="">scrapy</a>
+    <a class="tag" href="https://granitosaur.us/tag/python.html" title="python programming language">python</a>
+    <a class="tag" href="https://granitosaur.us/tag/stackoverflow.html" title="">stackoverflow</a>
+    <a class="tag" href="https://granitosaur.us/tag/web-crawling.html" title="">web-crawling</a>
+    </br>
+</div>  </div>
+  <h1>How to get scrapy help.</h1>
+  <div class="post-content">
+    <!--insert table of contents between text and first header-->
+    <p>Scrapy is a web-scraping framework for python. It's pretty popular and at the moment of writing it has over 16000 stars <a href="https://github.com/scrapy/scrapy">on github</a>. In terms of codebase scrapy is pretty simple, however there are few things that are not as explicit as they could be in favor of abstraction and development simplicity.<br/>
 Not to mention millions of websites that provide their own unique scraping challenges.  </p>
 <p>So if you do end up not understanding something or encountering some of the few scrapy's quirks, how do you go about it?</p>
-
-      <h1 id="stackoverflow-guidelines">Stackoverflow Guidelines</h1>
+<h1 id="stackoverflow-guidelines">Stackoverflow Guidelines</h1>
 <p>First thing you should do is read is <a href="http://stackoverflow.com/help/how-to-ask"><em>how to ask a good question on stackoverflow</em></a>. <br/>
 It's a brilliant guide by, without a doubt the biggest Q&amp;A website on the web, and it focuses on how to ask a good questions regardless of the topic. Following these guidelines not only make it easy for people to help you but also easy for you, yourself to formulate your question and understand the issue you are facing!</p>
 <h1 id="where-to-get-help">Where To Get Help?</h1>
@@ -153,35 +156,47 @@ Lets imagine we have a bunch of products that have these fields: name and price.
 <h1 id="conclusion_1">Conclusion</h1>
 <p>Scrapy is a lovely framework and web-crawling is a tricky subjects with a lot of hidden issues, quirks and complexities. Because of it being rather big subjects and every spider having it's own challenges it might be difficult to find help. However I feel if you follow the steps and ideas described in this blog post you'll have a really good chance at getting some help either on stackoverflow or irc!</p>
 <p>Do you have any places where you go to with your scrapy or web-crawling related questions? Did I miss something important? Leave the comment below :)</p>
-    </div>
-    <div class="entry-content footer">
-      <hr>
-      <div class="pure-g">
-        <div class="tags pure-u-1-2">
-          <a href="https://granitosaur.us/tag/scrapy.html">scrapy </a>
-          <a href="https://granitosaur.us/tag/python.html">python </a>
-          <a href="https://granitosaur.us/tag/stackoverflow.html">stackoverflow </a>
-          <a href="https://granitosaur.us/tag/web-crawling.html">web-crawling </a>
-        </div>
-      </div>
-
-    </div>
   </div>
-
-
-
-    <footer class="index-footer">
-
-        <a href="/archives.html">Archives</a></li>
-        <a href="/categories.html">Categories</a></li>
-        <a href="/tags.html">Tags</a></li>
-        <a href="https://granitosaur.us/category/code.html">code</a>
-        <a href="https://granitosaur.us/category/self.html">self</a>
+</div>
+<hr>
+<div class="article-buttons">
+  <div class="float-side applause" title="show your appreciation">
+    <applause-button url="https://granitosaur.us/scrapy-help.html" style="width: 58px; height: 58px;" />
+  </div>
+  <div class="article-button applause" title="show your appreciation">
+    <applause-button url="https://granitosaur.us/scrapy-help.html" style="width: 58px; height: 58px;" />
+  </div>
+  <div class="article-button twitter" title="share on twitter">
+    <a href="http://twitter.com/share?text=&url=https://granitosaur.us/scrapy-help.html&hashtags=">
+      <i class="fa fa-twitter fa-3x pure-menu-link" aria-hidden="true"></i>
+    </a>
+  </div>
+  <div class="article-button email">
+    <a href="" title="subscribe to mailist">
+      <i class="fa fa-email-bulk-o fa-3x pure-menu-link" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+<hr>
+<div class="comments">
+  <script src="https://utteranc.es/client.js" repo="Granitosaurus/granitosaurus.github.io"
+    issue-term="scrapy-help" label="comments"
+    theme="github-light" crossorigin="anonymous" async>
+  </script>
+</div>
+  </div>
+  <footer class="footer">
+    <div class="content">
+      <span class="footer-item"><a href="/archives.html">Archives</a></span>
+      <span class="footer-item"><a href="/categories.html">Categories</a></span>
+      <span class="footer-item"><a href="/tags.html">Tags</a></span>
+      <span class="footer-item">
         <a href="atom.xml">
           <i class="fa fa-rss-square" aria-hidden="true"></i>
         </a>
-
-    </footer>
-
+      </span>
+    </div>
+  </footer>
 </body>
+
 </html>
